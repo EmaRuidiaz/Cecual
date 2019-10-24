@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
  <head>
@@ -6,6 +8,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0, shrink-to-fit=no">
 
     <!-- Estilo css-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/admin.css' %}" >
 
 
     <!-- Bootstrap CSS -->
@@ -29,101 +32,67 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- falta el logo-->
     <link rel="icon" href="images/logochico.png" type="image/x-icon">
-    <title>Feria Cultiva</title>
+    <title>Feria Cultiva - Administrador</title>
     <style type="text/css">
-    	
+      
 
     </style>
   </head>
-  <body>
-
-  		<nav>
-        <div class="container-fluid" style="background-color: #a9c52f;">
-          <div class="navbar-bran">
-            <div class="">
-            <a class="" href="#">
-
-                <img id="logo"  width="230" height="100"  class="d-inline-block mx-auto" alt="Feria Cultiva" style="padding-left: 100px;">
-            </a>
-
-           <div class="d-inline-block">
+  <body class="principal">
+    <div class="row" >
               
-                     <h1 style="color: #fff; font-weight: bold; font-size: 30px;font-family: 'Roboto Slab', serif;" >BIENVENIDO AL PANEL DE ADMINISTRACIÓN DE FERIA CULTIVA </h1>
-            </div>
-
-           
-           </div>
-            
-          </div>
+      <div class="col-md-12 mx-auto">
+        <div class="container-fluid encabezado">
+          <h1 class="titulo-head">BIENVENIDO AL PANEL DE ADMINISTRACIÓN DE FERIA CULTIVA </h1>
         </div>
-     </nav>
+      </div>
+    </div>
 
-
-
-<div class="container-fluid">
-
-  <div class="row">
-
-      <div class="jumbotron mx-auto" style=" font-family: 'Roboto Slab', serif; background-color:#fFF; margin-top:50px;">
-            
-      
-            <hr class="my-4">  
-            
-
-        <div>
-            
-
-          
-      <div class="container">
-        <div class="row justify-content-center">
+    <section style="padding-top: 7%;">
+      <div class="container" style="">
+        <div class="row">
           <div class="col-md-4" >
-            <div class="card shadow" style="width: 20rem;height: 300px;background-color: #a9c52f; margin-bottom: 20px;">
-              <img class="card-image-top" src="images/feriantes.png">
-                <div class="card-body text-center">
-                  
-                  <p style="color: #fff;  font-family: 'Roboto Slab', serif; font-weight: bold;">
-                   FERIANTES
-                  </p>
-                   <a href="{% url 'feriante:agregar' %}" class="btn " style="background-color: #2c5d63; color: #fff;">Agregar</a>
-                </div>
+            <div class="card text-center shadow card">
+              <div class="overflow">
+                <img src="{% static 'img/feriantes.png' %}" class="card-img-top">
+              </div>
+              <div class="card-body text-center card-text">
+                <h4 class="card-title card-titulo">FERIANTES</h4>
+                <p class="card-text text-secondary">descripcion de la card</p>
+                <a href="{% url 'feriante:agregar' %}" class="btn botones">Agregar</a>
+              </div>
             </div>
           </div>
 
           <div class="col-md-4">
-            <div class="card shadow" style="width: 20rem;height: 300px; background-color: #a9c52f;
-            margin-bottom: 20px;">
-              <img class="card-image-top" src="images/ambiente.png">
-                <div class="card-body text-center">
-               <p style="color: #fff;  font-family: 'Roboto Slab', serif; font-weight: bold;">
-                  AMBIENTE Y SALUD
-                  </p>
-                  
-                    <a href="#" class="btn " style="background-color: #2c5d63; color: #fff;">Actualizar</a>
-                </div>
+            <div class="card text-center shadow card">
+              <div class="overflow">
+                <img src="{% static 'img/ambiente.png' %}" class="card-img-top">
+              </div>
+              <div class="card-body text-center card-text">
+                <h4 class="card-title card-titulo">AMBIENTE Y SALUD</h4>
+                <p class="card-text text-secondary">descripcion de la card</p>
+                <a href="#" class="btn botones">Actualizar</a>
+              </div>
             </div>
           </div>
 
           <div class="col-md-4">
-            <div class="card shadow" style="width: 20rem; height: 300px;background-color: #a9c52f;
-            margin-bottom: 20px;">
-              <img class="card-image-top" src="images/fechas.png">
-                <div class="card-body text-center">
-                 <p style="color: #fff;  font-family: 'Roboto Slab', serif; font-weight: bold;">PRÓXIMAS FECHAS</p>
-                
-                    <a href="#" class="btn " style="background-color: #2c5d63; color: #fff;">Actualizar</a>
-                </div>
+            <div class="card text-center shadow card">
+              <div class="overflow">
+                <img src="{% static 'img/fecha.png' %}" class="card-img-top">
+              </div>
+              <div class="card-body text-center card-text">
+                <h4 class="card-title card-titulo">PRÓXIMAS FECHAS</h4>
+                <p class="card-text text-secondary">descripcion de la card</p>
+                <a href="#" class="btn botones">Actualizar</a>
+              </div>
             </div>
           </div>
-        </div>
       </div>
-           
+    </div>
 
-      </div>
-  </div>
-
-</div>
-
-
-
-
-  <body>
+    </section>
+                  
+  </body>
+  </html>
