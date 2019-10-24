@@ -5,84 +5,44 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
     <!-- Latest compiled and minified CSS -->
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" comrossorigin="anonymous">
-
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-
-    <!-- FONTAWSOME -->
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-     
-    <!-- Fuente google font-->
-     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
-
-
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+    <!-- Fuente google font-->
+     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <!-- estilos-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}" >
+    
     <link rel="icon" href="images/logochico.png" type="image/x-icon">
     <title>Feria Cultiva - Agregar Feriante</title>
-    <style type="text/css">
-    .btn {
-          font-family: 'Roboto Slab', serif; 
-          background-color: #2c5d63; 
-          color: #fff;
-          font-size: 15px;
 
-        }
-    .btn:hover {
-        background-color: #fff;        
-       }
-
-	label{
-    		color: #283739;
-    		font-weight: bold;
-    		font-size: 15px;
- 	}
-
-	h3{
-	border-bottom: solid 1px color:#283739;
-    color:#f5f5f5;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    font-weight: bold;
-    font-size: 20px;
-    text-align: center;
-    		    	}
-	form {
-    background-color:#a9c52f; 
-	}
-	.conteiner {
-    background-color:#fff; 
-    font-family: 'Roboto Slab', 
-    serif; padding-top: 80px;
-    background-image: url({% static 'img/back.png' %});
-	}	
-	</style>
   </head>
+
+
   <body style="background-image: url({% static 'img/back.png' %});">
-	<div class=" container conteiner">
+	<div class=" container " style="background-image: url({% static 'img/back.png' %});">
 		<div class="row ">
 
-<div class="mx-auto" style="width: 500px;">
+	      <div class="mx-auto" style="width: 480px;">
 			
 			{% for x in messages %}
 			<div class="alert alert-success">
 				{{x}}
 			</div>
 			{% endfor %}
+
 			<form class="shadow p-3 mb-3 mt-3  rounded " enctype="multipart/form-data"  method="POST" style="background-color:#a9c52f; "> {% csrf_token %}
 				{{form.errors}}
 				<h3>AGREGAR FERIANTE</h3>
 	            <div class="form-group">
 	                <label>Nombre de Usuario</label>
-	                <input type="text" class="form-control" placeholder="Ingrese Nombre de Usuario" name="username">
+	                <input  type="text" class="form-control" placeholder="Ingrese Nombre de Usuario" name="username">
 	            </div>
 
 	           
@@ -103,30 +63,30 @@
 	          
            
 	       	    <div class="form-group">
-	                <label>Nombre</label>
+	                <label>Nombre de la feria</label>
 	                <input type="text" class="form-control" placeholder="Ingrese un Nombre" name="first_name">
 	            </div>
 	          
-           
-				{{form.telefono}}
 
-				
-				<button type="submit" class="btn " 
-				style=" color: #fff;
-				background-color: #2c5d63;
-
-				margin-left: 40%;
-				
-
-				 ">Guardar</button>
+	          	 <div class="form-group">
+	                <label>Nº teléfono</label>
+	                 <input class="form-control" type="tel" placeholder="Ingresa tu número" id="example-tel-input" name="telefono">
+	                  <small id="passwordHelpInline" class="text-muted">
+				      Cod. de área + Número sin el 15
+				    </small>
+	  
+	            </div>
+	          
+      			<div class="" style="text-align: center;">
+	          			<button class="btn" type="submit">Guardar</button>
+	          	</div>
 
 				 </div>
         	</form>
-    	</div>
-  	</div>
+    		</div>
+  		</div>
 			   
+	</div>
 
-</div>
-
-</body>
+  </body>
 </html>
