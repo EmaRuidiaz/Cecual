@@ -20,6 +20,7 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('administrador/', views.Administrador),
 
     #URL Principal
     path('', views.Inicio, name="start"),
@@ -31,6 +32,10 @@ urlpatterns = [
     path('publicaciones/', include('apps.publicaciones.urls')),
 
     path('producto/', include('apps.producto.urls')),
+
+    path('agregarFeriante', include('apps.feriante.urls')),
+
+    path('eventos/', include('apps.evento.urls')),
 
     #LOGIN and LOGOUT
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name="login"),
