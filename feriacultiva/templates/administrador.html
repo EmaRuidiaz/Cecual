@@ -2,75 +2,33 @@
 
 <!DOCTYPE html>
 <html lang="es">
- <head>
+  <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0, shrink-to-fit=no">
-
-     <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <!-- Estilo css-->
-    
     <!-- Latest compiled and minified CSS -->
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" comrossorigin="anonymous">
-
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
- 
+
+
     <!-- Fuente google font-->
      <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
-
-
+    <!-- Estilo css-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/admin.css' %}">
+ 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <!-- falta el logo-->
-    <link rel="icon" href="images/logochico.png" type="image/x-icon">
-    <title>Feria Cultiva - Administrador</title>
-    <style type="text/css">
-      .principal {
-      background-image: url({% static 'img/back.png' %});
-        }
+    <!-- icono de la página -->
+    <link rel="icon" href="{% static 'img/logo.png' %}" type="image/x-icon">
 
-                .encabezado {
-          background-color: #283739; 
-          height: 15vh; width: 100%;
-        }
-        .titulo-head {
-          color: #fff; 
-          font-weight: bold; 
-          padding-top: 35px; 
-          font-size: 25px;
-          font-family: 'Roboto Slab', serif; 
-          align-content: center; 
-          text-align: center;
-        }
-        .card {
-          background-color: #a9c52f; 
-          border-radius: 10px;
-        }
+    <!-- título de la pestaña-->
+    <title>Panel de Administración</title>
 
-        .card-text {
-          text-align: center; 
-          padding-bottom: 10%;
-        }
-        .card-titulo {
-          color: #fff;
-            font-family: 'Roboto Slab', serif;
-        }
-        .btn {
-          font-family: 'Roboto Slab', serif; 
-          background-color: #2c5d63; 
-          color: #fff;
-          font-size: 15px;
-
-        }
-
-       .btn:hover {
-        background-color: #fff;        
-       }
-    </style>
   </head>
+  
   <body class="principal">
     <div class="row" >
               

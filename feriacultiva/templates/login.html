@@ -1,26 +1,32 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
-<head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
-	
-	<title>Iniciar Sesión</title>
-	<style type="text/css">
-		.btn {
-          font-family: 'Roboto Slab', serif; 
-          background-color: #2c5d63; 
-          color: #fff;
-          font-size: 15px;
+ <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Latest compiled and minified CSS -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" comrossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-        }
-        .btn:hover {
-        background-color: #fff;        
-       }
-	</style>
-</head>
+
+    <!-- Fuente google font-->
+     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <!-- Estilo css-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+ 
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- icono de la página -->
+    <link rel="icon" href="{% static 'img/logo.png' %}" type="image/x-icon">
+
+    <!-- título de la pestaña-->
+    <title>Iniciar Sesión</title>
+
+  </head>
 <body class="principal" style="background-image: url({% static 'img/back.png' %}); ">
 	<div class="container-fluid" >
 		
@@ -34,14 +40,15 @@
 							<img clas="card-img-top" src="{% static 'img/logonew.png' %}" alt="" style="border-radius: 10px; border-width: 10px;">	
 						
 						</div>
-							<h3 style="text-align: center; color: white; font-weight: bold">BIENVENIDO</h3>
+							<h3 style="text-align: center; color:#f5f5f5; font-weight: bold
+							font-family: 'Roboto Slab', serif;">BIENVENIDO</h3>
 						<div class="card-body">
 							{% if form.errors %}
 								<div class="alert" style="background-color: red;"> {{form.errors}} </div>
 							{% endif %}
 							<form action="{% url 'login' %}" method="POST">{% csrf_token %}
 								<div class="form-group">
-								    <label for="exampleInputEmail1">Nombre de Usuario o Correo electrónico</label>
+								    <label for="exampleInputEmail1">Usuario</label>
 								    <input type="text" class="form-control" name="username" aria-describedby="emailHelp" placeholder="Ingrese usuario">
 								    <small id="emailHelp" class="form-text text-muted">No compartiremos tu direccion de correo con nadie más.</small>
 								  </div>
@@ -49,7 +56,7 @@
 								    <label for="exampleInputPassword1">Contraseña</label>
 								    <input type="password" class="form-control" name="password" placeholder="Contraseña">
 								    <small id="emailHelp" class="form-text text-muted">Olvidaste tu contraseña?
-								    	<a href="" style="color: white; text-decoration: underline;">Restaurar</a></small>
+								    	<a href="" class="boton">Restaurar</a></small>
 								  </div>
 
 								  

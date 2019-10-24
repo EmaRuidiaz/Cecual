@@ -1,9 +1,43 @@
+.btn {
+       font-family: 'Roboto Slab', serif; 
+       background-color: #2c5d63; 
+       color: #fff;
+       font-size: 15px;
 
-.principal {
-	background-image: url({% static 'img/back.png' %});
-	
+  }
+   
+   .btn:hover {
+     background-color: #fff;        
+  }
+
+ /*boton recuperar contraseña*/
+ .boton{
+ 	font-family: 'Roboto Slab', serif; 
+    color: #f5f5f5;
+    font-size: 15px;
+
+ }
+
+ a.boton:link{
+  text-decoration:none;
 }
-#conteinerlog {
-	margin-top: 12%; 
-	background-color: #a9c52f;
-}
+
+.boton:hover {
+  background-color: transparent;
+  color: #2c5d63;
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold;       
+ }
+
+ /*estilos label*/
+
+ label{
+   font-family: 'Roboto Slab', serif;
+ 
+ }
+
+ /*INPUTS*/
+ label{
+   font-family: 'Roboto Slab', serif;
+
+ }
