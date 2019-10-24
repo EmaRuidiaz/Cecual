@@ -32,5 +32,41 @@
                 
             </div>
     </div>
+    
+<!-- ACA COMIENZA LA PARTE DE SUGERENCIA DE PRODUCTO -->
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            {% for p in Sugerencia %}
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            {% if p.foto_producto %}
+                                <img src="{{p.foto_producto.url}}" alt="encontre" class="card-img">
+                            {% else %}
+                                <img src="..." alt="no encontre" class="card-img">
+                            {% endif %}
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{p.nombre}}</h5>
+                                <ul>
+                                    <li>
+                                        <p class="card-text"><strong class="text-muted">${{p.precio}}</strong></p>
+                                    </li>
+                                    <li>
+                                        <p class="card-text"><strong class="text-muted">{{p.stock}}</strong></p>
+                                    </li>
+                                </ul>
+                                <a href="{% url 'producto:Detalle' p.pk %}" class="btn btn-primary">Ver Mas</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-2"></div>
+    </div>
+
 </body>
 </html>
