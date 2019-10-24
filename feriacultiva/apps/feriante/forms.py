@@ -7,9 +7,9 @@ from .models import Feriante
 
 class FerianteForm(forms.ModelForm):
 
-	descripcion = forms.CharField(label=("Descripción"), required=True)
-	foto_feriante = forms.ImageField(required=False)
-	delivery = forms.BooleanField(required=False)
+	#descripcion = forms.CharField(label=("Descripción"), required=True)
+	#foto_feriante = forms.ImageField(required=False)
+	#delivery = forms.BooleanField(required=False)
 
 	'''
 	descripcion = models.TextField()
@@ -20,7 +20,8 @@ class FerianteForm(forms.ModelForm):
 
 	class Meta(UserCreationForm.Meta):
 		model = User
-		fields = ['username','first_name','last_name','password','foto_perfil','email','direccion']
+		#fields = ['username','first_name','last_name','password','foto_perfil','email','direccion']
+		fields = ['username','first_name','last_name','password','telefono','email']
 
 	@transaction.atomic
 	def save(self):
@@ -30,8 +31,6 @@ class FerianteForm(forms.ModelForm):
 		p = Group.objects.get(name = 'feriante')
 		user.save()
 		p.user_set.add(user)
-		empresa = Feriante.objects.create(descripcion = self.cleaned_data.get('descripcion'),
-			foto_feriante = self.cleaned_data.get('foto_feriante'),
-			delivery = self.cleaned_data.get('delivery'),
+		empresa = Feriante.objects.create(descripcion = 'vacio',
 			encargado = user)
 		return user

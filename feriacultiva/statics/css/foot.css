@@ -49,3 +49,31 @@ a .icon-social {
 	font-family:"Roboto Slab", serif; 
 	
 }
+
+.btn {
+         
+          background-color:transparent; 
+          color: #fff;
+          font-size: 18px;
+
+        }
+
+        .lista:hover{
+        background-color: transparent;
+        color: #2c5d63;
+        font-family: 'Roboto Slab', serif;
+        font-weight: bold;
+       
+        
+        }
+        a.lista:link
+        {
+        text-decoration:none;
+        }
+       .btn:hover {
+        background-color: transparent;
+        color: #2c5d63;
+        font-family: 'Roboto Slab', serif;
+        font-weight: bold; 
+               
+       }
