@@ -8,6 +8,18 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
 	
 	<title>Iniciar Sesión</title>
+	<style type="text/css">
+		.btn {
+          font-family: 'Roboto Slab', serif; 
+          background-color: #2c5d63; 
+          color: #fff;
+          font-size: 15px;
+
+        }
+        .btn:hover {
+        background-color: #fff;        
+       }
+	</style>
 </head>
 <body class="principal" style="background-image: url({% static 'img/back.png' %}); ">
 	<div class="container-fluid" >
@@ -18,8 +30,8 @@
 			<div class="mx-auto" height="667" style="font-family: 'Roboto Slab', serif;">
 				<div class="row d-flex justify-content-center align-items-center">
 					<div class="card shadow-lg p-3 mb-5 rounded" style="margin-top: 12%; background-color: #a9c52f;">
-						<div class="card-header d-flex justify-content-center " style="background-color: #a9c52f; ">
-							<img clas="card-img-top" src="{% static 'img/inicio-sesion.png' %}" alt="">	
+						<div class="card-header d-flex justify-content-center " style="background-color: #a9c52f; border-color: white;" >
+							<img clas="card-img-top" src="{% static 'img/logonew.png' %}" alt="" style="border-radius: 10px; border-width: 10px;">	
 						
 						</div>
 							<h3 style="text-align: center; color: white; font-weight: bold">BIENVENIDO</h3>
@@ -43,7 +55,7 @@
 								  
 								  <input type="hidden" name="next" value="{{ next }}" />
 								  <div class="" style="text-align: center;">
-								  <button  type="submit" class="btn btn-primary" style="background-color: #2c5d63;">Ingresar</button>
+								  	<button  type="submit" class="btn">Ingresar</button>
 								  </div>
 							</form>
 						</div>				

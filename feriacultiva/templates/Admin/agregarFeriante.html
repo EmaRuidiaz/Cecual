@@ -1,12 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
  <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0, shrink-to-fit=no">
-
-    <!-- Estilo css-->
-
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -29,86 +27,75 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <link rel="icon" href="images/logochico.png" type="image/x-icon">
-    <title>Feria Cultiva</title>
+    <title>Feria Cultiva - Agregar Feriante</title>
     <style type="text/css">
-    	label{
+    .btn {
+          font-family: 'Roboto Slab', serif; 
+          background-color: #2c5d63; 
+          color: #fff;
+          font-size: 15px;
+
+        }
+        .btn:hover {
+        background-color: #fff;        
+       }
+
+	label{
     		color: #283739;
     		font-weight: bold;
     		font-size: 15px;
-    	}
+ 	}
 
-    	h3{
-    		border-bottom: solid 1px color:#283739;
-    		color:#f5f5f5;
-    		margin-bottom: 20px;
-    		padding-bottom: 10px;
-    		font-weight: bold;
-    		font-size: 20px;
-    		text-align: center;
+	h3{
+	border-bottom: solid 1px color:#283739;
+    color:#f5f5f5;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
     		    	}
-
-
-    </style>
+	form {
+    background-color:#a9c52f; 
+	}
+	.conteiner {
+    background-color:#fff; 
+    font-family: 'Roboto Slab', 
+    serif; padding-top: 80px;
+    background-image: url({% static 'img/back.png' %});
+	}	
+	</style>
   </head>
-  <body>
-
-<div class=" container "  
-	style="background-color:#fff; font-family: 'Roboto Slab', serif; padding-top: 80px;">
+  <body style="background-image: url({% static 'img/back.png' %});">
+	<div class=" container conteiner">
 		<div class="row ">
-
-<div class="mx-auto" style="width: 500px;">
-	
-
-			<form class="shadow p-3 mb-3 mt-3  rounded " enctype="multipart/form-data"  method="POST" style="background-color:#a9c52f; "> {% csrf_token %}
-				<h3>AGREGAR FERIANTE</h3>
-	            <div class="form-group">
-	                <label>Nombre de Usuario</label>
-	                <input type="text" class="form-control" placeholder="Ingrese Nombre de Usuario" name="username">
-	            </div>
-
-	           
-	            <div class="form-group">
-	                <label>Contraseña</label>
-	                <input type="password" class="form-control" placeholder="Ingrese Contraseña" name="password">
-	                <small id="passwordHelpInline" class="text-muted">
-				      Must be 8-20 characters long.
-				    </small>
-	            </div>
-
-	         
-
-	            <div class="form-group">
-	                <label>Correo electrónico</label>
-	                <input type="email" class="form-control" placeholder="Ingrese Correo" name="email">
-	            </div>
-	          
-
-	          
-           
-	       	    <div class="form-group">
-	                <label>Nombre</label>
-	                <input type="text" class="form-control" placeholder="Ingrese un Nombre" name="first_name">
-	            </div>
-	          
-           
-			
-
-				
-				<button type="submit" class="btn " 
-				style=" color: #fff;
-				background-color: #2c5d63;
-
-				margin-left: 40%;
-				
-
-				 ">Guardar</button>
-
-				 </div>
-        	</form>
-    	</div>
-  	</div>
-			   
-
-</div>
-
+			<div class="mx-auto" style="width: 500px;">
+				<form class="shadow p-3 mb-3 mt-3  rounded " enctype="multipart/form-data"  method="POST"> {% csrf_token %}
+					<h3>AGREGAR FERIANTE</h3>
+	    	        <div class="form-group">
+	        	        <label>Nombre de Usuario</label>
+	            	    <input type="text" class="form-control" placeholder="Ingrese Nombre de Usuario" name="username">
+	            	</div>
+					<div class="form-group">
+	                	<label>Contraseña</label>
+	                	<input type="password" class="form-control" placeholder="Ingrese Contraseña" name="password">
+	                	<small id="passwordHelpInline" class="text-muted">
+				      		Debe ser de 8 a 20 caracteres de longitud.
+				    	</small>
+	            	</div>
+	            	<div class="form-group">
+	                	<label>Correo electrónico</label>
+	                	<input type="email" class="form-control" placeholder="Ingrese Correo" name="email">
+	            	</div>
+	       	    	<div class="form-group">
+	                	<label>Nombre de la Feria</label>
+	                	<input type="text" class="form-control" placeholder="Ingrese un Nombre" name="first_name">
+	            	</div>
+	            	<div class="" style="text-align: center;">
+	          			<button class="btn" type="submit">Guardar</button>
+	          		</div>
+	        	</form>
+    		</div>
+  		</div>
+	</div>
 <body>
