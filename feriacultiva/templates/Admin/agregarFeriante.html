@@ -26,10 +26,8 @@
     <title>Agregar Feriante</title>
 
   </head>
-  
 
-
-  <body style="background-image: url({% static 'img/back.png' %});">
+  <body style="background-image:url({% static 'img/back.png' %}">
 	<div class=" container " style="background-image: url({% static 'img/back.png' %});">
 		<div class="row ">
 
@@ -44,13 +42,13 @@
 			<form class="shadow p-3 mb-3 mt-3  rounded " enctype="multipart/form-data"  method="POST" style="background-color:#a9c52f; "> {% csrf_token %}
 				{{form.errors}}
 				<h3>AGREGAR FERIANTE</h3>
-	            <div class="form-group">
+	            <div class="form-group col-md-11 mx-auto">
 	                <label>Nombre de Usuario</label>
 	                <input  type="text" class="form-control" placeholder="Ingrese Nombre de Usuario" name="username">
 	            </div>
 
 	           
-	            <div class="form-group">
+	            <div class="form-group col-md-11  mx-auto">
 	                <label>Contraseña</label>
 	                <input type="password" class="form-control" placeholder="Ingrese Contraseña" name="password">
 	                <small id="passwordHelpInline" class="text-muted">
@@ -60,19 +58,19 @@
 
 	         
 
-	            <div class="form-group">
+	            <div class="form-group col-md-11 mx-auto">
 	                <label>Correo electrónico</label>
 	                <input type="email" class="form-control" placeholder="Ingrese Correo" name="email">
 	            </div>
 	          
            
-	       	    <div class="form-group">
-	                <label>Nombre de la feria</label>
+	       	    <div class="form-group col-md-11 mx-auto">
+	                <label>Nombre de la Feria</label>
 	                <input type="text" class="form-control" placeholder="Ingrese un Nombre" name="first_name">
 	            </div>
 	          
 
-	          	 <div class="form-group">
+	          	 <div class="form-group col-md-11 mx-auto">
 	                <label>Nº teléfono</label>
 	                 <input class="form-control" type="tel" placeholder="Ingresa tu número" id="example-tel-input" name="telefono">
 	                  <small id="passwordHelpInline" class="text-muted">
