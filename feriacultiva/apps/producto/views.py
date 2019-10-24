@@ -1,8 +1,13 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.core.paginator import Paginator
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Producto
+from django.shortcuts import render, redirect
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from django.views.generic.detail import DetailView
+from django.contrib.auth.decorators import login_required
 
 class ListarProductos(ListView):
     model = Producto

@@ -63,7 +63,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'FeriaCultiva.urls'
+ROOT_URLCONF = 'feriacultiva.urls'
 
 TEMPLATES = [
     {
@@ -81,7 +81,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'FeriaCultiva.wsgi.application'
+WSGI_APPLICATION = 'feriacultiva.wsgi.application'
 
 
 # Password validation

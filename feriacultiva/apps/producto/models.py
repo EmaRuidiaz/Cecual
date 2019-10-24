@@ -1,5 +1,6 @@
 from django.db import models
 from apps.categoria.models import Categoria
+from apps.feriante.models import Feriante
 # Create your models here.
 class Producto(models.Model):
 	nombre = models.CharField(max_length=30)
