@@ -1,0 +1,49 @@
+#mi-header {
+  height: 90vh;
+  min-height: 180px;
+  background-size: cover;
+  background-position: center;
+  background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
+  background-repeat: no-repeat;
+  font-family: "Roboto Slab", serif;
+
+}
+
+
+
+.svg-icon {
+  width: 1em;
+  height: 1em;
+
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill:#2c5d63;
+
+}
+
+.svg-icon circle {
+  stroke: #4691f6;
+  stroke-width: 1;
+}
+
+#searchContainer{
+    padding-top: 0px;
+    position: relative;
+    padding-right: 0px;
+    background-color: transparent;
+}
+
+
+
+.carousel-item {
+  height: 90vh;
+  min-height: 180px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

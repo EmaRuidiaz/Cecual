@@ -1,0 +1,35 @@
+
+
+	{% block contenido %}
+		<div class="row">
+			<div class="col-4"></div>
+
+			<div class="col-4 mt-4">
+				<form class="shadow p-3 mb-3 mt-3 bg-white rounded" enctype="multipart/form-data"  method="POST"> {% csrf_token %}
+					<div class="d-flex justify-content-center mt-2 mb-2">
+						<img src="https://www.fangazing.com/imgfiles/Fangazing2017/img/xnuevo.png.pagespeed.ic.O4O1059s6n.png" class="img-top" height="100" width="200">
+					</div>
+
+					{{ form.as_p }}
+
+				 	<div class="d-flex justify-content-between mt-2">
+				 		<div>
+				 			<button type="submit" class="btn btn-secondary"><a class="text-white" href="{% url 'producto:listar' %}">Cancel</a></button>
+				 			<button type="submit" class="btn btn-success">Guardar</button>
+				 		</div>
+				 		{% if object %}
+				 		<div>
+				 			<a type="submit" href="{% url 'producto:eliminar' object.pk %}" class="btn btn-danger">Eliminar</a>
+				 		</div>
+				 		<div class="mt-5 mb-5">
+				 			
+				 		</div>
+				 		{% endif %}
+				 	</div>
+				</form>
+			</div>
+
+			<div class="col-4"></div>
+			
+		</div>
+	{% endblock contenido %}

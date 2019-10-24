@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+
+<!-- Este estilo permite que los numeros de la pagina se visualicen en una linea -->    
+    <style>
+        #paginacion {
+            list-style: none;
+            overflow: hidden;
+            float: left;
+        }
+        #paginacion li {
+            overflow: hidden;
+            display: inline;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            {% for p in object_list %}
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            {% if p.foto_producto %}
+                                <img src="{{p.foto_producto.url}}" alt="encontre" class="card-img">
+                            {% else %}
+                                <img src="..." alt="no encontre" class="card-img">
+                            {% endif %}
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{p.nombre}}</h5>
+                                <ul>
+                                    <li>
+                                        <p class="card-text"><strong class="text-muted">${{p.precio}}</strong></p>
+                                    </li>
+                                    <li>
+                                        <p class="card-text"><strong class="text-muted">{{p.stock}}</strong></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+<!-- Muestra los botones de siguente y anterior de la paginacion -->
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number}}" class="btn btn-primary float-left">Anterior</a>
+            {% endif %}
+            <!-- Muestra los numeros de pagina -->
+            {% for page in page_range %}
+                <ul id="paginacion">
+                    <li {% if page == page_obj.number %} class="active page-item" {% endif %}>
+                        <a class="page-link" href="?page={{ page }}">{{ page }}</a>
+                    </li>
+                </ul>
+            {% endfor %}
+            <!-- hasta aca son los numeros de paginacion -->
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number}}" class="btn btn-primary float-right">Siguiente</a>
+            {% endif %}
+        </div>
+        <div class="col-2"></div>
+    </div>
+</body>
+</html>

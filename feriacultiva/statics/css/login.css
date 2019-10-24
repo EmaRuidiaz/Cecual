@@ -1,0 +1,9 @@
+
+.principal {
+	background-image: url({% static 'img/back.png' %});
+	
+}
+#conteinerlog {
+	margin-top: 12%; 
+	background-color: #a9c52f;
+}

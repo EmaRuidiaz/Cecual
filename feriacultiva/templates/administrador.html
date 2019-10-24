@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0, shrink-to-fit=no">
+
+    <!-- Estilo css-->
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified CSS -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" comrossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+    <!-- FONTAWSOME -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+     
+    <!-- Fuente google font-->
+     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- falta el logo-->
+    <link rel="icon" href="images/logochico.png" type="image/x-icon">
+    <title>Feria Cultiva</title>
+    <style type="text/css">
+    	
+
+    </style>
+  </head>
+  <body>
+
+  		<nav>
+        <div class="container-fluid" style="background-color: #a9c52f;">
+          <div class="navbar-bran">
+            <div class="">
+            <a class="" href="#">
+
+                <img id="logo"  width="230" height="100"  class="d-inline-block mx-auto" alt="Feria Cultiva" style="padding-left: 100px;">
+            </a>
+
+           <div class="d-inline-block">
+              
+                     <h1 style="color: #fff; font-weight: bold; font-size: 30px;font-family: 'Roboto Slab', serif;" >BIENVENIDO AL PANEL DE ADMINISTRACIÓN DE FERIA CULTIVA </h1>
+            </div>
+
+           
+           </div>
+            
+          </div>
+        </div>
+     </nav>
+
+
+
+<div class="container-fluid">
+
+  <div class="row">
+
+      <div class="jumbotron mx-auto" style=" font-family: 'Roboto Slab', serif; background-color:#fFF; margin-top:50px;">
+            
+      
+            <hr class="my-4">  
+            
+
+        <div>
+            
+
+          
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-4" >
+            <div class="card shadow" style="width: 20rem;height: 300px;background-color: #a9c52f; margin-bottom: 20px;">
+              <img class="card-image-top" src="images/feriantes.png">
+                <div class="card-body text-center">
+                  
+                  <p style="color: #fff;  font-family: 'Roboto Slab', serif; font-weight: bold;">
+                   FERIANTES
+                  </p>
+                   <a href="{% url 'feriante:agregar' %}" class="btn " style="background-color: #2c5d63; color: #fff;">Agregar</a>
+                </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card shadow" style="width: 20rem;height: 300px; background-color: #a9c52f;
+            margin-bottom: 20px;">
+              <img class="card-image-top" src="images/ambiente.png">
+                <div class="card-body text-center">
+               <p style="color: #fff;  font-family: 'Roboto Slab', serif; font-weight: bold;">
+                  AMBIENTE Y SALUD
+                  </p>
+                  
+                    <a href="#" class="btn " style="background-color: #2c5d63; color: #fff;">Actualizar</a>
+                </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card shadow" style="width: 20rem; height: 300px;background-color: #a9c52f;
+            margin-bottom: 20px;">
+              <img class="card-image-top" src="images/fechas.png">
+                <div class="card-body text-center">
+                 <p style="color: #fff;  font-family: 'Roboto Slab', serif; font-weight: bold;">PRÓXIMAS FECHAS</p>
+                
+                    <a href="#" class="btn " style="background-color: #2c5d63; color: #fff;">Actualizar</a>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+           
+
+      </div>
+  </div>
+
+</div>
+
+
+
+
+  <body>

@@ -1,0 +1,51 @@
+.footer {
+	background-color: #a9c52f;
+	font-family: "Roboto Slab", serif;
+	color: #fff;
+
+	
+}
+
+a .icon-social {
+	font-size: 20px; 
+	color: black;
+}
+.footer-descripcion {
+	
+	font-size: 15px
+
+}
+
+.reg {
+	color: black;
+	
+}
+
+.svg-icon {
+  width: 2em;
+  height: 2em;
+
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill:#2c5d63;
+
+}
+
+.svg-icon circle {
+  stroke: #4691f6;
+  stroke-width: 1;
+}
+
+.footer-descripcion{
+	color: #283739;
+	font-family:"Roboto Slab", serif; 
+}
+
+.lista{
+	color: #283739;
+	font-family:"Roboto Slab", serif; 
+	
+}
