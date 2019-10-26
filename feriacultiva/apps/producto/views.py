@@ -3,6 +3,7 @@ from django.views.generic.list import ListView
 from django.core.paginator import Paginator
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Producto
+from apps.categoria.models import Categoria
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
@@ -35,6 +36,25 @@ class ListarProductos(ListView):
         context['page_range'] = page_range
         return context
 
+    # def get_queryset(self):
+    #     context = {}
+    #     categoria = self.request.GET.get('Categoria',None)
+    #     if not categoria:
+    #         categoria = "0"
+        
+    #     if categoria == "0":
+    #         x = Producto.objects.all()
+    #     else:
+    #         x = Producto.objects.filter(categoria = categoria)
+    #     return x
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['filtro'] = Categoria.objects.all()
+    
+    #     return context
+
+
 class AgregarProducto(LoginRequiredMixin,CreateView): #Vistas basadas en clases
 	model = Producto
 	template_name = 'Producto/agregarProducto.html'
@@ -58,7 +78,11 @@ class DetalleProducto(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(DetalleProducto, self).get_context_data(**kwargs)
+        print('AQUI')
+        categoria = Categoria.objects.filter(nombre = self.kwargs['categoria']).get()
+        #p = Producto.objects.filter(categoria = x)
+        #print(x)
         context_object_name = 'Sugerencia'
-        list_sugerencia = Producto.objects.filter(categoria=self.kwargs['pk'])
+        list_sugerencia = Producto.objects.filter(categoria = categoria )
         context['Sugerencia'] = list_sugerencia
         return context

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 {% extends 'base.html' %}
 {% load static %}
 
@@ -26,6 +27,26 @@
 
   <!-- Page Content -->
   <div class="container">
+<<<<<<< HEAD
+=======
+
+
+
+    <!-- <div> NO TOCAR AUN XD
+        <form>
+            <select name="Categoria">
+                <option value="0">Todo</option>
+            {% for r in filtro %}
+                <option value="{{r.pk}}">{{r.nombre}}</option>
+            {% endfor %}
+            </select>
+            <button type="submit">
+                filtrar
+            </button>        
+        </form>
+    </div> -->
+
+>>>>>>> 832679fc0b78bf01657b5cc0bc816ba27a16240f
     <div class="row">
       <div class="col-lg-3">
         <h1 class="my-5">Categorías</h1>
@@ -49,6 +70,7 @@
                                 src="{{p.foto_producto.url}}" alt="encontre" class="card-img">
                             {% else %}
                                 <img src="..." alt="no encontre" class="card-img">
+
                         {% endif %}
                         
                       <div class="card-body">
@@ -59,11 +81,13 @@
                         <p class="card-text"> {{p.stock}} </p>
                       </div>
                       <div class="card-footer">
-                          <a href="{% url 'producto:Detalle' p.pk %}" class="btn btn-primary">Ver Mas</a>
+                          <a href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="btn btn-primary">Ver Mas</a>
                       </div>
+
+
                     </div>
                   </div>
-                  {% endfor %}
+                {% endfor %}
 
         </div>
         <!-- /.row -->

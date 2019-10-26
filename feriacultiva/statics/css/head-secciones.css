@@ -4,6 +4,12 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  font-family: 'Roboto Slab', serif; 
+}
+
+#titulo {
+	font-size: 60px;
+	color: #283739;
 }
 
 /*sección productos*/
