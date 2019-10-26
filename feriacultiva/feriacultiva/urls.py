@@ -37,7 +37,7 @@ urlpatterns = [
 
     path('producto/', include('apps.producto.urls')),
 
-    path('agregarFeriante', include('apps.feriante.urls')),
+    path('agregarFeriante/', include('apps.feriante.urls')),
 
     path('eventos/', include('apps.evento.urls')),
 

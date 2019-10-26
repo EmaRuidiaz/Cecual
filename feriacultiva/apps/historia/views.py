@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from apps.historia.models import Historia
-# Create your views here.
+from django.views.generic.edit import CreateView
 from django.shortcuts import render, redirect
 from django.views.generic.edit import UpdateView
 from django.urls import reverse_lazy
@@ -14,6 +14,12 @@ class ListarHistoria(ListView):
 	template_name = 'Historia/listarHistoria.html'
 
 class ModificarHistoria(UpdateView):
+	model = Historia
+	template_name = 'Historia/modificarHistoria.html'
+	success_url = reverse_lazy('historia:listarHistoria')
+	fields = '__all__'
+
+class AgregarHistoria(CreateView):
 	model = Historia
 	template_name = 'Historia/modificarHistoria.html'
 	success_url = reverse_lazy('historia:listarHistoria')

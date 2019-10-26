@@ -6,4 +6,5 @@
 	{% endfor %}
 {% else %}
 	<label for="">No historias</label>
+	<a href="{% url 'historia:agregarHistoria' %}">nueva</a>
 {% endif %}
