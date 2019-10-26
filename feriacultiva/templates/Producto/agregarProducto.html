@@ -10,7 +10,19 @@
 						<img src="https://www.fangazing.com/imgfiles/Fangazing2017/img/xnuevo.png.pagespeed.ic.O4O1059s6n.png" class="img-top" height="100" width="200">
 					</div>
 
-					{{ form.as_p }}
+					{% if form.errors %}
+								<div class="alert" style="background-color: red;"> {{form.errors}} </div>
+					{% endif %}
+					
+					<input type="text" name="nombre">
+					<input type="number" name="precio">
+					<input type="number" name="stock">
+					<input type="file" name="foto_producto">
+					<select name="categoria">
+						{% for c in categoria %}
+							<option value="{{ c }}">cate {{ c }}</option>
+						{% endfor %}
+					</select>
 
 				 	<div class="d-flex justify-content-between mt-2">
 				 		<div>
