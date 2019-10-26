@@ -13,5 +13,5 @@ class AgregarUser(LoginRequiredMixin,CreateView): #Vistas basadas en clases
 	model = User
 	template_name = 'user/registro.html'
 	fields = ['username','first_name','last_name','password','es_empresa','foto_perfil','email','direccion']
-	success_url = reverse_lazy('usuario:agregar')
+	success_url = reverse_lazy('start')
 
