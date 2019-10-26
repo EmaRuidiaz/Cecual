@@ -2,51 +2,100 @@
 {% load static %}
 
 {% block contenido %}
-    
-<section>
-    <div class="conteiner7" style="padding-top: 60px;">
-        <div class="row">
-            <div class="col-4"></div>
-            <div class="col-4">
-                <form method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <h2>Registro</h2>
-                    <div class="form-group">
-                        <label>Nombre de Usuario</label>
-                        <input type="text" class="form-control" placeholder="Ingrese Nombre de Usuario" name="username">
-                        {{form.errors.username}}
-                    </div>
-                    <div class="form-group">
-                        <label>Nombre</label>
-                        <input type="text" class="form-control" placeholder="Ingrese Nombre" name="first_name">
-                    </div>
-                    <div class="form-group">
-                        <label>Apellido</label>
-                        <input type="text" class="form-control" placeholder="Ingrese Apellido" name="last_name">
-                    </div>
-                    <div class="form-group">
-                        <label>Correo electrónico</label>
-                        <input type="text" class="form-control" placeholder="Ingrese Correo" name="email">
-                        {{form.errors.email}}
-                    </div>
-                    <div class="form-group">
-                        <label>Direccion</label>
-                        <input type="text" class="form-control" placeholder="Ingrese Direccion" name="direccion">
-                    </div>
-                    <div class="form-group">
-                        <label>Contraseña</label>
-                        <input type="password" class="form-control" placeholder="Ingrese Contraseña" name="password">
-                    </div>
-                    {{form.errors}}
-                    
-                    <!-- {{form.as_p}} {{form.errors}} -->
-                    <button type="submit" class="btn btn-primary">Registrar</button>
-                    <a href="#">Ya tengo cuenta</a> <!-- poner el link del template login -->
-                </form>
-            </div>
-            <div class="col-4"></div>
 
+<section>
+    <div class="">
+            <img src="{% static 'img/encabezado1.png' %}" style="width: 100%; padding-top:50px;">            
         </div>
+    <div class="conteiner7 mx-auto" style="padding-top: 60px; padding-bottom: 60px; width: 75%" >
+        {% for x in messages %}
+            <div class="alert alert-success">
+                {{x}}
+            </div>
+            {% endfor %}
+        <form data-v-88d1dfd6="" autocomplete="off" method="POST"  enctype="multipart/form-data" style="padding-left: 25px;" >
+            {% csrf_token %}
+            {{form.errors}}
+            <div data-v-88d1dfd6="" class="row topMargin">
+                <div data-v-88d1dfd6="" class="col-md-6">
+                    <div data-v-88d1dfd6="" class="form-group">
+                        <label data-v-88d1dfd6="" for="email">E-mail *</label> 
+                        <input data-v-88d1dfd6="" type="email" maxlength="100" class="form-control" placeholder="Ingrese su correo electrónico" name="email">
+                         
+                        <span data-v-88d1dfd6="">
+                            <small data-v-88d1dfd6="">Introduzca un email válido</small>
+                        </span>
+                    </div>
+                </div> 
+                <div data-v-88d1dfd6="" class="col-md-6">
+                    <div data-v-88d1dfd6="" class="form-group">
+                        <label data-v-88d1dfd6="" class="control-label">Nombre de usuario *</label> 
+                        <input data-v-88d1dfd6="" type="text" maxlength="35" class="form-control" placeholder="Ingrese Nombre de Usuario" name="username">
+                        
+                    </div>
+                </div> 
+            </div>
+            <div data-v-88d1dfd6="" class="row">
+                <div data-v-88d1dfd6="" class="col-md-6">
+                    <div data-v-88d1dfd6="" class="form-group">
+                        <label data-v-88d1dfd6="" class="control-label">Nombre *</label> 
+                        <input data-v-88d1dfd6="" type="text" maxlength="35" class="form-control" placeholder="Ingrese Nombre" name="first_name">
+                    </div>
+                </div> 
+                <div data-v-88d1dfd6="" class="col-md-6">
+                    <div data-v-88d1dfd6="" class="form-group">
+                        <label data-v-88d1dfd6="" for="inputApellido">Apellido *</label> 
+                        <input data-v-88d1dfd6="" type="text" maxlength="35" class="form-control" placeholder="Ingrese Apellido" name="last_name">
+                    </div>
+                </div>
+            </div>
+            <div data-v-88d1dfd6="" class="row">
+                <div data-v-88d1dfd6="" class="col-md-6">
+                    <div data-v-88d1dfd6="" class="form-group">
+                        <label data-v-88d1dfd6="" for="dia">Dirección *</label> 
+                        <input data-v-88d1dfd6="" type="text" class="form-control" placeholder="Ingrese Direccion" name="direccion">
+                    </div>
+                </div> 
+                <div data-v-88d1dfd6="" class="col-md-6">
+                    <div data-v-88d1dfd6="" class="form-group">
+                        <label data-v-88d1dfd6="" for="telefono">Teléfono *</label> 
+                        <input data-v-88d1dfd6="" type="tel" maxlength="35" class="form-control" name="telefono" placeholder="Ingresa tu número de teléfono">
+                        <small id="passwordHelpInline" class="text-muted">Cod. de área + Número sin el 15</small>
+                    </div>
+                </div>
+            </div>
+            <div data-v-88d1dfd6="" class="row">
+                <div data-v-88d1dfd6="" class="col-md-6">
+                    <div data-v-88d1dfd6="" class="form-group">
+                        <label data-v-88d1dfd6="" for="password">Contraseña *</label> 
+                        <input data-v-88d1dfd6="" type="password" maxlength="35" class="form-control" placeholder="Ingrese Contraseña" name="password">
+                        
+                    </div>
+                </div>
+                <div data-v-88d1dfd6="" class="col-md-6">
+                    <div data-v-88d1dfd6="" class="form-group">
+                        <label data-v-88d1dfd6="" for="password_confirmation">Repetir contraseña *</label> 
+                        <input data-v-88d1dfd6="" type="password" maxlength="35" class="form-control" placeholder="Ingrese Contraseña" name="password"> <!---->
+                        
+                    </div>
+                </div>
+            </div>
+            <div data-v-88d1dfd6="" class="row">
+                <div data-v-88d1dfd6="" class="col-md-6">
+                    <div data-v-88d1dfd6="" class="form-group">
+                        <label data-v-88d1dfd6="" for="password_confirmation">Foto de Perfil (Opcional)</label>
+                        <br>
+                        <img src="{% static 'img/user.png' %}"> 
+                        <input type="file" name="foto_perfil">
+                        <!-- <input type="submit" value="Enviar datos">-->
+                    </div>
+                </div>
+                <div class="" style="text-align: center;">
+                        <button class="btn-primary" type="submit">Finalizar Registro</button>
+                        <a href="#">Ya tengo cuenta</a> <!-- poner el link del template login --> <!---->
+                </div>
+            </div> 
+        </form> 
     </div>
 </section>
     
