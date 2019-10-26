@@ -1,13 +1,29 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block titulo%} Registro {% endblock titulo%}
+
 
 {% block contenido %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
+</head>  
+<header class="masthead" style="background-image: url({% static 'img/encabezado.png' %}) ">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 text-center">
+        <h1 class="font-weight-light" id="titulo">Registrarse en Feria Cultiva</h1>
+        <p class="lead"></p>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Page Content -->
+<section class="py-5">
 
-<section>
-    <div class="">
-            <img src="{% static 'img/encabezado1.png' %}" style="width: 100%; padding-top:50px;">            
-        </div>
-    <div class="conteiner7 mx-auto" style="padding-top: 60px; padding-bottom: 60px; width: 75%" >
+  <!-- Page Content -->
+  <div class="container">
+   <div class="row">    
+    <div class="conteiner7 mx-auto" style="padding-bottom: 60px; width: 75%" >
         {% for x in messages %}
             <div class="alert alert-success">
                 {{x}}
@@ -90,13 +106,17 @@
                         <!-- <input type="submit" value="Enviar datos">-->
                     </div>
                 </div>
-                <div class="" style="text-align: center;">
-                        <button class="btn-primary" type="submit">Finalizar Registro</button>
-                        <a href="#">Ya tengo cuenta</a> <!-- poner el link del template login --> <!---->
+                <div class="mx-auto">
+                        <br>
+                        <br>
+                        <button class="btn" type="submit">Finalizar Registro</button>
+                        <a href="{% url 'login' %}">  Ya tengo cuenta</a> 
                 </div>
             </div> 
         </form> 
     </div>
+  </div>
+</div>
 </section>
     
 {% endblock contenido %}
