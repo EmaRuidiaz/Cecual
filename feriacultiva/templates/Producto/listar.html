@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 {% extends 'base.html' %}
 {% load static %}
 
@@ -23,12 +22,10 @@
 </header>
 
 <!-- Page Content -->
-<section class="py-5"  style="background-image: url({% static 'img/back.png' %})">
+<section class="py-5"  style="">
 
   <!-- Page Content -->
   <div class="container">
-<<<<<<< HEAD
-=======
 
 
 
@@ -46,10 +43,9 @@
         </form>
     </div> -->
 
->>>>>>> 832679fc0b78bf01657b5cc0bc816ba27a16240f
     <div class="row">
       <div class="col-lg-3">
-        <h1 class="my-5">Categorías</h1>
+        <h3 class="my-5">CATEGORÍAS</h3>
         <div class="list-group">
           <a href="#" class="list-group-item">Category 1</a>
           <a href="#" class="list-group-item">Category 2</a>
@@ -64,24 +60,24 @@
                 {% for p in object_list %}
                   <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
-                      <a href="#">
+                      <a href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen">
                         {% if p.foto_producto %}
-                                <img class="card-img-top" style="width: 100px; height: 150px;" 
+                                <img class="card-img-top" style="width: 80px; height: 150px;" 
                                 src="{{p.foto_producto.url}}" alt="encontre" class="card-img">
                             {% else %}
                                 <img src="..." alt="no encontre" class="card-img">
 
                         {% endif %}
-                        
+                         <a>
                       <div class="card-body">
                         <h4 class="card-title">
-                          <a href="#"> {{p.nombre}} </a>
+                          <a class="ancla-titulo" href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen"> {{p.nombre}} </a>
                         </h4>
-                        <h5> ${{p.precio}} </h5>
-                        <p class="card-text"> {{p.stock}} </p>
+                        <h5 class="prod"> ${{p.precio}} </h5>
+                        <p class="card-text"> Stock: {{p.stock}} </p>
                       </div>
                       <div class="card-footer">
-                          <a href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="btn btn-primary">Ver Mas</a>
+                          <a href="" class=" carrito">+ carrito</a>
                       </div>
 
 
