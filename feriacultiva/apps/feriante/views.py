@@ -5,7 +5,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from apps.feriante.forms import FerianteForm
 from django.contrib.messages.views import SuccessMessageMixin
-# Create your views here.
+from django.views.generic.list import ListView
+
+class ListarFeriantes(ListView):
+	model = Feriante
+	template_name = 'Feriante/listarFeriantes.html'
 
 class AgregarFeriante(SuccessMessageMixin, LoginRequiredMixin,CreateView): #Vistas basadas en clases
 	model = Feriante

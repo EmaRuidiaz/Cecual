@@ -9,12 +9,12 @@ from django.urls import reverse_lazy
 # Create your views here.
 class ListarEventos(ListView):
 	model = Evento
-	template_name = 'Evento/listarEventos.html'
+	template_name = 'evento/listarEventos.html'
 
 class AgregarEvento(LoginRequiredMixin,CreateView): #Vistas basadas en clases
 	model = Evento
 	template_name = 'Evento/agregarEvento.html'
-	success_url = reverse_lazy('Evento:listarEventos')
+	success_url = reverse_lazy('evento:listarEventos')
 	fields = '__all__'
 
 class DetalleEvento(DetailView):
@@ -24,10 +24,10 @@ class DetalleEvento(DetailView):
 class ModificarEvento(LoginRequiredMixin,UpdateView):
 	model = Evento
 	template_name = 'Evento/agregarEvento.html'
-	success_url = reverse_lazy('Evento:listarEventos' )
+	success_url = reverse_lazy('evento:listarEventos' )
 	fields = '__all__'
 
 class EliminarEvento(LoginRequiredMixin,DeleteView):
 	model = Evento
 	template_name = 'Evento/eliminarEvento.html'
-	success_url = reverse_lazy('Evento:listarEventos')
+	success_url = reverse_lazy('evento:listarEventos')

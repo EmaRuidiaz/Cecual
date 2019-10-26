@@ -62,17 +62,17 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="{% url 'historia:listarHistoria' %}"style=" color: #2c5d63; font-weight: bold; font-size: 15px; font-family: 'Roboto Slab';" >SOBRE FERIA CULTIVA</a>
 
-                        <a class="dropdown-item" href="#"style=" color: #2c5d63; font-weight: bold; font-size: 15px; font-family: 'Roboto Slab';" >AMBIENTE Y SALUD</a>
+                        <a class="dropdown-item" href="{% url 'publicacion:listarPublicaciones' %}"style=" color: #2c5d63; font-weight: bold; font-size: 15px; font-family: 'Roboto Slab';" >AMBIENTE Y SALUD</a>
 
-                        <a class="dropdown-item" href="#"style=" color: #2c5d63; font-weight: bold; font-size: 15px; font-family: 'Roboto Slab'; background-color: #f5f5f5"; >PRÓXIMAS FECHAS </a>
+                        <a class="dropdown-item" href="{% url 'evento:listarEventos' %}"style=" color: #2c5d63; font-weight: bold; font-size: 15px; font-family: 'Roboto Slab'; background-color: #f5f5f5"; >PRÓXIMAS FECHAS </a>
                     </div>
               </li>
               <li class="nav-item">
-                        <a class="nav-link" href="#" style=" color:#2c5d63; font-weight: bold; font-size: 15px; font-family: 'Roboto Slab';">PRODUCTOS</a>
+                        <a class="nav-link" href="{% url 'producto:ListarProducto' %}" style=" color:#2c5d63; font-weight: bold; font-size: 15px; font-family: 'Roboto Slab';">PRODUCTOS</a>
               </li>
 
               <li class="nav-item">
-                          <a class="nav-link" href="#" style=" color: #2c5d63; font-weight: bold; font-size: 15px; font-family: 'Roboto Slab';">FERIANTES</a>
+                          <a class="nav-link" href="{% url 'feriante:listarFeriantes' %}" style=" color: #2c5d63; font-weight: bold; font-size: 15px; font-family: 'Roboto Slab';">FERIANTES</a>
               </li>
               <li class="nav-item">
                             <a class="nav-link" href="#" style=" color: #2c5d63; font-weight: bold; font-size: 15px; font-family: 'Roboto Slab';">FORO</a>

@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import login_required
 class ListarProductos(ListView):
     model = Producto
     paginate_by = 12
-    template_name = 'producto/listar.html'
+    template_name = 'Producto/listar.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

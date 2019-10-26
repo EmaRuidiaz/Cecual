@@ -7,6 +7,8 @@ app_name = "feriante"
 urlpatterns = [
 
     #URL Principal
-    path('', views.AgregarFeriante.as_view(), name="agregar"),
+    path('agregarFeriante/', views.AgregarFeriante.as_view(), name="agregar"),
+
+    path('', views.ListarFeriantes.as_view(), name="listarFeriantes"),
 
 ]

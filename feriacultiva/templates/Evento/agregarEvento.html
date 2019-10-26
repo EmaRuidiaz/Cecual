@@ -1,5 +1,7 @@
 <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
 	
+	<h1> La fecha se ingresa aaaa/mm/dd</h1>
+	<input type="datetime-local" name="bdaytime">
 	{{ form.as_p }}
 
 	<button type="submit">guardar</button>

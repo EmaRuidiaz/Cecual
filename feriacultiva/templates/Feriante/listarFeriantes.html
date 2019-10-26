@@ -1,0 +1,9 @@
+{% if object_list|length != 0 %}
+	<label for="">feriantes:</label>
+	{% for p in object_list %}
+	<label for="">{{p.descripcion}}</label>
+
+	{% endfor %}
+{% else %}
+	<label for="">No feriantes</label>
+{% endif %}

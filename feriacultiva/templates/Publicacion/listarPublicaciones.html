@@ -7,7 +7,6 @@
 	</div>
 	<a href="{% url 'publicacion:detallePublicacion' p.pk %}">ver</a>
 	{% endfor %}
-	<a href="{% url 'publicacion:agregarPublicacion' %}">agregar</a>
 {% else %}
 	<label for="">No publicaciones</label>
-{% endif %}
+{% endif %}<a href="{% url 'publicacion:agregarPublicacion' %}">agregar</a>
