@@ -21,11 +21,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- icono de la página -->
     <link rel="icon" href="{% static 'img/logo.png' %}" type="image/x-icon">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <!-- título de la pestaña-->
     <title>Agregar Feriante</title>
 
   </head>
+
 
   <body style="background-image:url({% static 'img/back.png' %}">
 	<div class=" container " style="background-image: url({% static 'img/back.png' %});">
@@ -34,9 +36,7 @@
 	      <div class="mx-auto" style="width: 480px;">
 			
 			{% for x in messages %}
-			<div class="alert alert-success">
-				{{x}}
-			</div>
+			{{x}}
 			{% endfor %}
 
 			<form class="shadow p-3 mb-3 mt-3  rounded " enctype="multipart/form-data"  method="POST" style="background-color:#a9c52f; "> {% csrf_token %}
@@ -46,7 +46,9 @@
 	                <label>Nombre de Usuario</label>
 	                <input  type="text" class="form-control" placeholder="Ingrese Nombre de Usuario" name="username">
 	            </div>
-
+	            <small id="passwordHelpInline" class="text-muted">
+				      El nombre de usuario se debe corresponder  
+				</small>
 	           
 	            <div class="form-group col-md-11  mx-auto">
 	                <label>Contraseña</label>
@@ -89,6 +91,14 @@
   		</div>
 			   
 	</div>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+    <!-- video -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 
   </body>
 </html>

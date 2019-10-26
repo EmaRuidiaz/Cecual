@@ -6,3 +6,6 @@ class Feriante(models.Model):
 	foto_feriante = models.ImageField(upload_to = 'feriante', null = True)
 	delivery = models.BooleanField(default=False, blank=True, null=True)
 	encargado = models.OneToOneField(User, on_delete=models.CASCADE)
+
+
+

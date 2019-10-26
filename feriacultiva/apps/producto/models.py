@@ -9,3 +9,6 @@ class Producto(models.Model):
 	foto_producto = models.ImageField(upload_to = 'productos', null = True)
 	categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name='productosXcategoria')
 	feriante = models.ForeignKey(Feriante, on_delete=models.CASCADE, related_name='productosXferiante')
+
+	def __str__(self):
+		return self.nombre

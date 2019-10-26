@@ -24,3 +24,5 @@ class User(AbstractUser):
 	)
 
 	direccion = models.CharField(max_length=200)
+
+		

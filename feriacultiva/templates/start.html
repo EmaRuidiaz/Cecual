@@ -1,14 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 
-	{% block contenido %}
-	
-<!-- Full Page Image Header with Vertically Centered Content -->
-      <!-- Full Page Image Header with Vertically Centered Content -->
-<div>
+{% block titulo %}Inicio{% endblock titulo %}
+
+  {% block contenido %}
+<!-- slide page principal -->
 <header>
-
-
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -102,3 +99,6 @@
 	</div>	
   </div>
 	{% endblock contenido %}
+
+
+
