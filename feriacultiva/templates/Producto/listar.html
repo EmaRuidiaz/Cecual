@@ -27,23 +27,27 @@
   <!-- Page Content -->
   <div class="container">
 
-
-
-    <!-- <div> NO TOCAR AUN XD
-        <form>
-            <select name="Categoria">
-                <option value="0">Todo</option>
-            {% for r in filtro %}
-                <option value="{{r.pk}}">{{r.nombre}}</option>
-            {% endfor %}
-            </select>
-            <button type="submit">
-                filtrar
-            </button>        
-        </form>
-    </div> -->
-
+    <!-- USAR ESTE FILTRO X EL MOMENTO -->
     <div class="row">
+      <div class="col-lg-3"> 
+        <h3 class="my-5">CATEGORÍAS</h3>
+        <div class="list-group">
+          <form>
+              <select name="Categoria">
+                  <option value="0">Todo</option>
+              {% for r in filtro %}
+                  <option value="{{r.pk}}">{{r.nombre}}</option>
+              {% endfor %}
+              </select>
+              <button type="submit">
+                  filtrar
+              </button>        
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="row"> PROXIMAMENTE XD
       <div class="col-lg-3">
         <h3 class="my-5">CATEGORÍAS</h3>
         <div class="list-group">
@@ -51,7 +55,7 @@
           <a href="#" class="list-group-item">Category 2</a>
           <a href="#" class="list-group-item">Category 3</a>
         </div>
-      </div>
+      </div> -->
       <!-- /.col-lg-3 -->
 
       <div class="col-lg-9 mx-auto">
