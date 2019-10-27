@@ -10,7 +10,8 @@ background-color: #fff;
 }
 /*label form*/
 
-label{
+label{  
+		font-family: 'Roboto Slab', serif; 
 		color: #283739;
 		font-weight: bold;
 		font-size: 15px;

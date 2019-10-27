@@ -23,13 +23,16 @@
 
 <!-- Page Content -->
 <section class="py-5">
-
+              
   <!-- Page Content -->
   <div class="container">
-
+       <h1 class="my-4">Productos >
+       <small>Catálogo</small>
+       </h1>
     <!-- USAR ESTE FILTRO X EL MOMENTO -->
     <div class="row">
       <div class="col-lg-3"> 
+        
        <a href="{% url 'producto:agregar' %}">Nuevo</a>
         <h3 class="my-5">CATEGORÍAS</h3>
         <div class="list-group">
@@ -66,11 +69,11 @@
                     <div class="card h-100">
                       <a href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen">
                         {% if p.foto_producto %}
-                                <img class="card-img-top" style="width: 80px; height: 150px;" 
-                                src="{{p.foto_producto.url}}" alt="encontre" class="card-img">
+                                <img class="img-prod" style="width: 80px; height: 150px;" 
+                                src="{{p.foto_producto.url}}" alt="encontre">
                             {% else %}
                                 <img class="card-img-top" style="width: 80px; height: 150px;" 
-                                src="" alt="No existe imagen" class="card-img">
+                                src="" alt="No existe imagen" >
                         {% endif %}
                         </a>
                       <div class="card-body">

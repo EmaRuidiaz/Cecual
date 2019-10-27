@@ -1,7 +1,6 @@
 section{
 	background-color: #fff;
 	font-family: "Roboto Slab", serif;
-	
 }
 
 .col-lg-9 {
@@ -11,7 +10,7 @@ section{
 }
 
 /*imagen de la card*/
-img{
+.img-prod{
 	display:block;
 	margin:auto;
 	padding-top: 5px;
