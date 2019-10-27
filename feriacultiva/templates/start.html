@@ -4,10 +4,17 @@
 {% block titulo %}Inicio{% endblock titulo %}
 
   {% block contenido %}
-<!-- slide page principal -->
+
+<head>
+    <!-- icono de la página -->
+    <link rel="icon" href="{% static 'img/logo.png' %}" type="image/x-icon">
+  
+</head>
 <header>
+  <!-- slide page principal -->
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
+
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
@@ -18,20 +25,29 @@
       <!-- Slide One - Set the background image for this slide in the line below -->
       <div class="carousel-item active" style="background-image: url({% static 'img/slide11.png' %}) " >
         <div class="carousel-caption d-none d-md-block">
-          <h2 class="display-4">First Slide</h2>
-          <p class="lead">This is a description for the first slide.</p>
+          <img id="logo"  src="{% static 'img/letrasverdes.png' %}"  class="d-inline-block align-top" alt="Feria Cultiva" style="width: 250px;">
+          <h2 class="display-4">#cultura colaborativa</h2>
+          <p class="lead"> Productores de </p> 
+          <p class="lead"> Tirol / Colonia Benítez/ </p> 
+          <p class="lead"> Resistencia / Mercado </p> 
+          <p class="lead">Campesino de La Leonesa </p> 
+          <p class="lead">Santa María de Oro 471 </p>
+          <p class="lead-dir">Centro Cultural Alternativo</p> 
+
         </div>
       </div>
       <!-- Slide Two - Set the background image for this slide in the line below -->
       <div class="carousel-item" style="background-image: url('{% static 'img/slide12.png' %}')">
         <div class="carousel-caption d-none d-md-block">
-          <h2 class="display-4">Second Slide</h2>
-          <p class="lead">This is a description for the second slide.</p>
-        </div>
+          <img id="logo"  src="{% static 'img/letrasverdes.png' %}"  class="d-inline-block align-top" alt="Feria Cultiva" style="width: 250px;">
+          <h2 class="display-4">Productos sin venenos</h2>
+          <p class="lead">algos</p>
+          
       </div>
       <!-- Slide Three - Set the background image for this slide in the line below -->
       <div class="carousel-item" style="background-image: url('{% static 'img/slide9.png' %}')">
         <div class="carousel-caption d-none d-md-block">
+          <img id="logo"  src="{% static 'img/letrasverdes.png' %}"  class="d-inline-block align-top" alt="Feria Cultiva" style="width: 250px;">
           <h2 class="display-4">Third Slide</h2>
           <p class="lead">This is a description for the third slide.</p>
         </div>

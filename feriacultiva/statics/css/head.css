@@ -44,3 +44,21 @@
   background-size: cover;
 }
 
+/*titulo del slide*/
+.lead{
+  font-weight: bold;
+  font-family: "Roboto Slab", serif;
+}
+
+.dir{
+      font-size: 15px;
+      font-weight: bold;
+      font-family: "Roboto Slab", serif;
+      line-height: 9px;
+
+}
+
+.display-4{
+  font-weight: bold;
+  font-family: "Roboto Slab", serif;
+}
