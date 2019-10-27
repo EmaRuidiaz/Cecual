@@ -26,45 +26,43 @@
 
     <!-- título de la pestaña-->
     <title>Agregar Feriante</title>
-    <style type="text/css">
-    	.masthead {
-		  min-height: 160px;
-		  background-size: cover;
-		  background-position: center;
-		  background-repeat: no-repeat;
-		  font-family: 'Roboto Slab', serif; 
-		}
-
-		#titulo {
-			padding-top: 80px;
-		  font-size: 50px;
-		  color: #2c5d63;
-		  text-shadow: 5px 5px 5px #aaa;
-		}
-    </style>
   </head>
 
 
   <body >
-	<header class="masthead" style="background-image: url({% static 'img/agregarferiante.png' %}) ">
-  		<div class="container h-100">
-    		<div class="row h-100 align-items-center">
-      			<div class="col-12 text-center">
-        			<h1 class="font-weight-light" id="titulo">AGREGAR FERIANTE</h1>
-        			<p class="lead"></p>
-      			</div>
-    		</div>
-  		</div>
-	</header>
+	<!--navbar admin-->
+
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color:#a9c52f">
+  <div class="container">
+    
+          <a class="navbar-brand" style="font-size: 25px;">Feria Cultiva</a>
+         
+           <a class="nav-link disabled" href="#" style="color: #f5f5f5;  font-size: 20px;">Bienvenido al Panel de Administración</a>
+         
+  
+          <div >
+            <ul class="navbar-nav navbar-nav flex-row w-100">
+                 
+                  <li class="nav-item active">
+                    <a class="nav-link" href=" {% url 'start' %} " style="font-size: 17px;">Ir a la web <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'panelAdmin' %}" style="font-size: 17px;">Volver <span class="sr-only">(current)</span></a>
+                  </li>
+                  
+            </ul>
+          </div>
+  </div>
+</nav>
 
 
-<a href="{% url 'panelAdmin' %}"> ← Volver al Panel de Administración</a>
+
 <section class="py-5">
   <!-- titulo y subtitulo de la pagina -->
 <div class="container">
 
    
-    <h1 class="my-4">Panel de Administración>
+    <h1 class="my-1">Panel de Administración>
      <small>Alta Feriante</small></h1>
 
         
