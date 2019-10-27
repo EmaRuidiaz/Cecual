@@ -1,47 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
 
 
-	{% block contenido %}
-		<div class="row">
-			<div class="col-4"></div>
 
-			<div class="col-4 mt-4">
-				<form class="shadow p-3 mb-3 mt-3 bg-white rounded" enctype="multipart/form-data"  method="POST"> {% csrf_token %}
-					<div class="d-flex justify-content-center mt-2 mb-2">
-						<img src="https://www.fangazing.com/imgfiles/Fangazing2017/img/xnuevo.png.pagespeed.ic.O4O1059s6n.png" class="img-top" height="100" width="200">
-					</div>
+{% block titulo %} Productos {% endblock titulo%}
 
-					{% if form.errors %}
-								<div class="alert" style="background-color: red;"> {{form.errors}} </div>
-					{% endif %}
-					
-					<input type="text" name="nombre">
-					<input type="number" name="precio">
-					<input type="number" name="stock">
-					<input type="file" name="foto_producto">
-					<select name="categoria">
-						{% for c in categoria %}
-							<option value="{{ c }}">cate {{ c }}</option>
-						{% endfor %}
-					</select>
 
-				 	<div class="d-flex justify-content-between mt-2">
-				 		<div>
-				 			<button type="submit" class="btn btn-secondary"><a class="text-white" href="{% url 'producto:listar' %}">Cancel</a></button>
-				 			<button type="submit" class="btn btn-success">Guardar</button>
-				 		</div>
-				 		{% if object %}
+{% block contenido %}  
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/altaProd.css' %}">
+</head>
+<header class="masthead" style="background-image: url({% static 'img/productos.jpg' %}) ">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 text-center">
+        <h1 class="font-weight-light">  </h1>
+        <p class="lead"></p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Contenido de la pagina -->
+<section class="py-5">
+  <!-- titulo y subtitulo de la pagina -->
+  <div class="container">
+		    <h1 class="my-4">Productos >
+		      	 <small>Agregar Producto</small>
+		   	</h1>
+		
+	<div class="row">  
+
+<!--formulario -->
+		<div class="container h-100 " style="background-color: #f5f5f5;padding-top: 15px; padding-bottom: 15px;" >
+
+			<div  class="row justify-content-center align-items-center">
+				
+			{% for x in messages %}
+				            <div class="alert alert-success">
+				                {{x}}
+				            </div>
+		            {% endfor %}
+		     <div class="col col-sm-6 col-md-6 col-lg-6 ">
+		       <form autocomplete="off" method="POST"  enctype="multipart/form-data"  >
+				            {% csrf_token %}
+				            {% if form.errors %}
+							<div class="alert" style="background-color: red;">
+						      {{form.errors}}
+						    </div>
+							{% endif %}
+
+		                
+		                    <div class="form-group">
+		                        <label  class="control-label">Producto</label> 
+		                        <input  type="text" maxlength="35" class="form-control" placeholder="Ingrese el nombre del Producto" name="nombre">
+		                    </div>
+		             
+		            
+		            
+		                    <div class="form-group">
+		                        <label  for="inputApellido">Precio</label> 
+		                        <input  type="number" class="form-control" placeholder="Ingrese el precio" name="`precio">
+		                    </div>
+		               
+		                
+		                    <div class="form-group">
+		                        <label for="inputApellido">Stock</label> 
+		                        <input type="number" class="form-control" placeholder="Ingrese el stock" name="stock">
+		                    </div>
+		               
+
+						
+		                    <div class="form-group">
+		                        <label >Imagen del producto</label>
+		                        <img src=""> 
+		                        <input type="file" name="foto_producto">
+		                        <!-- <input type="submit" value="Enviar datos">-->
+		                    </div>
+		              
+		           
+		              
+		                
+		                    <div class="form-group">
+		                    	<label data-v-88d1dfd6="">Seleccionar categoria</label>
+		                        <select name="categoria">
+									{% for c in categoria %}
+										<option value="{{ c }}">{{ c }}</option>
+									{% endfor %}
+								</select>
+		                    </div>
+		              
+
+
+
+		            <div class="row justify-content-center align-items-center">
+		            	<button class="btn alta-prod" type="submit"href="{% url 'producto:listar' %}">Cancelar</button>
+		            	<button class="btn alta-prod" type="submit">Guardar</button>
+		            </div>
+		
+				 	{% if object %}
 				 		<div>
 				 			<a type="submit" href="{% url 'producto:eliminar' object.pk %}" class="btn btn-danger">Eliminar</a>
 				 		</div>
-				 		<div class="mt-5 mb-5">
-				 			
-				 		</div>
-				 		{% endif %}
-				 	</div>
-				</form>
-			</div>
+				 	
+				 	{% endif %}
 
-			<div class="col-4"></div>
-			
-		</div>
-	{% endblock contenido %}
+				 	</div>
+		        </form> 
+ 				</div>
+		      </div>
+		   </div><!--fin container form-->
+
+		</div><!--fin row-->
+  
+  </div>  <!-- /fin container -->     
+</section>
+{% endblock contenido%}
+
+
+
+

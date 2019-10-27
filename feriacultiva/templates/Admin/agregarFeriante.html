@@ -45,7 +45,7 @@
   </head>
 
 
-  <body style="background-image:url({% static 'img/back.png' %}">
+  <body >
 	<header class="masthead" style="background-image: url({% static 'img/agregarferiante.png' %}) ">
   		<div class="container h-100">
     		<div class="row h-100 align-items-center">
@@ -56,81 +56,90 @@
     		</div>
   		</div>
 	</header>
-	<a href="{% url 'panelAdmin' %}"> ← Volver al Panel de Administración</a>
-	<section class="py-5" style="background-image: url({% static 'img/back.png' %}) ">
 
-  <!-- Page Content -->
+
+<a href="{% url 'panelAdmin' %}"> ← Volver al Panel de Administración</a>
+<section class="py-5">
+  <!-- titulo y subtitulo de la pagina -->
+<div class="container">
   <div class="container">
-   <div class="row">    
-    <div class="conteiner7 mx-auto" style="padding-bottom: 60px; width: 75%" >
-        {% for x in messages %}
-            <div class="alert alert-success">
-                {{x}}
-            </div>
-            {% endfor %}
-        <form data-v-88d1dfd6="" autocomplete="off" method="POST"  enctype="multipart/form-data" style="padding-left: 25px;" >
-            {% csrf_token %}
-            {{form.errors}}
-            <div data-v-88d1dfd6="" class="row topMargin">
-                <div data-v-88d1dfd6="" class="col-md-6">
-                    <div data-v-88d1dfd6="" class="form-group">
-                        <label data-v-88d1dfd6="" for="email">E-mail *</label> 
-                        <input data-v-88d1dfd6="" type="email" maxlength="100" class="form-control" placeholder="Ingrese su correo electrónico" name="email">
-                        <small data-v-88d1dfd6="">Introduzca un email válido</small>
-                    </div>
-                </div> 
-                <div data-v-88d1dfd6="" class="col-md-6">
-                    <div data-v-88d1dfd6="" class="form-group">
-                        <label data-v-88d1dfd6="" class="control-label">Nombre de la Feria *</label> 
-                        <input data-v-88d1dfd6="" type="text" maxlength="35" class="form-control" placeholder="Ingrese Nombre de Usuario" name="first_name">
-                        
-                    </div>
-                </div> 
-            </div>
-            <div data-v-88d1dfd6="" class="row"> 
-                <div data-v-88d1dfd6="" class="col-md-6">
-                    <div data-v-88d1dfd6="" class="form-group">
-                        <label data-v-88d1dfd6="" for="inputApellido">NyA del responsable *</label> 
-                        <input data-v-88d1dfd6="" type="text" maxlength="35" class="form-control" placeholder="Ingrese NyA del responsable" name="last_name">
-                    </div>
-                </div>
-                <div data-v-88d1dfd6="" class="col-md-6">
-                    <div data-v-88d1dfd6="" class="form-group">
-                        <label data-v-88d1dfd6="" for="telefono">Teléfono *</label> 
-                        <input data-v-88d1dfd6="" type="tel" maxlength="35" class="form-control" name="telefono" placeholder="Ingresa tu número de teléfono">
-                        <small id="passwordHelpInline" class="text-muted">Cod. de área + Número sin el 15</small>
-                    </div>
-                </div>
-            </div>
-            <div data-v-88d1dfd6="" class="row">
-                <div data-v-88d1dfd6="" class="col-md-6">
-                    <div data-v-88d1dfd6="" class="form-group">
-                        <label data-v-88d1dfd6="" class="control-label">Nombre de usuario *</label> 
-                        <input data-v-88d1dfd6="" type="text" maxlength="35" class="form-control" placeholder="Ingrese Nombre de Usuario" name="username">
-                        
-                    </div>
-                </div>
-                <div data-v-88d1dfd6="" class="col-md-6">
-                    <div data-v-88d1dfd6="" class="form-group">
-                        <label data-v-88d1dfd6="" for="password_confirmation">Contraseña *</label> 
-                        <input data-v-88d1dfd6="" type="password" maxlength="35" class="form-control" placeholder="Ingrese Contraseña" name="password"> <!---->
-                        
-                    </div>
-                </div>
-            </div>
-            <div data-v-88d1dfd6="" class="row">
-                <div class="mx-auto">
-                        <br>
-                        <br>
-                        <button class="btn" type="submit">Finalizar Registro</button> 
-                </div>
-            </div> 
-        </form> 
-    </div>
-  </div>
-</div>
-</section>
+   
+    <h1 class="my-4">Panel de Administración>
+     <small>Alta Feriante</small></h1>
 
+        
+    <div class="row">  
+
+<!--formulario -->
+        <div class="container h-100 " style="background-color: #f5f5f5;padding-top: 15px; padding-bottom: 15px;" >
+
+            <div  class="row justify-content-center align-items-center">
+                
+            {% for x in messages %}
+                            <div class="alert alert-success">
+                                {{x}}
+                            </div>
+            {% endfor %}
+
+             <div class="col col-sm-6 col-md-6 col-lg-6 ">
+               <form autocomplete="off" method="POST"  enctype="multipart/form-data"  >
+                            {% csrf_token %}
+                            {% if form.errors %}
+                            <div class="alert" style="background-color: red;">
+                              {{form.errors}}
+                            </div>
+                            {% endif %}
+
+                            <div class="form-group">
+                                <label for="email">E-mail *</label> 
+                                <input type="email" maxlength="1" class="form-control" placeholder="Ingrese su correo electrónico" name="email">
+                                <small data-v-88d1dfd6="">Introduzca un email válido</small>
+                            </div>
+                      
+                             <div class="form-group">
+                                <label  class="control-label">Nombre de la Feria *</label> 
+                                <input type="text" maxlength="35" class="form-control" placeholder="Ingrese Nombre de Usuario" name="first_name">
+                                        
+                              </div>
+                                
+                                        
+                    
+                            <div class="form-group">
+                            <label for="inputApellido">NyA del responsable *</label> 
+                                <input  type="text" maxlength="35" class="form-control" placeholder="Ingrese NyA del responsable" name="last_name">
+                                
+                            </div>
+                                           
+                            <div class="form-group">
+                                    <label for="telefono">Teléfono *</label> 
+                                    <input  type="tel" maxlength="35" class="form-control" name="telefono" placeholder="Ingresa tu número de teléfono">
+                                    <small id="passwordHelpInline" class="text-muted">Cod. de área + Número sin el 15</small>
+                            </div>
+
+                          <div  class="form-group">
+                                    <label  class="control-label">Nombre de usuario *</label> 
+                                    <input type="text" maxlength="35" class="form-control" placeholder="Ingrese Nombre de Usuario" name="username">  
+                            </div>
+
+                             <div  class="form-group">
+                                    <label for="password_confirmation">Contraseña *</label> 
+                                    <input type="password" maxlength="35" class="form-control" placeholder="Ingrese Contraseña" name="password"> <!---->
+                            </div>
+                   
+                      
+
+                    <div class="row justify-content-center align-items-center">
+                        <button class="btn" type="submit">Finalizar Registro</button>
+                    </div>
+                </form> 
+                </div>
+              </div>
+           </div><!--fin container form-->
+
+        </div><!--fin row-->
+  
+  </div>  <!-- /fin container -->     
+</section>
 
 
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
