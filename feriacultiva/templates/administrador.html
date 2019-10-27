@@ -29,17 +29,20 @@
 
   </head>
   
-  <body class="principal">
-    <div class="row" >
-              
-      <div class="col-md-12 mx-auto">
-        <div class="container-fluid encabezado">
-          <h1 class="titulo-head">BIENVENIDO AL PANEL DE ADMINISTRACIÓN DE FERIA CULTIVA </h1>
+  <body>  
+    <header class="masthead" style="background-image: url({% static 'img/admin.png' %}) ">
+      <div class="container h-100">
+        <div class="row h-100 align-items-center">
+          <div class="col-12 text-center">
+            <h1 class="font-weight-light" id="titulo">BIENVENIDO </h1>
+            <h1 class="font-weight-light" id="titulo"> PANEL DE ADMINISTRACIÓN DE FERIA CULTIVA</h1>
+            <p class="lead"></p>
+          </div>
         </div>
       </div>
-    </div>
+    </header>
 
-    <section style="padding-top: 7%;">
+  <section style="background-image: url({% static 'img/back.png' %}) ">
       <div class="container" style="">
         <div class="row">
           <div class="col-md-4" >
@@ -49,7 +52,6 @@
               </div>
               <div class="card-body text-center card-text">
                 <h4 class="card-title card-titulo">FERIANTES</h4>
-                <p class="card-text text-secondary">descripcion de la card</p>
                 <a href="{% url 'feriante:agregar' %}" class="btn ">Agregar</a>
               </div>
             </div>
@@ -62,7 +64,6 @@
               </div>
               <div class="card-body text-center card-text">
                 <h4 class="card-title card-titulo">AMBIENTE Y SALUD</h4>
-                <p class="card-text text-secondary">descripcion de la card</p>
                 <a href="#" class="btn ">Actualizar</a>
               </div>
             </div>
@@ -75,7 +76,6 @@
               </div>
               <div class="card-body text-center card-text">
                 <h4 class="card-title card-titulo">PRÓXIMAS FECHAS</h4>
-                <p class="card-text text-secondary">descripcion de la card</p>
                 <a href="#" class="btn">Actualizar</a>
       
               </div>

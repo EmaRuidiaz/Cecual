@@ -16,6 +16,7 @@
      <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
     <!-- Estilo css-->
     <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
+
     
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -25,72 +26,112 @@
 
     <!-- título de la pestaña-->
     <title>Agregar Feriante</title>
+    <style type="text/css">
+    	.masthead {
+		  min-height: 160px;
+		  background-size: cover;
+		  background-position: center;
+		  background-repeat: no-repeat;
+		  font-family: 'Roboto Slab', serif; 
+		}
 
+		#titulo {
+			padding-top: 80px;
+		  font-size: 50px;
+		  color: #2c5d63;
+		  text-shadow: 5px 5px 5px #aaa;
+		}
+    </style>
   </head>
 
 
   <body style="background-image:url({% static 'img/back.png' %}">
-	<div class=" container " style="background-image: url({% static 'img/back.png' %});">
-		<div class="row ">
-
-	      <div class="mx-auto" style="width: 480px;">
-			
-			{% for x in messages %}
-			{{x}}
-			{% endfor %}
-
-			<form class="shadow p-3 mb-3 mt-3  rounded " enctype="multipart/form-data"  method="POST" style="background-color:#a9c52f; "> {% csrf_token %}
-				{{form.errors}}
-				<h3>AGREGAR FERIANTE</h3>
-	            <div class="form-group col-md-11 mx-auto">
-	                <label>Nombre de Usuario</label>
-	                <input  type="text" class="form-control" placeholder="Ingrese Nombre de Usuario" name="username">
-	            </div>
-	            <small id="passwordHelpInline" class="text-muted">
-				      El nombre de usuario se debe corresponder  
-				</small>
-	           
-	            <div class="form-group col-md-11  mx-auto">
-	                <label>Contraseña</label>
-	                <input type="password" class="form-control" placeholder="Ingrese Contraseña" name="password">
-	                <small id="passwordHelpInline" class="text-muted">
-				      Must be 8-20 characters long.
-				    </small>
-	            </div>
-
-	         
-
-	            <div class="form-group col-md-11 mx-auto">
-	                <label>Correo electrónico</label>
-	                <input type="email" class="form-control" placeholder="Ingrese Correo" name="email">
-	            </div>
-	          
-           
-	       	    <div class="form-group col-md-11 mx-auto">
-	                <label>Nombre de la Feria</label>
-	                <input type="text" class="form-control" placeholder="Ingrese un Nombre" name="first_name">
-	            </div>
-	          
-
-	          	 <div class="form-group col-md-11 mx-auto">
-	                <label>Nº teléfono</label>
-	                 <input class="form-control" type="tel" placeholder="Ingresa tu número" id="example-tel-input" name="telefono">
-	                  <small id="passwordHelpInline" class="text-muted">
-				      Cod. de área + Número sin el 15
-				    </small>
-	  
-	            </div>
-	          
-      			<div class="" style="text-align: center;">
-	          			<button class="btn" type="submit">Guardar</button>
-	          	</div>
-
-				 </div>
-        	</form>
+	<header class="masthead" style="background-image: url({% static 'img/agregarferiante.png' %}) ">
+  		<div class="container h-100">
+    		<div class="row h-100 align-items-center">
+      			<div class="col-12 text-center">
+        			<h1 class="font-weight-light" id="titulo">AGREGAR FERIANTE</h1>
+        			<p class="lead"></p>
+      			</div>
     		</div>
   		</div>
-			   
-	</div>
+	</header>
+	<a href="{% url 'panelAdmin' %}"> ← Volver al Panel de Administración</a>
+	<section class="py-5" style="background-image: url({% static 'img/back.png' %}) ">
+
+  <!-- Page Content -->
+  <div class="container">
+   <div class="row">    
+    <div class="conteiner7 mx-auto" style="padding-bottom: 60px; width: 75%" >
+        {% for x in messages %}
+            <div class="alert alert-success">
+                {{x}}
+            </div>
+            {% endfor %}
+        <form data-v-88d1dfd6="" autocomplete="off" method="POST"  enctype="multipart/form-data" style="padding-left: 25px;" >
+            {% csrf_token %}
+            {{form.errors}}
+            <div data-v-88d1dfd6="" class="row topMargin">
+                <div data-v-88d1dfd6="" class="col-md-6">
+                    <div data-v-88d1dfd6="" class="form-group">
+                        <label data-v-88d1dfd6="" for="email">E-mail *</label> 
+                        <input data-v-88d1dfd6="" type="email" maxlength="100" class="form-control" placeholder="Ingrese su correo electrónico" name="email">
+                        <small data-v-88d1dfd6="">Introduzca un email válido</small>
+                    </div>
+                </div> 
+                <div data-v-88d1dfd6="" class="col-md-6">
+                    <div data-v-88d1dfd6="" class="form-group">
+                        <label data-v-88d1dfd6="" class="control-label">Nombre de la Feria *</label> 
+                        <input data-v-88d1dfd6="" type="text" maxlength="35" class="form-control" placeholder="Ingrese Nombre de Usuario" name="first_name">
+                        
+                    </div>
+                </div> 
+            </div>
+            <div data-v-88d1dfd6="" class="row"> 
+                <div data-v-88d1dfd6="" class="col-md-6">
+                    <div data-v-88d1dfd6="" class="form-group">
+                        <label data-v-88d1dfd6="" for="inputApellido">NyA del responsable *</label> 
+                        <input data-v-88d1dfd6="" type="text" maxlength="35" class="form-control" placeholder="Ingrese NyA del responsable" name="last_name">
+                    </div>
+                </div>
+                <div data-v-88d1dfd6="" class="col-md-6">
+                    <div data-v-88d1dfd6="" class="form-group">
+                        <label data-v-88d1dfd6="" for="telefono">Teléfono *</label> 
+                        <input data-v-88d1dfd6="" type="tel" maxlength="35" class="form-control" name="telefono" placeholder="Ingresa tu número de teléfono">
+                        <small id="passwordHelpInline" class="text-muted">Cod. de área + Número sin el 15</small>
+                    </div>
+                </div>
+            </div>
+            <div data-v-88d1dfd6="" class="row">
+                <div data-v-88d1dfd6="" class="col-md-6">
+                    <div data-v-88d1dfd6="" class="form-group">
+                        <label data-v-88d1dfd6="" class="control-label">Nombre de usuario *</label> 
+                        <input data-v-88d1dfd6="" type="text" maxlength="35" class="form-control" placeholder="Ingrese Nombre de Usuario" name="username">
+                        
+                    </div>
+                </div>
+                <div data-v-88d1dfd6="" class="col-md-6">
+                    <div data-v-88d1dfd6="" class="form-group">
+                        <label data-v-88d1dfd6="" for="password_confirmation">Contraseña *</label> 
+                        <input data-v-88d1dfd6="" type="password" maxlength="35" class="form-control" placeholder="Ingrese Contraseña" name="password"> <!---->
+                        
+                    </div>
+                </div>
+            </div>
+            <div data-v-88d1dfd6="" class="row">
+                <div class="mx-auto">
+                        <br>
+                        <br>
+                        <button class="btn" type="submit">Finalizar Registro</button> 
+                </div>
+            </div> 
+        </form> 
+    </div>
+  </div>
+</div>
+</section>
+
+
 
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
@@ -100,5 +141,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
-  </body>
+</body>
 </html>

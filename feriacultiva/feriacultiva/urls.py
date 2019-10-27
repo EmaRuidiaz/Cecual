@@ -24,7 +24,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('administrador/', views.Administrador),
+    path('administrador/', views.Administrador, name="panelAdmin"),
 
     #URL Principal
     path('', views.Inicio, name="start"),
