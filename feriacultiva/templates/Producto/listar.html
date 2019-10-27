@@ -70,10 +70,10 @@
                                 <img class="card-img-top" style="width: 80px; height: 150px;" 
                                 src="{{p.foto_producto.url}}" alt="encontre" class="card-img">
                             {% else %}
-                                <img src="..." alt="no encontre" class="card-img">
-
+                                <img class="card-img-top" style="width: 80px; height: 150px;" 
+                                src="" alt="No existe imagen" class="card-img">
                         {% endif %}
-                         <a>
+                        </a>
                       <div class="card-body">
                         <h4 class="card-title">
                           <a class="ancla-titulo" href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen"> {{p.nombre}} </a>
@@ -129,9 +129,9 @@
 </nav>
 </div>
 
-
+ <!-- /.container --> 
   </div>
-  <!-- /.container -->        
+        
 </section>
 {% endblock contenido%}
 

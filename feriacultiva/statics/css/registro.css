@@ -1,0 +1,26 @@
+/*botones */
+.reg {
+  font-family: 'Roboto Slab', serif; 
+  background-color: #2c5d63; 
+  color: #fff;
+  font-size: 15px;
+}
+.reg:hover {
+background-color: #fff;        
+}
+/*label form*/
+
+label{
+		color: #283739;
+		font-weight: bold;
+		font-size: 15px;
+	}
+
+
+/*titulos*/
+
+
+.container {
+font-family: 'Roboto Slab', serif;
+}	
+

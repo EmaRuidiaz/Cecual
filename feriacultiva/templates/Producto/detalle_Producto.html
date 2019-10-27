@@ -1,72 +1,149 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block titulo %} Productos {% endblock titulo%}
+
+
+{% block contenido %}  
 <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/det-producto.css' %}">
+    <script type="text/javascript" src="{% static 'js/slider-prod' %}"></script>
 </head>
-<body>
+<header class="masthead" style="background-image: url({% static 'img/productos.jpg' %}) ">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 text-center">
+        <h1 class="font-weight-light">  </h1>
+        <p class="lead"></p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- contenido de la página -->
+<section class="py-5" >
+<!-- Page Content -->
+<div class="container">
+
+              <!-- Portfolio Item Heading -->
+              <h1 class="my-4">Productos >
+                <small>Detalle de Producto</small>
+              </h1>
+
+              <!-- Portfolio Item Row -->
     <div class="row">
-            <div class="col-2"></div>
-            <div class="col-8">
-                <div class="card mb-3" style="max-width: 540px;">
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            {% if object.foto_producto %}
-                                <img src="{{object.foto_producto.url}}" class="card-img" alt="imagen">
-                            {% else %}
-                                <img src="..." class="card-img" alt="no entre">
-                            {% endif %}
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">{{object.nombre}}</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga saepe fugiat laudantium quasi vitae totam, impedit rem eos quas ad, obcaecati voluptate quaerat. Architecto quo voluptatem ipsam cumque autem at.</p>
-                                <p class="card-text"><small class="text-muted">{{object.precio}} -- {{object.stock}}</small></p>
-                                <p>{{object.feriante.encargado}}</p>
-                                <a href="#" class="btn btn-primary">Reservar</a> <!-- Sin terminar el backend -->
+
+            <div class="col-md-8">
+              <!--contenedor de la imagen-->
+                        <div class="card mb-3" id="card-detalle">
+                            <div class="row no-gutters">
+                                <div class="col-md-4" >
+                                    {% if object.foto_producto %}
+                                         <img class="imagen-detalle" src="{{object.foto_producto.url}}"  alt="imagen" style="width: 250px;
+                                         height: 400px; 
+                                         "  >
+                                    {% else %}
+                                             <img class="img-mi-detalle" src="{{object.foto_producto.url}}" alt="No existe imagen" style="width: 250px; height: 400px; ">
+                                    {% endif %}
+                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                        </div>   
             </div>
-            <div class="col-2">
+
+                 <!--descripción -->
+                    <div class="col-md-4">
+        
+                                <h1 class="detalle-titulo">{{object.nombre}}</h5>
+                                <p class="card-text-det">Acá debe ir una descripción</p>
+                                <h3 class="detalle-precio">${{object.precio}}</h3>
+                                </br>
+                                <p class="stock-det"><small> Stock: {{object.stock}}</small></p>
+                                 <a class="ancla-titulo-feriante" href="" class="imagen">{{object.feriante.encargado}} </a>
+                                 <br>
+                                <a href="#" class="reservar">Reservar</a> <!-- Sin terminar el backend -->
+
+                     </div>
+  <!-- /fin row -->
+   </div>
+ <!-- /fin container -->
+</div>
+ 
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div id="inam" class="carousel slide" data-ride="carousel">
+
+            <div class="carousel-inner">
+
+             {% for p in Sugerencia %}
+                {% if forloop.counter == 1 %}
+                    <div class="carousel-item active">
+                {% else %}
+                    <div class="carousel-item">
+                {% endif %}
+                         <div class="container">
+                            <div class="row">
+
+                            {% for p in Sugerencia %}
+                               
+                                <div class="col-sm-12 col-lg-4">
+                                   <div class="card" id="mi-card">
+                                        <a href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen">
+                                            {% if p.foto_producto %}
+                                                <img class="card-img-top" style="width: 80px; height: 150px;" src="{{p.foto_producto.url}}" alt="encontre" >
+                                            {% else %}
+                                                <img class="card-img-top" style="width: 80px; height: 150px;" src="" alt="No existe imagen" >
+                                            {% endif %}
+                                         </a>
+                                             <div class="card-body">
+                                                <h4 class="card-title">
+                                                    <a class="ancla-titulo" href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen"> {{p.nombre}} </a>
+                                                </h4>
+                                                <h5 class="prod"> ${{p.precio}} </h5>
+                                                <p class="card-text"> Stock: {{p.stock}} </p>
+                                              </div>
+                                              <div class="card-footer">
+                                                  <a href="" class=" carrito">+ carrito</a>
+                                              </div>
+                                        <!--final card-->
+                                        </div>
+                                    <!--final col cards-->
+                                    
+                                </div>
+                                
+                             {% endfor %}
+                              
+                            </div>
+                            
+                         </div>
+                           
+                    </div>
+                    
+                                    
+                            
+
+                    {% endfor%}
+                    </div>
+                    
+                </div>
+                <a href="#inam" class="carousel-control-prev" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a href="#inam" class="carousel-control-next" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
                 
             </div>
+            
+        </div>
+        
     </div>
     
-<!-- ACA COMIENZA LA PARTE DE SUGERENCIA DE PRODUCTO -->
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8">
-            {% for p in Sugerencia %}
-                <div class="card mb-3" style="max-width: 540px;">
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            {% if p.foto_producto %}
-                                <img src="{{p.foto_producto.url}}" alt="encontre" class="card-img">
-                            {% else %}
-                                <img src="..." alt="no encontre" class="card-img">
-                            {% endif %}
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">{{p.nombre}}</h5>
-                                <ul>
-                                    <li>
-                                        <p class="card-text"><strong class="text-muted">${{p.precio}}</strong></p>
-                                    </li>
-                                    <li>
-                                        <p class="card-text"><strong class="text-muted">{{p.stock}}</strong></p>
-                                    </li>
-                                </ul>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-        <div class="col-2"></div>
-    </div>
+</div><!--fin del las cards-->
 
-</body>
-</html>
+</section>
+
+{% endblock contenido%}
+
