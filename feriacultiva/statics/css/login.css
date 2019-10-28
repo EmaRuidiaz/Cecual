@@ -1,4 +1,4 @@
-.btn {
+.btn-log {
        font-family: 'Roboto Slab', serif; 
        background-color: #2c5d63; 
        color: #fff;
@@ -6,7 +6,7 @@
 
   }
    
-   .btn:hover {
+   .btn-log:hover {
      background-color: #fff;        
   }
 
