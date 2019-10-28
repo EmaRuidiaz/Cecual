@@ -100,7 +100,7 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                    <a class="dropdown-item" href="#"
-                                    style=" color: #a9c52f; font-weight: bold;  font-size: 15px; font-family: 'Roboto Slab';">Mis reservas</a>              
+                                    style=" color: #2c5d63; font-weight: bold;  font-size: 15px; font-family: 'Roboto Slab';">Mis reservas</a>              
                                   </div>
                                 </div>
 
@@ -122,10 +122,18 @@
                         </button>
 
                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="{% url 'usuario:agregar' %}"
-                              style=" color: #a9c52f; font-weight: bold;   font-size: 15px; font-family: 'Roboto Slab';">Crear Cuenta</a>
-                               <a class="dropdown-item" href="{% url 'login' %}"
-                               style=" color: #a9c52f; font-weight: bold;  font-size: 15px; font-family: 'Roboto Slab';">Iniciar sesión</a>
+                          {% if user.is_authenticated %}
+                            <p class="dropdown-item" style=" color: #2c5d63; font-weight: bold;   font-size: 15px; font-family: 'Roboto Slab';">Hola! {{user.username}}</p>
+
+                            <a class="dropdown-item" href="{% url 'logout' %}" style=" color: #2c5d63; font-weight: bold;   font-size: 15px; font-family: 'Roboto Slab';">Cerrar Sesión</a>
+                          {%else%}
+                          <a class="dropdown-item" href="{% url 'login' %}"
+                               style=" color: #2c5d63; font-weight: bold;  font-size: 15px; font-family: 'Roboto Slab';">Iniciar sesión</a>
+                          <a class="dropdown-item" href="{% url 'usuario:agregar' %}"
+                              style=" color: #2c5d63; font-weight: bold;   font-size: 15px; font-family: 'Roboto Slab';">Crear Cuenta</a>
+                          {%endif%}
+                              
+                               
                                            
                           </div>
                   </div>

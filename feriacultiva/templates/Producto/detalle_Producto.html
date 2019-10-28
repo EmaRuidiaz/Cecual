@@ -74,20 +74,16 @@
     <div class="row">
         <div class="col-sm-12">
             <div id="inam" class="carousel slide" data-ride="carousel">
-
-            <div class="carousel-inner">
-
-             {% for p in Sugerencia %}
-                {% if forloop.counter == 1 %}
-                    <div class="carousel-item active">
-                {% else %}
+              <div class="carousel-inner">
+               {% for p in Sugerencia %}
+                  {% if forloop.counter == 1 %}
+                    <div class="carousel-item active">  
+                  {% else %}
                     <div class="carousel-item">
-                {% endif %}
+                  {% endif %}
                          <div class="container">
                             <div class="row">
-
                             {% for p in Sugerencia %}
-                               
                                 <div class="col-sm-12 col-lg-4">
                                    <div class="card" id="mi-card">
                                         <a href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen">
@@ -97,36 +93,26 @@
                                                 <img class="card-img-top" style="width: 80px; height: 150px;" src="" alt="No existe imagen" >
                                             {% endif %}
                                          </a>
-                                             <div class="card-body">
-                                                <h4 class="card-title">
-                                                    <a class="ancla-titulo" href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen"> {{p.nombre}} </a>
-                                                </h4>
-                                                <h5 class="prod"> ${{p.precio}} </h5>
-                                                <p class="card-text"> Stock: {{p.stock}} </p>
-                                              </div>
-                                              <div class="card-footer">
-                                                  <a href="" class=" carrito">+ carrito</a>
-                                              </div>
+                                          <div class="card-body">
+                                            <h4 class="card-title">
+                                               <a class="ancla-titulo" href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen"> {{p.nombre}} </a>
+                                            </h4>
+                                            <h5 class="prod"> ${{p.precio}} </h5>
+                                            <p class="card-text"> Stock: {{p.stock}} </p>
+                                          </div>
+                                          <div class="card-footer">
+                                              <a href="" class=" carrito">+ carrito</a>
+                                          </div>
                                         <!--final card-->
-                                        </div>
+                                    </div>
                                     <!--final col cards-->
-                                    
                                 </div>
-                                
                              {% endfor %}
-                              
                             </div>
-                            
-                         </div>
-                           
+                         </div> 
                     </div>
-                    
-                                    
-                            
-
                     {% endfor%}
-                    </div>
-                    
+                  </div> 
                 </div>
                 <a href="#inam" class="carousel-control-prev" data-slide="prev">
                     <span class="carousel-control-prev-icon"></span>
@@ -134,13 +120,8 @@
                 <a href="#inam" class="carousel-control-next" data-slide="next">
                     <span class="carousel-control-next-icon"></span>
                 </a>
-                
             </div>
-            
-        </div>
-        
-    </div>
-    
+        </div>  
 </div><!--fin del las cards-->
 
 </section>
