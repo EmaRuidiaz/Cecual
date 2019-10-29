@@ -11,4 +11,6 @@ urlpatterns = [
 
     path('', views.ListarFeriantes.as_view(), name="listarFeriantes"),
 
+    path('eliminar/<int:pk>', views.EliminarFeriante.as_view(), name="eliminarFeriante"),
+
 ]

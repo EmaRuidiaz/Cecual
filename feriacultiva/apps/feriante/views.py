@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from apps.feriante.models import Feriante
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from apps.feriante.forms import FerianteForm
@@ -17,3 +17,8 @@ class AgregarFeriante(SuccessMessageMixin, LoginRequiredMixin,CreateView): #Vist
 	template_name = 'Admin/agregarFeriante.html'
 	success_url = reverse_lazy('feriante:agregar')
 	success_message = 'Feriante agregado correctamente'
+
+class EliminarFeriante(LoginRequiredMixin,DeleteView):
+	model = Feriante
+	template_name = 'Feriante/eliminarFeriante.html'
+	success_url = reverse_lazy('feriante:listarFeriantes')

@@ -28,6 +28,7 @@ class FerianteForm(forms.ModelForm):
 		user = super().save(commit=False)
 		user.es_empresa = True
 		user.username = self.cleaned_data.get('username')
+		user.is_staff = True
 		p = Group.objects.get(name = 'feriante')
 		user.save()
 		p.user_set.add(user)
