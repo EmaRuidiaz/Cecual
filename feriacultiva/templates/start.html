@@ -104,16 +104,7 @@
 </section>
 
 
-	<div class="col-4 nav">
-		<div style="margin: 10px" class="d-flex align-items-center">
-		{% if user.is_authenticated %}
-			<b class="text-light mr-2">Hola, {{user.username}}!</b>
-			<a href="{% url 'logout' %}">Logout</a>
-		{% else %}
-			<a href="{% url 'login' %}">Login</a>
-		{% endif %}
-	</div>	
-  </div>
+	
 	{% endblock contenido %}
 
 
