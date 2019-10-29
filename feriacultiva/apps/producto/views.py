@@ -56,7 +56,7 @@ class ListarProductos(ListView):
 	
 		return context
 
-class AgregarProducto(CreateView): #Vistas basadas en clases
+class AgregarProducto(LoginRequiredMixin,CreateView): #Vistas basadas en clases
 	#form = ProductoForm(request.POST or None, request.FILES)
 	form_class = ProductoForm
 	template_name = 'Producto/agregarProducto.html'

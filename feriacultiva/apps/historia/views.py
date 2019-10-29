@@ -13,13 +13,13 @@ class ListarHistoria(ListView):
 	model = Historia
 	template_name = 'Historia/listarHistoria.html'
 
-class ModificarHistoria(UpdateView):
+class ModificarHistoria(LoginRequiredMixin,UpdateView):
 	model = Historia
 	template_name = 'Historia/modificarHistoria.html'
 	success_url = reverse_lazy('historia:listarHistoria')
 	fields = '__all__'
 
-class AgregarHistoria(CreateView):
+class AgregarHistoria(LoginRequiredMixin,CreateView):
 	model = Historia
 	template_name = 'Historia/modificarHistoria.html'
 	success_url = reverse_lazy('historia:listarHistoria')

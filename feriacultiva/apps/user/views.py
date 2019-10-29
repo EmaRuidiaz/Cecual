@@ -9,7 +9,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
-class AgregarUser(LoginRequiredMixin,CreateView): #Vistas basadas en clases
+class AgregarUser(CreateView): #Vistas basadas en clases
 	model = User
 	template_name = 'user/registro.html'
 	fields = ['username','first_name','last_name','password','es_empresa','foto_perfil','email','direccion']
