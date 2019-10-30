@@ -94,15 +94,7 @@
             {% endfor %}
 
              <div class="col col-sm-6 col-md-6 col-lg-6 ">
-                          <div class="form-group">
-                                 {% if form.errors %}
-                                  <div  class="alert alert-danger" role="alert">
-                                    {{form.errors}}
-                                  </div>
-                                 {% endif %}
-                    </div>
-
-
+                          
                <form autocomplete="off" method="POST"  enctype="multipart/form-data"  >
                             {% csrf_token %}
 
@@ -110,36 +102,65 @@
                                 <label for="email">E-mail *</label> 
                                 <input type="email" maxlength="50" class="form-control" placeholder="Ingrese su correo electrónico" name="email">
                                 <small data-v-88d1dfd6="">Introduzca un email válido</small>
+                            {% if form.email.errors %}
+                                  <span class="form_error">
+                                    La dirección de correo no es válida.
+                                  </span>
+                            {% endif %}
                             </div>
+                            
+
                       
                              <div class="form-group">
                                 <label  class="control-label">Nombre de la Feria *</label> 
-                                <input type="text" maxlength="35" class="form-control" placeholder="Ingrese Nombre de Usuario" name="first_name">
-                                        
+                                <input type="text" maxlength="35" class="form-control" placeholder="Ingrese Nombre de la Feria" name="first_name">
+                               {% if form.first_name.errors %}
+                                  <span class="form_error">
+                                    El nombre no es válido. Verifique a cantidad de caracteres. 
+                                  </span>
+                              {% endif %}         
                               </div>
+                              
                                 
-                                        
-                    
                             <div class="form-group">
                             <label for="inputApellido">Responsable *</label> 
                                 <input  type="text" maxlength="35" class="form-control" placeholder="Ingrese el nombre completo del responsable" name="last_name">
-                                
+                                {% if form.last_name.errors %}
+                                  <span class="form_error">
+                                    El nombre no es válido. Verifique a cantidad de caracteres. 
+                                  </span>
+                              {% endif %}
                             </div>
                                            
                             <div class="form-group">
                                     <label for="telefono">Teléfono *</label> 
-                                    <input  type="tel" maxlength="35" class="form-control" name="telefono" placeholder="Ingresa tu nº teléfono">
+                                    <input  type="tel" maxlength="35" class="form-control" name="telefono" placeholder="Ingrese su Nº de teléfono">
                                     <small id="passwordHelpInline" class="text-muted">Ingresá tu nº con código de área, sin 0 y sin el 15</small>
+                                  {% if form.telefono.errors %}
+                                    <span class="form_error">
+                                      El número de teléfono no es válido. 
+                                    </span>
+                                  {% endif %}
                             </div>
 
                           <div  class="form-group">
                                     <label  class="control-label">Nombre de usuario *</label> 
-                                    <input type="text" maxlength="35" class="form-control" placeholder="Ingrese Nombre de Usuario" name="username">  
+                                    <input type="text" maxlength="35" class="form-control" placeholder="Ingrese Nombre de Usuario" name="username">
+                                  {% if form.username.errors %}
+                                    <span class="form_error">
+                                      El nombre de usuario no es válido. Verifique a cantidad de caracteres. 
+                                    </span>
+                                  {% endif %}  
                             </div>
 
                              <div  class="form-group">
                                     <label for="password_confirmation">Contraseña *</label> 
-                                    <input type="password" maxlength="35" class="form-control" placeholder="Ingrese Contraseña" name="password"> <!---->
+                                    <input type="password"  minlength="8" maxlength="16" class="form-control" placeholder="Ingrese Contraseña" name="password"> <!---->
+                                {% if form.password.errors %}
+                                  <span class="form_error">
+                                    La contraseña no es válida. Verifique a cantidad de caracteres. 
+                                  </span>
+                                {% endif %}
                             </div>
                    
                       
