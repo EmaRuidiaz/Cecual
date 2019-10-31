@@ -79,6 +79,13 @@
     <h1 class="my-1">Panel de Administración>
      <small>Alta Feriante</small></h1>
 
+
+           {% for x in messages %}
+                            <div class="alert alert-success mx-auto w-50 align-items-center" >
+                                {{x}}
+                            </div>
+            {% endfor %}
+
         
     <div class="row">  
 
@@ -87,11 +94,6 @@
 
             <div  class="row justify-content-center align-items-center">
                 
-            {% for x in messages %}
-                            <div class="alert alert-success">
-                                {{x}}
-                            </div>
-            {% endfor %}
 
              <div class="col col-sm-6 col-md-6 col-lg-6 ">
                           
@@ -100,11 +102,11 @@
 
                             <div class="form-group">
                                 <label for="email">E-mail *</label> 
-                                <input type="email" maxlength="50" class="form-control" placeholder="Ingrese su correo electrónico" name="email">
-                                <small data-v-88d1dfd6="">Introduzca un email válido</small>
+                                <input type="email" maxlength="50" class="form-control" placeholder="Ingrese su correo electrónico" name="email" required="true">
+                                <small class="text-muted" >Introduzca un email válido</small>
                             {% if form.email.errors %}
                                   <span class="form_error">
-                                    La dirección de correo no es válida.
+                                    La dirección de correo no es válida, intente nuevamente.
                                   </span>
                             {% endif %}
                             </div>
@@ -113,7 +115,7 @@
                       
                              <div class="form-group">
                                 <label  class="control-label">Nombre de la Feria *</label> 
-                                <input type="text" maxlength="35" class="form-control" placeholder="Ingrese Nombre de la Feria" name="first_name">
+                                <input type="text" maxlength="35" class="form-control" placeholder="Ingrese Nombre de la Feria" name="first_name" required="true">
                                {% if form.first_name.errors %}
                                   <span class="form_error">
                                     El nombre no es válido. Verifique a cantidad de caracteres. 
@@ -124,7 +126,7 @@
                                 
                             <div class="form-group">
                             <label for="inputApellido">Responsable *</label> 
-                                <input  type="text" maxlength="35" class="form-control" placeholder="Ingrese el nombre completo del responsable" name="last_name">
+                                <input  type="text" maxlength="35" class="form-control" placeholder="Ingrese el nombre completo del responsable" name="last_name"required="true">
                                 {% if form.last_name.errors %}
                                   <span class="form_error">
                                     El nombre no es válido. Verifique a cantidad de caracteres. 
@@ -134,28 +136,31 @@
                                            
                             <div class="form-group">
                                     <label for="telefono">Teléfono *</label> 
-                                    <input  type="tel" maxlength="35" class="form-control" name="telefono" placeholder="Ingrese su Nº de teléfono">
+                                    <input  type="tel" maxlength="10" class="form-control" name="telefono" placeholder="Ingrese su Nº de teléfono" required="true" >
                                     <small id="passwordHelpInline" class="text-muted">Ingresá tu nº con código de área, sin 0 y sin el 15</small>
                                   {% if form.telefono.errors %}
                                     <span class="form_error">
-                                      El número de teléfono no es válido. 
+                                      El número de teléfono no es válido, intente nuevamente. 
                                     </span>
                                   {% endif %}
                             </div>
 
                           <div  class="form-group">
                                     <label  class="control-label">Nombre de usuario *</label> 
-                                    <input type="text" maxlength="35" class="form-control" placeholder="Ingrese Nombre de Usuario" name="username">
+                                    <input type="text" maxlength="35" class="form-control" placeholder="Ingrese Nombre de Usuario" name="username" required="true">
+                                    <small class="text-muted">
+                                      Ingrese un nombre de usuario sin espacios. 
+                                    </small>
                                   {% if form.username.errors %}
                                     <span class="form_error">
-                                      El nombre de usuario no es válido. Verifique a cantidad de caracteres. 
+                                      El nombre de usuario ya existe o tiene espacios en blanco, intente nuevamente.
                                     </span>
                                   {% endif %}  
                             </div>
 
                              <div  class="form-group">
                                     <label for="password_confirmation">Contraseña *</label> 
-                                    <input type="password"  minlength="8" maxlength="16" class="form-control" placeholder="Ingrese Contraseña" name="password"> <!---->
+                                    <input type="password"  minlength="8" maxlength="16" class="form-control" placeholder="Ingrese Contraseña" name="password" required="true"> <!---->
                                 {% if form.password.errors %}
                                   <span class="form_error">
                                     La contraseña no es válida. Verifique a cantidad de caracteres. 

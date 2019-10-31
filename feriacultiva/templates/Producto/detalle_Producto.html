@@ -84,6 +84,7 @@
                          <div class="container">
                             <div class="row">
                             {% for p in Sugerencia %}
+                             
                                 <div class="col-sm-12 col-lg-4">
                                    <div class="card" id="mi-card">
                                         <a href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen">
@@ -107,6 +108,7 @@
                                     </div>
                                     <!--final col cards-->
                                 </div>
+                                
                              {% endfor %}
                             </div>
                          </div> 
