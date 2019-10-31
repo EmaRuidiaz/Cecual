@@ -37,19 +37,23 @@
        {% endif %}
         <h3 class="my-5">CATEGORÍAS</h3>
         <div class="list-group">
+
           <form>
               <select name="Categoria">
                   <option value="0">Todo</option>
-              {% for r in filtro %}
-                  <option value="{{r.pk}}">{{r.nombre}}</option>
-              {% endfor %}
-              </select>
-              <button type="submit">
-                  filtrar
-              </button>        
-          </form>
-        </div>
-      </div>
+                    
+                      {% for r in filtro %}
+                          <option value="{{r.pk}}">{{r.nombre}}</option>
+                      {% endfor %}
+
+                        </select>
+                        <button type="submit">
+                            filtrar
+                        </button>  
+                            
+                    </form>
+                  </div>
+                </div>
    
 
     <!-- <div class="row"> PROXIMAMENTE XD
@@ -65,6 +69,9 @@
 
       <div class="col-lg-9">
         <div class="row">
+           {% if object_list|length == 0 %}
+           <label for="">No hay productos para esta categoria</label>
+          {% else%}
                 {% for p in object_list %}
                   <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
@@ -92,6 +99,7 @@
                     </div>
                   </div>
                 {% endfor %}
+              {% endif %}
 
         </div>
         <!-- /.row -->
