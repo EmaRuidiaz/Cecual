@@ -5,20 +5,11 @@ from .models import User
 
 class RegistroForm(UserCreationForm): 
 
+    email = forms.EmailField(required = True)
+    telefono = forms.CharField(max_length=17)
+    direccion = forms.CharField(max_length=200)
+
     class Meta:
         model = User
-        fields = ['username',
-            'first_name',
-            'last_name',
-            'email',
-            'password',
-            'direccion', 
-        ]
-        # labels = {
-        #     'username': 'Nombre de Usuario',
-        #     'first_name': 'Nombre',
-        #     'last_name': 'Apellido',
-        #     'email': 'Correo electrionico',
-        #     'password': 'Contraseña',
-        #     'direccion': 'Direccion',
-        # }
+        fields = ('username','first_name','last_name','email','direccion','password1','password2')
+        

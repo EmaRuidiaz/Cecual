@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block titulo %} Reserva {% endblock titulo%}
+
+
+{% block contenido %}  
+
+<div class="row">
+    <div class="conteiner">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <label for="username">{{usuario.username}}</label>
+            <label for="cantidad">Cantidad</label>
+            <input type="number" name="cantidad">
+            <label for="precio">{{producto.precio}}</label>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+
+
+
+{% endblock contenido%}

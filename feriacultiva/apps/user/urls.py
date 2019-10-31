@@ -7,6 +7,6 @@ app_name = 'usuario'
 urlpatterns = [
 
     #URL Principal
-    path('', views.AgregarUser.as_view(), name="agregar"),
+    path('', views.RegistrarUsuario.as_view(), name="agregar"),
 
 ]
