@@ -128,6 +128,7 @@
                         </div>
 
 
+<<<<<<< Updated upstream
                   </th>
                 </tr>
                 {% endfor %}  
@@ -138,6 +139,62 @@
 
     </div>
       </div><!--fin row-->
+=======
+			{% else %}
+
+			<table class="table table-striped col-md-6 col-sm-12 mx-auto">
+						  <thead>
+						    <tr>
+						      <th scope="col">Feriantes</th>
+						      <th scope="col">Eliminar</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						  	{% for p in object_list %}
+                {% if p.encargado.is_active %}
+						    <tr>
+						      <th scope="row">{{p.encargado.first_name}}</th>
+
+						      <th scope="row">
+                  <!-- Botón en HTML (lanza el modal en Bootstrap) -->
+                    <a href="#victorModal{{p.pk}}" role="button" class="btn" data-toggle="modal">Eliminar</a>
+                      <!-- Modal / Ventana / Overlay en HTML -->
+                    <div id="victorModal{{p.pk}}" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">¿Estás seguro?</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    
+                                </div>
+                                <div class="modal-body">
+                                    <p>¿Seguro que quieres borrar este elemento?</p>
+                                    <p class="text-warning"><small>Si lo borras, no podrás recuperarlo.</small></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn" data-dismiss="modal">Cerrar</button>
+                                    
+                                     <form action="{% url 'feriante:eliminarFeriante' p.pk %}" method="POST">
+                                     {% csrf_token %}
+                                    <button class="btn" type="submit" href="">eliminar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+                  </th>
+						    </tr>
+                {% endif %}
+						    {% endfor %}	
+						  </tbody>
+						</table>
+				
+			{% endif %}
+
+		</div>
+	    </div><!--fin row-->
+>>>>>>> Stashed changes
   
   </div>  <!-- /fin container -->     
 </section>

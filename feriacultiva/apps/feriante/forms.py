@@ -5,7 +5,7 @@ from apps.user.models import User
 from django.contrib.auth.models import Group
 from .models import Feriante
 
-class FerianteForm(forms.ModelForm):
+class FerianteForm(UserCreationForm):
 
 	#descripcion = forms.CharField(label=("Descripción"), required=True)
 	#foto_feriante = forms.ImageField(required=False)
@@ -18,10 +18,10 @@ class FerianteForm(forms.ModelForm):
 	encargado = models.OneToOneField(User, on_delete=models.CASCADE)
 	'''
 
-	class Meta(UserCreationForm.Meta):
+	class Meta:
 		model = User
 		#fields = ['username','first_name','last_name','password','foto_perfil','email','direccion']
-		fields = ['username','first_name','last_name','password','telefono','email']
+		fields = ['username','first_name','last_name','password1','password2','telefono','email']
 
 	@transaction.atomic
 	def save(self):

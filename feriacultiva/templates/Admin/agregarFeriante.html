@@ -99,7 +99,7 @@
                           
                <form autocomplete="off" method="POST"  enctype="multipart/form-data"  >
                             {% csrf_token %}
-
+                            {{form.errors}}
                             <div class="form-group">
                                 <label for="email">E-mail *</label> 
                                 <input type="email" maxlength="50" class="form-control" placeholder="Ingrese su correo electrónico" name="email" required="true">
@@ -160,8 +160,22 @@
 
                              <div  class="form-group">
                                     <label for="password_confirmation">Contraseña *</label> 
+<<<<<<< Updated upstream
                                     <input type="password"  minlength="8" maxlength="16" class="form-control" placeholder="Ingrese Contraseña" name="password" required="true"> <!---->
                                 {% if form.password.errors %}
+=======
+                                    <input type="password"  minlength="8" maxlength="16" class="form-control" placeholder="Ingrese Contraseña" name="password1"> <!---->
+                                {% if form.password1.errors %}
+                                  <span class="form_error">
+                                    La contraseña no es válida. Verifique a cantidad de caracteres. 
+                                  </span>
+                                {% endif %}
+                            </div>
+                            <div  class="form-group">
+                                    <label for="password_confirmation">Repita Contraseña *</label> 
+                                    <input type="password"  minlength="8" maxlength="16" class="form-control" placeholder="Ingrese Contraseña" name="password2"> <!---->
+                                {% if form.password2.errors %}
+>>>>>>> Stashed changes
                                   <span class="form_error">
                                     La contraseña no es válida. Verifique a cantidad de caracteres. 
                                   </span>

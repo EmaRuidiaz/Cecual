@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from apps.feriante.models import Feriante
 from django.views.generic.edit import CreateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from apps.feriante.forms import FerianteForm
 from django.contrib.messages.views import SuccessMessageMixin
@@ -11,6 +12,7 @@ class ListarFeriantes(ListView):
 	model = Feriante
 	template_name = 'Feriante/listarFeriantes.html'
 
+
 class AgregarFeriante(SuccessMessageMixin, LoginRequiredMixin,CreateView): #Vistas basadas en clases
 	model = Feriante
 	form_class = FerianteForm
@@ -18,7 +20,18 @@ class AgregarFeriante(SuccessMessageMixin, LoginRequiredMixin,CreateView): #Vist
 	success_url = reverse_lazy('feriante:agregar')
 	success_message = 'Feriante agregado correctamente'
 
+<<<<<<< Updated upstream
 class EliminarFeriante(LoginRequiredMixin,DeleteView):
 	model = Feriante
 	template_name = 'Feriante/eliminarFeriante.html'
 	success_url = reverse_lazy('feriante:listarFeriantes')
+=======
+@login_required
+def EliminarFeriante(request,pk):
+	print(pk)
+	usuario = Feriante.objects.get(pk = pk).encargado
+	print(usuario)
+	usuario.is_active = False
+	usuario.save()
+	return redirect('feriante:listarFeriantes')
+>>>>>>> Stashed changes
