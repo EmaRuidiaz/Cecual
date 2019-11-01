@@ -20,12 +20,6 @@ class AgregarFeriante(SuccessMessageMixin, LoginRequiredMixin,CreateView): #Vist
 	success_url = reverse_lazy('feriante:agregar')
 	success_message = 'Feriante agregado correctamente'
 
-<<<<<<< Updated upstream
-class EliminarFeriante(LoginRequiredMixin,DeleteView):
-	model = Feriante
-	template_name = 'Feriante/eliminarFeriante.html'
-	success_url = reverse_lazy('feriante:listarFeriantes')
-=======
 @login_required
 def EliminarFeriante(request,pk):
 	print(pk)
@@ -34,4 +28,4 @@ def EliminarFeriante(request,pk):
 	usuario.is_active = False
 	usuario.save()
 	return redirect('feriante:listarFeriantes')
->>>>>>> Stashed changes
+
