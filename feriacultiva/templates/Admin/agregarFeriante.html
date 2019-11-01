@@ -99,14 +99,13 @@
                           
                <form autocomplete="off" method="POST"  enctype="multipart/form-data"  >
                             {% csrf_token %}
-                            {{form.errors}}
                             <div class="form-group">
                                 <label for="email">E-mail *</label> 
                                 <input type="email" maxlength="50" class="form-control" placeholder="Ingrese su correo electrónico" name="email" required="true">
                                 <small class="text-muted" >Introduzca un email válido</small>
                             {% if form.email.errors %}
                                   <span class="form_error">
-                                    La dirección de correo no es válida, intente nuevamente.
+                                    La dirección de correo no es válida, o ya está en uso, intente nuevamente.
                                   </span>
                             {% endif %}
                             </div>
@@ -163,19 +162,24 @@
                                     <input type="password"  minlength="8" maxlength="16" class="form-control" placeholder="Ingrese Contraseña" name="password1"> <!---->
                                 {% if form.password1.errors %}
                                   <span class="form_error">
-                                    La contraseña no es válida. Verifique a cantidad de caracteres. 
+                                    La contraseña es muy común, verifique sea una combinación de letras (mayúsculas y minúsculas) y números. 
                                   </span>
                                 {% endif %}
                             </div>
                             <div  class="form-group">
                                     <label for="password_confirmation">Repita Contraseña *</label> 
                                     <input type="password"  minlength="8" maxlength="16" class="form-control" placeholder="Ingrese Contraseña" name="password2"> <!---->
+                                
                                 {% if form.password2.errors %}
-
                                   <span class="form_error">
-                                    La contraseña no es válida. Verifique a cantidad de caracteres. 
+                                    Las contraseñas no coinciden, o puede que sea muy común, verifique sea una combinación de letras (mayúsculas y minúsculas) y números e intente nuevamente. 
+                                  </span>
+                             
+                                     
                                   </span>
                                 {% endif %}
+
+
                             </div>
                    
                       
