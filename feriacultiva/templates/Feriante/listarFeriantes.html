@@ -89,20 +89,20 @@
       {% else %}
 
 
-			<table class="table table-striped col-md-6 col-sm-12 mx-auto">
-						  <thead>
-						    <tr>
-						      <th scope="col">Feriantes</th>
-						      <th scope="col">Eliminar</th>
-						    </tr>
-						  </thead>
-						  <tbody>
-						  	{% for p in object_list %}
+      <table class="table table-striped col-md-6 col-sm-12 mx-auto">
+              <thead>
+                <tr>
+                  <th scope="col">Feriantes</th>
+                  <th scope="col">Eliminar</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for p in object_list %}
                 {% if p.encargado.is_active %}
-						    <tr>
-						      <th scope="row">{{p.encargado.first_name}}</th>
+                <tr>
+                  <th scope="row">{{p.encargado.first_name}}</th>
 
-						      <th scope="row">
+                  <th scope="row">
                   <!-- Botón en HTML (lanza el modal en Bootstrap) -->
                     <a href="#victorModal{{p.pk}}" role="button" class="btn" data-toggle="modal">Eliminar</a>
                       <!-- Modal / Ventana / Overlay en HTML -->
