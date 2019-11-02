@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %} Detalle Feriantes {% endblock titulo%}
+{% block contenido %}  
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/det-feriante.css' %}">
+    
+</head>
+<header class="masthead" style="background-image: url({% static 'img/productos.jpg' %}) ">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 text-center">
+        <h1 class="font-weight-light">  </h1>
+        <p class="lead"></p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- contenido de la página -->
+<section class="py-5" >
+<!-- Page Content -->
+<div class="container">
+
+              <!-- Portfolio Item Heading -->
+              <h1 class="my-4">Feriantes >
+                <small>{{object.encargado.first_name}}</small>
+              </h1>
+
+              
+    <div class="row">
+        <div class="col-md-6" >
+              <!--contenedor de la imagen-->
+          <div class="card mb-3" id="card-detalle">
+            <div class="row no-gutters">
+              <div class="col-md-4" >
+              {% if object.foto_feriante %}
+                <img class="imagen-detalle" src="{{object.foto_feriante.url}}"  alt="imagen" style="width: 500px; height: 350px;"  >
+              {% else %}
+                <img class="img-mi-detalle" src="" alt="No existe imagen" style="width: 250px; height: 400px; ">
+              {% endif %}
+              </div>
+            </div>
+          </div>   
+      </div>
+
+
+ <!--descripción -->
+  <div class="col-md-6">
+    <h5 class="detalle-titulo">Quienes somos:</h5>
+    <p class="card-text-det">{{object.descripcion}}</p>
+     <p class="stock-det"><small>Encargado: {{object.encargado}}</small></p>
+    <h5 class="detalle-titulo">Consultas</h5>
+    <p class="card-text-det">Teléfono: {{object.encargado.telefono}}</p>
+    <p class="card-text-det">Correo: {{object.encargado.email}}</p>
+    <p class="stock-det"><small>Delivery: {{object.delivery}}</small></p>
+ 
+  </div>
+  
+          
+    </div><!--fin del row-->
+</div><!--fin del las cards container fluid-->
+
+</section>
+
+{% endblock contenido%}
+

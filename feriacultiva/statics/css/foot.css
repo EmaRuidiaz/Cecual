@@ -3,8 +3,9 @@
 	background-color: #a9c52f;
 	font-family: "Roboto Slab", serif;
 	color: #fff;
- 
 
+}
+ 
 }
 /*iconos*/
 .svg-icon {
@@ -28,15 +29,15 @@
 .footer-descripcion{
 	color: #283739;
 	font-family:"Roboto Slab", serif; 
+ 
 }
 
 /* items de secciones y categoria*/
 .lista{
 	color: #283739;
-	font-family:"Roboto Slab", serif; 
-	
-}
+	font-family:"Roboto Slab", serif;
 
+}
 /*estilos de los items de la lista + botones*/
 .btn { 
   background-color:transparent; 

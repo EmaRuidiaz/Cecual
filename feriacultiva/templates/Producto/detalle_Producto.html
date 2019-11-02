@@ -1,15 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
-
-
-
 {% block titulo %} Productos {% endblock titulo%}
-
-
 {% block contenido %}  
 <head>
     <link rel="stylesheet" type="text/css" href="{% static 'css/det-producto.css' %}">
-    <script type="text/javascript" src="{% static 'js/slider-prod' %}"></script>
+
 </head>
 <header class="masthead" style="background-image: url({% static 'img/productos.jpg' %}) ">
   <div class="container h-100">
@@ -29,28 +24,25 @@
 
               <!-- Portfolio Item Heading -->
               <h1 class="my-4">Productos >
-                <small>Detalle de Producto</small>
+                <small>{{object.nombre}}</small>
               </h1>
 
               <!-- Portfolio Item Row -->
     <div class="row">
-
-            <div class="col-md-8">
+      <div class="col-md-8">
               <!--contenedor de la imagen-->
-                        <div class="card mb-3" id="card-detalle">
-                            <div class="row no-gutters">
-                                <div class="col-md-4" >
-                                    {% if object.foto_producto %}
-                                         <img class="imagen-detalle" src="{{object.foto_producto.url}}"  alt="imagen" style="width: 250px;
-                                         height: 400px; 
-                                         "  >
-                                    {% else %}
-                                             <img class="img-mi-detalle" src="{{object.foto_producto.url}}" alt="No existe imagen" style="width: 250px; height: 400px; ">
-                                    {% endif %}
-                                 </div>
-                            </div>
-                        </div>   
+        <div class="card mb-3" id="card-detalle">
+          <div class="row no-gutters">
+            <div class="col-md-4" >
+              {% if object.foto_producto %}
+                <img class="imagen-detalle" src="{{object.foto_producto.url}}"  alt="imagen" style="width: 250px;height: 400px;"  >
+              {% else %}
+                <img class="imagen-detalle" src="" alt="No existe imagen" style="width: 250px; height: 400px; ">
+              {% endif %}
             </div>
+          </div>
+        </div>   
+      </div>
 
                  <!--descripción -->
                     <div class="col-md-4">

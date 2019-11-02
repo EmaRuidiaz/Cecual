@@ -8,6 +8,8 @@ from apps.feriante.forms import FerianteForm
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.list import ListView
 from django.core.paginator import Paginator
+from django.views.generic.detail import DetailView
+
 
 
 #vista para el template del administrador
@@ -58,4 +60,9 @@ def EliminarFeriante(request,pk):
 	usuario.is_active = False
 	usuario.save()
 	return redirect('feriante:listarFeriantes')
+
+class DetalleFeriante(DetailView):
+	model = Feriante
+	template_name = 'feriante/detalle_feriante.html'
+
 

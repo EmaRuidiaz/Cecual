@@ -24,13 +24,11 @@
        <small>Lista de Feriantes</small>
        </h1>
     <div class="row"> <!-- row página principal -->
-    {% if object_list|length == 0 %}
-           <label for="">No hay productos para esta categoria</label>
-    {% else%}
+    
      {% for p in object_list %}
       <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="#" class="foto-ancla">
+              <a href="{% url 'feriante:detalle' p.pk %}" class="foto-ancla">
                  {% if p.foto_feriante %}
                 <img class="img-feriante" src="{{p.foto_feriante.url}}" alt="" style="width:350px; height: 200px;">
                 {% else %}
@@ -48,7 +46,6 @@
             </div>
       </div>
       {% endfor %}
-     {% endif %}
     </div>
 
     <!--/paginación-->
