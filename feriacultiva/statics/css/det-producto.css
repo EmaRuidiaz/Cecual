@@ -1,14 +1,10 @@
-
-
-  .carousel-control-prev-icon{
+.carousel-control-prev-icon{
   	background-color: #a9c52f;
 
   }
 
   .carousel-control-next-icon{
   	background-color: #a9c52f;
-
-
   }
 
   #inam{
@@ -18,14 +14,11 @@
 
   /*card slide contenedor*/
 
-  #mi-card{
-  	width:250px;
-  	height: 323px; 
-  	margin-top: 25px;
-  	margin-left: 20px;
-  	margin-right: 1px;
+ #mi-card{
+    width:250px;
+    height: 323px; 
+   
   }
-
 
 
  /*imagen de la card del slide de sugerencias*/

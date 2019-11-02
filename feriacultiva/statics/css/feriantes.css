@@ -1,0 +1,47 @@
+section{
+	background-color: #fff;
+	font-family: "Roboto Slab", serif;
+}
+
+.img-feriante{
+	display:block;
+	margin:auto;
+}
+
+.card:hover .foto-ancla {
+	-webkit-transform:scale(1.1);transform:scale(1.1);}
+
+.card {overflow:hidden;}
+
+.titulo-feriante{
+   color: #283739;
+   font-size: 30px;
+   font-weight: bold;
+   font-family: "Roboto Slab", serif;
+   border-bottom: 2px solid #f5f5f5;
+   text-align: center;
+}
+
+.ancla-t{
+   color: #283739;
+   font-weight: bold;
+   font-family: "Roboto Slab", serif;
+   border-bottom: 2px solid #f5f5f5;
+}
+
+.ancla-t:link {
+  text-decoration:none;
+  color: #283739;
+}
+
+.ancla-t:visited{
+  text-decoration:none;
+  color: #283739;
+}
+
+
+.ancla-t:hover{
+  text-decoration:none;
+  color: #283739;
+  cursor:pointer;
+}

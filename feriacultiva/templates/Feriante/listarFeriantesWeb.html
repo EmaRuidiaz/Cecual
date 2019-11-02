@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %} Feriantes {% endblock titulo%}
+{% block contenido %}  
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/feriantes.css' %}">
+</head>
+
+<header class="masthead" style="background-image: url({% static 'img/productos.jpg' %}) ">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 text-center">
+        <h1 class="font-weight-light">  </h1>
+        <p class="lead"></p>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<section class="py-5"><!-- Page Content -->
+  <div class="container"><!-- Container página principal -->
+       <h1 class="my-4">Feriantes >
+       <small>Lista de Feriantes</small>
+       </h1>
+    <div class="row"> <!-- row página principal -->
+    {% if object_list|length == 0 %}
+           <label for="">No hay productos para esta categoria</label>
+    {% else%}
+     {% for p in object_list %}
+      <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#" class="foto-ancla">
+                 {% if p.foto_feriante %}
+                <img class="img-feriante" src="{{p.foto_feriante.url}}" alt="" style="width:350px; height: 200px;">
+                {% else %}
+                 <img class="img-feriante" src="" alt="no existe foto" >
+                {% endif %}
+              </a>
+              <div class="card-body">
+                <h4 class="titulo-feriante">
+                  <a href="#" class="ancla-t"> {{p.encargado.first_name}} </a>
+                </h4>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>
+            </div>
+      </div>
+      {% endfor %}
+     {% endif %}
+    </div>
+
+    <!--/paginación-->
+        <div style="padding-left: 50%;">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                {% if page_obj.has_previous %}
+                  <li class="page-item">
+                      <a class="page-link" href="?page={{ page_obj.previous_page_number}}" aria-label="Previous">Anterior
+                          <span aria-hidden="true">&laquo;</span>
+                          <span class="sr-only">Previous</span>
+                      </a>
+                  </li>
+                {% endif %}
+
+                {% for page in page_range %}
+                  <li {% if page == page_obj.number %} class="page-item" {% endif %}>
+                  <a class="page-link" href="?page={{ page }}">{{ page }}</a>
+                  </li>
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ page_obj.next_page_number}}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </li>
+                {% endif %}
+
+              </ul>
+            </nav>
+        </div>
+
+  </div><!--end row -->
+ </div>    <!-- /.container -->    
+</section>
+{% endblock contenido%}

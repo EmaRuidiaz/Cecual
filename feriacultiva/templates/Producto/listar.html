@@ -1,15 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
-
-
-
 {% block titulo %} Productos {% endblock titulo%}
-
-
 {% block contenido %}  
 <head>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/productos.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/productos.css' %}">
 </head>
+
 <header class="masthead" style="background-image: url({% static 'img/productos.jpg' %}) ">
   <div class="container h-100">
     <div class="row h-100 align-items-center">
@@ -21,39 +17,35 @@
   </div>
 </header>
 
-<!-- Page Content -->
-<section class="py-5">
-              
-  <!-- Page Content -->
-  <div class="container">
+
+<section class="py-5"><!-- Page Content -->
+  <div class="container"><!-- Container página principal -->
        <h1 class="my-4">Productos >
        <small>Catálogo</small>
        </h1>
-    <!-- USAR ESTE FILTRO X EL MOMENTO -->
-    <div class="row">
-      <div class="col-lg-3"> 
-        {% if user.es_empresa %}
+  <div class="row"> <!-- row página principal -->
+   
+
+ <!-- USAR ESTE FILTRO X EL MOMENTO -->
+    <div class="col-lg-3"> 
+       {% if user.es_empresa %}
        <a href="{% url 'producto:agregar' %}">Nuevo</a>
        {% endif %}
         <h3 class="my-5">CATEGORÍAS</h3>
         <div class="list-group">
-
           <form>
               <select name="Categoria">
                   <option value="0">Todo</option>
-                    
                       {% for r in filtro %}
-                          <option value="{{r.pk}}">{{r.nombre}}</option>
+                  <option value="{{r.pk}}">{{r.nombre}}</option>
                       {% endfor %}
-
-                        </select>
-                        <button type="submit">
-                            filtrar
-                        </button>  
-                            
-                    </form>
-                  </div>
-                </div>
+              </select>
+              <button type="submit">
+                filtrar
+              </button>       
+          </form>
+        </div>
+    </div>
    
 
     <!-- <div class="row"> PROXIMAMENTE XD
@@ -75,12 +67,12 @@
                 {% for p in object_list %}
                   <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
-                      <a href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen">
+                      <a href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen" >
                         {% if p.foto_producto %}
                                 <img class="img-prod" style="width: 80px; height: 150px;" 
                                 src="{{p.foto_producto.url}}" alt="encontre">
                             {% else %}
-                                <img class="card-img-top" style="width: 80px; height: 150px;" 
+                                <img class="img-prod" style="width: 80px; height: 150px;" 
                                 src="" alt="No existe imagen" >
                         {% endif %}
                         </a>
@@ -101,16 +93,14 @@
                 {% endfor %}
               {% endif %}
 
-        </div>
-        <!-- /.row -->
-      </div>
-      <!-- /.col-lg-9 -->
+        </div> <!-- /.row col-lg-9 -->
+      </div><!-- /.col-lg-9 -->
 
-    </div>
-    <!-- /.row -->
+    </div> <!-- /.row contenido principal-->
+   
 
         <!--/paginación-->
-            <div style="padding-left: 50%;">
+        <div style="padding-left: 50%;">
             <nav aria-label="Page navigation example">
               <ul class="pagination">
                 {% if page_obj.has_previous %}
@@ -124,7 +114,7 @@
 
                 {% for page in page_range %}
                   <li {% if page == page_obj.number %} class="page-item" {% endif %}>
-                      <a class="page-link" href="?page={{ page }}">{{ page }}</a>
+                  <a class="page-link" href="?page={{ page }}">{{ page }}</a>
                   </li>
                 {% endfor %}
 
@@ -139,11 +129,12 @@
 
               </ul>
             </nav>
-            </div>
+        </div>
 
-       <!-- /.container --> 
   
-  </div>      
+      
+  
+  </div>    <!-- /.container -->    
 </section>
 {% endblock contenido%}
 

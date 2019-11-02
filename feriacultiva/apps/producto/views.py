@@ -11,6 +11,7 @@ from django.urls import reverse_lazy
 from django.views.generic.detail import DetailView
 from django.contrib.auth.decorators import login_required
 from apps.producto.forms import ProductoForm
+import collections
 
 class ListarProductos(ListView):
 	model = Producto
@@ -105,5 +106,31 @@ class DetalleProducto(DetailView):
 		categoria = Categoria.objects.filter(nombre = self.kwargs['categoria']).get()
 		context_object_name = 'Sugerencia'
 		list_sugerencia = Producto.objects.filter(categoria = categoria )
-		context['Sugerencia'] = list_sugerencia
-		return context
+        
+		cont = len(list_sugerencia)	
+		iterador = 1
+		cards=[]
+		lista_productos=[]
+		
+		if cont >=3:
+				
+			for i in list_sugerencia:
+				cards.append(i) 
+				if iterador % 3 == 0:
+					#lista_productos.append(cards) 
+					context['Sugerencia'] = cards
+					print('esto es la lista de prod', lista_productos)
+					cards=[]
+					print('esto es la lista de prod2', lista_productos)
+					
+				iterador += 1
+				
+					
+			#context['Sugerencia'] = lista_productos
+			print('este es el contexto', context)
+			return context
+			
+		else:
+			context['Sugerencia'] = list_sugerencia
+			return context
+
