@@ -45,24 +45,28 @@
       </div>
 
                  <!--descripción -->
-                <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+                  <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
                     <div class="col-md-4">
-                      <h1 class="detalle-titulo">{{object.nombre}}</h5>
-                      <p class="card-text-det">Acá debe ir una descripción</p>
-                      <h3 class="detalle-precio">${{object.precio}}</h3>
-                      </br>
-                      <p class="stock-det"><small> Stock: {{object.stock}}</small></p>
-                        <a class="ancla-titulo-feriante" href="" class="imagen">{{object.feriante.encargado.first_name}} </a>
-                        <br>
-                      <label for="cantidad">Cantidad</label>
-                      <input type="number" name="cantidad" id="cantidad">
-                      <label for="envio">Envio</label><br>
-                      <input type="radio" name="envio" value="Si">Si<br>
-                      <input type="radio" name="envio" value="No">No<br>
-                      <button type="submit">Confirmar</button>
-                      <a href="#" class="reservar">Reservar</a> <!-- Sin terminar el backend -->
-                     </div>
-                </form>
+                      
+                        <h1 class="detalle-titulo">{{object.nombre}}</h5>
+                        <p class="card-text-det">Acá debe ir una descripción</p>
+                        <h3 class="detalle-precio">${{object.precio}}</h3>
+                        </br>
+                        <p class="stock-det"><small> Stock: {{object.stock}}</small></p>
+                          <a class="ancla-titulo-feriante" href="" class="imagen">{{object.feriante.encargado.first_name}} </a>
+                          <br>
+                        <label for="cantidad">Cantidad</label><br>
+                        <input type="number" name="cantidad" id="cantidad">
+                        {% if object.feriante.delivery == True %}
+                          <label for="envio">Envio</label><br>
+                          <input type="radio" name="envio" value="Si">Si<br>
+                          <input type="radio" name="envio" value="No">No<br>
+                        {% endif %}
+                        <button type="submit" style="margin-top: 5px;">Confirmar</button>
+                      
+                    </div>
+                  </form>
+                
   
    </div><!-- /fin row -->
 

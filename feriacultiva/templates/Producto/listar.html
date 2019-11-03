@@ -84,7 +84,12 @@
                         <p class="card-text"> Stock: {{p.stock}} </p>
                       </div>
                       <div class="card-footer">
-                          <a href="{% url 'reserva:Addreserva' p.pk %}" class=" carrito">+ carrito</a>
+                        <!-- Cambiar el diseño del boton en caso de que no haya mas en stock -->
+                        {% if p.stock > 0 %}
+                          <a href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class=" carrito">+ carrito</a>
+                          {% else %}
+                          <a href="#">no hay mas</a>
+                        {% endif %}
                       </div>
 
 

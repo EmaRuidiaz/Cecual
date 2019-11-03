@@ -5,12 +5,15 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from apps.producto.models import Producto
 from apps.feriante.models import Feriante
 from apps.categoria.models import Categoria
+from apps.reserva.models import Reserva
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.views.generic.detail import DetailView
 from django.contrib.auth.decorators import login_required
 from apps.producto.forms import ProductoForm
+from apps.reserva.forms import ReservaForm
 import collections
 
 class ListarProductos(ListView):
@@ -100,6 +103,7 @@ class EliminarProducto(LoginRequiredMixin,DeleteView):
 class DetalleProducto(DetailView):
 	model = Producto
 	template_name = 'producto/detalle_producto.html'
+	form_class = ReservaForm #nuevo
 
 	def get_context_data(self, **kwargs):
 		context = super(DetalleProducto, self).get_context_data(**kwargs)
@@ -133,4 +137,22 @@ class DetalleProducto(DetailView):
 		else:
 			context['Sugerencia'] = list_sugerencia
 			return context
+	
+	# nuevo
+	def post(self,request,*args,**kwargs):
+		form = self.form_class(request.POST)
+		if form.is_valid():
+			p = Producto.objects.get(pk = self.kwargs['pk'])
+			res = form.save(commit = False)
+			res.producto = p
+			res.user = request.user
+            # Marca la casilla de envio
+			if request.POST['envio'] == 'Si':
+				res.envio = True
+			else:
+				res.envio = False
+				
+			res.save()
+			return HttpResponseRedirect('/producto/')
+		return render(request,self.template_name, {'form':form})
 

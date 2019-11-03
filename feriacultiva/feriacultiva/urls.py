@@ -41,7 +41,7 @@ urlpatterns = [
 
     path('eventos/', include('apps.evento.urls')),
 
-    path('reserva/', include('apps.reserva.urls')), #
+    # path('reserva/', include('apps.reserva.urls')), #
 
     #LOGIN and LOGOUT
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name="login"),
