@@ -8,10 +8,6 @@ from apps.producto.models import Producto
 class Reserva(models.Model):
     producto = models.ForeignKey(Producto, on_delete = models.PROTECT, related_name = 'reservaxproducto')
     cantidad = models.IntegerField()
-    precio = models.DecimalField(max_digits= 8, decimal_places= 2)
+    # precio = models.DecimalField(max_digits= 8, decimal_places= 2)
     user = models.ForeignKey(User, on_delete = models.PROTECT, related_name = 'reservaxuser')
-    feriante = models.ForeignKey(Feriante, on_delete = models.PROTECT, related_name = 'reservaxferiante')
     envio = models.BooleanField(default = False, blank = True)
-
-    def __str__(self):
-        return self.producto
