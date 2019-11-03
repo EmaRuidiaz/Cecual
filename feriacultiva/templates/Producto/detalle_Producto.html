@@ -55,6 +55,7 @@
                       <p class="stock-det"><small> Stock: {{object.stock}}</small></p>
                         <a class="ancla-titulo-feriante" href="" class="imagen">{{object.feriante.encargado.first_name}} </a>
                         <br>
+                      <!-- valores para guardar en el models de reserva -->
                       <label for="cantidad">Cantidad</label><br>
                       <input type="number" name="cantidad" id="cantidad">
                       {% if object.feriante.delivery == True %}

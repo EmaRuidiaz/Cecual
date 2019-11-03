@@ -15,6 +15,7 @@ from django.contrib.auth.decorators import login_required
 from apps.producto.forms import ProductoForm
 from apps.reserva.forms import ReservaForm
 import collections
+from decimal import Decimal
 
 class ListarProductos(ListView):
 	model = Producto
@@ -146,6 +147,10 @@ class DetalleProducto(DetailView):
 			res = form.save(commit = False)
 			res.producto = p
 			res.user = request.user
+			cant = request.POST['cantidad']
+			total = Decimal(cant) * p.precio
+			print(total)
+			res.precio = total
             # Marca la casilla de envio
 			if request.POST['envio'] == 'Si':
 				res.envio = True
