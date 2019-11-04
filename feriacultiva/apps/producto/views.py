@@ -15,12 +15,9 @@ from django.contrib.auth.decorators import login_required
 from apps.producto.forms import ProductoForm
 from apps.reserva.forms import ReservaForm
 import collections
-<<<<<<< Updated upstream
 from decimal import Decimal
-=======
 from django.contrib import messages
 from django.http import Http404
->>>>>>> Stashed changes
 
 class ListarProductos(ListView):
 	model = Producto
