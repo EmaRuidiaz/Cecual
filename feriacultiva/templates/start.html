@@ -73,33 +73,83 @@
 </header>
 
 <!-- Page Content -->
-<section class="py-5" style="background-image: url({% static 'img/back.png' %})" >
-  <div class="container">
-    <h2 class="font-weight-light">Page Content</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus ab nulla dolorum autem nisi officiis blanditiis voluptatem hic, assumenda aspernatur facere ipsam nemo ratione cumque magnam enim fugiat reprehenderit expedita.</p>
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus ab nulla dolorum autem nisi officiis blanditiis voluptatem hic, assumenda aspernatur facere ipsam nemo ratione cumque magnam enim fugiat reprehenderit expedita.
+<section class="py-5" style="">
+  <div class="container-fluid">
+      <h1 class="my-4">
+       PRODUCTOS RECIENTES
+       </h1>
+       <div class="col-lg-9 mx-auto">
+        <div class="row">
+                {% for p in Recientes %}
+                  <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                      <a href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen" >
+                        {% if p.foto_producto %}
+                                <img class="img-prod" style="width: 80px; height: 150px;" 
+                                src="{{p.foto_producto.url}}" alt="encontre">
+                            {% else %}
+                                <img class="img-prod" style="width: 80px; height: 150px;" 
+                                src="" alt="No existe imagen" >
+                        {% endif %}
+                        </a>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a class="ancla-titulo" href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen"> {{p.nombre}} </a>
+                        </h4>
+                        <h5 class="prod"> ${{p.precio}} </h5>
+                        <p class="card-text"> Stock: {{p.stock}} </p>
+                      </div>
+                      <div class="card-footer">
+                        <!-- Cambiar el diseño del boton en caso de que no haya mas en stock -->
+                        {% if p.stock > 0 %}
+                          <a href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class=" carrito">+ carrito</a>
+                          {% else %}
+                          <a href="#">no hay mas</a>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+          </div>
+        </div>
 
+    <div class="card text-white  my-5 py-4 w-100 text-center" 
+    style="background-color:#a9c52f;">
+      <div class="card-body">
+        <p class="text-white m-0">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+    </div>
 
+        
+        <div class="container">
+        <div class="row">
+        <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h1 class="gallery-title">Gallery</h1>
+        </div>
 
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus ab nulla dolorum autem nisi officiis blanditiis voluptatem hic, assumenda aspernatur facere ipsam nemo ratione cumque magnam enim fugiat reprehenderit expedita.
-
-
-
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus ab nulla dolorum autem nisi officiis blanditiis voluptatem hic, assumenda aspernatur facere ipsam nemo ratione cumque magnam enim fugiat reprehenderit expedita.
-
-
-
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus ab nulla dolorum autem nisi officiis blanditiis voluptatem hic, assumenda aspernatur facere ipsam nemo ratione cumque magnam enim fugiat reprehenderit expedita.
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus ab nulla dolorum autem nisi officiis blanditiis voluptatem hic, assumenda aspernatur facere ipsam nemo ratione cumque magnam enim fugiat reprehenderit expedita.
-
-
-
-
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus ab nulla dolorum autem nisi officiis blanditiis voluptatem hic, assumenda aspernatur facere ipsam nemo ratione cumque magnam enim fugiat reprehenderit expedita.
-
-
-
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus ab nulla dolorum autem nisi officiis blanditiis voluptatem hic, assumenda aspernatur facere ipsam nemo ratione cumque magnam enim fugiat reprehenderit expedita. </p>
+       {% for p in Categorias %}
+           <div class="col-md-4 mx-auto">
+              <div class="card"  style= "margin: 5px;" >
+                <img class="card-img-top" src=" {{p.foto.url}} " alt="Card image cap" style="width: 300px; height: 300px;">
+                
+              </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
   </div>
 </section>
 

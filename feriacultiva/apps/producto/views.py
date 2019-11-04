@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 from django.core.paginator import Paginator
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -6,7 +6,6 @@ from apps.producto.models import Producto
 from apps.feriante.models import Feriante
 from apps.categoria.models import Categoria
 from apps.reserva.models import Reserva
-from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
@@ -53,7 +52,7 @@ class ListarProductos(ListView):
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
 		print (context)
-		print('context')
+		
 		paginator = context['paginator']
 		page_numbers_range = 10 #Cantidad de página que se va a mostrar 
 		max_index = len(paginator.page_range)
@@ -69,6 +68,7 @@ class ListarProductos(ListView):
 
 		page_range = paginator.page_range[start_index:end_index]
 		context['page_range'] = page_range
+		context['filtro'] = Categoria.objects.all()
 		return context
 
 	def get_queryset(self):
@@ -83,11 +83,11 @@ class ListarProductos(ListView):
 			x = Producto.objects.filter(categoria = categoria)
 		return x
 
-	def get_context_data(self, **kwargs):
-		context = super().get_context_data(**kwargs)
-		context['filtro'] = Categoria.objects.all()
+	# def get_context_data(self, **kwargs):
+	# 	context = super().get_context_data(**kwargs)
+	# 	context['filtro'] = Categoria.objects.all()
 	
-		return context
+	# 	return context
 
 class AgregarProductoo(LoginRequiredMixin,CreateView): #Vistas basadas en clases
 	#form = ProductoForm(request.POST or None, request.FILES)
@@ -154,21 +154,21 @@ class DetalleProducto(DetailView):
 		cards=[]
 		lista_productos=[]
 		
-		if cont >=3:
+		if cont > 3:
 				
-			for i in list_sugerencia:
+			for i in list_sugerencia:   
 				cards.append(i) 
 				if iterador % 3 == 0:
 					#lista_productos.append(cards) 
 					context['Sugerencia'] = cards
 					print('esto es la lista de prod', lista_productos)
 					cards=[]
-					print('esto es la lista de prod2', lista_productos)
+					
 					
 				iterador += 1
 				
 					
-			#context['Sugerencia'] = lista_productos
+			context['Sugerencia'] = lista_productos
 			print('este es el contexto', context)
 			return context
 			

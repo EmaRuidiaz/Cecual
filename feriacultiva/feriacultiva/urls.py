@@ -27,7 +27,7 @@ urlpatterns = [
     path('administrador/', views.Administrador, name="panelAdmin"),
 
     #URL Principal
-    path('', views.Inicio, name="start"),
+    path('', views.Inicio.as_view(), name="start"),
   
     path('registro/', include('apps.user.urls')),
 

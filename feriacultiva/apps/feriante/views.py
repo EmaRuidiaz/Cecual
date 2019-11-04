@@ -23,26 +23,25 @@ class ListarFeriantesWeb(ListView):
 	paginate_by = 9
 	template_name = 'Feriante/ListarFeriantesWeb.html'
 
-def get_context_data(self, **kwargs):
-		context = super().get_context_data(**kwargs)
-		print (context)
-		print('context')
-		paginator = context['paginator']
-		page_numbers_range = 10 #Cantidad de página que se va a mostrar 
-		max_index = len(paginator.page_range)
+	def get_context_data(self, **kwargs):
+			context = super().get_context_data(**kwargs)
+			print (context)
+			paginator = context['paginator']
+			page_numbers_range = 10 #Cantidad de página que se va a mostrar 
+			max_index = len(paginator.page_range)
 
-		page = self.request.GET.get('page')
-		print (self.request)
-		current_page = int(page) if page else 1
+			page = self.request.GET.get('page')
+			print (self.request)
+			current_page = int(page) if page else 1
 
-		start_index = int((current_page - 1) / page_numbers_range) * page_numbers_range
-		end_index = start_index + page_numbers_range
-		if end_index >= max_index:
-			end_index = max_index
+			start_index = int((current_page - 1) / page_numbers_range) * page_numbers_range
+			end_index = start_index + page_numbers_range
+			if end_index >= max_index:
+				end_index = max_index
 
-		page_range = paginator.page_range[start_index:end_index]
-		context['page_range'] = page_range
-		return context
+			page_range = paginator.page_range[start_index:end_index]
+			context['page_range'] = page_range
+			return context
 
 #Vistas basadas en clases
 class AgregarFeriante(SuccessMessageMixin, LoginRequiredMixin,CreateView): 

@@ -6,7 +6,6 @@ body{
   min-height: 180px;
   background-size: cover;
   background-position: center;
-  background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
   background-repeat: no-repeat;
   font-family: "Roboto Slab", serif;
 
@@ -68,4 +67,165 @@ body{
 
 .dropdown:hover div{
   visibility: visible;
+}
+
+.col-lg-9 {
+  padding-top: 20px;
+  margin-top: 20px;
+  background-color: #fff;
+}
+
+/*imagen de la card*/
+.img-prod{
+  display:block;
+  margin:auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+}
+  
+.card:hover .imagen {
+  -webkit-transform:scale(1.3);transform:scale(1.3);}
+
+.card {overflow:hidden;}
+
+/*contenido de la card /titulo de la card*/
+.card-title {
+   color: #283739;
+   font-size: 15px;
+   font-weight: bold;
+   font-family: "Roboto Slab", serif;
+   border-bottom: 2px solid #f5f5f5;
+}
+
+.ancla-titulo:link {
+  text-decoration:none;
+  color: #283739;
+}
+
+.ancla-titulo:visited{
+  text-decoration:none;
+  color: #283739;
+}
+
+
+.ancla-titulo:hover{
+  text-decoration:none;
+  color: #283739;
+  cursor:pointer;
+}
+
+.carrito{
+ text-decoration:none;
+  color: #283739;
+}
+
+.carrito:visited{
+text-decoration:none;
+  color: #283739;
+}
+
+.carrito:link{
+text-decoration:none;
+  color: #283739;
+}
+
+.carrito:hover{
+text-decoration:none;
+  color: #283739;
+  cursor:pointer;
+}
+
+
+.prod{
+   color: #a9c52f;
+   font-size: 15px;
+   font-weight: bold;
+   font-family: "Roboto Slab", serif;
+}
+
+.card-text{
+  display: block;
+  margin:auto;
+  background-color: #f0134d;
+  color: #f5f5f5;
+  width: 100px;
+  text-align: center;
+  font-family: "Roboto Slab", serif;
+
+}
+
+/*estilo categorias/*
+/*título de la categoría*/
+h3{
+  font-size: 25px;
+  color: #2c5d63;
+}
+
+.page-link{
+  color: #283739;
+  font-weight: bold;
+
+}
+
+.page-link:hover{
+text-decoration:none;
+background-color: #a9c52f;
+color: #fff;
+ 
+}
+
+
+/*ESTILOS CARDS CATGORIAS*/
+.gallery-title
+{
+    font-size: 36px;
+    color: #42B32F;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 70px;
+}
+.gallery-title:after {
+    content: "";
+    position: absolute;
+    width: 7.5%;
+    left: 46.5%;
+    height: 45px;
+    border-bottom: 1px solid #5e5e5e;
+}
+.filter-button
+{
+    font-size: 18px;
+    border: 1px solid #42B32F;
+    border-radius: 5px;
+    text-align: center;
+    color: #42B32F;
+    margin-bottom: 30px;
+
+}
+.filter-button:hover
+{
+    font-size: 18px;
+    border: 1px solid #42B32F;
+    border-radius: 5px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #42B32F;
+
+}
+.btn-default:active .filter-button:active
+{
+    background-color: #42B32F;
+    color: white;
+}
+
+.port-image
+{
+    width: 100%;
+}
+
+.gallery_product
+{
+    margin-bottom: 30px;
+
 }
