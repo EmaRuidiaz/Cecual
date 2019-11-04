@@ -23,19 +23,25 @@
        <h1 class="my-4">Productos >
        <small>Catálogo</small>
        </h1>
-  <div class="row"> <!-- row página principal -->
-   
+  <div class="row">
+
+   <!-- row página principal -->
+    <div class="col-12">
+    {% if user.es_empresa %}
+      <button class="btn float-right" type="button"  >
+        <a href="{% url 'producto:agregar' %}">
+        Nuevo</a>
+      </button>
+    {% endif %}
+    </div>
+
 
  <!-- USAR ESTE FILTRO X EL MOMENTO -->
-    <div class="col-lg-3"> 
-       {% if user.es_empresa %}
-       <a href="{% url 'producto:agregar' %}">Nuevo</a>
-       {% endif %}
-        <h3 class="my-5">CATEGORÍAS</h3>
+    <div class="col-lg-12 d-flex justify-content-center"> 
         <div class="list-group">
           <form>
               <select name="Categoria">
-                  <option value="0">Todo</option>
+                  <option value="0">Todos</option>
                       {% for r in filtro %}
                   <option value="{{r.pk}}">{{r.nombre}}</option>
                       {% endfor %}
@@ -58,8 +64,8 @@
         </div>
       </div> -->
       <!-- /.col-lg-3 -->
-
-      <div class="col-lg-9">
+     
+      <div class="col-lg-9 mx-auto">
         <div class="row">
            {% if object_list|length == 0 %}
            <label for="">No hay productos para esta categoria</label>

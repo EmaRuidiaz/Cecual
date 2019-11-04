@@ -47,14 +47,21 @@
 
  <!--descripción -->
   <div class="col-md-6">
-    <h5 class="detalle-titulo">Quienes somos:</h5>
+    <h5 class="detalle-titulo">NOSOTROS:</h5>
     <p class="card-text-det">{{object.descripcion}}</p>
-     <p class="stock-det"><small>Encargado: {{object.encargado}}</small></p>
-    <h5 class="detalle-titulo">Consultas</h5>
+    <h5 class="detalle-titulo">CONSULTAS:</h5>
     <p class="card-text-det">Teléfono: {{object.encargado.telefono}}</p>
     <p class="card-text-det">Correo: {{object.encargado.email}}</p>
-    <p class="stock-det"><small>Delivery: {{object.delivery}}</small></p>
- 
+    <div class="">
+      {%  if object.delivery == False %}
+      <p class="item-d mx-auto">NO HACEMOS ENTREGA A DOMICILIO</p>
+      {% else %}
+      <p class="item-d mx-auto">HACEMOS ENTREGA A DOMICILIO
+      <span class="glyphicon glyphicon-ok"></span>
+      </p>
+      {% endif %}
+    </div>
+    
   </div>
   
           
