@@ -23,6 +23,32 @@ class ListarProductos(ListView):
 	model = Producto
 	paginate_by = 12
 	template_name = 'Producto/listar.html'
+	form_class = ReservaForm #
+
+	def post(self,request,*args,**kwargs):
+		form = self.form_class(request.POST)
+		print('anted de is_valid')
+		pk = request.POST['Confirmar']
+		print(pk)
+		if form.is_valid():
+			p = Producto.objects.get(pk = pk)
+			res = form.save(commit = False)
+			res.producto = p
+			res.user = request.user
+			cant = request.POST['cantidad']
+			total = Decimal(cant) * p.precio
+			print(total)
+			res.precio = total
+            # Marca la casilla de envio
+			# if request.POST['envio'] == 'Si':
+			# 	res.envio = True
+			# else:
+			# 	res.envio = False
+				
+			res.save()
+			print('Guardeeee')
+			return HttpResponseRedirect('/producto/')
+		return render(request,self.template_name, {'form':form})
 
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)

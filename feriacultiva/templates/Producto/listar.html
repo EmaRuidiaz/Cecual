@@ -92,7 +92,11 @@
                       <div class="card-footer">
                         <!-- Cambiar el diseño del boton en caso de que no haya mas en stock -->
                         {% if p.stock > 0 %}
-                          <a href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class=" carrito">+ carrito</a>
+                          <form action=""method="post" enctype="multipart/form-data">{% csrf_token %}
+                            <label for="cantidad">Cantidad</label><br>
+                            <input type="number" name="cantidad" id="cantidad" style="width: 54px">
+                            <button type="submit" value="{{p.pk}}" name="Confirmar" style="margin-top: 5px;">Confirmar</button>
+                          </form>
                           {% else %}
                           <a href="#">no hay mas</a>
                         {% endif %}
