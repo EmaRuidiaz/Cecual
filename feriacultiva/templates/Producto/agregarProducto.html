@@ -31,6 +31,14 @@
 		
 	<div class="row">  
 
+
+		{% if object %}
+			<form autocomplete="off" method="POST"  enctype="multipart/form-data">{% csrf_token %}
+				{{form.as_p}}
+				<button type="submit">save</button>
+				
+			</form>
+		{% endif %}
 <!--formulario -->
 		<div class="container h-100 " style="background-color: #f5f5f5;padding-top: 15px; padding-bottom: 15px;" >
 
@@ -68,8 +76,12 @@
 		                        <label for="inputApellido">Stock</label> 
 		                        <input type="number" class="form-control" placeholder="Ingrese el stock" name="stock">
 		                    </div>
-		               
-
+		               	
+							<div class="form-group">
+		                        <label >Descripción</label>
+		                        <input type="text" name="descripcion">
+		                        <!-- <input type="submit" value="Enviar datos">-->
+		                    </div>
 						
 		                    <div class="form-group">
 		                        <label >Imagen del producto</label>
@@ -85,7 +97,7 @@
 		                    	<label>Seleccionar categoria</label>
 		                        <select name="categoria">
 									{% for c in categoria %}
-										<option value="{{ c }}">{{ c }}</option>
+										<option value="{{ c.pk }}">{{ c }}</option>
 									{% endfor %}
 								</select>
 		                    </div>

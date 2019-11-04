@@ -15,7 +15,12 @@ from django.contrib.auth.decorators import login_required
 from apps.producto.forms import ProductoForm
 from apps.reserva.forms import ReservaForm
 import collections
+<<<<<<< Updated upstream
 from decimal import Decimal
+=======
+from django.contrib import messages
+from django.http import Http404
+>>>>>>> Stashed changes
 
 class ListarProductos(ListView):
 	model = Producto
@@ -61,17 +66,14 @@ class ListarProductos(ListView):
 	
 		return context
 
-class AgregarProducto(LoginRequiredMixin,CreateView): #Vistas basadas en clases
+class AgregarProductoo(LoginRequiredMixin,CreateView): #Vistas basadas en clases
 	#form = ProductoForm(request.POST or None, request.FILES)
-	form_class = ProductoForm
+	#form_class = ProductoForm
+	model = Producto
 	template_name = 'Producto/agregarProducto.html'
+	fields = '__all__'
 	success_url = reverse_lazy('producto:listar')
-
-	def get_context_data(self, **kwargs):
-		context = super().get_context_data(**kwargs)
-		context['categoria'] = Categoria.objects.all()
-		#context['feriante'] = Feriante.objects.all()
-		return context
+	success_message = 'Feriante agregado correctamente'
 
 	'''
 	
@@ -81,25 +83,37 @@ class AgregarProducto(LoginRequiredMixin,CreateView): #Vistas basadas en clases
 
 	#return render(request, 'Producto/agregarProducto.html', context)
 
-'''def AgregarProducto(request): #Vistas basadas en funciones
-	form = ProductosForm(request.POST or None, request.FILES)
+def AgregarProducto(request): #Vistas basadas en funciones
+	form = ProductoForm(request.POST or None, request.FILES or None)
 
 	if form.is_valid():
-		form.save()
-		return redirect('productos:listar')
+		ap = form.save(commit=False)
+		ap.categoria = Categoria.objects.get(pk = request.POST.get('categoria'))
+		ap.feriante = Feriante.objects.get(encargado = request.user.pk)
+		ap.save()
+		messages.success(request, 'Student added successfully')
+		return redirect('producto:listar')
 
-	return render(request, 'Productos/agregar.html', {'form': form})'''
+
+	return render(request, 'Producto/agregarProducto.html', {'form': form, 'categoria': Categoria.objects.all(), 'feriantes': Feriante.objects.all()})
 
 class ModificarProducto(LoginRequiredMixin,UpdateView):
 	model = Producto
 	template_name = 'Producto/agregarProducto.html'
-	success_url = reverse_lazy('productos:listar')
-	fields = '__all__'
+	fields = ['nombre', 'precio', 'stock', 'foto_producto', 'categoria', 'descripcion']
+	success_url = reverse_lazy('producto:listar')
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context['categoria'] = Categoria.objects.all()
+	
+		return context
 
 class EliminarProducto(LoginRequiredMixin,DeleteView):
 	model = Producto
 	template_name = 'Producto/eliminarProducto.html'
-	success_url = reverse_lazy('productos:listar')
+	success_url = reverse_lazy('producto:listar')
+
 
 class DetalleProducto(DetailView):
 	model = Producto
@@ -111,7 +125,7 @@ class DetalleProducto(DetailView):
 		categoria = Categoria.objects.filter(nombre = self.kwargs['categoria']).get()
 		context_object_name = 'Sugerencia'
 		list_sugerencia = Producto.objects.filter(categoria = categoria )
-        
+		
 		cont = len(list_sugerencia)	
 		iterador = 1
 		cards=[]

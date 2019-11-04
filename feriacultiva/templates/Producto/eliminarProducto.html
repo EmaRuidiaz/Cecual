@@ -1,4 +1,10 @@
 {% extends 'base.html' %}
 
 {% block contenido %}
+
+	<form method="POST">
+		{% csrf_token %}
+		<div class="alert alert-danger mt-5 ml-3 mr-3" role="alert">Estas seguro que quieres eliminar el producto {{ object.nombre }}?</div>
+		<button class="btn btn-danger ml-3" type="submit">Si</button>
+	</form>
 {% endblock contenido %}
