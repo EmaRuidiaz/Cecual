@@ -46,12 +46,11 @@
       </div>
 
                  <!--descripción -->
-<<<<<<< Updated upstream
                 <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
                   <div class="col-md-4">
                     
                       <h1 class="detalle-titulo">{{object.nombre}}</h5>
-                      <p class="card-text-det">Acá debe ir una descripción</p>
+                      <p class="card-text-det">{{object.descripcion}}</p>
                       <h3 class="detalle-precio">${{object.precio}}</h3>
                       </br>
                       <p class="stock-det"><small> Stock: {{object.stock}}</small></p>
@@ -69,20 +68,6 @@
                     
                   </div>
                 </form>
-=======
-                    <div class="col-md-4">
-        
-                                <h1 class="detalle-titulo">{{object.nombre}}</h5>
-                                <p class="card-text-det">{{object.descripcion}}</p>
-                                <h3 class="detalle-precio">${{object.precio}}</h3>
-                                </br>
-                                <p class="stock-det"><small> Stock: {{object.stock}}</small></p>
-                                 <a class="ancla-titulo-feriante" href="" class="imagen">{{object.feriante.encargado.first_name}} </a>
-                                 <br>
-                                <a href="#" class="reservar">Reservar</a> <!-- Sin terminar el backend -->
-
-                     </div>
->>>>>>> Stashed changes
   
    </div><!-- /fin row -->
 
