@@ -159,21 +159,20 @@ class DetalleProducto(DetailView):
 			for i in list_sugerencia:   
 				cards.append(i) 
 				if iterador % 3 == 0:
-					#lista_productos.append(cards) 
-					context['Sugerencia'] = cards
+					lista_productos.append(cards) 
+					#context['Sugerencia'] = cards
 					print('esto es la lista de prod', lista_productos)
 					cards=[]
 					
 					
 				iterador += 1
-				
 					
 			context['Sugerencia'] = lista_productos
 			print('este es el contexto', context)
 			return context
 			
 		else:
-			context['Sugerencia'] = list_sugerencia
+			
 			return context
 	
 	# nuevo

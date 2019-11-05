@@ -9,6 +9,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.list import ListView
 from django.core.paginator import Paginator
 from django.views.generic.detail import DetailView
+from apps.producto.models import Producto
 
 
 
@@ -25,7 +26,6 @@ class ListarFeriantesWeb(ListView):
 
 	def get_context_data(self, **kwargs):
 			context = super().get_context_data(**kwargs)
-			print (context)
 			paginator = context['paginator']
 			page_numbers_range = 10 #Cantidad de página que se va a mostrar 
 			max_index = len(paginator.page_range)
@@ -62,6 +62,16 @@ def EliminarFeriante(request,pk):
 
 class DetalleFeriante(DetailView):
 	model = Feriante
-	template_name = 'feriante/detalle_feriante.html'
+	template_name = 'Feriante/detalle_feriante.html'
+
+	def MisProductos(self, request, pk):
+		context = {}
+		usuario = Feriante.objects.get(pk = self.kwargs['pk'])
+		print("ESTA ES LA PK", usuario)
+		productos = Producto.objects.filter(feriante = usuario )
+		context['object_list'] = productos
+		print( context)
+
+		return context
 
 

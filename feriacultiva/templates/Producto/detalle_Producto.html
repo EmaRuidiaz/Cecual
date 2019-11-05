@@ -87,22 +87,22 @@
                   {% endif %}
                     <div class="container">
                       <div class="row">
-                        {% for p in Sugerencia %}
+                        {% for i in p %}
                           <div class="col-sm-12 col-md-4">
                             <div class="card" id="mi-card" style="margin: auto; margin-top: 12%;">
-                              <a href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen">
-                                  {% if p.foto_producto %}
-                                  <img class="card-img-top" style="width: 80px; height: 150px;" src="{{p.foto_producto.url}}" alt="encontre" >
+                              <a href="{% url 'producto:Detalle' i.pk i.categoria.nombre %}" class="imagen">
+                                  {% if i.foto_producto %}
+                                  <img class="card-img-top" style="width: 80px; height: 150px;" src="{{i.foto_producto.url}}" alt="encontre" >
                                   {% else %}
                                   <img class="card-img-top" style="width: 80px; height: 150px;" src="" alt="No existe imagen" >
                                   {% endif %}
                               </a>
                                 <div class="card-body">
                                 <h4 class="card-title">
-                                <a class="ancla-titulo" href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen"> {{p.nombre}} </a>
+                                <a class="ancla-titulo" href="{% url 'producto:Detalle' i.pk i.categoria.nombre %}" class="imagen"> {{i.nombre}} </a>
                                 </h4>
-                                <h5 class="prod"> ${{p.precio}} </h5>
-                                <p class="card-text"> Stock: {{p.stock}} </p>
+                                <h5 class="prod"> ${{i.precio}} </h5>
+                                <p class="card-text"> Stock: {{i.stock}} </p>
                                 </div>
                                 <div class="card-footer">
                                   <a href="" class=" carrito">+ carrito</a>
