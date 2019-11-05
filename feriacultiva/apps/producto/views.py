@@ -13,6 +13,7 @@ from django.views.generic.detail import DetailView
 from django.contrib.auth.decorators import login_required
 from apps.producto.forms import ProductoForm
 from apps.reserva.forms import ReservaForm
+from apps.pedido.forms import PedidoForm
 import collections
 from decimal import Decimal
 from django.contrib import messages
@@ -22,7 +23,7 @@ class ListarProductos(ListView):
 	model = Producto
 	paginate_by = 12
 	template_name = 'Producto/listar.html'
-	form_class = ReservaForm #
+	form_class = PedidoForm #ReservaForm 
 
 	def post(self,request,*args,**kwargs):
 		form = self.form_class(request.POST)
@@ -33,11 +34,11 @@ class ListarProductos(ListView):
 			p = Producto.objects.get(pk = pk)
 			res = form.save(commit = False)
 			res.producto = p
-			res.user = request.user
-			cant = request.POST['cantidad']
-			total = Decimal(cant) * p.precio
-			print(total)
-			res.precio = total
+			res.cliente = request.user
+			# cant = request.POST['cantidad']
+			# total = Decimal(cant) * p.precio
+			# print(total)
+			# res.precio = total
             # Marca la casilla de envio
 			# if request.POST['envio'] == 'Si':
 			# 	res.envio = True
@@ -141,7 +142,7 @@ class EliminarProducto(LoginRequiredMixin,DeleteView):
 class DetalleProducto(DetailView):
 	model = Producto
 	template_name = 'producto/detalle_producto.html'
-	form_class = ReservaForm #nuevo
+	form_class = PedidoForm #ReservaForm
 
 	def get_context_data(self, **kwargs):
 		context = super(DetalleProducto, self).get_context_data(**kwargs)
@@ -183,11 +184,11 @@ class DetalleProducto(DetailView):
 			p = Producto.objects.get(pk = self.kwargs['pk'])
 			res = form.save(commit = False)
 			res.producto = p
-			res.user = request.user
-			cant = request.POST['cantidad']
-			total = Decimal(cant) * p.precio
-			print(total)
-			res.precio = total
+			res.cliente = request.user
+			# cant = request.POST['cantidad']
+			# total = Decimal(cant) * p.precio
+			# print(total)
+			# res.precio = total
             # Marca la casilla de envio
 			if request.POST['envio'] == 'Si':
 				res.envio = True

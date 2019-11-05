@@ -126,3 +126,10 @@ STATICFILES_DIRS = (os.path.join(os.path.dirname(BASE_DIR), "statics"),)
 
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),'media')
 MEDIA_URL = '/media/'
+
+# EMAIL_BACKEND = 'Django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_USER = 'feriacultivasite@gmail.com'
+# EMAIL_HOST_PASSWORD = 'Cecual2019'
+# EMAIL_PORT = 587

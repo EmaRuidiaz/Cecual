@@ -6,4 +6,4 @@ class PedidoForm(ModelForm):
 
     class Meta:
         model = Pedido
-        fields = ['producto','cantidad','envio']
+        fields = ['cantidad','envio']
