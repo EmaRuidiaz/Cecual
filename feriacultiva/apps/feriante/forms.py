@@ -32,6 +32,5 @@ class FerianteForm(UserCreationForm):
 		p = Group.objects.get(name = 'feriante')
 		user.save()
 		p.user_set.add(user)
-		empresa = Feriante.objects.create(descripcion = 'vacio',
-			encargado = user)
+		empresa = Feriante.objects.create(descripcion = 'vacio',encargado = user)
 		return user

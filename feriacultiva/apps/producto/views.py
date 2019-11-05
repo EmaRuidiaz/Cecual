@@ -23,7 +23,7 @@ class ListarProductos(ListView):
 	model = Producto
 	paginate_by = 12
 	template_name = 'Producto/listar.html'
-	form_class = PedidoForm #ReservaForm 
+	form_class = PedidoForm
 
 	def post(self,request,*args,**kwargs):
 		form = self.form_class(request.POST)
@@ -35,10 +35,10 @@ class ListarProductos(ListView):
 			res = form.save(commit = False)
 			res.producto = p
 			res.cliente = request.user
-			# cant = request.POST['cantidad']
-			# total = Decimal(cant) * p.precio
-			# print(total)
-			# res.precio = total
+			cant = request.POST['cantidad']
+			total = Decimal(cant) * p.precio
+			print(total)
+			res.total = total
             # Marca la casilla de envio
 			# if request.POST['envio'] == 'Si':
 			# 	res.envio = True
@@ -142,7 +142,7 @@ class EliminarProducto(LoginRequiredMixin,DeleteView):
 class DetalleProducto(DetailView):
 	model = Producto
 	template_name = 'producto/detalle_producto.html'
-	form_class = PedidoForm #ReservaForm
+	form_class = PedidoForm
 
 	def get_context_data(self, **kwargs):
 		context = super(DetalleProducto, self).get_context_data(**kwargs)
@@ -177,7 +177,6 @@ class DetalleProducto(DetailView):
 			context['Sugerencia'] = list_sugerencia
 			return context
 	
-	# nuevo
 	def post(self,request,*args,**kwargs):
 		form = self.form_class(request.POST)
 		if form.is_valid():
@@ -185,10 +184,10 @@ class DetalleProducto(DetailView):
 			res = form.save(commit = False)
 			res.producto = p
 			res.cliente = request.user
-			# cant = request.POST['cantidad']
-			# total = Decimal(cant) * p.precio
-			# print(total)
-			# res.precio = total
+			cant = request.POST['cantidad']
+			total = Decimal(cant) * p.precio
+			print(total)
+			res.total = total
             # Marca la casilla de envio
 			if request.POST['envio'] == 'Si':
 				res.envio = True
@@ -198,4 +197,3 @@ class DetalleProducto(DetailView):
 			res.save()
 			return HttpResponseRedirect('/producto/')
 		return render(request,self.template_name, {'form':form})
-
