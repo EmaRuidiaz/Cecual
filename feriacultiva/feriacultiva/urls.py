@@ -33,6 +33,10 @@ urlpatterns = [
 
     path('historia/', include('apps.historia.urls')),
 
+    path('pedidos/', include('apps.pedido.urls')),
+
+    path('reservas/', include('apps.reserva.urls')),
+
     path('publicaciones/', include('apps.publicaciones.urls')),
 
     path('producto/', include('apps.producto.urls')),
