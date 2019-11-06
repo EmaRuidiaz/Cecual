@@ -45,6 +45,7 @@
       </div>
 
 
+
  <!--descripción -->
   <div class="col-md-6">
     <h5 class="detalle-titulo">NOSOTROS:</h5>
@@ -61,6 +62,36 @@
       </p>
       {% endif %}
     </div>
+
+    <div class="row">
+        {% if product|length == 0 %}
+        <label for="">No hay productos para esta categoria</label>
+         {% else%}
+             {% for p in product %}
+               <div class="col-lg-4 col-md-6 mb-4">
+                 <div class="card h-100">
+                   <a href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen" >
+                     {% if p.foto_producto %}
+                             <img class="img-prod" style="width: 80px; height: 150px;" 
+                             src="{{p.foto_producto.url}}" alt="encontre">
+                         {% else %}
+                             <img class="img-prod" style="width: 80px; height: 150px;" 
+                             src="" alt="No existe imagen" >
+                     {% endif %}
+                     </a>
+                   <div class="card-body">
+                     <h4 class="card-title">
+                       <a class="ancla-titulo" href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen"> {{p.nombre}} </a>
+                     </h4>
+                     <h5 class="prod"> ${{p.precio}} </h5>
+                     <p class="card-text"> Stock: {{p.stock}} </p>
+                   </div>
+                 </div>
+               </div>
+             {% endfor %}
+           {% endif %}
+
+     </div>
     
   </div>
   

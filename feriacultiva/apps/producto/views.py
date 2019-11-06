@@ -83,6 +83,7 @@ class ListarProductos(ListView):
 		else:
 			x = Producto.objects.filter(categoria = categoria)
 		return x
+	
 
 	# def get_context_data(self, **kwargs):
 	# 	context = super().get_context_data(**kwargs)

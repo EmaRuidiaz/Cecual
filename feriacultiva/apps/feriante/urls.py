@@ -17,5 +17,10 @@ urlpatterns = [
 
     path('detalleFeriante/<int:pk>', views.DetalleFeriante.as_view(), name="detalle"),
 
+    path('correo/', views.EnviarCorreo, name="correo"),
+
+    path('MisProductos/', views.MisProductos, name='MisProductos'),
+
+
 
 ]

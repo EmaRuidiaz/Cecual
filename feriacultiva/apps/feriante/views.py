@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from apps.feriante.models import Feriante
+from apps.producto.models import Producto
+from apps.user.models import User
 from django.views.generic.edit import CreateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
@@ -10,6 +12,8 @@ from django.views.generic.list import ListView
 from django.core.paginator import Paginator
 from django.views.generic.detail import DetailView
 from apps.producto.models import Producto
+
+from django.core.mail import send_mail
 
 
 
@@ -74,4 +78,29 @@ class DetalleFeriante(DetailView):
 
 		return context
 
+	def get_context_data(self,**kwargs):
+		context = super().get_context_data(**kwargs)
+		p = Producto.objects.filter(feriante = self.kwargs['pk'])
+		context['product'] = p
+		return context
 
+
+def MisProductos(request):
+	context = {}
+	feriante2 = Feriante.objects.get(encargado = request.user)
+	print(feriante2)
+	p = Producto.objects.filter(feriante = feriante2)
+	context['product'] = p
+	print(context)
+	return render(request,'Feriante/MisProductos.html',context)
+
+
+# Esta funcion envia un correo
+def EnviarCorreo(request):
+	send_mail('Prueba', # titulo
+		'Esto es un correo de prueba', # mensaje
+		'feriacultivasite@gmail.com', 
+		['flechaverde_s88@hotmail.com'], # Para:
+		fail_silently=False,
+	)
+	return render(request,'Producto/listar.html')

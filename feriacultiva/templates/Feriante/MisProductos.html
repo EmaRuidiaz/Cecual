@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %} Productos {% endblock titulo%}
+{% block contenido %}  
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/productos.css' %}">
+</head>
+
+<header class="masthead" style="background-image: url({% static 'img/productos.jpg' %}) ">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 text-center">
+        <h1 class="font-weight-light">  </h1>
+        <p class="lead"></p>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<section class="py-5"><!-- Page Content -->
+  <div class="container"><!-- Container página principal -->
+       <h1 class="my-4">Productos >
+       <small>Mis Productos</small>
+       </h1>
+  <div class="row">
+
+   <!-- row página principal -->
+    <div class="col-12">
+    {% if user.es_empresa %}
+      <button class="btn float-right" type="button"  >
+        <a href="{% url 'producto:agregar' %}">
+        Nuevo</a>
+      </button>
+    {% endif %}
+    </div>  
+      <div class="col-lg-9 mx-auto">
+        <div class="row">
+           {% if product|length == 0 %}
+           <label for="">No hay productos para esta categoria</label>
+            {% else%}
+                {% for p in product %}
+                  <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                      <a href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen" >
+                        {% if p.foto_producto %}
+                                <img class="img-prod" style="width: 80px; height: 150px;" 
+                                src="{{p.foto_producto.url}}" alt="encontre">
+                            {% else %}
+                                <img class="img-prod" style="width: 80px; height: 150px;" 
+                                src="" alt="No existe imagen" >
+                        {% endif %}
+                        </a>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a class="ancla-titulo" href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen"> {{p.nombre}} </a>
+                        </h4>
+                        <h5 class="prod"> ${{p.precio}} </h5>
+                        <p class="card-text"> Stock: {{p.stock}} </p>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              {% endif %}
+
+        </div> <!-- /.row col-lg-9 -->
+      </div><!-- /.col-lg-9 -->
+
+    </div> <!-- /.row contenido principal-->
+   
+  </div>    <!-- /.container -->    
+</section>
+{% endblock contenido%}
+
+
+
+
