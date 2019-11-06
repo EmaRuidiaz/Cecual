@@ -23,7 +23,7 @@ def AgregarReserva(request):
 		Reserva.objects.create(n_pedido = n_ped, producto = pedido.producto, cantidad = pedido.cantidad, precio = pedido.total, user = pedido.cliente, envio = pedido.envio)
 	
 	
-	Pedido.objects.all().delete()
+	Pedido.objects.filter(cliente = request.user).delete()
 	'''	
 	if form.is_valid():
 		ap = form.save(commit=False)

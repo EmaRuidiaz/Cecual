@@ -2,15 +2,16 @@
 	{% for p in object_list %}
 	<label for="">{{p.producto}}</label>
 
-	<a href="{% url 'evento:modificarEvento' p.pk %}">modificar</a>
+	<a href="{% url 'pedido:delete' p.pk %}">delete</a>
 	{% endfor %}
 
+
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<strong><a href="{% url 'reserva:agregar' %}">Confirmar Pedido</a></strong>
 {% else %}
 	<label for="">No pedidos</label>
 {% endif %}
-<br>
-<br>
-<br>
-<br>
-
-<strong><a href="{% url 'reserva:agregar' %}">Confirmar Pedido</a></strong>

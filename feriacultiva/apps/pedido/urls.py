@@ -7,9 +7,9 @@ app_name = "pedido"
 urlpatterns = [
 
     #URL Principal
-    path('', views.ListarPedido.as_view(), name="listarPedido"),
+    path('', views.ListarPedido, name="listarPedido"),
 
-    #path('<int:pk>', views.ModificarHistoria.as_view(), name="modificarHistoria"),
+    path('delete/<int:pk>', views.DeletePedido, name="delete"),
 
     #path('agregarHistoria', views.AgregarHistoria.as_view(), name="agregarHistoria"),
 ]
