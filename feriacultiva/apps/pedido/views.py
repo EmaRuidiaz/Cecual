@@ -1,21 +1,41 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 from apps.pedido.models import Pedido
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.http import HttpResponseRedirect
+from apps.pedido.forms import PedidoForm
+from decimal import Decimal
 
 # Create your views here.
-'''
-class ListarPedido(ListView):
-	model = Pedido
-	template_name = 'Pedido/listarPedidos.html'
-'''
+
+# class ListarPedido(ListView):
+# 	model = Pedido
+# 	template_name = 'Pedido/listarPedidos.html'
+
 
 def ListarPedido(request):
 	context = {}
 	context['object_list'] = Pedido.objects.filter(cliente = request.user)
+	clave = request.POST.get('Confirmar')
+	print(clave)
+	try:
+		p = Pedido.objects.get(pk = clave)
+		print(p)
+	except Pedido.DoesNotExist:
+		print('nada')
+	
+	if request.POST.get:
+		form = PedidoForm(request.POST)
+		if form.is_valid():
+			cant = request.POST.get('cantidad')
+			total = Decimal(cant) * p.producto.precio
+			p.cantidad = cant
+			p.total = total
+			p.save()
 
 	return render(request, 'Pedido/listarPedidos.html', context)
+	
 
 def DeletePedido(request, pk):
 
@@ -24,5 +44,3 @@ def DeletePedido(request, pk):
 	context['object_list'] = Pedido.objects.filter(cliente = request.user)
 
 	return render(request, 'Pedido/listarPedidos.html', context)
-
-	

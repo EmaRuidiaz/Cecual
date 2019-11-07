@@ -116,7 +116,7 @@ def AgregarProducto(request): #Vistas basadas en funciones
 		ap.categoria = Categoria.objects.get(pk = request.POST.get('categoria'))
 		ap.feriante = Feriante.objects.get(encargado = request.user.pk)
 		ap.save()
-		messages.success(request, 'Student added successfully')
+		messages.success(request, 'Student added successfully') # este mensaje se tiene que modificar
 		return redirect('producto:listar')
 
 
