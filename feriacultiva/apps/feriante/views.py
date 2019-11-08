@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from apps.feriante.models import Feriante
 from apps.producto.models import Producto
 from apps.user.models import User
+from apps.pedido.models import Pedido
 from django.views.generic.edit import CreateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
@@ -45,6 +46,10 @@ class ListarFeriantesWeb(ListView):
 
 			page_range = paginator.page_range[start_index:end_index]
 			context['page_range'] = page_range
+
+			pedidos = Pedido.objects.filter(cliente = self.request.user)
+			context['Pedido'] = pedidos
+
 			return context
 
 #Vistas basadas en clases
