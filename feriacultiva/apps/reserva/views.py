@@ -2,9 +2,10 @@ from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from apps.reserva.models import Reserva
 from apps.pedido.models import Pedido
-
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from django.views.generic.list import ListView
+
 # Create your views here.
 
 
@@ -24,12 +25,13 @@ def AgregarReserva(request):
 
 	for pedido in pedidos:
 		print(pedido.producto.nombre)
+
 		email = pedido.producto.feriante.encargado.email
 		producto = pedido.producto.nombre
 		foto_producto = pedido.producto.foto_producto
 		cantidad = pedido.cantidad
 		
-		Reserva.objects.create(n_pedido = n_ped, producto = pedido.producto, cantidad = pedido.cantidad, precio = pedido.total, user = pedido.cliente, envio = pedido.envio)
+		Reserva.objects.create(n_pedido = n_ped, feriante = pedido.producto.feriante, producto = pedido.producto, cantidad = pedido.cantidad, precio = pedido.total, user = pedido.cliente, envio = pedido.envio)
 		html_content = render_to_string('Feriante/email.html',{'email': email,
 			'user_name': user,
 			'producto_name': producto,
@@ -43,6 +45,7 @@ def AgregarReserva(request):
 			fail_silently = False,
 			html_message = html_content,
 		)
+	
 
 	Pedido.objects.filter(cliente = request.user).delete()
 
@@ -57,3 +60,8 @@ def AgregarReserva(request):
 
 '''
 	return render(request, 'Pedido/listarPedidos.html', {'object_list': Pedido.objects.filter(cliente = request.user)})
+
+def ListarReservas(request):
+
+	return render(request, 'Reserva/listarReservas.html', {'object_list': Reserva.objects.filter(user = request.user)})
+

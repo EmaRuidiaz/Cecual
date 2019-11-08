@@ -12,4 +12,6 @@ class Reserva(models.Model):
 	cantidad = models.IntegerField()
 	precio = models.DecimalField(max_digits= 8, decimal_places= 2, default = Decimal('1.00'))
 	user = models.ForeignKey(User, on_delete = models.PROTECT, related_name = 'reservaxuser')
+	feriante = models.ForeignKey(Feriante, on_delete = models.CASCADE)
+	estado = models.BooleanField(default = False)
 	envio = models.BooleanField(default = False, blank = True)
