@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from apps.reserva.models import Reserva
 from apps.pedido.models import Pedido
+
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 # Create your views here.
 
 
@@ -17,13 +20,32 @@ def AgregarReserva(request):
 	print(n_ped)
 
 	pedidos = Pedido.objects.filter(cliente = request.user)
+	user = request.user
 
 	for pedido in pedidos:
 		print(pedido.producto.nombre)
+		email = pedido.producto.feriante.encargado.email
+		producto = pedido.producto.nombre
+		foto_producto = pedido.producto.foto_producto
+		cantidad = pedido.cantidad
+		
 		Reserva.objects.create(n_pedido = n_ped, producto = pedido.producto, cantidad = pedido.cantidad, precio = pedido.total, user = pedido.cliente, envio = pedido.envio)
-	
-	
+		html_content = render_to_string('Feriante/email.html',{'email': email,
+			'user_name': user,
+			'producto_name': producto,
+			'foto_producto': foto_producto,
+			'cantidad': cantidad})
+
+		send_mail('Reserva',
+			producto,
+			'feriacultivasite@gmail.com',
+			[email],
+			fail_silently = False,
+			html_message = html_content,
+		)
+
 	Pedido.objects.filter(cliente = request.user).delete()
+
 	'''	
 	if form.is_valid():
 		ap = form.save(commit=False)

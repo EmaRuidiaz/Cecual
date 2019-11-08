@@ -100,7 +100,7 @@ def EnviarCorreo(request):
 	send_mail('Prueba', # titulo
 		'Esto es un correo de prueba', # mensaje
 		'feriacultivasite@gmail.com', 
-		['flechaverde_s88@hotmail.com'], # Para:
+		['flechaverde_s88@hotmail.com','mauriypachi@hotmail.com'], # Para:
 		fail_silently=False,
 	)
 	return render(request,'Producto/listar.html')
