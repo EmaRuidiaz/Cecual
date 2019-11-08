@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='reserva',
             name='feriante',
-            field=models.ForeignKey(default=Feriante.objects.get(pk = 1).pk, on_delete=django.db.models.deletion.CASCADE, to='feriante.Feriante'),
+            field=models.ForeignKey(default=Feriante.objects.all()[:1][0].pk, on_delete=django.db.models.deletion.CASCADE, to='feriante.Feriante'),
             preserve_default=False,
         ),
     ]
