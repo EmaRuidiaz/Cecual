@@ -6,6 +6,7 @@ from apps.producto.models import Producto
 from apps.feriante.models import Feriante
 from apps.categoria.models import Categoria
 from apps.reserva.models import Reserva
+from apps.pedido.models import Pedido
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
@@ -70,6 +71,10 @@ class ListarProductos(ListView):
 		page_range = paginator.page_range[start_index:end_index]
 		context['page_range'] = page_range
 		context['filtro'] = Categoria.objects.all()
+
+		pedidos = Pedido.objects.filter(cliente = self.request.user)
+		context['Pedido'] = pedidos
+
 		return context
 
 	def get_queryset(self):
@@ -85,11 +90,6 @@ class ListarProductos(ListView):
 		return x
 	
 
-	# def get_context_data(self, **kwargs):
-	# 	context = super().get_context_data(**kwargs)
-	# 	context['filtro'] = Categoria.objects.all()
-	
-	# 	return context
 
 class AgregarProductoo(LoginRequiredMixin,CreateView): #Vistas basadas en clases
 	#form = ProductoForm(request.POST or None, request.FILES)
