@@ -72,8 +72,9 @@ class ListarProductos(ListView):
 		context['page_range'] = page_range
 		context['filtro'] = Categoria.objects.all()
 
-		pedidos = Pedido.objects.filter(cliente = self.request.user)
-		context['Pedido'] = pedidos
+		if self.request.user.is_authenticated:
+			pedidos = Pedido.objects.filter(cliente = self.request.user)
+			context['Pedido'] = pedidos
 
 		return context
 

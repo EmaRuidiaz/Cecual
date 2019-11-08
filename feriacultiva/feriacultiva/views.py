@@ -18,8 +18,9 @@ class Inicio(ListView):
 		categorias = Categoria.objects.all() 
 		context['Categorias'] = categorias
 
-		pedidos = Pedido.objects.filter(cliente = self.request.user)
-		context['Pedido'] = pedidos
+		if self.request.user.is_authenticated:
+			pedidos = Pedido.objects.filter(cliente = self.request.user)
+			context['Pedido'] = pedidos
 
 		return context
 
