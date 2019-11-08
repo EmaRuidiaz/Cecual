@@ -8,9 +8,10 @@
 <head>
     <!-- icono de la página -->
     <link rel="icon" href="{% static 'img/logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/productos.css' %}">
   
 </head>
-<header>
+<header id="mi-header">
   <!-- slide page principal -->
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -18,21 +19,15 @@
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
      
     </ol>
     <div class="carousel-inner" role="listbox">
       <!-- Slide One - Set the background image for this slide in the line below -->
       <div class="carousel-item active" style="background-image: url({% static 'img/slide11.png' %}) " >
         <div class="carousel-caption d-none d-md-block">
-          <img id="logo"  src="{% static 'img/letrasverdes.png' %}"  class="d-inline-block align-top" alt="Feria Cultiva" style="width: 250px;">
+          <img id="logo"  src=""  class="d-inline-block align-top" alt="Feria Cultiva" ;>
           <h2 class="display-4">#cultura colaborativa</h2>
-          <p class="lead"> Productores de </p> 
-          <p class="lead"> Tirol / Colonia Benítez/ </p> 
-          <p class="lead"> Resistencia / Mercado </p> 
-          <p class="lead">Campesino de La Leonesa </p> 
-          <p class="lead">Santa María de Oro 471 </p>
-          <p class="lead-dir">Centro Cultural Alternativo</p> 
+          
 
         </div>
       </div>
@@ -53,12 +48,6 @@
         </div>
       </div>
       <!-- Slide Three - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('{% static 'img/slide6.png' %}')">
-        <div class="carousel-caption d-none d-md-block">
-          <h2 class="display-4">Third Slide</h2>
-          <p class="lead">This is a description for the third slide.</p>
-        </div>
-      </div>
       
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -73,19 +62,24 @@
 </header>
 
 <!-- Page Content -->
-<section class="py-5" style="">
-  <div class="container-fluid">
-      <h1 class="my-4">
-       PRODUCTOS RECIENTES
-       </h1>
-       <div class="col-lg-9 mx-auto">
+<section class="py-1" style="background-color:#fcfafa;" >
+        <div class="col-lg-8 mx-auto " style="background-color:#fff;">
+  <div class="container-fluid" >
+
+
+           <h1 class="my-1 ">
+           PRODUCTOS RECIENTES
+           </h1>
         <div class="row">
+           {% if object_list|length == 0 %}
+           <label for="">No hay productos para esta categoria</label>
+          {% else%}
                 {% for p in Recientes %}
                   <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
                       <a href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen" >
                         {% if p.foto_producto %}
-                                <img class="img-prod" style="width: 80px; height: 150px;" 
+                                <img class="img-prod" style="width: 100px; height: 150px;" 
                                 src="{{p.foto_producto.url}}" alt="encontre">
                             {% else %}
                                 <img class="img-prod" style="width: 80px; height: 150px;" 
@@ -97,65 +91,133 @@
                           <a class="ancla-titulo" href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen"> {{p.nombre}} </a>
                         </h4>
                         <h5 class="prod"> ${{p.precio}} </h5>
+                   
+                      {% if p.stock > 0 %}
                         <p class="card-text"> Stock: {{p.stock}} </p>
+                      {% else %}
+                        <p class="card-text"> No hay stock disponible </p>
+                      {% endif %}
+
                       </div>
-                      <div class="card-footer">
+                      <div class="card-footer mx-auto" style="background-color: #fff;">
                         <!-- Cambiar el diseño del boton en caso de que no haya mas en stock -->
                         {% if p.stock > 0 %}
-                          <a href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class=" carrito">+ carrito</a>
+
+                          <form  action=""method="post" enctype="multipart/form-data" 
+                          >{% csrf_token %}
+                           
+                            <input type="number" name="cantidad" id="cantidad" placeholder="1" >
+
+                            <button class="reservar" type="submit" value="{{p.pk}}" name="Confirmar" style="margin-top: 5px;">Rerservar</button>
+                          </form>
                           {% else %}
-                          <a href="#">no hay mas</a>
+                          <a href="#">No disponible</a>
                         {% endif %}
                       </div>
+
+
                     </div>
                   </div>
                 {% endfor %}
-          </div>
-        </div>
+              {% endif %}
 
-    <div class="card text-white  my-5 py-4 w-100 text-center" 
-    style="background-color:#a9c52f;">
-      <div class="card-body">
-        <p class="text-white m-0">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-      </div>
+        </div> <!-- /.row col-lg-9 -->
+      </div><!-- /.col-lg-9 -->
     </div>
 
-        
-        <div class="container">
-        <div class="row">
-        <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h1 class="gallery-title">Gallery</h1>
-        </div>
 
-       {% for p in Categorias %}
-           <div class="col-md-4 mx-auto">
-              <div class="card"  style= "margin: 5px;" >
-                <img class="card-img-top" src=" {{p.foto.url}} " alt="Card image cap" style="width: 300px; height: 300px;">
-                
-              </div>
+       
+
+<div class="col-lg-8 mx-auto" style="padding-top: 50px;"  >
+
+    <div class="box" >
+        <h1 class="my-1 ">
+               ¿CÓMO FUNCIONA ?
+        </h1>
+    <div class="container">
+      <div class="row">
+       
+        <div class="col-lg-4 col-xs-12 text-center">
+          <div class="box">
+                        <i class="fa fa-behance fa-3x" aria-hidden="true"></i>
+            <div class="box-title">
+              <h4  class="titulo-seccion">Elegí tus productos</h4>
             </div>
-        {% endfor %}
+            <div class="box-text">
+             <span>Seleccioná del catálogo los productos que quieras. Podés elegir los más recientes o andá a las sección de productos y selecciná la categoría que quieras. </span>
+            </div>
+            
+           </div>
+        </div>   
+        
+         <div class="col-lg-4 col-xs-12  text-center">
+          <div class="box">
+              <i class="fa fa-twitter fa-3x" aria-hidden="true"></i>
+            <div class="box-title">
+                <h4  class="titulo-seccion">Hacé tu reservas </h4>
+            </div>
+            <div class="box-text">
+                <span> Una vez que selecciones un producto, e ingreses la cantidad que quieras, pulsá sobre "Reservar", y se cargará tu pedido al listado de reservas. </span>
+            </div>
+            
+           </div>
+        </div>   
+          
+        
+         <div class="col-lg-4 col-xs-12 text-center">
+          <div class="box">
+                        <i class="fa fa-github fa-3x" aria-hidden="true"></i>
+            <div class="box-title">
+               <h4  class="titulo-seccion">Nos contactamos con vos</h4>
+            </div>
+            <div class="box-text">
+              <span>A través de la página te vamos a avisar si disponemos de delivery o deberás retirar tus productos desde la fería.</span>
+            </div>
+           
+           </div>
         </div>
+    
+    </div>    
+    </div>
+</div>
+
+
+<div class="container categoria" >
+          <h1 class="my-1 ">
+              CATEGORÍAS
+          </h1>
+      
+
+<div class="container">
+    <div class="row">
+      {% for p in Categorias %}
+          <div class="col-md-3 col-sm-4 col-xs-12 single_portfolio_text">
+              <img src=" {{p.foto.url}} " alt="" / style="width: 200px; height: 150px;">
+              <div class="portfolio_images_overlay text-center">
+                <p class="clrd-font">Podés ver los productos de esta categoría accediendo al catálogo.</p>
+               
+                <a href="#" class="btn btn-primary"> {{p.nombre}} </a>
+              </div>
+              </a>
+          </div>
+        {% endfor %}
+      
     </div>
   </div>
+
+
+
+       
+  
+       
+      
+  </div>
+
 </section>
 
+{% endblock contenido %}
 
-	
-	{% endblock contenido %}
+
 
 
 

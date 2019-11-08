@@ -4,6 +4,8 @@
 {% block contenido %}  
 <head>
   <link rel="stylesheet" type="text/css" href="{% static 'css/productos.css' %}">
+
+ 
 </head>
 
 <header class="masthead" style="background-image: url({% static 'img/productos.jpg' %}) ">
@@ -23,6 +25,7 @@
        <h1 class="my-4">Productos >
        <small>Catálogo</small>
        </h1>
+<<<<<<< Updated upstream
   <div class="row">
 
    <!-- row página principal -->
@@ -35,10 +38,26 @@
       <button><a href="{% url 'feriante:MisProductos' %}">Mis Productos</a></button>
     {% endif %}
     </div>
+=======
+
+  <div class="row">    <!-- row página principal -->
+>>>>>>> Stashed changes
 
  <!-- USAR ESTE FILTRO X EL MOMENTO -->
-    <div class="col-lg-12 d-flex justify-content-center"> 
-        <div class="list-group">
+<div class="col-lg-3"> 
+
+    <div>
+          {% if user.es_empresa %}
+            <button class="btn float-right" type="button"  >
+            <a href="{% url 'producto:agregar' %}">
+                Nuevo</a>
+            </button>
+            <button><a href="{% url 'feriante:MisProductos' %}">Mis Productos</a></button>
+          {% endif %}
+    </div>
+
+    <a href="{% url 'feriante:correo' %}">EnviarCorreo</a>
+        <div class="list-group" style="padding-top: 20px;">
           <form>
               <select name="Categoria">
                   <option value="0">Todos</option>
@@ -51,7 +70,7 @@
               </button>       
           </form>
         </div>
-    </div>
+  </div>
    
 
     <!-- <div class="row"> PROXIMAMENTE XD
@@ -65,7 +84,7 @@
       </div> -->
       <!-- /.col-lg-3 -->
      
-      <div class="col-lg-9 mx-auto">
+      <div class="col-lg-9 ">
         <div class="row">
            {% if object_list|length == 0 %}
            <label for="">No hay productos para esta categoria</label>
@@ -75,7 +94,7 @@
                     <div class="card h-100">
                       <a href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen" >
                         {% if p.foto_producto %}
-                                <img class="img-prod" style="width: 80px; height: 150px;" 
+                                <img class="img-prod" style="width: 100px; height: 150px;" 
                                 src="{{p.foto_producto.url}}" alt="encontre">
                             {% else %}
                                 <img class="img-prod" style="width: 80px; height: 150px;" 
@@ -87,18 +106,27 @@
                           <a class="ancla-titulo" href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen"> {{p.nombre}} </a>
                         </h4>
                         <h5 class="prod"> ${{p.precio}} </h5>
+                   
+                      {% if p.stock > 0 %}
                         <p class="card-text"> Stock: {{p.stock}} </p>
+                      {% else %}
+                        <p class="card-text"> No hay stock disponible </p>
+                      {% endif %}
+
                       </div>
-                      <div class="card-footer">
+                      <div class="card-footer mx-auto" style="background-color: #fff;">
                         <!-- Cambiar el diseño del boton en caso de que no haya mas en stock -->
                         {% if p.stock > 0 %}
-                          <form action=""method="post" enctype="multipart/form-data">{% csrf_token %}
-                            <label for="cantidad">Cantidad</label><br>
-                            <input type="number" name="cantidad" id="cantidad" style="width: 54px">
-                            <button type="submit" value="{{p.pk}}" name="Confirmar" style="margin-top: 5px;">Confirmar</button>
+
+                          <form  action=""method="post" enctype="multipart/form-data" 
+                          >{% csrf_token %}
+                           
+                            <input type="number" name="cantidad" id="cantidad" placeholder="1" >
+
+                            <button class="reservar" type="submit" value="{{p.pk}}" name="Confirmar" style="margin-top: 5px;">Rerservar</button>
                           </form>
                           {% else %}
-                          <a href="#">no hay mas</a>
+                          <a href="#">No disponible</a>
                         {% endif %}
                       </div>
 
