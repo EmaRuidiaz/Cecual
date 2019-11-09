@@ -1,66 +1,39 @@
-.masthead {
-  min-height: 100px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  font-family: 'Roboto Slab', serif; 
+.title {
+  font-family: 'Roboto Slab', serif;
+  
 }
-
-#titulo {
-  font-size: 40px;
-  color: #F5F5F5;
-}
-
-section {
-  padding-top: 5%;
-  padding-bottom: 5%;
-}
-.btn {
-  font-family: 'Roboto Slab', serif; 
-  background-color: #2c5d63; 
-  color: #fff;
-  font-size: 15px;
-}
-
-.btn:hover {
-  background-color: #fff;        
-}
-
 /* cards */
 
 .card {
     width: 20rem;
+    height: 10rem;
+    margin: 40px;
 }
 
-.card:hover {
-    box-shadow: 5px 10px 20px 1px rgba(0,0,0,0.253) !important;
-}
-
-.card-body {
-    padding: 3rem 0 !important;
-}
 .card-text {
-    font-size: 0.9rem;
-    padding: 0.4rem 1.9rem;
+ color: #f5f5f5;
+ font-family: 'Roboto Slab', serif;
+ margin-top: 0px;
+
 }
 
 .card-titulo {
-  color: #a9c52f;
+  color: #f5f5f5;
   font-family: 'Roboto Slab', serif;
+  margin-bottom: 0px;
 }
-
-.container-fluid .row {
-    padding-top: 3rem;
+.card-img {
+  margin-top: 75px;
+  margin-left: 15px;
+  width: 25%;
 }
-.overflow {
-    overflow: hidden;
+.contenidoCard {
+  color: #f5f5f5;
+  font-family: 'Roboto Slab', serif;
+
 }
+.nav-link {
+  color: #f5f5f5;
+  font-family: 'Roboto Slab', serif;
 
- .card-img-top {
-     transform: scale(1);
-     transition: transform 0.5s ease;
- }
-
- .card-img-top:hover {
-     transform: scale(1.3);
- }
+}

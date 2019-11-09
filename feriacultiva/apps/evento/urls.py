@@ -8,6 +8,8 @@ urlpatterns = [
 
     path('', views.ListarEventos.as_view(), name="listarEventos"),
 
+    path('ActualizarEvento', views.ListarEventosAdmin.as_view(), name="listarEventosAdmin"),
+
     path('agregarevento', views.AgregarEvento.as_view(), name="agregarEvento"),
 
     path('detalleevento/<int:pk>', views.DetalleEvento.as_view(), name="detalleEvento"),

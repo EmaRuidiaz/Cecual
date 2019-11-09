@@ -11,6 +11,10 @@ class ListarEventos(ListView):
 	model = Evento
 	template_name = 'evento/listarEventos.html'
 
+class ListarEventosAdmin(ListView):
+	model = Evento
+	template_name = 'evento/listarEventosAdmin.html'
+
 class AgregarEvento(LoginRequiredMixin,CreateView): #Vistas basadas en clases
 	model = Evento
 	template_name = 'Evento/agregarEvento.html'

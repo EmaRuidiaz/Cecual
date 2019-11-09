@@ -11,6 +11,10 @@ class ListarPublicaciones(ListView):
 	model = Publicacion
 	template_name = 'Publicacion/listarPublicaciones.html'
 
+class ListarPublicaciones(ListView):
+	model = Publicacion
+	template_name = 'Publicacion/listarPublicacionesAdmin.html'
+
 class AgregarPublicacion(LoginRequiredMixin,CreateView): #Vistas basadas en clases
 	model = Publicacion
 	template_name = 'Publicacion/agregarPublicacion.html'
