@@ -1,0 +1,132 @@
+.img-pedidos{
+	width: 200px;
+	height: 250px;
+
+}
+
+
+.titulo-pedido{
+	color: #283739;
+	font-size: 20px;
+	padding-top: 100px;
+}
+
+
+table{
+	border-color: #fff;
+}
+
+
+form{
+	padding-top: 100px;
+}
+
+
+.precio{
+    float: left;
+    padding-top: 100px;
+}
+
+.boton-pedidos{
+	padding-left: 20px;
+	float: left;
+	padding-top: 100px;
+}
+
+.btn-confirmar{
+  font-family: 'Roboto Slab', serif; 
+  background-color: inherit; 
+  color: #283739;
+  font-size: 17px;
+  border: none;
+
+}
+
+.btn-confirmar:hover{
+  font-family: 'Roboto Slab', serif; 
+  background-color: inherit; 
+  color: #a9c52f;
+  font-size: 17px;
+  border: none;
+
+}
+
+.btn-eliminar{
+  font-family: 'Roboto Slab', serif; 
+  background-color: inherit; 
+  color: #283739;
+  font-size: 17px;
+  border: none;
+}
+
+.btn-eliminar:hover{
+	color: #ff0000;
+}
+
+a.btn-eliminar:link{
+	text-decoration:none;
+}
+
+input{
+	background-color: #f5f5f5;
+	width: 40px;
+	height: 30px;
+	text-align: center;
+	padding-left: 2px;
+
+}
+
+.btn-pedidos{
+	float: right;
+	color: #f5f5f5;
+	width: 200px;
+	text-align: center;
+	font-family: 'Roboto Slab', serif; 
+	font-size: 20px;
+	border-radius: 20px;
+	background-color: #a9c52f;
+}
+
+a.btn-pedidos:link{
+	text-decoration: none;
+}
+
+
+
+.btn-pedidos:hover{
+	background-color:#2c5d63 ;
+	float: right;
+	color: #f5f5f5;
+	text-align: center;
+	font-family: 'Roboto Slab', serif; 
+	font-size: 20px;
+
+
+}
+
+
+
+th{
+	text-align: center;
+	font-family: 'Roboto Slab', serif; 
+	color: #a9c52f;
+	font-size: 20px;
+	font-weight: normal;
+}
+
+td{
+	text-align: center;
+}
+
+
+/*input de cantidad */
+
+#cantidad{
+	border: 0.5;
+	background-color: #f5f5f5;
+	color: black;
+	border-color: #a9c52f;
+	text-align: center;
+	width: 50px;
+	position: center;
+}

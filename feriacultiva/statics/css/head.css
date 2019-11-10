@@ -14,8 +14,8 @@ body{
 
 
 .svg-icon {
-  width: 1em;
-  height: 1em;
+  width: 2em;
+  height: 2em;
 
 }
 
@@ -226,3 +226,15 @@ color: #fff;
      border: solid 1px;
 }
 
+.navbar-nav{
+  font-weight: normal;
+}
+
+.carrito-num{
+  background-color: #f5f5f5;
+  color: #a9c52f;
+  width: 50px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 20px;
+}

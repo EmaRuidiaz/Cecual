@@ -1,32 +1,150 @@
-{% if object_list|length != 0 %}
-	{% for p in object_list %}
-		<label for="">{{p.producto}}</label>
-		<div>
-			<a href="{% url 'pedido:delete' p.pk %}">delete</a>
-			{% if p.producto.foto_producto %}
-					<img class="img-prod" style="width: 80px; height: 150px;" 
-					src="{{p.producto.foto_producto.url}}" alt="encontre">
-				{% else %}
-					<img class="img-prod" style="width: 80px; height: 150px;" 
-					src="" alt="No existe imagen" >
-			{% endif %}
-		</div>
-		<div>
-			<form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
-				<label for="cantidad">Cantidad</label>
-				<input type="number" name="cantidad" id="cantidad" style="width: 54px" placeholder="{{p.cantidad}}">
-				<button type="submit" value="{{p.pk}}" name="Confirmar" style="margin-top: 5px;">Confirmar</button>
-			</form>
-		</div>
-	{% endfor %}
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %} Productos {% endblock titulo%}
+{% block contenido %}  
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/listarPedidos.css' %}">
+
+ 
+</head>
+
+<header class="masthead" style="background-image: url({% static 'img/productos.jpg' %}) ">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 text-center">
+        <h1 class="font-weight-light">  </h1>
+        <p class="lead"></p>
+      </div>
+    </div>
+  </div>
+</header>
 
 
-	<br>
-	<br>
-	<br>
-	<br>
+<section class="py-5"><!-- Page Content -->
 
-	<strong><a href="{% url 'reserva:agregar' %}">Confirmar Pedido</a></strong>
-{% else %}
-	<label for="">No pedidos</label>
-{% endif %}
+	       <h1 class="my-1 ">
+              MIS PEDIDOS
+           </h1>
+
+	  <!-- row página principal -->
+		<div class="container">
+
+
+	{% if object_list|length != 0 %}
+
+	<div class="col-12 mx-auto">
+			<div class="card" style="border: none;">
+
+			<table class="table table-hover table-borderless  shopping-cart-wrap" >
+			<thead class="text-muted">
+			<tr>
+			  <th scope="col" width="200">Producto</th>
+			  <th scope="col" width="250">Cantidad</th>
+			  <th scope="col" width="250">Precio</th>
+			  
+			</tr>
+			</thead>
+			<tbody>
+
+			
+				{% for p in object_list %}
+					<tr>
+						<td>
+					<figure class="media">
+						
+						<div class="img-wrap">
+							{% if p.producto.foto_producto %}
+							<img src="{{p.producto.foto_producto.url}}" class="img-pedidos"
+							>
+							{% else %}
+							<img src="{{p.producto.foto_producto.url}}" class="No existe imagen">
+							{% endif %}
+						</div>
+						<figcaption class="media-body">
+							<h6 class="titulo-pedido">{{p.producto}}</h6>
+						</figcaption>
+					</figure> 
+						</td>
+						<td> 
+							<form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+								
+								<input type="number" name="cantidad" id="cantidad"  placeholder="{{p.cantidad}}">
+								<button class="btn-confirmar" type="submit" value="{{p.pk}}" name="Confirmar" style="text-decoration: none;">Confirmar cantidad</button>
+							</form>
+						</td>
+						<td> 
+							<div class="price-wrap mx-auto">
+							<div id="contenedor">
+								<p class="precio">$ {{p.producto.precio}} </p>
+								<div class="boton-pedidos inline-block ">
+								<a class=" btn-eliminar" href="{% url 'pedido:delete' p.pk %}"> Eliminar Pedido </a>
+								</div>
+							</div>  
+								
+							</div> <!-- price-wrap .// -->
+
+						</td>
+					</tr>
+					{% endfor %}
+		    </tbody>
+	    </table>
+     </div> <!-- card.// -->
+     <a  class="btn-pedidos" href="{% url 'reserva:agregar' %}">Confirmar pedidos</a>
+    </div>
+
+    
+
+	{% else %}
+		<p> No has realizado ningún pedido. </p>
+	{% endif %}
+	    
+	 </div> 
+<!--container end.//-->
+
+
+</section>
+{% endblock contenido%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
