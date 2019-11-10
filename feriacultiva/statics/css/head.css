@@ -2,6 +2,11 @@ body{
    font-family: "Roboto Slab", serif;
 
 }
+
+section{
+  background-color: #fcfafa;
+}
+
 #mi-header {
   height: 70vh;
   min-height: 80px;
@@ -168,7 +173,7 @@ color: #fff;
 
 /*ESTILOS DEL TITULO */
 .my-1{
-  font-size: 25px;
+  font-size: 30px;
   font-family: "Roboto Slab", serif;
   padding-bottom: 15px;
   color: #2c5d63;
@@ -240,7 +245,7 @@ color: #fff;
 
 .carrito-num{
   background-color: #f5f5f5;
-  color: #a9c52f;
+  color: #283739;
   width: 50px;
   border-radius: 10px;
   font-weight: bold;

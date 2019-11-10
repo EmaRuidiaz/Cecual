@@ -46,8 +46,16 @@
             </a>
           </li>
           <li class="nav-item">
+                <a class="nav-link" href="#"></a>
+              </li>
+              <li class="nav-item dropdown">
                 {% if user.is_authenticated %}
-             <a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Hola! {{user.username}}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesión</a>
+                </div>
                 {% endif %}
             </li>
         </ul>
@@ -71,7 +79,7 @@
           <div class="col-lg-6 col-xs-12 text-center">
 
             <div class="card bg-info">
-            <a href="{% url 'feriante:agregar' %}" class="contenidoCard">
+            <a class="admin-acciones" href="{% url 'feriante:agregar' %}" class="contenidoCard">
               <img src="{% static 'img/feriante.png' %}" class="card-img w-25" alt="...">
                 <div class="card-img-overlay">
                   <h5 class="card-title">Feriante</h5>
@@ -81,7 +89,7 @@
             </div>
 
             <div class="card bg-success">
-              <a href="{% url 'publicacion:listarPublicacionesAdmin' %}" class="contenidoCard">
+              <a  class="admin-acciones" href="{% url 'publicacion:listarPublicacionesAdmin' %}" class="contenidoCard">
               <img src="{% static 'img/ambienteSalud.png' %}" class="card-img" alt="...">
                 <div class="card-img-overlay">
                   <h5 class="card-title">Ambiente y Salud</h5>
@@ -95,7 +103,7 @@
           <div class="col-lg-6 col-xs-12 text-center">
           
             <div class="card bg-warning">
-              <a href="{% url 'feriante:listarFeriantes' %}" class="contenidoCard">
+              <a  class="admin-acciones" href="{% url 'feriante:listarFeriantes' %}" class="contenidoCard">
               <img src="{% static 'img/ferianteslistar.png' %}" class="card-img w-25" alt="...">
                 <div class="card-img-overlay">
                   <h5 class="card-title">Lista de Feriantes</h5>
@@ -105,7 +113,7 @@
             </div>
 
             <div class="card bg-danger">
-              <a href="{% url 'evento:listarEventosAdmin' %}" class="contenidoCard">
+              <a class="admin-acciones" href="{% url 'evento:listarEventosAdmin' %}" class="contenidoCard">
               <img src="{% static 'img/evento.png' %}" class="card-img w-25" alt="...">
                 <div class="card-img-overlay">
                   <h5 class="card-title">Información del evento</h5>

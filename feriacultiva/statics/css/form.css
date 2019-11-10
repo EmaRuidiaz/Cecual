@@ -40,3 +40,15 @@ font-family: 'Roboto Slab', serif;
     font-size: 12px;
     color: #FF374A;
 }
+
+.nav-link {
+  color: #f5f5f5;
+  font-family: 'Roboto Slab', serif;
+
+}
+
+.nav-link:hover{
+ text-decoration: none;
+ background-color: #fff;
+ color:#283739;
+}
