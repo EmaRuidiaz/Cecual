@@ -11,7 +11,7 @@ class ListarPublicaciones(ListView):
 	model = Publicacion
 	template_name = 'Publicacion/listarPublicaciones.html'
 
-class ListarPublicaciones(ListView):
+class ListarPublicacionesAdmin(ListView):
 	model = Publicacion
 	template_name = 'Publicacion/listarPublicacionesAdmin.html'
 

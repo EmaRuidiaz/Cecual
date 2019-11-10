@@ -7,7 +7,7 @@ app_name = "publicacion"
 urlpatterns = [
 
     path('', views.ListarPublicaciones.as_view(), name="listarPublicaciones"),
-    path('GestionPublicaciones', views.ListarPublicaciones.as_view(), name="listarPublicacionesAdmin"),
+    path('GestionPublicaciones', views.ListarPublicacionesAdmin.as_view(), name="listarPublicacionesAdmin"),
 
     path('agregarpublicacion', views.AgregarPublicacion.as_view(), name="agregarPublicacion"),
 
