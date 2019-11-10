@@ -139,12 +139,12 @@
        
         <div class="col-lg-4 col-xs-12 text-center">
           <div class="box">
-                        <i class="fa fa-behance fa-3x" aria-hidden="true"></i>
+                        <img src="{% static 'img/paso1.png' %}" class="img-como-funciona">
             <div class="box-title">
-              <h4  class="titulo-seccion">Elegí tus productos</h4>
+              <h2 class="titulo-seccion">Elegí tus productos</h2>
             </div>
             <div class="box-text">
-             <span>Seleccioná del catálogo los productos que quieras. Podés elegir los más recientes o andá a las sección de productos y selecciná la categoría que quieras. </span>
+             <p>Seleccioná del catálogo los productos que quieras. Podés elegir los más recientes o andá a las sección de productos y selecciná la categoría que quieras. </p>
             </div>
             
            </div>
@@ -152,12 +152,12 @@
         
          <div class="col-lg-4 col-xs-12  text-center">
           <div class="box">
-              <i class="fa fa-twitter fa-3x" aria-hidden="true"></i>
+                        <img src="{% static 'img/paso2.png' %}" class="img-como-funciona">
             <div class="box-title">
-                <h4  class="titulo-seccion">Hacé tu reservas </h4>
+                <h4 class="titulo-seccion">Hacé tus reservas </h4>
             </div>
             <div class="box-text">
-                <span> Una vez que selecciones un producto, e ingreses la cantidad que quieras, pulsá sobre "Reservar", y se cargará tu pedido al listado de reservas. </span>
+                <p> Una vez que selecciones un producto, e ingreses la cantidad que quieras, pulsá sobre "Reservar", y se cargará tu pedido al listado de reservas. </p>
             </div>
             
            </div>
@@ -166,12 +166,12 @@
         
          <div class="col-lg-4 col-xs-12 text-center">
           <div class="box">
-                        <i class="fa fa-github fa-3x" aria-hidden="true"></i>
+                        <img src="{% static 'img/paso3.png' %}" class="img-como-funciona">
             <div class="box-title">
-               <h4  class="titulo-seccion">Nos contactamos con vos</h4>
+               <h4 class="titulo-seccion">Controlá el estado</h4>
             </div>
             <div class="box-text">
-              <span>A través de la página te vamos a avisar si disponemos de delivery o deberás retirar tus productos desde la fería.</span>
+              <p>A través de la página podés visualizar el estado de tus pedidos, el feriante va a confirmar tu reserva y se va a comunicar con vos para acordar la entrega.</p>
             </div>
            
            </div>
@@ -191,9 +191,9 @@
 <div class="container">
     <div class="row">
       {% for p in Categorias %}
-          <div class="col-md-4 col-sm-4 col-xs-12 single_portfolio_text mx-auto" style="margin-bottom: 5px;">
+          <div class="col-md-3 col-sm-3 col-xs-12 single_portfolio_text mx-auto" style="margin-bottom: 5px;">
              <div class="card bg-white text-white">
-              <img src=" {{p.foto.url}} " class="card-img" alt=""  style="width: 350px; height: 150px;">
+              <img src=" {{p.foto.url}} " class="card-img" alt="">
                 <div class="card-img-overlay">
                  <h5 class="card-categoria mx-auto" >{{p.nombre}}</h5>
                   
