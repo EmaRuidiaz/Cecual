@@ -18,15 +18,16 @@
 </header>
 
 <!-- contenido de la página -->
-<section class="py-5" >
+<section class="py-5"  style="background-color:#fcfafa;">
 <!-- Page Content -->
 <div class="container">
-
+                 <h1 class="my-1 ">
+                   DETALLE DE PRODUCTO
+                 </h1>
               <!-- Portfolio Item Heading -->
-              <h1 class="my-4">Productos >
-                <small>{{object.nombre}}</small>
-                <a href="{% url 'producto:modificar' object.pk %}">modif</a>
-              </h1>
+              
+     <a href="{% url 'producto:modificar' object.pk %}">modif</a>
+            
 
               <!-- Portfolio Item Row -->
     <div class="row">
@@ -47,7 +48,7 @@
 
                  <!--descripción -->
                 
-                  <div class="col-md-4">
+                  <div class="col-md-4" >
                     <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
                     
                       <h1 class="detalle-titulo">{{object.nombre}}</h5>
@@ -98,7 +99,7 @@
                                   {% endif %}
                               </a>
                                 <div class="card-body">
-                                <h4 class="card-title">
+                                <h4 class="card-titulo-detalle">
                                 <a class="ancla-titulo" href="{% url 'producto:Detalle' i.pk i.categoria.nombre %}" class="imagen"> {{i.nombre}} </a>
                                 </h4>
                                 <h5 class="prod"> ${{i.precio}} </h5>

@@ -1,13 +1,90 @@
-{% if object_list|length != 0 %}
-	{% for p in object_list %}
-	<label for="">{{p.n_pedido}}</label>
-	<label for="">{{p.producto}}</label>
-	<label for="">{{p.user}}</label>
-	<label for="">{{p.feriante}}</label>
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %} Productos {% endblock titulo%}
+{% block contenido %}  
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/productos.css' %}">
 
-	<a href="#">modificar</a>
-	{% endfor %}
-{% else %}
-	<label for="">No historias</label>
-	<a href="#">nueva</a>
-{% endif %}
+ 
+</head>
+
+<header class="masthead" style="background-image: url({% static 'img/productos.jpg' %}) ">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 text-center">
+        <h1 class="font-weight-light">  </h1>
+        <p class="lead"></p>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<section class="py-5" style="background-color:#fcfafa;"><!-- Page Content -->
+  <div class="container"><!-- Container página principal -->
+       <h1 class="my-1 ">
+          MIS RESERVAS
+       </h1>
+
+       <div class="row">    <!-- row página principal -->
+
+
+				{% if object_list|length != 0 %}
+					
+
+					<table class="table table-hover">
+						  <thead>
+						    <tr>
+						      <th scope="col">Nº reserva</th>
+						      <th scope="col">Producto</th>
+						      <th scope="col">Usuario</th>
+						      <th scope="col">Feriante</th>
+						      <th scope="col">Acción</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						  	{% for p in object_list %}
+						    <tr>
+						      <th scope="row">{{p.n_pedido}}</th>
+						      <td>{{p.producto}}</td>
+						      <td>{{p.user}}</td>
+						      <td>{{p.feriante}}</td>
+						      <td>modificar</td>
+						    </tr>
+						    {% endfor %}
+						  </tbody>
+						</table>
+				{% else %}
+					<label for="">No historias</label>
+					<a href="#">nueva</a>
+				{% endif %}
+
+
+        </div>
+        
+  </div>    <!-- /.container -->    
+</section>
+{% endblock contenido%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

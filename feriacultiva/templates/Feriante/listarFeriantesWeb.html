@@ -18,11 +18,11 @@
 </header>
 
 
-<section class="py-5"><!-- Page Content -->
+<section class="py-5" style="background-color:#fcfafa;"><!-- Page Content -->
   <div class="container"><!-- Container página principal -->
-       <h1 class="my-4">Feriantes >
-       <small>Lista de Feriantes</small>
-       </h1>
+        <h1 class="my-1 ">
+           FERIANTES
+        </h1>
     <div class="row"> <!-- row página principal -->
     
      {% for p in object_list %}
@@ -35,13 +35,11 @@
                  <img class="img-feriante" src="" alt="no existe foto" >
                 {% endif %}
               </a>
-              <div class="card-body">
-                <h4 class="titulo-feriante">
+              
+              <div class="card-footer">
+               <h4 class="titulo-feriante">
                   <a href="#" class="ancla-t"> {{p.encargado.first_name}} </a>
                 </h4>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
               </div>
             </div>
       </div>

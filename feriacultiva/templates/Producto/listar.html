@@ -20,10 +20,10 @@
 </header>
 
 
-<section class="py-5"><!-- Page Content -->
+<section class="py-5" style="background-color:#fcfafa;"><!-- Page Content -->
   <div class="container"><!-- Container página principal -->
-       <h1 class="my-4">Productos >
-       <small>Catálogo</small>
+       <h1 class="my-1 ">
+          PRODUCTOS
        </h1>
 
 
@@ -31,7 +31,7 @@
 
 
  <!-- USAR ESTE FILTRO X EL MOMENTO -->
-<div class="col-lg-3"> 
+<div class="col-lg-3" style="padding-top: 100px; " > 
 
     <div>
           {% if user.es_empresa %}
@@ -109,7 +109,7 @@
                            
                             <input type="number" name="cantidad" id="cantidad" placeholder="1" >
 
-                            <button class="reservar" type="submit" value="{{p.pk}}" name="Confirmar" style="margin-top: 5px;">Rerservar</button>
+                            <button class="reservar" type="submit" value="{{p.pk}}" name="Confirmar" style="margin-top: 5px;">Seleccionar cantidad</button>
                           </form>
                           {% else %}
                           <a href="#">No disponible</a>
@@ -150,6 +150,7 @@
                 {% if page_obj.has_next %}
                 <li class="page-item">
                   <a class="page-link" href="?page={{ page_obj.next_page_number}}" aria-label="Next">
+                    Siguiente
                     <span aria-hidden="true">&raquo;</span>
                     <span class="sr-only">Next</span>
                   </a>

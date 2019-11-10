@@ -35,10 +35,9 @@
 .card {overflow:hidden;}
 
 /*contenido de la card /titulo de la card*/
-.card-title {
+.card-titulo-detalle {
    color: #283739;
    font-size: 15px;
-   font-weight: bold;
    font-family: "Roboto Slab", serif;
    border-bottom: 2px solid #f5f5f5;
    font-family: "Roboto Slab", serif;
@@ -87,7 +86,6 @@ text-decoration:none;
 .prod{
    color: #a9c52f;
    font-size: 15px;
-   font-weight: bold;
    font-family: "Roboto Slab", serif;
 }
 

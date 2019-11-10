@@ -96,13 +96,15 @@ h3{
 
 .page-link{
 	color: #283739;
+	font-weight: normal;
+	background-color: #fff;
 
 }
 
 .page-link:hover{
 text-decoration:none;
-background-color: #a9c52f;
-color: #fff;
+background-color: #fff;
+color: #a9c52f;
  
 }
 
@@ -127,4 +129,20 @@ input{
 
 }
 
+#cantidad{
+	border: 0.5;
+	background-color: #f5f5f5;
+	color: black;
+	border-color: #a9c52f;
+	text-align: center;
+	width: 40px;
+	position: center;
+}
 
+
+/*paginación*/
+
+.page-link-paginacion{
+	background-color: red;
+
+}
