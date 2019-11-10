@@ -13,7 +13,7 @@ from django import forms
 class RegistrarUsuario(CreateView):
 	form_class = RegistroForm
 	template_name = 'user/registro.html'
-	success_url = reverse_lazy('start')   # + '?register'
+	success_url = reverse_lazy('login')   # + '?register'
 
 	def get_form(self, form_class=None):
 		form = super(RegistrarUsuario,self).get_form()
