@@ -91,7 +91,8 @@ body{
 
 .card {overflow:hidden;}
 
-/*contenido de la card /titulo de la card*/
+/*contenido de la 
+ /titulo de la card*/
 
 /*estilo categorias/*
 /*título de la categoría*/
@@ -180,11 +181,14 @@ color: #fff;
   font-size: 12px;
   font-family: "Roboto Slab", serif;
   color: #283739;
+
 }
 
 .titulo-seccion{
-  font-size: 18px;
-  font-family:  "Roboto Slab", serif;
+  margin-top: 15px;
+  font-size: 25px;
+  font-family: "Roboto Slab", serif;
+  color: #283739;
 
 }
 
@@ -194,15 +198,17 @@ color: #fff;
 }
 
 .box-text{
-
- font-size: 12px;
- color: #a9c52f;
+  color: #2c5d63;
+  font-size: 15px;
+  font-family: "Roboto Slab", serif;
 }
 
 .titulo-seccion{
-  font-size: 16px;
-  font-family:  "Roboto Slab", serif;
-  color: #2c5d63;
+  
+  margin-top: 15px;
+  font-size: 25px;
+  font-family: "Roboto Slab", serif;
+  color: #283739;
 }
 
 .categoria{
@@ -214,16 +220,18 @@ color: #fff;
 
 .card-categoria{
      font-family:  "Roboto Slab", serif;
-     background-color: #fff;
-     width:  180px;
      text-align: center;
-     color: #f45905;
-     margin-top: 40px;
-     font-size: 25px;
+     color: #2c5d63;
+     text-shadow: 
+    0 0 0.2em #f5f5f5, 0 0 0.2em #f5f5f5,
+    0 0 0.2em #f5f5f5,
+    0 0 0.2em #f5f5f5, 0 0 0.2em #f5f5f5,
+    0 0 0.2em #f5f5f5;
+     margin-top: 90px;
+     width: 100%;
+     font-size: 35px;
      font-weight: bold;
-     border-radius: 15px;
-     border-color: #f45905;
-     border: solid 1px;
+     
 }
 
 .navbar-nav{
@@ -238,3 +246,18 @@ color: #fff;
   font-weight: bold;
   font-size: 20px;
 }
+
+
+
+/* seccion como funciona */
+.img-como-funciona {
+  width: 189px;
+    margin-top: 30px;
+}
+
+
+.card-img-cat {
+  width: 300px;
+  height: 300px;
+}
+

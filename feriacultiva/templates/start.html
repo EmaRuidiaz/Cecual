@@ -180,20 +180,21 @@
     </div>    
     </div>
 </div>
+</div>
 
 
-<div class="container categoria" >
+<div class="container-fluid categoria" >
           <h1 class="my-1 ">
               CATEGORÍAS
           </h1>
       
 
-<div class="container">
+  <div class="container-fluid">
     <div class="row">
       {% for p in Categorias %}
-          <div class="col-md-3 col-sm-3 col-xs-12 single_portfolio_text mx-auto" style="margin-bottom: 5px;">
-             <div class="card bg-white text-white">
-              <img src=" {{p.foto.url}} " class="card-img" alt="">
+          <div class="col-md-3 col-sm-3 col-xs-12 mx-auto" style="margin-bottom: 5px;">
+             <div class="card-img-cat bg-white text-white">
+                <img src=" {{p.foto.url}} " class="card-img-cat" alt="">
                 <div class="card-img-overlay">
                  <h5 class="card-categoria mx-auto" >{{p.nombre}}</h5>
                   
@@ -204,14 +205,8 @@
       
     </div>
   </div>
-
-
-
-              
-  
-       
-      
-  </div>
+     
+</div>
 
 </section>
 
