@@ -57,6 +57,8 @@ section{
 .lead{
   font-weight: bold;
   font-family: "Roboto Slab", serif;
+  font-size: 25px; 
+  color: #f5f5f5;
 }
 
 .dir{
@@ -69,6 +71,9 @@ section{
 
 .display-4{
   font-weight: bold;
+  color: #f5f5f5;
+  -webkit-text-stroke: 1px #a9c52f;
+  color: #f5f5f5; 
   font-family: "Roboto Slab", serif;
 }
 
