@@ -46,8 +46,12 @@ class ListarFeriantesWeb(ListView):
 
 			page_range = paginator.page_range[start_index:end_index]
 			context['page_range'] = page_range
+			print("Anónimo: ",self.request.user.username)
+			try:
+				pedidos = Pedido.objects.filter(cliente = self.request.user)
+			except Exception as e:
+				pedidos = []
 
-			pedidos = Pedido.objects.filter(cliente = self.request.user)
 			context['Pedido'] = pedidos
 
 			return context
