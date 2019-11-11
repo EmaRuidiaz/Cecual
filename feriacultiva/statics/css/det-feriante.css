@@ -9,7 +9,7 @@
 
 .detalle-titulo{
    color: #283739;
-   font-size: 30px;
+   font-size: 20px;
    font: bold;
    font-family: "Roboto Slab", serif;
    
@@ -27,8 +27,35 @@
   font-family: "Roboto Slab", serif;
   background-color:#ff4d00;
   color: #f5f5f5;
-  font-size: 20px;
+  font-size: 15px;
   width: 350px;
   text-align: center;
 
+}
+
+.feriante-titulo{
+    color: #2c5d63;
+    font-family: "Roboto Slab", serif;
+    font-size: 30px;
+}
+
+.detalle-card{
+  padding-top: 15px;
+  border-top: solid 1px #a9c52f;
+  border-bottom: solid 1px #a9c52f;
+
+
+}
+
+.row-productos{
+  background-color: #f5f5f5; 
+  padding-top: 60px;
+}
+
+.imagen-titulo-card{
+  font-size: #2c5d63;
+  font-size: 18px;
+  text-align: center;
+  font-family: "Roboto Slab", serif;
+  color: #283739;
 }
