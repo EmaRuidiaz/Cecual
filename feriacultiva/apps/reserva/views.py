@@ -5,10 +5,11 @@ from apps.pedido.models import Pedido
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.views.generic.list import ListView
-
+from django.contrib.auth.decorators import login_required
+from apps.feriante.models import Feriante
 # Create your views here.
 
-
+@login_required
 def AgregarReserva(request): 
 
 	
@@ -30,8 +31,9 @@ def AgregarReserva(request):
 		producto = pedido.producto.nombre
 		foto_producto = pedido.producto.foto_producto
 		cantidad = pedido.cantidad
+
 		
-		Reserva.objects.create(n_pedido = n_ped, feriante = pedido.producto.feriante, producto = pedido.producto, cantidad = pedido.cantidad, precio = pedido.total, user = pedido.cliente, envio = pedido.envio)
+		Reserva.objects.create(n_pedido = n_ped, direccion = pedido.cliente.direccion ,feriante = pedido.producto.feriante, producto = pedido.producto, cantidad = pedido.cantidad, precio = pedido.total, user = pedido.cliente, envio = pedido.envio)
 		html_content = render_to_string('Feriante/email.html',{'email': email,
 			'user_name': user,
 			'producto_name': producto,
@@ -61,7 +63,18 @@ def AgregarReserva(request):
 '''
 	return render(request, 'Pedido/listarPedidos.html', {'object_list': Pedido.objects.filter(cliente = request.user)})
 
-def ListarReservas(request):
+@login_required
+def ListarReservasCliente(request):
 
 	return render(request, 'Reserva/listarReservas.html', {'object_list': Reserva.objects.filter(user = request.user)})
 
+@login_required
+def ListarReservasFeriante(request):
+
+	return render(request, 'Reserva/listarReservasParaFeriante.html', {'object_list': Reserva.objects.filter(feriante = Feriante.objects.get(encargado = request.user))})
+
+def ConfirmarReserva(request, pk):
+
+	Reserva.objects.filter(pk = pk).update(estado = True)
+
+	return render(request, 'Reserva/listarReservasParaFeriante.html', {'object_list': Reserva.objects.filter(feriante = Feriante.objects.get(encargado = request.user))})

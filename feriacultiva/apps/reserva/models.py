@@ -15,3 +15,5 @@ class Reserva(models.Model):
 	feriante = models.ForeignKey(Feriante, on_delete = models.CASCADE)
 	estado = models.BooleanField(default = False)
 	envio = models.BooleanField(default = False, blank = True)
+	direccion_de_envio = models.CharField(max_length=200)
+

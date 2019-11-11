@@ -7,5 +7,9 @@ app_name = 'reserva'
 urlpatterns = [
     path('reserva/', views.AgregarReserva, name = 'agregar'),
 
-    path('reservas/', views.ListarReservas, name = 'listar'),
+    path('reservas/', views.ListarReservasCliente, name = 'listar'),
+
+    path('solicitudes/', views.ListarReservasFeriante, name = 'listarParaFeriante'),
+
+    path('confirmar/<int:pk>', views.ConfirmarReserva, name = 'confirmar')
 ]
