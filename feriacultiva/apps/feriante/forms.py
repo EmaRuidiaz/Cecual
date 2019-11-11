@@ -34,3 +34,17 @@ class FerianteForm(UserCreationForm):
 		p.user_set.add(user)
 		empresa = Feriante.objects.create(descripcion = 'vacio',encargado = user)
 		return user
+
+
+
+class PerfilFerianteForm(forms.ModelForm):
+
+	class Meta:
+		model = Feriante
+		fields = ['foto_feriante','descripcion','delivery']
+
+class PerfilUsuarioFeriante(forms.ModelForm):
+
+	class Meta:
+		model = User
+		fields = ['first_name','direccion','telefono']

@@ -21,6 +21,8 @@ urlpatterns = [
 
     path('MisProductos/', views.MisProductos, name='MisProductos'),
 
+    path('PerfilFeriante/', views.PerfilFeriante, name='PerfilFeriante'),
+
 
 
 ]
