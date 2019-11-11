@@ -33,7 +33,7 @@ def AgregarReserva(request):
 		cantidad = pedido.cantidad
 
 		
-		Reserva.objects.create(n_pedido = n_ped, direccion = pedido.cliente.direccion ,feriante = pedido.producto.feriante, producto = pedido.producto, cantidad = pedido.cantidad, precio = pedido.total, user = pedido.cliente, envio = pedido.envio)
+		Reserva.objects.create(n_pedido = n_ped, direccion_de_envio = pedido.cliente.direccion ,feriante = pedido.producto.feriante, producto = pedido.producto, cantidad = pedido.cantidad, precio = pedido.total, user = pedido.cliente, envio = pedido.envio)
 		html_content = render_to_string('Feriante/email.html',{'email': email,
 			'user_name': user,
 			'producto_name': producto,
