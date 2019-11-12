@@ -122,8 +122,9 @@
                           >{% csrf_token %}
                            
                             <input type="number" name="cantidad" id="cantidad" placeholder="1" >
-
-                            <button class="reservar" type="submit" value="{{p.pk}}" name="Confirmar" style="margin-top: 5px;">Seleccionar cantidad</button>
+                            {% if user.is_authenticated %}
+                            <button class="reservar" type="submit" value="{{p.pk}}" name="Confirmar" style="margin-top: 5px;">+ carrito</button>
+                            {% endif %}
                           </form>
                           {% else %}
                           <a href="#">No disponible</a>

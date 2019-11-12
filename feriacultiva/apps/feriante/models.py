@@ -8,4 +8,8 @@ class Feriante(models.Model):
 	encargado = models.OneToOneField(User, on_delete=models.CASCADE)
 
 
+	def __str__(self):
+		return self.encargado.first_name
+
+
 

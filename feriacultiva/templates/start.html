@@ -103,23 +103,7 @@
                       {% endif %}
 
                       </div>
-                      <div class="card-footer mx-auto" style="background-color: #fff;">
-                        <!-- Cambiar el diseño del boton en caso de que no haya mas en stock -->
-                        {% if p.stock > 0 %}
-
-                          <form  action=""method="post" enctype="multipart/form-data" 
-                          >{% csrf_token %}
-                           
-                            <input type="number" name="cantidad" id="cantidad" placeholder="1" >
-
-                            <button class="reservar" type="submit" value="{{p.pk}}" name="Confirmar" style="margin-top: 5px;">Seleccionar cantidad</button>
-                          </form>
-                          {% else %}
-                          <a href="#">No disponible</a>
-                        {% endif %}
-                      </div>
-
-
+                     
                     </div>
                   </div>
                 {% endfor %}
