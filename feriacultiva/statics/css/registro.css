@@ -8,6 +8,12 @@
 .btn-reg:hover {
 background-color: #fff;        
 }
+.titulo {
+	text-shadow: 2px 2px 2px #f5f5f5;
+	font-size: 60px;
+	color: #2c5d63;
+}
+
 /*label form*/
 
 label{

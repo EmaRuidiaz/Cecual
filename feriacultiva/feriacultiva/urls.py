@@ -45,6 +45,10 @@ urlpatterns = [
 
     path('eventos/', include('apps.evento.urls')),
 
+    path('temas/', include('apps.tema.urls')),
+
+    path('comentario/', include('apps.comentario.urls')),
+
     # path('reserva/', include('apps.reserva.urls')), #
 
     #LOGIN and LOGOUT

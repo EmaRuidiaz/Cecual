@@ -23,11 +23,16 @@ body{
 	text-align: center;
 
 }
+.subt {
+	color: #2c5d63;
+	font-family: 'Roboto Slab', serif; 
+}
 .texto {
 	text-align: justify;
 	font-family: 'Roboto Slab', serif; 
 	font-size: 17px;
 	color: #283739;
+
 
 }
 .header_proxima {
@@ -42,5 +47,21 @@ body{
     margin: 0 0 0 -49%;
     position: absolute;
     max-width: 98%;
+
+}
+
+.lead {
+	font-family: 'Roboto Slab', serif; 
+	font-size: 17px;
+	color: #283739;
+}
+
+.img-circle:hover {
+	width: 250px;
+
+-webkit-transform: rotateY(180deg);
+-webkit-transform-style: preserve-3d;
+transform: rotateY(180deg);
+transform-style: preserve-3d;}
 
 }

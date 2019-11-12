@@ -3,11 +3,11 @@ from apps.feriante.models import Feriante
 from apps.producto.models import Producto
 from apps.user.models import User
 from apps.pedido.models import Pedido
-from django.views.generic.edit import CreateView, DeleteView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
-from apps.feriante.forms import FerianteForm
+from apps.feriante.forms import FerianteForm, PerfilFerianteForm, PerfilUsuarioFeriante
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.list import ListView
 from django.core.paginator import Paginator
@@ -72,6 +72,50 @@ def EliminarFeriante(request,pk):
 	usuario.is_active = False
 	usuario.save()
 	return redirect('feriante:listarFeriantes')
+
+
+# Esto es lo nuevo.. debo seguir trabajando
+def PerfilFeriante(request):
+	encargado = request.user
+	feria = Feriante.objects.get(encargado = encargado)
+	p = User.objects.get(username = encargado)
+	print(p)
+	context = {}
+	context['feria'] = feria
+	context['usuario'] = p
+	print('hola')
+
+	if request.method == 'GET':
+		form = PerfilFerianteForm(instance = feria)
+		form2 = PerfilUsuarioFeriante(instance = p)
+		print('hola2')
+	else:
+		form = PerfilFerianteForm(request.POST, instance = feria)
+		form2 = PerfilUsuarioFeriante(request.POST, instance = p)
+		print('hola3')
+		if form.is_valid and form2.is_valid():
+			print('hola4')
+			perfil = form.save(commit = False)
+			u = form2.save(commit = False)
+			perfil.encargado = p
+			if request.POST.get('foto_feriante') == '':
+				perfil.foto_feriante = feria.foto_feriante
+			else:
+				perfil.foto_feriante = request.POST.get('foto_feriante')
+			perfil.descripcion = request.POST.get('descripcion')
+			if request.POST.get('delivery') == 'Si':
+				perfil.delivery = True
+			else:
+				perfil.delivery = False
+
+			u.first_name = request.POST.get('first_name')
+			u.direccion = request.POST.get('direccion')
+			u.telefono = request.POST.get('telefono')
+			u.save()
+			perfil.save()
+	return render(request,'Feriante/perfil.html',context,{'form':form,'form2':form2})
+	
+
 
 class DetalleFeriante(DetailView):
 	model = Feriante

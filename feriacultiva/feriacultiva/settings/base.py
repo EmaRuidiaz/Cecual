@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'apps.historia',
     'apps.publicaciones',
     'apps.evento',
+    'apps.tema',
+    'apps.comentario',
 ]
 
 AUTH_USER_MODEL = 'user.User'

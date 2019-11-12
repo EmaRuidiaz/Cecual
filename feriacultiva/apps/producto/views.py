@@ -76,6 +76,11 @@ class ListarProductos(ListView):
 			pedidos = Pedido.objects.filter(cliente = self.request.user)
 			context['Pedido'] = pedidos
 
+		buscar = self.request.GET.get("buscador")
+		print(buscar)
+		if buscar:
+			context['object_list'] = Producto.objects.filter(nombre__icontains = buscar)
+
 		return context
 
 	def get_queryset(self):

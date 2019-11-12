@@ -7,25 +7,25 @@
 <head>
     <link rel="stylesheet" type="text/css" href="{% static 'css/registro.css' %}">
 </head>  
-<header class="masthead" style="background-image: url({% static 'img/encabezado.png' %}) ">
-  <div class="container h-100">
-    <div class="row h-100 align-items-center">
-      <div class="col-12 text-center">
-        <h1 class="font-weight-light" id="titulo">Registrarse en Feria Cultiva</h1>
-        <p class="lead"></p>
-      </div>
+<header>
+    <div class="container">
+        <div class="row align-items-center" style="margin-top: 70px; background-color: #fcfafa;">
+            <div class="col-12 text-center">
+                <h1 class="font-weight-light titulo">Registrarse en Feria Cultiva</h1>
+                <p class="lead"></p>
+            </div>
+        </div>
     </div>
-  </div>
 </header>
 <!-- Page Content -->
-<section class="py-5" style="background-color: #fcfafa;" >
+<section class="" style="background-color: #fcfafa;" >
   <!-- Page Content -->
   <div class="container">
-     <h1 class="my-4">Feria Cultiva>
-     <small>Crear Cuenta</small></h1>
+     <h1 class="my-4">
+     <small style="color: #2c5d63;">Crear Cuenta</small></h1>
 
    <div class="row">    
-    <div class="container h-100 " style="background-color: #f5f5f5;padding-top: 15px; padding-bottom: 15px;" >
+    <div class="container h-100 " style="background-color: #f5f5f5;padding-top: 15px; padding-bottom: 15px; margin-bottom: 30px;" >
         {% for x in messages %}
             <div class="alert alert-success">
                 {{x}}
