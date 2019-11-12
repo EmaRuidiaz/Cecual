@@ -70,11 +70,16 @@ section{
 }
 
 .display-4{
-  font-weight: bold;
+  
   color: #f5f5f5;
   -webkit-text-stroke: 1px #a9c52f;
   color: #f5f5f5; 
   font-family: "Roboto Slab", serif;
+
+  text-shadow: 2px 2px 2px #a9c52f;
+  font-size: 60px;
+
+}
 }
 
 .dropdown:hover div{
