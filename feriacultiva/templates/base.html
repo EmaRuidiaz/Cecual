@@ -116,9 +116,9 @@
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 {% if user.is_authenticated %}
                 <p class="dropdown-item" style=" color: #2c5d63; font-weight: bold;   font-size: 15px; font-family: 'Roboto Slab';">Hola! {{user.username}}</p>
-                
-                <a class="dropdown-item" href="{% url 'feriante:PerfilFeriante' %}" style=" color: #2c5d63; font-weight: bold;   font-size: 15px; font-family: 'Roboto Slab';">Mi Perfil</a>
-
+                  {% if user.es_empresa %}
+                    <a class="dropdown-item" href="{% url 'feriante:PerfilFeriante' %}" style=" color: #2c5d63; font-weight: bold;   font-size: 15px; font-family: 'Roboto Slab';">Mi Perfil</a>
+                  {% endif %}
                 <a class="dropdown-item" href="{% url 'logout' %}" style=" color: #2c5d63; font-size: 15px; font-family: 'Roboto Slab';">Cerrar Sesión</a>
                 {%else%}
                 <a class="dropdown-item" href="{% url 'login' %}"
