@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %} Productos {% endblock titulo%}
+{% block contenido %}  
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/productos.css' %}">
+
+ 
+</head>
+
+<header class="masthead" style="background-image: url({% static 'img/productos.jpg' %}) ">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 text-center">
+        <h1 class="font-weight-light">  </h1>
+        <p class="lead"></p>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<section class="py-5" style="background-color:#fcfafa;"><!-- Page Content -->
+    <a href="{% url 'tema:Agregar' %}">Nuevo Foro</a>
+    {% for p in object_list %}
+        <div class="card">
+            
+            <a href="#"><h1>{{p.titulo}}</h1></a>
+            <p>creador: {{p.creador}}</p>
+            <p>Fecha de creacion: {{p.fecha_creacion}}</p>
+        </div>
+    {% endfor %}
+</section>
+{% endblock contenido%}
+
