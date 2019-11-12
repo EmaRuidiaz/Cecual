@@ -64,130 +64,117 @@
   </nav>
 
 
-<section class="py-5">
+<section class="py-5" style="background-color: #fcfafa; margin-bottom: 20px;">
   <!-- titulo y subtitulo de la pagina -->
 <div class="container">
 
    
-    <h1 class="my-1">Panel de Administración>
-     <small>Alta Feriante</small></h1>
+    <h2 class="" style="color: #283739; margin-top: 50px;">Panel de Administración>
+     <small>Alta Feriante</small></h2>
 
+     <div class="row">  
+      <div class="container h-100 " style="background-color: #f5f5f5;padding-top: 15px; padding-bottom: 15px;" >
 
            {% for x in messages %}
                             <div class="alert alert-success mx-auto w-50 align-items-center" >
                                 {{x}}
                             </div>
             {% endfor %}
-
-        
-    <div class="row">  
-
-<!--formulario -->
-        <div class="container h-100 " style="background-color: #f5f5f5;padding-top: 15px; padding-bottom: 15px;" >
-
-            <div  class="row justify-content-center align-items-center">
-                
-
-             <div class="col col-sm-6 col-md-6 col-lg-6 ">
-                          
-               <form autocomplete="off" method="POST"  enctype="multipart/form-data"  >
-                            {% csrf_token %}
-                            <div class="form-group">
-                                <label for="email">E-mail *</label> 
-                                <input type="email" maxlength="50" class="form-control" placeholder="Ingrese su correo electrónico" name="email" required="true">
-                                <small class="text-muted" >Introduzca un email válido</small>
+        <form autocomplete="off" method="POST"  enctype="multipart/form-data"  >
+          {% csrf_token %}
+          <div data-v-88d1dfd6="" class="row topMargin">
+            <div data-v-88d1dfd6="" class="col-md-6">
+              <div class="form-group">
+                    <label for="email">E-mail *</label> 
+                    <input type="email" maxlength="50" class="form-control" placeholder="Ingrese su correo electrónico" name="email" required="true">
+                    <small class="text-muted" >Introduzca un email válido</small>
                             {% if form.email.errors %}
-                                  <span class="form_error">
-                                    La dirección de correo no es válida, o ya está en uso, intente nuevamente.
-                                  </span>
+                    <span class="form_error">
+                      La dirección de correo no es válida, o ya está en uso, intente nuevamente.
+                    </span>
                             {% endif %}
-                            </div>
-                            
-
-                      
-                             <div class="form-group">
-                                <label  class="control-label">Nombre de la Feria *</label> 
-                                <input type="text" maxlength="35" class="form-control" placeholder="Ingrese Nombre de la Feria" name="first_name" required="true">
+              </div>
+            </div>
+            <div data-v-88d1dfd6="" class="col-md-6">                         
+              <div class="form-group">
+                     <label  class="control-label">Nombre de la Feria *</label> 
+                     <input type="text" maxlength="35" class="form-control" placeholder="Ingrese Nombre de la Feria" name="first_name" required="true">
                                {% if form.first_name.errors %}
-                                  <span class="form_error">
+                     <span class="form_error">
                                     El nombre no es válido. Verifique a cantidad de caracteres. 
-                                  </span>
+                     </span>
                               {% endif %}         
-                              </div>
-                              
-                                
-                            <div class="form-group">
-                            <label for="inputApellido">Responsable *</label> 
-                                <input  type="text" maxlength="35" class="form-control" placeholder="Ingrese el nombre completo del responsable" name="last_name"required="true">
+              </div>
+            </div>
+            <div data-v-88d1dfd6="" class="col-md-6">                            
+              <div class="form-group">
+                    <label for="inputApellido">Responsable *</label> 
+                    <input  type="text" maxlength="35" class="form-control" placeholder="Ingrese el nombre completo del responsable" name="last_name"required="true">
                                 {% if form.last_name.errors %}
-                                  <span class="form_error">
+                    <span class="form_error">
                                     El nombre no es válido. Verifique a cantidad de caracteres. 
-                                  </span>
+                    </span>
                               {% endif %}
-                            </div>
-                                           
-                            <div class="form-group">
-                                    <label for="telefono">Teléfono *</label> 
-                                    <input  type="tel" maxlength="10" class="form-control" name="telefono" placeholder="Ingrese su Nº de teléfono" required="true" >
-                                    <small id="passwordHelpInline" class="text-muted">Ingresá tu nº con código de área, sin 0 y sin el 15</small>
+              </div>
+            </div>
+            <div data-v-88d1dfd6="" class="col-md-6">                                           
+                <div class="form-group">
+                  <label for="telefono">Teléfono *</label> 
+                  <input  type="tel" maxlength="10" class="form-control" name="telefono" placeholder="Ingrese su Nº de teléfono" required="true" >
+                  <small id="passwordHelpInline" class="text-muted">Ingresá tu nº con código de área, sin 0 y sin el 15</small>
                                   {% if form.telefono.errors %}
-                                    <span class="form_error">
+                  <span class="form_error">
                                       El número de teléfono no es válido, intente nuevamente. 
-                                    </span>
+                  </span>
                                   {% endif %}
-                            </div>
-
-                          <div  class="form-group">
-                                    <label  class="control-label">Nombre de usuario *</label> 
-                                    <input type="text" maxlength="35" class="form-control" placeholder="Ingrese Nombre de Usuario" name="username" required="true">
-                                    <small class="text-muted">
+                </div>
+            </div>
+            <div data-v-88d1dfd6="" class="col-md-6">
+                <div  class="form-group">
+                  <label  class="control-label">Nombre de usuario *</label> 
+                  <input type="text" maxlength="35" class="form-control" placeholder="Ingrese Nombre de Usuario" name="username" required="true">
+                  <small class="text-muted">
                                       Ingrese un nombre de usuario sin espacios. 
-                                    </small>
+                  </small>
                                   {% if form.username.errors %}
-                                    <span class="form_error">
+                  <span class="form_error">
                                       El nombre de usuario ya existe o tiene espacios en blanco, intente nuevamente.
-                                    </span>
+                  </span>
                                   {% endif %}  
-                            </div>
-
-                             <div  class="form-group">
-                                    <label for="password_confirmation">Contraseña *</label> 
-                                    <input type="password"  minlength="8" maxlength="16" class="form-control" placeholder="Ingrese Contraseña" name="password1"> <!---->
+                </div>
+            </div>
+            <div data-v-88d1dfd6="" class="col-md-6">
+                  <div  class="form-group">
+                      <label for="password_confirmation">Contraseña *</label> 
+                      <input type="password"  minlength="8" maxlength="16" class="form-control" placeholder="Ingrese Contraseña" name="password1"> <!---->
                                 {% if form.password1.errors %}
-                                  <span class="form_error">
+                      <span class="form_error">
                                     La contraseña es muy común, verifique sea una combinación de letras (mayúsculas y minúsculas) y números. 
-                                  </span>
+                      </span>
                                 {% endif %}
-                            </div>
-                            <div  class="form-group">
-                                    <label for="password_confirmation">Repita Contraseña *</label> 
-                                    <input type="password"  minlength="8" maxlength="16" class="form-control" placeholder="Ingrese Contraseña" name="password2"> <!---->
+                  </div>
+            </div>
+            <div data-v-88d1dfd6="" class="col-md-6">
+                  <div  class="form-group">
+                      <label for="password_confirmation">Repita Contraseña *</label> 
+                      <input type="password"  minlength="8" maxlength="16" class="form-control" placeholder="Ingrese Contraseña" name="password2"> <!---->
                                 
                                 {% if form.password2.errors %}
-                                  <span class="form_error">
+                      <span class="form_error">
                                     Las contraseñas no coinciden, o puede que sea muy común, verifique sea una combinación de letras (mayúsculas y minúsculas) y números e intente nuevamente. 
-                                  </span>
-                             
-                                     
-                                  </span>
-                                {% endif %}
+                      </span>
+                      {% endif %}
+                  </div>
+            </div>
 
-
-                            </div>
-                   
-                      
-
-                    <div class="row justify-content-center align-items-center">
-                        <button class="btn" type="submit">Finalizar Registro</button>
-                    </div>
-                </form> 
-                </div>
-              </div>
-           </div><!--fin container form-->
-
-        </div><!--fin row-->
-  
-  </div>  <!-- /fin container -->     
+            <div class="col-md-6" style="margin-top: 30px;">
+                <button class="btn mx-auto" type="submit">Finalizar Registro</button>
+            </div>
+          </div>
+        </form> 
+      </div>
+    </div>
+  </div>  
 </section>
 <footer class="fixed-bottom" style="background-color: #2c5d63; height: 60px;">
         <div class="container">
