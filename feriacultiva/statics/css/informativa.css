@@ -23,11 +23,16 @@ body{
 	text-align: center;
 
 }
+.subt {
+	color: #2c5d63;
+	font-family: 'Roboto Slab', serif; 
+}
 .texto {
 	text-align: justify;
 	font-family: 'Roboto Slab', serif; 
 	font-size: 17px;
 	color: #283739;
+
 
 }
 .header_proxima {
@@ -43,4 +48,14 @@ body{
     position: absolute;
     max-width: 98%;
 
+}
+
+.lead {
+	font-family: 'Roboto Slab', serif; 
+	font-size: 17px;
+	color: #283739;
+}
+
+.img-circle {
+	width: 250px;
 }
