@@ -23,7 +23,7 @@
 <section class="py-5" style="background-color:#fcfafa;"><!-- Page Content -->
   <div class="container"><!-- Container página principal -->
 
-    <!-- Barra de busqueda -->
+    <!-- Barra de busqueda 
     <div class="row">
       <div>
         <form method="get">
@@ -34,7 +34,7 @@
         </form>
       </div>
     </div>
-    <!-- Hasta Aqui -->
+    Hasta Aqui -->
     
        <h1 class="my-1 ">
           PRODUCTOS
@@ -45,9 +45,9 @@
 
 
  <!-- USAR ESTE FILTRO X EL MOMENTO -->
-<div class="col-lg-3" style="padding-top: 100px; " > 
+<div class="col-lg-3" style="padding-top: 0px" > 
 
-    <div>
+ <!--   <div>
           {% if user.es_empresa %}
             <button class="btn float-right" type="button"  >
             <a href="{% url 'producto:agregar' %}">
@@ -55,9 +55,9 @@
             </button>
             <button><a href="{% url 'feriante:MisProductos' %}">Mis Productos</a></button>
           {% endif %}
-    </div>
+    </div> -->
 
-        <div class="list-group" style="padding-top: 20px;">
+        <div class="list-group" style="padding-top: 50px; width: 300px; ">
           <form>
               <select name="Categoria">
                   <option value="0">Todos</option>
