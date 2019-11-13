@@ -14,7 +14,11 @@
    font-family: "Roboto Slab", serif;
    
 }
-
+.titulo {
+  text-shadow: 2px 2px 2px #a9c52f;
+  font-size: 60px;
+  color: #f5f5f5;
+}
 .card-text-det{
    color: #283739;
    font-size: 15px;

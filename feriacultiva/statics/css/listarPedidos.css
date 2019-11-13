@@ -1,3 +1,9 @@
+.titulo {
+	text-shadow: 2px 2px 2px #a9c52f;
+	font-size: 60px;
+	color: #f5f5f5;
+}
+
 .img-pedidos{
 	width: 200px;
 	height: 250px;

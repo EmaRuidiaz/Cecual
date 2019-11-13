@@ -4,15 +4,25 @@
 {% block contenido %}  
 <head>
   <link rel="stylesheet" type="text/css" href="{% static 'css/productos.css' %}">
+  <style type="text/css">
+  	.titulo {
+	text-shadow: 2px 2px 2px #a9c52f;
+	font-size: 60px;
+	color: #f5f5f5;
+}
+
+  </style>
 
  
 </head>
 
-<header class="masthead" style="background-image: url({% static 'img/productos.jpg' %}) ">
+<header class="masthead" style="background-image: url({% static 'img/reservas.png' %}) ">
   <div class="container h-100">
     <div class="row h-100 align-items-center">
       <div class="col-12 text-center">
-        <h1 class="font-weight-light">  </h1>
+      <h1 class="my-1 titulo ">
+         Mis reservas
+       </h1>
         <p class="lead"></p>
       </div>
     </div>
