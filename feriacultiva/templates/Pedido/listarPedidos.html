@@ -70,7 +70,7 @@
 						<td> 
 							<form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
 								
-								<input type="number" name="cantidad" id="cantidad"  placeholder="{{p.cantidad}}">
+								<input type="number" name="cantidad" id="cantidad"  value="{{p.cantidad}}">
 								<button class="btn-confirmar" type="submit" value="{{p.pk}}" name="Confirmar" style="text-decoration: none;">Confirmar cantidad</button>
 							</form>
 						</td>
@@ -89,7 +89,8 @@
 					</tr>
 					{% endfor %}
 		    </tbody>
-	    </table>
+		</table>
+		<p> Precio Total: {{total.total__sum}}</p>
      </div> <!-- card.// -->
      <a  class="btn-pedidos" href="{% url 'reserva:agregar' %}">Confirmar pedidos</a>
     </div>

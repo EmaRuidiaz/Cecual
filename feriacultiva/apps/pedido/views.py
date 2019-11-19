@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 from apps.pedido.forms import PedidoForm
 from decimal import Decimal
+from django.db.models import Sum
 
 # Create your views here.
 
@@ -16,24 +17,29 @@ from decimal import Decimal
 
 def ListarPedido(request):
 	context = {}
-	context['object_list'] = Pedido.objects.filter(cliente = request.user)
-	clave = request.POST.get('Confirmar')
-	print(clave)
-	try:
-		p = Pedido.objects.get(pk = clave)
-		print(p)
-	except Pedido.DoesNotExist:
-		print('nada')
-	
-	if request.POST.get:
-		form = PedidoForm(request.POST)
-		if form.is_valid():
-			cant = request.POST.get('cantidad')
-			total = Decimal(cant) * p.producto.precio
-			p.cantidad = cant
-			p.total = total
-			p.save()
+	if request.user.is_authenticated:
+		context['object_list'] = Pedido.objects.filter(cliente = request.user)
 
+		clave = request.POST.get('Confirmar')
+		print(clave)
+		try:
+			p = Pedido.objects.get(pk = clave)
+			print(p)
+		except Pedido.DoesNotExist:
+			print('nada')
+		
+		if request.POST.get:
+			form = PedidoForm(request.POST)
+			if form.is_valid():
+				cant = request.POST.get('cantidad')
+				total = Decimal(cant) * p.producto.precio
+				p.cantidad = cant
+				p.total = total
+				p.save()
+
+		context['total'] = Pedido.objects.filter(cliente = request.user).aggregate(Sum('total')) # Trae el precio total de todos los pedidos
+	else:
+		print('no esta registrado')		
 	return render(request, 'Pedido/listarPedidos.html', context)
 	
 

@@ -69,7 +69,9 @@
                         <input type="radio" name="envio" value="No">No<br>
                       {% endif %}
                     -->
-                      <button  class="confirm-cant" type="submit" style="margin-top: 5px;">Confirmar cantidad </button>
+                      {% if user.is_authenticated %}
+                        <button  class="confirm-cant" type="submit" style="margin-top: 5px;">Confirmar cantidad </button>
+                      {% endif %}
                       <br>
                       <br>
                       <a class="ancla-titulo-feriante" href="" class="imagen"> Feriante:  {{object.feriante.encargado.first_name}} </a>
