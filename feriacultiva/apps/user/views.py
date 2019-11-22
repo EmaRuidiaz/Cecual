@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import CreateView, UpdateView
 from django.urls import reverse_lazy
 from .models import User
-from apps.user.forms import RegistroForm
+from apps.user.forms import RegistroForm, EditarUserForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django import forms
 
@@ -27,3 +27,27 @@ class RegistrarUsuario(CreateView):
 		form.fields['password2'].widget = forms.PasswordInput(attrs={'class':'form-control mb-2',' placeholder':'Repite la contraseña'})
 		return form
 		
+def EditarPerfil(request):
+	context = {}
+	user = request.user
+	usuario = User.objects.get(username = user)
+	context['user'] = usuario
+	print('antes del if')
+	if request.method == 'GET':
+		form = EditarUserForm(instance = usuario)
+	else:
+		form = EditarUserForm(request.POST, instance = usuario)
+		if form.is_valid():
+			perfil = form.save(commit = False)
+			perfil.username = usuario.username
+			if request.POST.get('foto_perfil') == '':
+				perfil.foto_perfil = usuario.foto_perfil
+			else:
+				perfil.foto_perfil = request.POST.get('foto_perfil')
+			perfil.first_name = request.POST.get('first_name')
+			perfil.last_name = request.POST.get('last_name')
+			perfil.email = usuario.email
+			perfil.direccion = request.POST.get('direccion')
+			perfil.save()
+			
+	return render(request,'user/perfil.html',context,{'form':form})

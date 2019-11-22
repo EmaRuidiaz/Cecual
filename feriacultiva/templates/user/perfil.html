@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %} Productos {% endblock titulo%}
+{% block contenido %}  
+
+    <div style="margin-top: 75px;">
+        <form action="" method="POST"> {% csrf_token %}
+            <label >Foto</label>
+                {% if user.foto_perfil %}
+                    <img src="{{user.foto_perfil.url}}" alt="foto">
+                    {% else %}
+                    <img src="" alt="no existe">
+                {% endif %} 
+            <input type="file" name="foto_perfil" value="{{user.foto_perfil.url}}"><br>
+            <label for="first_name">Nombre:</label>
+            <input type="text" name="first_name" id="first_name" value="{{user.first_name}}">
+            <label for="last_name">Apellido:</label>
+            <input type="text" name="last_name" id="last_name" value="{{user.last_name}}">
+            <label for="direccion">Direccion:</label>
+            <input type="text" name="direccion" id="direccion" value="{{user.direccion}}">
+
+            <input type="submit" value="Guardar">
+            
+        </form>
+    </div>
+
+
+{% endblock contenido%}

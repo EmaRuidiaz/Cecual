@@ -26,7 +26,7 @@ class ListarFeriantes(ListView):
 #vista feriantes web
 class ListarFeriantesWeb(ListView):
 	model = Feriante
-	paginate_by = 9
+	paginate_by = 10
 	template_name = 'Feriante/ListarFeriantesWeb.html'
 
 	def get_context_data(self, **kwargs):
@@ -88,13 +88,10 @@ def PerfilFeriante(request):
 	if request.method == 'GET':
 		form = PerfilFerianteForm(instance = feria)
 		form2 = PerfilUsuarioFeriante(instance = p)
-		print('hola2')
 	else:
 		form = PerfilFerianteForm(request.POST, instance = feria)
 		form2 = PerfilUsuarioFeriante(request.POST, instance = p)
-		print('hola3')
 		if form.is_valid and form2.is_valid():
-			print('hola4')
 			perfil = form.save(commit = False)
 			u = form2.save(commit = False)
 			perfil.encargado = p
