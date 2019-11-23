@@ -2,6 +2,7 @@ from django.shortcuts import render
 from apps.tema.models import Tema
 from apps.comentario.models import Comentario
 from apps.comentario.forms import ComentarioForm
+from apps.vote.models import Vote
 
 # Create your views here.
 
@@ -15,6 +16,7 @@ def ListarComentario(request,pk):
     context['comentario'] = x
     print(context)
 
+
     user = request.user
     if request.method == 'GET':
         form = ComentarioForm(request.POST)
@@ -27,4 +29,15 @@ def ListarComentario(request,pk):
             com.comentario = request.POST.get('comentario')
             com.save()
     
+    votes = Vote.objects.filter(user = request.user, vote = "1")
+    VotesListPositives = []
+    for p in votes:
+        VotesListPositives.append(p.pk)
+    context['votes'] = VotesListPositives
+
+    context['positives'] = len(VotesListPositives)
+
+    neg = Vote.objects.filter(user = request.user, vote = "-1")
+    context['negatives'] = len(neg)
+
     return render(request,'Foro/comentario.html',context,{'form':form})

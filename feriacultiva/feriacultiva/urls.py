@@ -49,6 +49,8 @@ urlpatterns = [
 
     path('comentario/', include('apps.comentario.urls')),
 
+    path('vote/', include('apps.vote.urls')),
+
     # path('reserva/', include('apps.reserva.urls')), #
 
     #LOGIN and LOGOUT

@@ -25,6 +25,13 @@
         <div class="card">
             <h5>{{p.user}}</h5>
             <p>{{p.comentario}}</p>
+            <label for="">Positives: <span>{{ positives }}</span></label>
+            <label for="">Negatives: <span>{{ negatives }}</span></label>
+            {% if p.pk in votes %}
+              <a href="{% url 'vote:votar' p.pk %}"> Unlike </a>
+            {% else %}
+              <a href="{% url 'vote:votar' p.pk %}"> Like </a>
+            {% endif %}
         </div>
     {% endfor %}
     <form method="post" enctype="multipart/form-data">{% csrf_token %}>

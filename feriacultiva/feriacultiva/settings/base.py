@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'apps.evento',
     'apps.tema',
     'apps.comentario',
+    'apps.vote',
 ]
 
 AUTH_USER_MODEL = 'user.User'
