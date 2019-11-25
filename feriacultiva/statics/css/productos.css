@@ -30,7 +30,7 @@ section{
 
 /*contenido de la card /titulo de la card*/
 .card-title {
-   color: #a9c52f;
+   color: #2c5d63;
    font-size: 20px;
    font-family: "Roboto Slab", serif;
    border-bottom: 2px solid #f5f5f5;
@@ -40,18 +40,18 @@ section{
 
 .ancla-titulo:link {
   text-decoration:none;
-  color: #a9c52f;
+  color: #2c5d63;
 }
 
 .ancla-titulo:visited{
   text-decoration:none;
-  color: #a9c52f;
+  color: #2c5d63;
 }
 
 
 .ancla-titulo:hover{
   text-decoration:none;
-  color: #283739;
+  color: #2c5d63;
   cursor:pointer;
 }
 
@@ -78,7 +78,7 @@ text-decoration:none;
 
 
 .prod{
-   color: #283739;
+   color: #a9c52f;
    font-size: 18px;
    font-family: "Roboto Slab", serif;
 }
@@ -139,7 +139,7 @@ input{
 	border: 0.5;
 	background-color: #f5f5f5;
 	color: black;
-	border-color: #a9c52f;
+	border-color: #2c5d63;
 	text-align: center;
 	width: 40px;
 	position: center;
@@ -148,8 +148,83 @@ input{
 
 /*paginación*/
 
-.page-link-paginacion{
-	background-color: red;
+
+
+#custom-search-input{
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+
 
 }
 
+#custom-search-input button{
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+    padding-top: 4px;
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 23px;
+}
+
+.mensaje{
+	padding-top: 50px;
+	padding-left: 250px;
+	font-family:  "Roboto Slab", serif;
+	color: #283739;
+}
+
+/*filtro*/
+
+.selector{
+	background-color: #fff;
+	height: 30px;
+	width: 214px;
+	border: #979797;
+    color: #696464;
+
+}
+
+.selector:focus{
+	
+	color: #696464;	
+}
+
+
+.filtro{
+	margin-top: 90px;
+}
+
+
+.filtrar-boton{
+    background-color: #fff;
+    border-color: #fff;
+    border:none;
+}
+
+.filtro-m{
+	color: #696464;
+	padding-bottom: 5px;
+	font-size: 12px;
+}
+
+.fas .fas-filter{
+	background-color: #fff;
+}
