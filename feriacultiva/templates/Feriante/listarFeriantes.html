@@ -73,12 +73,12 @@
 
    <div class="title col-md-12 mx-auto">
     <h3 class="text-center" style="margin-top: 50px;">LISTADO DE FERIANTES</h3>
-  </div>
-      <div class="row"> 
-      <div class="container h-100 mx-auto" style="padding-top: 15px; padding-bottom: 15px;" >
+   </div>
+   <div class="row"> 
+    <div class="container h-100 mx-auto" style="padding-top: 15px; padding-bottom: 15px;" >
 
       {% if object_list|length == 0 %}
-        <label for="">No feriantes</label>
+        <label for="">No hay feriantes.</label>
 
       {% else %}
 
@@ -101,7 +101,7 @@
 
                   <th scope="row">
         <!-- Botón en HTML (lanza el modal en Bootstrap) -->
-          <a href="#victorModal{{p.pk}}" style="color: #2c5d63;" role="link" class="btn-link" data-toggle="modal">Eliminar</a>
+          <a href="#victorModal{{p.pk}}" style="color: #da2d2d;" role="link" class="btn-link" data-toggle="modal">Eliminar</a>
                       <!-- Modal / Ventana / Overlay en HTML -->
           <div id="victorModal{{p.pk}}" class="modal fade">
            <div class="modal-dialog">

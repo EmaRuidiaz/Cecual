@@ -28,10 +28,11 @@ class DetallePublicacion(DetailView):
 class ModificarPublicacion(LoginRequiredMixin,UpdateView):
 	model = Publicacion
 	template_name = 'Publicacion/agregarPublicacion.html'
-	success_url = reverse_lazy('publicacion:listarPublicaciones' )
-	fields = '__all__'
+	fields = ['foto','titulo', 'contenido' ]
+	success_url = reverse_lazy('publicacion:listarPublicacionesAdmin' )
+	
 
 class EliminarPublicacion(LoginRequiredMixin,DeleteView):
 	model = Publicacion
-	template_name = 'Publicacion/eliminarPublicacion.html'
-	success_url = reverse_lazy('publicacion:listarPublicaciones')
+	template_name = 'Publicacion/listarPublicacionesAdmin.html'
+	success_url = reverse_lazy('publicacion:listarPublicacionesAdmin')
