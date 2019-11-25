@@ -71,23 +71,22 @@
   <!-- titulo y subtitulo de la pagina -->
 <div class="container">
 	<div class="title col-md-12 mx-auto">
-    	<h3 class="text-center" style="margin-top: 50px;">DETALLE DE PUBLICACIÓN</h3>
+    	<h3 class="text-center" style="margin-top: 30px; margin-bottom: 30px;">DETALLE DE PUBLICACIÓN</h3>
   	</div>
   	<div class="row">
-  		<div class="col-md-12 mx-auto">
-		<form method="POST" enctype="multipart/form-data"> {% csrf_token %}
-			<div class="col-md-4" >
-              {% if object.foto %}
-                <img class="imagen-detalle" src="{{object.foto.url}}"  alt="imagen" style="width: 250px;height: 400px;"  >
+  		<div class="col-md-4 mx-auto" style="text-align: center; margin-top: 30px;">
+  			 {% if object.foto %}
+                <img class="imagen-detalle" src="{{object.foto.url}}"  alt="imagen" style="width: 300px;">
               {% else %}
                 <img class="imagen-detalle" src="" alt="No existe imagen" style="width: 250px; height: 400px; ">
               {% endif %}
-            </div>
-
-	
+        </div>
+        <div class="col-md-8 mx-auto">
+		<form method="POST" enctype="multipart/form-data"> {% csrf_token %}
+				
 		{{ form.as_p }}
 
-			<div class="col-md-12 text-center" style="">
+			<div class="text-center" style="">
                 <button class="btn mx-auto" type="submit">Guardar</button>
     		</div>
 		</form>

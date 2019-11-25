@@ -38,8 +38,10 @@
         <div class="carousel-caption d-none d-md-block">
           <!-- <img id="logo"  src="{% static 'img/letrasverdes.png' %}"  class="d-inline-block align-top" alt="Feria Cultiva" style="width: 250px;"> -->
           <h2 class="display-4">Todos los sábados</h2>
-          <p class="lead">9 a 12 HS</p>
-          <p class="lead">Cecual - Santa M. Oro 475 </p>
+          {% for p in EventoInfo %}
+          <p class="lead">{{p.f_inicio.time}} a {{p.f_finalizacion.time}}</p>
+          <p class="lead">{{p.direccion}}</p>
+          {% endfor %}
          </div> 
       </div>
       <!-- Slide Three - Set the background image for this slide in the line below -->

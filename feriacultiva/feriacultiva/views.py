@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from apps.producto.models import Producto
 from apps.categoria.models import Categoria
+from apps.evento.models import Evento
 from apps.pedido.models import Pedido
 from django.views.generic.list import ListView
 
@@ -17,6 +18,10 @@ class Inicio(ListView):
 
 		categorias = Categoria.objects.all() 
 		context['Categorias'] = categorias
+		
+		eventos = Evento.objects.all() 
+		context['EventoInfo'] = eventos
+
 
 		if self.request.user.is_authenticated:
 			pedidos = Pedido.objects.filter(cliente = self.request.user)

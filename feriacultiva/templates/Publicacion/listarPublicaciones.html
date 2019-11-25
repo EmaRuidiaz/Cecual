@@ -20,25 +20,21 @@
 
 <section class="py-5"><!-- Page Content -->
 	<div class="container"><!-- Container página principal -->
-    <h1 class="my-4"></h1>
     <div class="row">
       <div class="col-md-12"> 
         <div class="panel">
-         
+         {% for p in object_list %}
             <div class="row">    
               <br>
                 <div class="col-md-3 col-sm-3 text-center">
                    <a class="story-img" href="#">
-                  <img src="{% static 'img/num3.png' %}" class="img-circle"></a>
+                  <img src="{{p.foto.url}}" class="img-circle"></a>
                 </div>
               <div class="col-md-8 col-sm-9">
-                <h2 class="subt">LA AGROECOLOGÍA</h2>
+                <h2 class="subt">{{p.titulo}}</h2>
                 <div class="row">
                   <div class="col-xs-9">
-                    <p class="texto">La agroecología es un tipo de agricultura alternativa frente a las prácticas convencionales. La unidad sobre la que trabaja, el agroecosistema, busca la sostenibilidad y la productividad mediante la aplicación del conocimiento ecológico a su diseño y manejo. Podemos definir agroecología como la ciencia que busca la aplicación de conceptos y principios ecológicos en los agroecosistemas para lograr una doble sostenibilidad. Tanto a nivel del cultivo como de las sociedades locales que lo producen.</p>
-                    <p>
-                      <a class="lead" href="#">Ver más</a></p>
-                    
+                    <p class="texto">{{p.contenido}}</p>                    
                   </div>
                   <div class="col-xs-3">
                   </div>
@@ -47,77 +43,8 @@
               </div>
             </div>
           <hr>
-
-          <div class="row">    
-              <br>
-                
-              <div class="col-md-8 col-sm-9">
-                <h2 class="subt">AGROSISTEMAS SOSTENIBLES<h2>
-                <div class="row mx-auto">
-                  <div class="col-xs-8">
-                    <p class="texto">Básicamente, los agrosistemas son sistemas agroalimentarios sostenibles que se basan en principios como el reciclaje de nutrientes, la diversidad, las sinergias o la integración. Es decir, el tratamiento del espacio de cultivo como un lugar vivo, que tiene valor como fin en sí mismo. El utilitarismo de la agricultura convencional se sustituye por una visión más respetuosa con el entorno, que implica un uso óptimo del agua, la elección de las variedades idóneas según el territorio, la preservación de la biodiversidad, el uso de pesticidas y abonos verdes.</p>
-                    <p><a class="lead" href="#">Ver más</a></p>
-                    
-                  </div>
-                  <div class="col-xs-3">
-                  </div>
-                </div>
-                <br><br>
-              </div>
-              <div class="col-md-4 col-sm-3 text-center">
-                   <a class="story-img" href="#">
-                  <img src="{% static 'img/num1.png' %}" class="img-circle"></a>
-                </div>
-            </div>
-          <hr>
-
-          <div class="row">    
-              <br>
-                <div class="col-md-3 col-sm-3 text-center">
-                   <a class="story-img" href="#">
-                  <img src="{% static 'img/num2.png' %}" class="img-circle"></a>
-                </div>
-              <div class="col-md-8 col-sm-9">
-                <h2 class="subt">LA AGROECOLOGÍA Y EL AMBIENTE</h2>
-                <div class="row">
-                  <div class="col-xs-9">
-                    <p class="texto">Se trabaja para el logro de sistemas agroforestales y silvopastoriles viables, se realiza la rotación de cultivos, entre otros métodos de preservación de la calidad del suelo. En definitiva, estas prácticas agroecológicas buscan regenerar el entorno sin atentar contra él. Como consecuencia de ello, se MINIMIZA EL IMPACTO AMBIENTAL y la TOXICIDAD de los alimentos.</p>
-                    <p><a class="lead" href="#">Ver más</a></p>
-                    
-                  </div>
-                  <div class="col-xs-3">
-                  </div>
-                </div>
-                <br><br>
-              </div>
-            </div>
-          <hr>
-
-          <div class="row">    
-              <br>
-                
-              <div class="col-md-8 col-sm-9">
-              <h2 class="subt">SOBERANÍA ALIMENTARIA<h2>
-                <div class="row mx-auto">
-                  <div class="col-xs-8">
-                    <p class="texto">Los beneficios apuntan a la salud. Es una demanda fuerte que tiene que ver con la soberanía alimentaria, que es en donde el consumidor toma una postura mucho más activa y decide lo que quiere consumir. Selecciona productos sanos, seguros y nutritivos. En funcion de esa demanda se organizó la feria, con una oferta de produccion bastante variada pero todos con la condición de que sean agroecológicos y principalmente de produccion propia.</p>
-                    <p><a class="lead" href="#">Ver más</a></p>
-                    
-                  </div>
-                  <div class="col-xs-3">
-                  </div>
-                </div>
-                <br><br>
-              </div>
-              <div class="col-md-4 col-sm-3 text-center">
-                   <a class="story-img" href="#">
-                  <img src="{% static 'img/num4.png' %}" class="img-circle"></a>
-                </div>
-            </div>
-          <hr>
-
-          
-
+      {% endfor %}
+    </div>
       </div>
     </div>
   </div>
