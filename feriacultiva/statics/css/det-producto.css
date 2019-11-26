@@ -97,6 +97,7 @@ text-decoration:none;
 	width: 100px;
 	text-align: center;
 	font-family: "Roboto Slab", serif;
+ 
 
 }
 
@@ -124,10 +125,12 @@ text-decoration:none;
 
 /*detalle estilos*/
 .detalle-titulo{
+  padding-top: 50px;
+  padding-left: 180px;
    color: #283739;
-   font-size: 40px;
+   font-size: 25px;
    font-family: "Roboto Slab", serif;
-   border-bottom: 2px solid #f5f5f5;
+   border-bottom: 1px solid #a9c52f;
   
 }
 
@@ -138,6 +141,7 @@ text-align:center;
 font-family: "Roboto Slab", serif;
 font-size: 20px;
 width: 150px;
+text-align: center;
 }
 
 .detalle-precio{
