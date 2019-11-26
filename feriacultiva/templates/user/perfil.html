@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block titulo %} Productos {% endblock titulo%}
+{% block titulo %} Mi perfil {% endblock titulo%}
 {% block contenido %}  
 
     <div style="margin-top: 75px;">
         <form action="" method="POST"> {% csrf_token %}
             <label >Foto</label>
-                {% if user.foto_perfil %}
+               <!--  {% if user.foto_perfil %}
                     <img src="{{user.foto_perfil.url}}" alt="foto">
                     {% else %}
                     <img src="" alt="no existe">
                 {% endif %} 
-            <input type="file" name="foto_perfil" value="{{user.foto_perfil.url}}"><br>
+            <input type="file" name="foto_perfil" value="{{user.foto_perfil.url}}"><br> -->
             <label for="first_name">Nombre:</label>
             <input type="text" name="first_name" id="first_name" value="{{user.first_name}}">
             <label for="last_name">Apellido:</label>
