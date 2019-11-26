@@ -11,7 +11,7 @@ class RegistroForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('username','first_name','last_name','email','direccion','password1','password2')
+        fields = ('username','first_name','last_name','email','direccion','password1','password2','foto_perfil')
 
 class EditarUserForm(forms.ModelForm):
 

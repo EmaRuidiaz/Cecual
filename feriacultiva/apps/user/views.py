@@ -25,6 +25,7 @@ class RegistrarUsuario(CreateView):
 		form.fields['direccion'].widget = forms.TextInput(attrs={'class':'form-control mb-2','placeholder':'Direccion'})
 		form.fields['password1'].widget = forms.PasswordInput(attrs={'class':'form-control mb-2',' placeholder':'Contraseña'})
 		form.fields['password2'].widget = forms.PasswordInput(attrs={'class':'form-control mb-2',' placeholder':'Repite la contraseña'})
+		form.fields['foto_perfil'].widget = forms.FileInput(attrs={'class':'form-control mb-2'})
 		return form
 		
 def EditarPerfil(request):

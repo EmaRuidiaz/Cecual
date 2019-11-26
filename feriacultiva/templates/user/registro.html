@@ -22,9 +22,13 @@
   <!-- Page Content -->
   <div class="container">
 
+
+
+     <h1 class="my-4">
+     <small style="color: #2c5d63;">Crear Cuenta</small></h1>
+
    <div class="row">    
     <div class="container h-100 " style="background-color: #f5f5f5;padding-top: 15px; padding-bottom: 15px; margin-bottom: 30px;" >
-
         {% for x in messages %}
             <div class="alert alert-success">
                 {{x}}
@@ -97,7 +101,7 @@
             <div data-v-88d1dfd6="" class="row">
                 <div data-v-88d1dfd6="" class="col-md-6">
                     <div data-v-88d1dfd6="" class="form-group">
-                        <label data-v-88d1dfd6="" for="password_confirmation">Foto de perfil (Opcional)</label>
+                        <label data-v-88d1dfd6="" for="foto_perfil">Foto de Perfil (Opcional)</label>
                         <br>
                         <img src="{% static 'img/user.png' %}"> 
                         <input type="file" name="foto_perfil">
