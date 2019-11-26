@@ -37,8 +37,8 @@
       <div class="carousel-item" style="background-image: url('{% static 'img/slide-3.png' %}')">
         <div class="carousel-caption d-none d-md-block">
           <!-- <img id="logo"  src="{% static 'img/letrasverdes.png' %}"  class="d-inline-block align-top" alt="Feria Cultiva" style="width: 250px;"> -->
-          <h2 class="display-4">Todos los sábados</h2>
-          {% for p in EventoInfo %}
+        {% for p in EventoInfo %}
+          <h2 class="display-4">Todos los {{p.dia}}</h2>
           <p class="lead">{{p.f_inicio.time}} a {{p.f_finalizacion.time}}</p>
           <p class="lead">{{p.direccion}}</p>
           {% endfor %}
