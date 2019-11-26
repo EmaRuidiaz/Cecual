@@ -6,6 +6,9 @@
 {% block contenido %}
 <head>
     <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>  
 
 <!-- Page Content -->
@@ -20,20 +23,27 @@
 
 			<div class="col-md-6">
     		<div class="container" style="margin-top: 80px;">
-				<h4 class="text-center" id="tit">Iniciar Sesión</h4>
+				<h4 class="text-center" id="tit">Iniciar sesión</h4>
 				<br>
 				<form action="{% url 'login' %}" method="POST">{% csrf_token %}
-					<div class="form-group text-center">
-					    <!-- <label for="exampleInputEmail1" class="text-center">Usuario</label> -->
+					<div class="form-group">
+					    <label for="exampleInputEmail1" class="">Usuario</label>
 					    <input type="text" class="form-control mx-auto" name="username" aria-describedby="emailHelp" placeholder="Ingrese usuario">
 					</div>
-					<div class="form-group text-center">
-					    <!-- <label for="exampleInputPassword1" class="text-center">Contraseña</label> -->
-					    <input type="password" class="form-control mx-auto" name="password" placeholder="Contraseña">
+					
+					<div class="form-group">
+					<label for="exampleInputPassword1" class="">Contraseña</label>
+					  <div class="input-group">
+					    <input ID="txtPassword" type="Password" class="form-control mx-auto" name="password" placeholder="Contraseña">
+					    <div class="input-group-append">
+				            <button id="show_password" class="btn btn-link" style="border-color: #a9c52f; " type="button" onclick="mostrarPassword()"> <span style="color: #283739;" class="fa fa-eye-slash icon"></span> </button>
+				        </div>
+					  </div>
 					    <small id="emailHelp" class="form-text text-muted text-center">
 						   	<a href="" class="boton">¿Olvidaste tu contraseña?</a>
 						</small>
 					</div>
+
 					{% if form.errors %}
 					<div class="alert alert-danger" role="alert">
 
@@ -55,4 +65,23 @@
 	</div>
 	</div>				
 </section>
+<script type="text/javascript">
+function mostrarPassword(){
+		var cambio = document.getElementById("txtPassword");
+		if(cambio.type == "password"){
+			cambio.type = "text";
+			$('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+		}else{
+			cambio.type = "password";
+			$('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+		}
+	} 
+	
+	$(document).ready(function () {
+	//CheckBox mostrar contraseña
+	$('#ShowPassword').click(function () {
+		$('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+	});
+});
+</script>
 {% endblock contenido %}

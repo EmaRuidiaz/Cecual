@@ -1,12 +1,12 @@
 /*botones */
-.btn-reg {
+.btn {
   font-family: 'Roboto Slab', serif; 
-  color: #2c5d63;
+  background-color: #2c5d63; 
+  color: #fff;
   font-size: 15px;
 }
-.btn-reg:hover {
-background-color: #2c5d63;   
-color: #fff;
+.btn:hover {
+background-color: #fff;        
 }
 .titulo {
 	text-shadow: 2px 2px 2px #f5f5f5;
@@ -33,10 +33,10 @@ font-family: 'Roboto Slab', serif;
 }	
 
 .ancla-2{
-	color: #a9c52f;
+	color: #2c5d63;
 }
 
 .ancla-2:hover{
 	text-decoration: none;
-	color: #2c5d63;
+	color: #a9c52f;
 }
