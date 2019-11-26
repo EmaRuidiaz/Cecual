@@ -161,6 +161,10 @@ class DetalleProducto(DetailView):
 		iterador = 1
 		cards=[]
 		lista_productos=[]
+
+		if self.request.user.is_authenticated:
+			pedidos = Pedido.objects.filter(cliente = self.request.user)
+			context['Pedido'] = pedidos
 		
 		if cont > 3:
 				
@@ -195,10 +199,10 @@ class DetalleProducto(DetailView):
 			print(total)
 			res.total = total
             # Marca la casilla de envio
-			if request.POST['envio'] == 'Si':
-				res.envio = True
-			else:
-				res.envio = False
+			# if request.POST['envio'] == 'Si':
+			# 	res.envio = True
+			# else:
+			# 	res.envio = False
 				
 			res.save()
 			return HttpResponseRedirect('/producto/')
