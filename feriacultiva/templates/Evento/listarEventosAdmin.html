@@ -79,13 +79,15 @@
 
       {% if object_list|length == 0 %}
         <label for="">No hay publicaciones para mostrar.</label>
-        <div class="text-center" style="padding-top: 50px;">
-                <a href="{% url 'evento:agregarEvento' %}" style="color: #f5f5f5;" role="button" class="btn">Nuevo</a>
+        <div class="" style="padding-top: 30px;">
+                <a href="{% url 'evento:agregarEvento' %}">
+                  <button  class="btn mx-auto" type="submit">Nuevo</button></a>
+
         </div>
 
 
       {% else %}
-
+        
       <table class="table table-hover table-borderless  shopping-cart-wrap mx-auto w-80">
         <thead class="text-muted" style="">
           <tr style="border-bottom: #a9c52f 2px solid; border-top:  #a9c52f 2px solid; ">
