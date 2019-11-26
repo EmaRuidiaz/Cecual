@@ -6,16 +6,6 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/feriantes.css' %}">
 </head>
 
-<header class="masthead" style="background-image: url({% static 'img/feriantes.jpeg' %}) ">
-  <div class="container h-100">
-    <div class="row h-100 align-items-center">
-      <div class="col-12 text-center">
-        <h1 class="font-weight-light titulo">Feriantes</h1>
-        <p class="lead"></p>
-      </div>
-    </div>
-  </div>
-</header>
 
 
 <section class="py-5" style="background-color:#fcfafa;"><!-- Page Content -->
@@ -26,20 +16,20 @@
     <div class="row"> <!-- row página principal -->
     
      {% for p in object_list %}
-      <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
+      <div class="col-lg-4 col-md-6 mb-4 " ;>
+            <div class="card h-100" >
               <a href="{% url 'feriante:detalle' p.pk %}" class="foto-ancla">
                  {% if p.foto_feriante %}
-                <img class="img-feriante" src="{{p.foto_feriante.url}}" alt="" style="width:350px; height: 200px;">
+                <img class="img-feriante" src="{{p.foto_feriante.url}}" alt="" style="width:320px; height: 150px; padding-top: 8px; padding-bottom: 8px;">
                 {% else %}
                  <img class="img-feriante" src="" alt="no existe foto" >
                 {% endif %}
               </a>
               
-              <div class="card-footer">
-               <h4 class="titulo-feriante">
+              <div class="card-footer"   >
+               <h6 class="titulo-feriante" >
                   <a href="#" class="ancla-t"> {{p.encargado.first_name}} </a>
-                </h4>
+                </h6>
               </div>
             </div>
       </div>
@@ -47,7 +37,8 @@
     </div>
 
     <!--/paginación-->
-        <div style="padding-left: 50%;">
+      {% if object_list|length == 0 %}
+        <div  class="mx-auto">
             <nav aria-label="Page navigation example">
               <ul class="pagination">
                 {% if page_obj.has_previous %}
@@ -77,6 +68,7 @@
               </ul>
             </nav>
         </div>
+        {% endif %}
 
   </div><!--end row -->
  </div>    <!-- /.container -->    

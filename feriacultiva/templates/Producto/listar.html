@@ -22,13 +22,6 @@
           PRODUCTOS
     </h1>
 
-
-
-
-
-    
-       
-
 <div class="row">    <!-- row página principal -->
 
  <!-- USAR ESTE FILTRO X EL MOMENTO -->
@@ -138,7 +131,7 @@
                             <input type="number" name="cantidad" id="cantidad" placeholder="1" value="1">
                             {% if user.is_authenticated %}
 
-                            <button class="reservar" type="submit" value="{{p.pk}}" name="Confirmar" style="margin-top: 0px;"><i class="fas fa-cart-plus"  style="font-size: 25px; color: #;"></i></button>
+                            <button class="reservar" type="submit" value="{{p.pk}}" name="Confirmar" style=" padding-top: 5px;"><i class="fas fa-cart-plus"  style="font-size: 25px; color: #283739; "></i></button>
                             {% endif %}
                           </form>
                           {% else %}

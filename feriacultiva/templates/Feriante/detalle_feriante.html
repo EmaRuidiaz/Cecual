@@ -4,18 +4,9 @@
 {% block contenido %}  
 <head>
     <link rel="stylesheet" type="text/css" href="{% static 'css/det-feriante.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
     
 </head>
-<header class="masthead"   style="background-image: url({% static 'img/feriantes.jpeg' %})">
-  <div class="container h-100">
-    <div class="row h-100 align-items-center">
-      <div class="col-12 text-center">
-        <h1 class="font-weight-light titulo">Detalle Feriante</h1>
-        <p class="lead"></p>
-      </div>
-    </div>
-  </div>
-</header>
 
 <!-- contenido de la página -->
 <section class="py-5" >
@@ -47,12 +38,12 @@
 
 
  <!--descripción -->
-  <div class="col-md-6">
-    <h5 class="detalle-titulo">NOSOTROS:</h5>
+  <div class="col-md-6" style="padding-top: 50px;">
+    <h5 class="detalle-titulo">NOSOTROS </h5>
     <p class="card-text-det">{{object.descripcion}}</p>
-    <h5 class="detalle-titulo">CONSULTAS:</h5>
-    <p class="card-text-det">Teléfono: {{object.encargado.telefono}}</p>
-    <p class="card-text-det">Correo: {{object.encargado.email}}</p>
+    <h5 class="detalle-titulo">CONSULTAS </h5>
+    <p class="card-text-det"> <i class="fas fa-phone"></i> {{object.encargado.telefono}}</p>
+    <p class="card-text-det"> <i class="fas fa-envelope-square"></i>  {{object.encargado.email}}</p>
     <div class="">
       {%  if object.delivery == False %}
       <p class="item-d mx-auto">NO HACEMOS ENTREGA A DOMICILIO</p>
@@ -61,23 +52,28 @@
       <span class="glyphicon glyphicon-ok"></span>
       </p>
       {% endif %}
+
     </div>
+       
+
   </div>
+
+
+<!--social_footer_ul ends here-->
 </div>
   
 
   <div class="container-fluid">
+     {% if product|length > 0 %}
     <h1 class="my-1 ">
      NUESTROS PRODUCTOS
     </h1>
      <div class="row row-productos" >
-        {% if product|length == 0 %}
-        <label for="">No hay productos para esta categoria</label>
-         {% else%}
+    
              {% for p in product %}
-               <div class="col-lg-4 col-md-6 mb-4">
+               <div class="col-lg-3 col-md-3 mx-auto"  style="padding-bottom: 70px;">
 
-                 <div class="card h-100">
+                 <div class="card h-100" >
                    <a href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen" >
                      {% if p.foto_producto %}
                              <img class="img-prod" style="width: 80px; height: 150px; " 
@@ -95,8 +91,9 @@
                  </div>
                </div>
              {% endfor %}
-           {% endif %}
+           
     </div><!--fin del row-->
+   {% endif %}
 </div><!--fin del las cards container fluid-->
     
   </div>
