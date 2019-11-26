@@ -17,8 +17,8 @@ class ListarEventosAdmin(ListView):
 
 class AgregarEvento(LoginRequiredMixin,CreateView): #Vistas basadas en clases
 	model = Evento
-	template_name = 'Evento/agregarEvento.html'
-	success_url = reverse_lazy('evento:listarEventos')
+	template_name = 'Evento/NuevoEvento.html'
+	success_url = reverse_lazy('evento:listarEventosAdmin')
 	fields = '__all__'
 
 class DetalleEvento(DetailView):
@@ -28,8 +28,8 @@ class DetalleEvento(DetailView):
 class ModificarEvento(LoginRequiredMixin,UpdateView):
 	model = Evento
 	template_name = 'Evento/agregarEvento.html'
-	success_url = reverse_lazy('evento:listarEventos' )
-	fields = '__all__'
+	success_url = reverse_lazy('evento:listarEventosAdmin' )
+	fields = ['titulo', 'dia', 'direccion' ,'f_inicio', 'f_finalizacion']
 
 class EliminarEvento(LoginRequiredMixin,DeleteView):
 	model = Evento

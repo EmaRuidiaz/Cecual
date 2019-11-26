@@ -45,7 +45,7 @@
             </a>
           </li>
           <li class="nav-item">
-                <a class="nav-link" href=" {% url 'evento:listarEventosAdmin' %} "> Volver </a>
+                <a class="nav-link" href=" {% url 'publicacion:listarPublicacionesAdmin' %} "> Volver </a>
           </li>
          <li class="nav-item">
                 <a class="nav-link" href="#"></a>
@@ -71,7 +71,7 @@
   <!-- titulo y subtitulo de la pagina -->
 <div class="container">
 	<div class="title col-md-12 mx-auto">
-    	<h3 class="text-center" style="margin-top: 30px; margin-bottom: 50px;">DETALLE DEL EVENTO</h3>
+    	<h3 class="text-center" style="margin-top: 30px;">NUEVA PUBLICACIÓN</h3>
   	</div>
   	<div class="row">
         <div class="col-md-4 mx-auto">
@@ -81,7 +81,7 @@
 				
 		{{ form.as_p }}
 
-			<div class="text-center" style="padding-top: 50px;">
+			<div class="text-center" style="padding-bottom: 30px;">
                 <button class="btn mx-auto" type="submit">Guardar</button>
     		</div>
 		</form>
