@@ -8,29 +8,29 @@
 <!-- Page Content -->
 <header>
     <div class="container">
-        <div class="row" style="margin-top: 100px; background-color: #fcfafa;">
+        <div class="row text-center" style="margin-top: 100px;">
             <div class="col-12">
-                <h2 class="font-weight-light titulo">Mi perfil</h2>
+                <h2 class="font-weight-light titulo">MI PERFIL</h2>
             </div>
         </div>
     </div>
 </header>
-<section class="" style="background-color: #fcfafa; margin: 10px;" >
+<section class="" style="margin: 10px;" >
   <!-- Page Content -->
         <div class="container" >    
             <div class="jumbotron" style="background-color: #f5f5f5;">
                 <div class="row">
                     <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
-                        <img src="{{user.foto_perfil.url}}" alt="stack photo" class="foto rounded-circle w-100">
+                        <img src="{{user.foto_perfil.url}}" alt="stack photo" class="foto rounded-circle h-100 w-100">
                     </div>
                     <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
                         <div class="container" style="border-bottom:1px solid black">
                             <h2 class="titulo">{{user.first_name}} {{user.last_name}}</h2>
                         </div>
                         <ul class="container details" style="margin-top: 10px;">
-                            <li><p><span class="glyphicon glyphicon-earphone one" style="width:50px;">Teléfono: </span>{{user.telefono}}</p></li>
-                            <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;">Email: </span>{{user.email}}</p></li>
-                            <li><p><span class="glyphicon glyphicon-map-marker one" style="width:50px;">Dirección: </span>{{user.direccion}}</p></li>
+                            <p><span class="glyphicon glyphicon-earphone one" style="width:50px;"><i class="fas fa-phone"></i>  Teléfono: </span>{{user.telefono}}</p>
+                            <p><span class="glyphicon glyphicon-envelope one" style="width:50px;"><i class="fas fa-envelope-square"></i>  Email: </span>{{user.email}}</p>
+                            <p><span class="glyphicon glyphicon-map-marker one" style="width:50px;"><i class="fas fa-map-marker-alt"></i>  Dirección: </span>{{user.direccion}}</p>
                             <a href="" style="color: #71a95a;" role="link" class="btn-link">Editar</a>
                         </ul>
                     </div>
