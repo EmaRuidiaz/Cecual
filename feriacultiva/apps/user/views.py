@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import CreateView, UpdateView
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from .models import User
 from apps.user.forms import RegistroForm, EditarUserForm
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -50,5 +50,13 @@ def EditarPerfil(request):
 			perfil.email = usuario.email
 			perfil.direccion = request.POST.get('direccion')
 			perfil.save()
-			
-	return render(request,'user/perfil.html',context,{'form':form})
+			return redirect(reverse('usuario:perfil'))
+	return render(request,'user/editarperfil.html',context,{'form':form})
+
+
+def Perfil(request):
+	context={}
+	user = request.user
+	usuario = User.objects.get(username = user)
+	context['user'] = usuario
+	return render(request,'user/perfil.html',context)

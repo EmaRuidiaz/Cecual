@@ -9,6 +9,8 @@ urlpatterns = [
     #URL Principal
     path('', views.RegistrarUsuario.as_view(), name="agregar"),
 
-    path('perfil', views.EditarPerfil, name="perfil"),
+    path('editarperfil', views.EditarPerfil, name="editarperfil"),
+
+    path('perfil', views.Perfil, name="perfil"),
 
 ]

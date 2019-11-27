@@ -31,7 +31,7 @@
                             <p><span class="glyphicon glyphicon-earphone one" style="width:50px;"><i class="fas fa-phone"></i>  Teléfono: </span>{{user.telefono}}</p>
                             <p><span class="glyphicon glyphicon-envelope one" style="width:50px;"><i class="fas fa-envelope-square"></i>  Email: </span>{{user.email}}</p>
                             <p><span class="glyphicon glyphicon-map-marker one" style="width:50px;"><i class="fas fa-map-marker-alt"></i>  Dirección: </span>{{user.direccion}}</p>
-                            <a href="" style="color: #71a95a;" role="link" class="btn-link">Editar</a>
+                            <a href="{% url 'usuario:editarperfil' %}" style="color: #71a95a;" role="link" class="btn-link">Editar</a>
                         </ul>
                     </div>
                 </div>

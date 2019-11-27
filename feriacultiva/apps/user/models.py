@@ -12,7 +12,7 @@ class User(AbstractUser):
 
 	es_empresa = models.BooleanField(default=False)
 
-	foto_perfil = models.ImageField(upload_to = 'cliente', null = True)
+	foto_perfil = models.ImageField(upload_to = 'cliente', null = True, default='cliente/user.png')
 
 	email = models.EmailField(
 		'direccion de correo',

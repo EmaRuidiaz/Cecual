@@ -36,7 +36,6 @@ def ListarPedido(request):
 				p.cantidad = cant
 				p.total = total
 				p.save()
-
 		context['total'] = Pedido.objects.filter(cliente = request.user).aggregate(Sum('total')) # Trae el precio total de todos los pedidos
 	else:
 		print('no esta registrado')		
