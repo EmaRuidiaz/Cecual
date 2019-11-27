@@ -45,3 +45,11 @@ button{
 .form-control-file{
  font-family: 'Roboto Slab', serif; 
 }
+
+.items {
+	margin-bottom: 15px;
+	}
+
+.fotoproducto {
+  margin-bottom: 30px;
+}

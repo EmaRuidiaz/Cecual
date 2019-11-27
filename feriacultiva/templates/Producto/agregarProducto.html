@@ -15,19 +15,73 @@
 <section class="py-5">
   <!-- titulo y subtitulo de la pagina -->
   <div class="container">
-		    <h2 class="my-4 titulo text-center">NUEVO PRODUCTO</h2>
+		    
 		
-	<div class="row">  
+	<div style="margin-top: 35px;">  
 
 
 		{% if object %}
+		<h2 class="my-4 titulo text-center">MODIFICAR PRODUCTO</h2>
+			<form action="" method="POST" class="titulo"> {% csrf_token %}
+                <!-- <label for="encargado">Encargado: </label>
+                <input type="text" name="encargado" id="encargado" value="{{feria.encargado.username}}"><br> -->
+                <div class="row">
+                    <div class="col-md-6 text-center w-25">
+                        <div class="col-12">
+                            <i class="fa fa-camera"></i> <label>Foto:</label>
+                        </div>
+                        <div class="fotoproducto">
+                        {% if object.foto_producto %}
+                        <img class="" src="{{object.foto_producto.url}}" alt="foto">
+                        {% else %}
+                        <img src="" alt="no existe">
+                        {% endif %}
+                        </div> 
+                        <input type="file" name="foto_producto" value="{{object.foto_producto.url}}">
+                    </div>
+
+                    <div class="col-md-6" style="margin-top: 20px;">
+                    	<div class="items">
+                    		<label>Producto</label>
+                            <input type="text" name="nombre" id="nombre" value="{{object.nombre}}">
+                        </div>
+                        <div class="items">
+                            <label>Precio</label> 
+		                    <input  type="number" name="precio" id="precio" value="{{object.precio}}">
+		                </div>
+		                <div class="items">
+                            <label>Stock</label> 
+		                    <input  type="number" name="stock" id="stock" value="{{object.stock}}">
+		                </div>
+		                <div class="items">
+                           <label>Seleccionar categoria</label>
+		                        <select name="categoria">
+									{% for c in categoria %}
+										<option value="{{c.pk}}">{{ c }}</option>
+									{% endfor %}
+								</select>
+		                </div>
+		                <div class="items">
+                            <label>Descripción</label> 
+		                    <input  type="text" name="descripcion" id="descripcion" value="{{object.descripcion}}">
+		                </div>
+                       
+                    </div>
+                </div>
+                    <div class="col-12 text-center" style="margin-top: 30px;">
+                        <button class="btn alta-prod" type="submit">Guardar cambios</button>
+                    </div>
+                </form>
+<!-- 
+
 			<form autocomplete="off" method="POST"  enctype="multipart/form-data">{% csrf_token %}
 				{{form.as_p}}
 				<button type="submit">save</button>
 				
-			</form>
-		{% endif %}
+			</form> -->
+		{% else %}
 <!--formulario -->
+		<h2 class="my-4 titulo text-center">NUEVO PRODUCTO</h2>
 		<div class="container h-100 " style="background-color: #f5f5f5;padding-top: 15px; padding-bottom: 15px;" >
 
 			<div  class="row justify-content-center align-items-center">
@@ -111,6 +165,7 @@
  				</div>
 		      </div>
 		   </div><!--fin container form-->
+		   	{% endif %}
 
 		</div><!--fin row-->
   
