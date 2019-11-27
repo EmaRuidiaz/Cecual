@@ -115,7 +115,7 @@
               </a> 
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 {% if user.is_authenticated %}
-                <p class="dropdown-item" style=" color: #2c5d63; font-weight: normal;   font-size: 15px; font-family: 'Roboto Slab';">Hola! {{user.username}}</p>
+                <a class="dropdown-item" style=" color: #2c5d63; font-weight: normal;   font-size: 15px; font-family: 'Roboto Slab';">Hola! {{user.username}}</a>
                   {% if user.es_empresa %}
                     <a class="dropdown-item" href="{% url 'feriante:PerfilFeriante' %}" style=" color: #2c5d63; font-weight: normal;   font-size: 15px; font-family: 'Roboto Slab';">Mi perfil</a>
                     {% else %}
