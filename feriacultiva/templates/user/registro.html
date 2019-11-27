@@ -28,14 +28,10 @@
 
    <div class="row">    
     <div class="container h-100 " style=" padding-top: 15px; padding-bottom: 15px; margin-bottom: 30px;" >
-        {% for x in messages %}
-            <div class="alert alert-success">
-                {{x}}
-            </div>
-        {% endfor %}
+   
         <form data-v-88d1dfd6="" autocomplete="off" method="POST"  enctype="multipart/form-data" style="padding-left: 25px;" >
             {% csrf_token %}
-            {{form.errors}}
+            
             <div data-v-88d1dfd6="" class="row topMargin">
                 <div data-v-88d1dfd6="" class="col-md-6">
                     <div data-v-88d1dfd6="" class="form-group">

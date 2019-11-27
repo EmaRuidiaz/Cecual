@@ -40,3 +40,10 @@ font-family: 'Roboto Slab', serif;
 	text-decoration: none;
 	color: #a9c52f;
 }
+
+.form_error {
+    display: block;
+    margin: 4px 0 0;
+    font-size: 12px;
+    color: #FF374A;
+}
