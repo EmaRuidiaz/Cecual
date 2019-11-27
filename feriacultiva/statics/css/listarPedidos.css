@@ -115,13 +115,15 @@ a.btn-pedidos:link{
 th{
 	text-align: center;
 	font-family: 'Roboto Slab', serif; 
-	color: #a9c52f;
+	color: #2c5d63;
 	font-size: 20px;
 	font-weight: normal;
+
 }
 
 td{
 	text-align: center;
+
 }
 
 
@@ -131,7 +133,7 @@ td{
 	border: 0.5;
 	background-color: #f5f5f5;
 	color: black;
-	border-color: #a9c52f;
+	border-color: #283739;
 	text-align: center;
 	width: 50px;
 	position: center;

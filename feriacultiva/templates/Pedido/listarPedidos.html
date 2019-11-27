@@ -22,7 +22,7 @@
 </header>
 
 
-<section class="py-5" style="background-color:#fcfafa;"><!-- Page Content -->
+<section class="py-5" ><!-- Page Content -->
 
 	       <h1 class="my-1 ">
               MIS PEDIDOS
@@ -42,7 +42,7 @@
 			<tr>
 			  <th scope="col" width="200">Producto</th>
 			  <th scope="col" width="250">Cantidad</th>
-			  <th scope="col" width="250">Precio</th>
+			  <th scope="col" width="200">Subtotal </th>
 			  
 			</tr>
 			</thead>
@@ -70,14 +70,15 @@
 						<td> 
 							<form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
 								
-								<input type="number" name="cantidad" id="cantidad"  value="{{p.cantidad}}">
-								<button class="btn-confirmar" type="submit" value="{{p.pk}}" name="Confirmar" style="text-decoration: none;">Confirmar cantidad</button>
+								<input type="number" name="cantidad" id="cantidad"  value="{{p.cantidad}}" >
+								 <button class="btn-confirmar" type="submit" value="{{p.pk}}" name="Confirmar" style="text-decoration: none; font-size: 25px;"><i class="fas fa-cart-plus"></i></button>
+
 							</form>
 						</td>
 						<td> 
 							<div class="price-wrap mx-auto">
 							<div id="contenedor">
-								<p class="precio">$ {{p.producto.precio}} </p>
+								<p class="precio">$ {{total}} </p>
 								<div class="boton-pedidos inline-block ">
 								<a class=" btn-eliminar" href="{% url 'pedido:delete' p.pk %}"> Eliminar Pedido </a>
 								</div>
@@ -90,7 +91,7 @@
 					{% endfor %}
 		    </tbody>
 		</table>
-		<p> Precio Total: {{total.total__sum}}</p>
+		<p style="text-align: right; color: #283739; font-weight: bold; font-family: 'Roboto Slab', serif; padding-right: 20px; font-size: 20px; padding-bottom: 50px; "> Precio Total: ${{total.total__sum}}</p>
      </div> <!-- card.// -->
      <a  class="btn-pedidos" href="{% url 'reserva:agregar' %}">Confirmar pedidos</a>
     </div>
