@@ -3,34 +3,67 @@
 {% block titulo %} Productos {% endblock titulo%}
 {% block contenido %}  
 
-    <div style="margin-top: 75px;">
-        <form action="" method="POST"> {% csrf_token %}
-            <!-- <label for="encargado">Encargado: </label>
-            <input type="text" name="encargado" id="encargado" value="{{feria.encargado.username}}"><br> -->
-            <label >Foto</label>
-                {% if feria.foto_feriante %}
-                    <img src="{{feria.foto_feriante.url}}" alt="foto">
-                    {% else %}
-                    <img src="" alt="no existe">
-                {% endif %} 
-                <input type="file" name="foto_feriante" value="{{feria.foto_feriante.url}}"><br>
-            <label for="descripcion">Descripcion: </label>
-            <input type="text" name="descripcion" id="descripcion" value="{{feria.descripcion}}" ><br>
-            <label for="delivery">Envio a domicilio:</label><br>
-            
-            <input type="radio" name="delivery" value="Si">Si<br>
-            <input type="radio" name="delivery" value="No">No<br>
-            <form2 action="" method="POST"> {% csrf_token %}
-                <label for="first_name">Nombre de Feria:</label>
-                <input type="text" name="first_name" id="first_name" value="{{usuario.first_name}}">
-                <label for="direccion">Direccion</label>
-                <input type="text" name="direccion" id="direccion" value="{{usuario.direccion}}">
-                <label for="telefono">Telefono *</label>
-                <input type="tel" name="telefono" id="telefono" value="{{usuario.telefono}}">
-            </form2>
-            <input type="submit" value="Guardar Cambios">
-        </form>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/perfil.css' %}">
+    </head>
+<!-- Page Content -->
+<header>
+    <div class="container">
+        <div class="row text-center" style="margin-top: 100px;">
+            <div class="col-12">
+                <h2 class="font-weight-light titulo">EDITAR PERFIL</h2>
+            </div>
+        </div>
     </div>
+</header>
+<section class="" style="margin-top: 10px; margin-bottom: 75px;" >
+  <!-- Page Content -->
+    <div class="container" >    
+        
+           <div style="margin-top: 50px;">
+                <form action="" method="POST" class="titulo"> {% csrf_token %}
+                <!-- <label for="encargado">Encargado: </label>
+                <input type="text" name="encargado" id="encargado" value="{{feria.encargado.username}}"><br> -->
+                <div class="row">
+                    <div class="col-md-6 text-center">
+                        <div class="col-12">
+                            <i class="fa fa-camera"></i> <label>Foto:</label>
+                        </div>
+                        <div class="fotoferiante">
+                        {% if feria.foto_feriante %}
+                        <img class="" src="{{feria.foto_feriante.url}}" alt="foto">
+                        {% else %}
+                        <img src="" alt="no existe">
+                        {% endif %}
+                        </div> 
+                        <input type="file" name="foto_feriante" value="{{feria.foto_feriante.url}}">
+                    </div>
+
+                    <div class="col-md-6" style="margin-top: 20px;">
+                       <i class="fa fa-list-alt"></i> <label for="descripcion">Descripción: </label>
+                        <input type="text" name="descripcion" id="descripcion" value="{{feria.descripcion}}" ><br>
+                        <i class="fa fa-car"></i> <label for="delivery">Envio a domicilio:</label><br>
+                
+                        <input type="radio" name="delivery" value="Si">Si<br>
+                        <input type="radio" name="delivery" value="No">No<br>
+                        <form2 action="" method="POST"> {% csrf_token %}
+                            <i class="fa fa-asterisk"></i> <label for="first_name">Nombre de la feria:</label>
+                            <input type="text" name="first_name" id="first_name" value="{{usuario.first_name}}"><br>
+                            <i class="fas fa-map-marker-alt"></i> <label for="direccion">Dirección</label>
+                            <input type="text" name="direccion" id="direccion" value="{{usuario.direccion}}"><br>
+                            <i class="fas fa-phone"></i> <label for="telefono">Teléfono</label>
+                            <input type="tel" name="telefono" id="telefono" value="{{usuario.telefono}}">
+                        </form2>
+                    </div>
+                </div>
+                    <div class="col-12 text-center" style="margin-top: 30px;">
+                        <button class="btn" type="submit">Guardar cambios</button>
+                    </div>
+                </form>
+            
+        </div>
+    </div>
+</section>
 
 
 {% endblock contenido%}

@@ -6,3 +6,16 @@
 .foto {
 	border: 5px solid #a9c52f;
 }
+.fotoferiante {
+  margin-bottom: 30px;
+}
+
+.btn {
+  font-family: 'Roboto Slab', serif; 
+  background-color: #2c5d63; 
+  color: #fff;
+  font-size: 15px;
+}
+.btn:hover {
+background-color: #fff;        
+}

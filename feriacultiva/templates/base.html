@@ -117,7 +117,7 @@
                 {% if user.is_authenticated %}
                 <a class="dropdown-item" style=" color: #2c5d63; font-weight: normal;   font-size: 15px; font-family: 'Roboto Slab';">Hola! {{user.username}}</a>
                   {% if user.es_empresa %}
-                    <a class="dropdown-item" href="{% url 'feriante:PerfilFeriante' %}" style=" color: #2c5d63; font-weight: normal;   font-size: 15px; font-family: 'Roboto Slab';">Mi perfil</a>
+                    <a class="dropdown-item" href="{% url 'feriante:PerfilFeriante' %}" style=" color: #2c5d63; font-weight: normal;   font-size: 15px; font-family: 'Roboto Slab';">Editar perfil</a>
                     {% else %}
                     <a class="dropdown-item" href="{% url 'usuario:perfil' %}" style=" color: #2c5d63; font-weight: normal;   font-size: 15px; font-family: 'Roboto Slab';">Mi perfil</a>
                   {% endif %}
