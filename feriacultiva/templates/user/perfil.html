@@ -2,16 +2,54 @@
 {% load static %}
 {% block titulo %} Mi perfil {% endblock titulo%}
 {% block contenido %}  
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/perfil.css' %}">
+    </head>
+<!-- Page Content -->
+<header>
+    <div class="container">
+        <div class="row" style="margin-top: 100px; background-color: #fcfafa;">
+            <div class="col-12">
+                <h2 class="font-weight-light titulo">Mi perfil</h2>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="" style="background-color: #fcfafa; margin: 10px;" >
+  <!-- Page Content -->
+        <div class="container" >    
+            <div class="jumbotron" style="background-color: #f5f5f5;">
+                <div class="row">
+                    <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+                        <img src="{{user.foto_perfil.url}}" alt="stack photo" class="foto rounded-circle w-100">
+                    </div>
+                    <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+                        <div class="container" style="border-bottom:1px solid black">
+                            <h2 class="titulo">{{user.first_name}} {{user.last_name}}</h2>
+                        </div>
+                        <ul class="container details" style="margin-top: 10px;">
+                            <li><p><span class="glyphicon glyphicon-earphone one" style="width:50px;">Teléfono: </span>{{user.telefono}}</p></li>
+                            <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;">Email: </span>{{user.email}}</p></li>
+                            <li><p><span class="glyphicon glyphicon-map-marker one" style="width:50px;">Dirección: </span>{{user.direccion}}</p></li>
+                            <a href="" style="color: #71a95a;" role="link" class="btn-link">Editar</a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+{% endblock contenido%}
 
+<!-- 
     <div style="margin-top: 75px;">
         <form action="" method="POST"> {% csrf_token %}
             <label >Foto</label>
-               <!--  {% if user.foto_perfil %}
+               {% if user.foto_perfil %}
                     <img src="{{user.foto_perfil.url}}" alt="foto">
                     {% else %}
                     <img src="" alt="no existe">
                 {% endif %} 
-            <input type="file" name="foto_perfil" value="{{user.foto_perfil.url}}"><br> -->
+            <input type="file" name="foto_perfil" value="{{user.foto_perfil.url}}"><br> 
             <label for="first_name">Nombre:</label>
             <input type="text" name="first_name" id="first_name" value="{{user.first_name}}">
             <label for="last_name">Apellido:</label>
@@ -23,6 +61,4 @@
             
         </form>
     </div>
-
-
-{% endblock contenido%}
+ -->
