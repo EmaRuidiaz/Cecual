@@ -9,7 +9,6 @@
  #mi-card{
     width:250px;
     height: 323px; 
-   
   }
   
 .titulo {
@@ -97,10 +96,16 @@ text-decoration:none;
 	width: 100px;
 	text-align: center;
 	font-family: "Roboto Slab", serif;
- 
-
 }
 
+.reservar{
+  border:none;
+  font-size: 15px;
+  font-family: "Roboto Slab", serif;
+  color: #283739;
+  background-color: #fff;
+
+}
 
 /*estilos de la imagen del detalle*/
 
@@ -125,13 +130,9 @@ text-decoration:none;
 
 /*detalle estilos*/
 .detalle-titulo{
-  padding-top: 50px;
-  padding-left: 180px;
    color: #283739;
    font-size: 25px;
-   font-family: "Roboto Slab", serif;
-   border-bottom: 1px solid #a9c52f;
-  
+   font-family: "Roboto Slab", serif;  
 }
 
 .stock-det{
@@ -141,13 +142,13 @@ text-align:center;
 font-family: "Roboto Slab", serif;
 font-size: 20px;
 width: 150px;
-text-align: center;
 }
 
 .detalle-precio{
-   color: #283739;
+   color: #a9c52f;
    font-size: 20px;
    font-family: "Roboto Slab", serif; 
+   
 }
 
 /*estilos feriante*/
@@ -155,6 +156,7 @@ text-align: center;
 	 color: #283739;
 	 font-size: 16px;
 	 font-family: "Roboto Slab", serif;
+   text-align: center;
 }
 .ancla-titulo-feriante:link {
   text-decoration:none;
@@ -181,17 +183,9 @@ text-align: center;
   font-family: 'Roboto Slab', serif;
   padding-top: 2px;
   font-size: 18px;
-  width: 79px;
+  width: 49px;
 
 }
-
-.reservar:hover {
-  background-color: #a9c52f;
-  color: #fff;
-  font-family: 'Roboto Slab', serif;
-  font-weight: bold; 
-
- }
 
 .reservar:link {
   text-decoration:none;
@@ -220,7 +214,7 @@ text-align: center;
 
 .confirm-cant:hover{
   border:none;
-  font-size: 15 px;
+  font-size: 15px;
   font-family: "Roboto Slab", serif;
   color: #a9c52f;
   background-color: #fff;

@@ -21,9 +21,10 @@
             
 
               Portfolio Item Row -->
-  <h1 class="detalle-titulo">{{object.nombre}}</h5>
+  
 
-    <div class="row">
+    <div class="row" style=" border-bottom: 1px solid #a9c52f; border-top: 1px solid #a9c52f;">
+   
           <div class="col-md-6">
               <!--contenedor de la imagen-->
         <div class="card mb-3" id="card-detalle">
@@ -43,29 +44,27 @@
                 
                   <div class="col-md-6" style="padding-top: 50px;" >
                     <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+
+                      <h5 class="detalle-titulo">{{object.nombre}}</h5>
                     
-                      <p class="stock-det mx-auto"><small > Stock: {{object.stock}}</small></p>
+                      <p class="stock-det "><small > Stock: {{object.stock}}</small></p>
                       
                       <p class="card-text-det">{{object.descripcion}}</p>
                       <h3 class="detalle-precio">${{object.precio}}</h3>
     
                       <!-- valores para guardar en el models de reserva -->
                      
-                      <input type="number" name="cantidad" id="cantidad" placeholder="1" value="1" >
-
-                      <!--
-                       {% if object.feriante.delivery == True %}
-                        <label for="envio">Envio</label><br>
-                        <input type="radio" name="envio" value="Si">Si<br>
-                        <input type="radio" name="envio" value="No">No<br>
-                      {% endif %}
-                    -->
-                      {% if user.is_authenticated %}
-                        <button  class="confirm-cant" type="submit" style="margin-top: 5px;">Confirmar cantidad </button>
-                      {% endif %}
-                      <br>
-                      <br>
                       <a class="ancla-titulo-feriante" href="" class="imagen"> Feriante:  {{object.feriante.encargado.first_name}} </a>
+                       <br>
+
+                      <div > 
+                      <input type="number" name="cantidad" id="cantidad" placeholder="1" value="1" 
+                      style=" border: 1px solid #2c5d63;">
+
+                      {% if user.is_authenticated %}
+                         <button class="reservar " style="display: inline-block; display: inline-block; font-size: 25px; color: #283739;" type="submit"><i class="fas fa-cart-plus"></i></button>
+                      {% endif %}
+                      </div>
 
                     </form>
                   </div>
