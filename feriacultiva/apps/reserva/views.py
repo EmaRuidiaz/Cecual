@@ -61,7 +61,7 @@ def AgregarReserva(request):
 		return redirect('producto:listar')
 
 '''
-	return render(request, 'Pedido/listarPedidos.html', {'object_list': Pedido.objects.filter(cliente = request.user)})
+	return render(request, 'Reserva/listarReservas.html', {'object_list': Reserva.objects.filter(user = request.user)})
 
 @login_required
 def ListarReservasCliente(request):
