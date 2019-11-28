@@ -1,6 +1,90 @@
-<label for="">Mis productos nae</label>
-<br>
-{% for m in productos %}
-	<label for="">{{m.nombre}}</label>
-	<a href="{% url 'producto:modificar' m.pk %}">Modificar</a>
-{% endfor %}
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %} Productos {% endblock titulo%}
+{% block contenido %}  
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/productos.css' %}">
+</head>
+
+<section class="py-5">
+	<div class="container"><!-- Container página principal -->
+       <h2 class="my-4 text-center tit_principal">MIS PRODUCTOS</h1>
+  		<div class="col-12" style="margin-bottom: 15px;">
+  		<a class="btn" href="{% url 'producto:agregar' %}">Nuevo</a>
+  		</div>
+  		<div class="row">
+  		
+			
+
+		{% if productos|length == 0 %}
+           <label for=""  class=" mensaje ">No hay productos. </label>
+          {% else%}
+                {% for p in productos %}
+                  <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                      <a href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen" >
+                        {% if p.foto_producto %}
+                                <img class="img-prod" style="width: 100px; height: 150px;" 
+                                src="{{p.foto_producto.url}}" alt="encontre">
+                            {% else %}
+                                <img class="img-prod" style="width: 80px; height: 150px;" 
+                                src="" alt="No existe imagen" >
+                        {% endif %}
+                        </a>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <a class="ancla-titulo" href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen"> {{p.nombre}} </a>
+                        </h4>
+                        <h5 class="prod text-center"> ${{p.precio}} </h5>
+                   
+                      {% if p.stock > 0 %}
+                        <p class="card-text"> Stock: {{p.stock}} </p>
+                      {% else %}
+                        <p class="card-text"> No hay stock disponible </p>
+                      {% endif %}
+
+                      </div>
+                      <div class="card-footer text-center" style="background-color: #fff;">
+                        <!-- Cambiar el diseño del boton en caso de que no haya mas en stock -->
+                       <a style="color: #71a95a;" href="{% url 'producto:modificar' p.pk %}">Modificar</a> |
+
+                       <!-- Botón en HTML (lanza el modal en Bootstrap) -->
+                       <a style="color: #da2d2d;" href="#victorModal{{p.pk}}" data-toggle="modal">Eliminar</a>
+                                   <!-- Modal / Ventana / Overlay en HTML -->
+				        <div id="victorModal{{p.pk}}" class="modal fade">
+				           <div class="modal-dialog">
+				              	<div class="modal-content">
+					                <div class="modal-header">
+					                  <h4 class="modal-title">¿Estás seguro?</h4>
+					                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>   
+					                </div>
+					              	<div class="modal-body">
+					               		<p>¿Seguro que quieres borrar este elemento?</p>
+					                	<p class="text-warning">
+					                		<small>Si lo borras, no podrás recuperarlo.</small></p>
+					                </div>
+					                <div class="modal-footer">
+					                	<button type="button" class="btn" data-dismiss="modal">Cancelar</button>
+					                                    
+					                	<form action="{% url 'producto:eliminar' p.pk %}" method="POST">
+					                	{% csrf_token %}
+					                		<button class="btn" type="submit" href="">Eliminar</button>
+					                	</form>
+					              	</div>
+				            	</div>
+				          	</div> 
+                      	</div>
+                      </div>
+
+
+                    </div>
+                  </div>
+                {% endfor %}
+                {% endif %}
+          
+
+
+		</div> <!-- /.row contenido principal-->
+	</div>    <!-- /.container -->    
+</section>
+{% endblock contenido%}

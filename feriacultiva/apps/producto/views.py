@@ -133,8 +133,8 @@ def AgregarProducto(request): #Vistas basadas en funciones
 		ap.categoria = Categoria.objects.get(pk = request.POST.get('categoria'))
 		ap.feriante = Feriante.objects.get(encargado = request.user.pk)
 		ap.save()
-		messages.success(request, 'Student added successfully') # este mensaje se tiene que modificar
-		return redirect('producto:listar')
+		messages.success(request, 'Producto agregado correctamente') # este mensaje se tiene que modificar
+		return redirect('producto:MisProductos')
 
 
 	return render(request, 'Producto/agregarProducto.html', {'form': form, 'categoria': Categoria.objects.all(), 'feriantes': Feriante.objects.all()})
@@ -151,7 +151,7 @@ class ModificarProducto(LoginRequiredMixin,UpdateView):
 	model = Producto
 	template_name = 'Producto/agregarProducto.html'
 	fields = ['nombre', 'precio', 'stock', 'foto_producto', 'categoria', 'descripcion']
-	success_url = reverse_lazy('producto:listar')
+	success_url = reverse_lazy('producto:MisProductos')
 
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)

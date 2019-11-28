@@ -1,3 +1,17 @@
+.btn {
+  font-family: 'Roboto Slab', serif; 
+  background-color: #2c5d63; 
+  color: #fff;
+  font-size: 15px;
+}
+.btn:hover {
+background-color: #fff;        
+}
+
+.tit_principal {
+	font-family: 'Roboto Slab', serif;
+  	color: #283739;
+} 
 section{
 	background-color: #fff;
 	font-family: "Roboto Slab", serif;
