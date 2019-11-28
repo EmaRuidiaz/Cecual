@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block titulo %} Mi perfil {% endblock titulo%}
+{% block titulo %} - Editar perfil {% endblock titulo%}
 {% block contenido %}  
     <head>
         <link rel="stylesheet" type="text/css" href="{% static 'css/perfil.css' %}">
@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row" style="margin-top: 100px; background-color: #fcfafa;">
             <div class="col-12">
-                <h2 class="font-weight-light titulo">Mi perfil</h2>
+                <h2 class="font-weight-light titulo text-center">EDITAR PERFIL</h2>
             </div>
         </div>
     </div>
@@ -19,30 +19,36 @@
   <!-- Page Content -->
         <div class="container" >    
             <div class="jumbotron" style="background-color: #f5f5f5;">
-                <div class="row">
-                    
-                	<div style="margin-top: 75px;">
+                                    
 				        <form action="" method="POST" enctype="multipart/form-data"> {% csrf_token %}
-				            <label >Foto</label>
-				               {% if user.foto_perfil %}
-				                    <img src="{{user.foto_perfil.url}}" alt="foto">
-				                    {% else %}
-				                    <img src="" alt="no existe">
-				                {% endif %} 
-				            <input type="file" name="foto_perfil" value="{{user.foto_perfil.url}}"><br> 
-				            <label for="first_name">Nombre:</label>
-				            <input type="text" name="first_name" id="first_name" value="{{user.first_name}}">
-				            <label for="last_name">Apellido:</label>
-				            <input type="text" name="last_name" id="last_name" value="{{user.last_name}}">
-				            <label for="direccion">Direccion:</label>
-				            <input type="text" name="direccion" id="direccion" value="{{user.direccion}}">
-
-				            <input type="submit" value="Guardar">
-				            
-				        </form>
-				    </div>
-                    
-                </div>
+				        	<div class="row">
+				            <div class="col-md-6 w-75 text-center">
+					            <label >Foto:</label> <br>
+					               {% if user.foto_perfil %}
+					                    <img class="foto rounded-circle" src="{{user.foto_perfil.url}}" alt="foto">
+					                    {% else %}
+					                    <img src="" alt="no existe">
+					                {% endif %} 
+					            <input type="file" name="foto_perfil" value="{{user.foto_perfil.url}}"><br> 
+					        </div>
+					        <div class="col-md-6">
+					            <label for="first_name">Nombre:</label>
+					            <input type="text" name="first_name" id="first_name" value="{{user.first_name}}"><br><br>
+					            <label for="last_name">Apellido:</label>
+					            <input type="text" name="last_name" id="last_name" value="{{user.last_name}}"><br><br>
+					            <label for="telefono">Teléfono</label>
+                            	<input type="tel" name="telefono" id="telefono" value="{{user.telefono}}"><br><br>
+					            <label for="email">Email</label>
+					            <input type="email" name="email" id="email" value="{{user.email}}"><br><br>
+					            <label for="direccion">Direccion:</label>
+					            <input type="text" name="direccion" id="direccion" value="{{user.direccion}}"><br>
+					        </div>
+					        <div class="col-12 text-center" style="margin-top: 30px;">
+                        		<button class="btn" type="submit">Guardar cambios</button>
+                    		</div>
+				            </div>
+				        </form>                    
+                
             </div>
         </div>
 </section>

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block titulo %} Productos {% endblock titulo%}
+{% block titulo %} - Editar perfil {% endblock titulo%}
 {% block contenido %}  
 
     <head>
@@ -53,6 +53,9 @@
                             <input type="text" name="direccion" id="direccion" value="{{usuario.direccion}}"><br>
                             <i class="fas fa-phone"></i> <label for="telefono">Teléfono</label>
                             <input type="tel" name="telefono" id="telefono" value="{{usuario.telefono}}">
+                            <br>
+                            <i class="fas fa-envelope-square"></i> <label for="telefono">Email</label>
+                            <input type="email" name="email" id="email" value="{{usuario.email}}">
                         </form2>
                     </div>
                 </div>
