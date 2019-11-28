@@ -88,17 +88,20 @@ def PerfilFeriante(request):
 	if request.method == 'GET':
 		form = PerfilFerianteForm(instance = feria)
 		form2 = PerfilUsuarioFeriante(instance = p)
+		print('1')
 	else:
-		form = PerfilFerianteForm(request.POST, instance = feria)
-		form2 = PerfilUsuarioFeriante(request.POST, instance = p)
+		form = PerfilFerianteForm(request.POST,request.FILES, instance = feria)
+		form2 = PerfilUsuarioFeriante(request.POST,request.FILES, instance = p)
+		print('post')
 		if form.is_valid and form2.is_valid():
+			print('is_valid')
 			perfil = form.save(commit = False)
 			u = form2.save(commit = False)
 			perfil.encargado = p
 			if request.POST.get('foto_feriante') == '':
 				perfil.foto_feriante = feria.foto_feriante
 			else:
-				perfil.foto_feriante = request.POST.get('foto_feriante')
+				perfil.foto_feriante = request.FILES.get('foto_feriante')
 			perfil.descripcion = request.POST.get('descripcion')
 			if request.POST.get('delivery') == 'Si':
 				perfil.delivery = True

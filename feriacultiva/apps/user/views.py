@@ -37,14 +37,14 @@ def EditarPerfil(request):
 	if request.method == 'GET':
 		form = EditarUserForm(instance = usuario)
 	else:
-		form = EditarUserForm(request.POST, instance = usuario)
+		form = EditarUserForm(request.POST,request.FILES, instance = usuario)
 		if form.is_valid():
 			perfil = form.save(commit = False)
 			perfil.username = usuario.username
 			if request.POST.get('foto_perfil') == '':
 				perfil.foto_perfil = usuario.foto_perfil
 			else:
-				perfil.foto_perfil = request.POST.get('foto_perfil')
+				perfil.foto_perfil = request.FILES.get('foto_perfil')
 			perfil.first_name = request.POST.get('first_name')
 			perfil.last_name = request.POST.get('last_name')
 			perfil.email = usuario.email

@@ -22,7 +22,7 @@
                 <div class="row">
                     
                 	<div style="margin-top: 75px;">
-				        <form action="" method="POST"> {% csrf_token %}
+				        <form action="" method="POST" enctype="multipart/form-data"> {% csrf_token %}
 				            <label >Foto</label>
 				               {% if user.foto_perfil %}
 				                    <img src="{{user.foto_perfil.url}}" alt="foto">
