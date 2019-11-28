@@ -42,7 +42,8 @@
 			<tr>
 			  <th scope="col" width="200">Producto</th>
 			  <th scope="col" width="250">Cantidad</th>
-			  <th scope="col" width="200">Subtotal </th>
+			  <th scope="col" width="80">Subtotal </th>
+			  <th scope="col" width="90">Acción</th>
 			  
 			</tr>
 			</thead>
@@ -76,46 +77,45 @@
 							</form>
 						</td>
 						<td> 
-							<div class="price-wrap mx-auto">
-							<div id="contenedor">
-								
-									<p class="precio">${{p.total}} </p>
+							
+						
+				
+									<p class="precio" >${{p.total}} </p>
 								
 
-								<div class="boton-pedidos inline-block ">
+									<!-- <a class=" btn-eliminar" href="{% url 'pedido:delete' p.pk %}"> Eliminar Pedido </a> -->
+								
+							</div> <!-- price-wrap .// -->
+
+						</td>
+						<td>
+								<div class="boton-pedidos " >
 									
 									<!-- Botón en HTML (lanza el modal en Bootstrap) -->
-          							<a href="#victorModal{{p.pk}}" style="color: #da2d2d;" role="link" class="btn-link" data-toggle="modal">Eliminar pedido</a>
+          							<a href="#victorModal{{p.pk}}" style="color: #da2d2d;" role="link" class="btn-eliminar" data-toggle="modal" >Eliminar </a>
           							            <!-- Modal / Ventana / Overlay en HTML -->
 							          <div id="victorModal{{p.pk}}" class="modal fade">
 							              <div class="modal-dialog">
 							                <div class="modal-content">
 							                  <div class="modal-header">
-							                    <h4 class="modal-title">¿Estás seguro?</h4>
+							                    
 							                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>   
 							                  </div>
 							                  <div class="modal-body">
-							                    <p>¿Seguro que quieres borrar este elemento?</p>
-							                    <p class="text-warning"><small>Si lo borras, no podrás recuperarlo.</small></p>
+							                    <p>¿Seguro que quieres borrar este pedito?</p>
+							                    <small style="color: orange;">Si borras este pedido deberás acceder al cátalogo para volver a realizar una reserva.</small>
 							                  </div>
-							                  <div class="modal-footer">
-							                    <button type="button" class="btn-eliminar" data-dismiss="modal">Cerrar</button>
-							                     <form action="{% url 'pedido:delete' p.pk %}" method="POST">
+							                  <div class="footer" style="height: 150px; background-color:#fff; border-top: 1px solid #ccc;">
+							                    <button type="button" class="btn-eliminar" data-dismiss="modal" style="display: inline-block;">Cancelar</button>
+
+							                     <form action="{% url 'pedido:delete' p.pk %}" method="POST" style="display: inline-block; padding-bottom: 100px;">
 							                    {% csrf_token %}
-							                      <button class="btn-eliminar" type="submit" href="">Eliminar</button>
+							                      <button class="btn-eliminar" type="submit" href="" style="display: inline-block;">Eliminar</button>
 							                    </form>
 							                  </div>
 							                </div>
 							              </div>
 							          </div>
-
-
-									<!-- <a class=" btn-eliminar" href="{% url 'pedido:delete' p.pk %}"> Eliminar Pedido </a> -->
-								</div>
-							</div>  
-								
-							</div> <!-- price-wrap .// -->
-
 						</td>
 					</tr>
 					{% endfor %}

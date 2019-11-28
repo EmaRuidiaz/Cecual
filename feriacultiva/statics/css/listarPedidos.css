@@ -31,6 +31,7 @@ form{
 .precio{
     float: left;
     padding-top: 100px;
+    padding-left: 50px;
 }
 
 .boton-pedidos{
@@ -67,6 +68,7 @@ form{
 
 .btn-eliminar:hover{
 	color: #ff0000;
+	text-decoration: none;
 }
 
 a.btn-eliminar:link{
@@ -90,7 +92,7 @@ input{
 	font-family: 'Roboto Slab', serif; 
 	font-size: 20px;
 	border-radius: 20px;
-	background-color: #a9c52f;
+	background-color: #2c5d63 ;
 }
 
 a.btn-pedidos:link{
