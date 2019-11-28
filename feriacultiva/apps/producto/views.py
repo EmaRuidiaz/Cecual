@@ -139,6 +139,14 @@ def AgregarProducto(request): #Vistas basadas en funciones
 
 	return render(request, 'Producto/agregarProducto.html', {'form': form, 'categoria': Categoria.objects.all(), 'feriantes': Feriante.objects.all()})
 
+def MisProductos(request):
+	currentFeriante = Feriante.objects.get(encargado = request.user)
+	context = {}
+	productos = Producto.objects.filter(feriante = currentFeriante)
+	context['productos'] = productos
+
+	return render(request,'Producto/misProductos.html', context)
+
 class ModificarProducto(LoginRequiredMixin,UpdateView):
 	model = Producto
 	template_name = 'Producto/agregarProducto.html'

@@ -1,0 +1,6 @@
+<label for="">Mis productos nae</label>
+<br>
+{% for m in productos %}
+	<label for="">{{m.nombre}}</label>
+	<a href="{% url 'producto:modificar' m.pk %}">Modificar</a>
+{% endfor %}
