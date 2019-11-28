@@ -19,6 +19,8 @@ def ListarPedido(request):
 	context = {}
 	if request.user.is_authenticated:
 		context['object_list'] = Pedido.objects.filter(cliente = request.user)
+		pedidos = Pedido.objects.filter(cliente = request.user)
+		context['Pedido'] = pedidos
 
 		clave = request.POST.get('Confirmar')
 		print(clave)

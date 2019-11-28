@@ -27,29 +27,39 @@ class ListarProductos(ListView):
 	form_class = PedidoForm
 
 	def post(self,request,*args,**kwargs):
+
 		form = self.form_class(request.POST)
 		print('anted de is_valid')
 		pk = request.POST['Confirmar']
 		print(pk)
+		print('pk')
+
 		if form.is_valid():
+			x = Pedido.objects.filter(cliente = request.user)
 			p = Producto.objects.get(pk = pk)
-			res = form.save(commit = False)
-			res.producto = p
-			res.cliente = request.user
-			cant = request.POST['cantidad']
-			total = Decimal(cant) * p.precio
-			print(total)
-			res.total = total
-            # Marca la casilla de envio
-			# if request.POST['envio'] == 'Si':
-			# 	res.envio = True
-			# else:
-			# 	res.envio = False
-				
-			res.save()
-			print('Guardeeee')
+			try:
+				pedido = Pedido.objects.get(cliente = request.user,producto = p)
+				cant = request.POST.get('cantidad')
+				total = Decimal(cant) * pedido.producto.precio
+				pedido.cantidad = int(cant) + int(pedido.cantidad)
+				pedido.total = int(total) + int(pedido.total)
+				pedido.save()
+				print('p en pedido')
+			except:
+				p = Producto.objects.get(pk = pk)
+				res = form.save(commit = False)
+				res.producto = p
+				res.cliente = request.user
+				cant = request.POST['cantidad']
+				total = Decimal(cant) * p.precio
+				print('total')
+				print(total)
+				res.total = total
+				res.save()
+				print('Guardeeee')
 			return HttpResponseRedirect('/producto/')
 		return render(request,self.template_name, {'form':form})
+
 
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
@@ -191,19 +201,22 @@ class DetalleProducto(DetailView):
 		form = self.form_class(request.POST)
 		if form.is_valid():
 			p = Producto.objects.get(pk = self.kwargs['pk'])
-			res = form.save(commit = False)
-			res.producto = p
-			res.cliente = request.user
-			cant = request.POST['cantidad']
-			total = Decimal(cant) * p.precio
-			print(total)
-			res.total = total
-            # Marca la casilla de envio
-			# if request.POST['envio'] == 'Si':
-			# 	res.envio = True
-			# else:
-			# 	res.envio = False
-				
-			res.save()
+			try:
+				pedido = Pedido.objects.get(cliente = request.user,producto = p)
+				cant = request.POST.get('cantidad')
+				total = Decimal(cant) * pedido.producto.precio
+				pedido.cantidad = int(cant) + int(pedido.cantidad)
+				pedido.total = int(total) + int(pedido.total)
+				pedido.save()
+			except:
+				res = form.save(commit = False)
+				res.producto = p
+				res.cliente = request.user
+				cant = request.POST['cantidad']
+				total = Decimal(cant) * p.precio
+				res.total = total
+					
+				res.save()
 			return HttpResponseRedirect('/producto/')
+		print('16')
 		return render(request,self.template_name, {'form':form})
