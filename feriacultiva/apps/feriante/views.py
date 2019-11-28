@@ -6,7 +6,7 @@ from apps.pedido.models import Pedido
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from apps.feriante.forms import FerianteForm, PerfilFerianteForm, PerfilUsuarioFeriante
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.list import ListView
@@ -110,6 +110,7 @@ def PerfilFeriante(request):
 			u.telefono = request.POST.get('telefono')
 			u.save()
 			perfil.save()
+			return redirect(reverse('feriante:detalle',kwargs={'pk':feria.pk}))
 	return render(request,'Feriante/perfil.html',context,{'form':form,'form2':form2})
 	
 
