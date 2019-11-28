@@ -5,6 +5,7 @@ from apps.categoria.models import Categoria
 from apps.evento.models import Evento
 from apps.pedido.models import Pedido
 from django.views.generic.list import ListView
+from django.db.models import Sum
 
 
 
@@ -24,7 +25,7 @@ class Inicio(ListView):
 
 
 		if self.request.user.is_authenticated:
-			pedidos = Pedido.objects.filter(cliente = self.request.user)
+			pedidos = Pedido.objects.filter(cliente = self.request.user).aggregate(Sum('cantidad'))
 			context['Pedido'] = pedidos
 
 		return context

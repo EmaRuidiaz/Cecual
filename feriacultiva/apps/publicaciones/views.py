@@ -5,11 +5,21 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
+from apps.pedido.models import Pedido
+from django.db.models import Sum
 
 # Create your views here.
 class ListarPublicaciones(ListView):
 	model = Publicacion
 	template_name = 'Publicacion/listarPublicaciones.html'
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		if self.request.user.is_authenticated:
+			pedidos = Pedido.objects.filter(cliente = self.request.user).aggregate(Sum('cantidad'))
+			context['Pedido'] = pedidos
+
+		return context
 
 class ListarPublicacionesAdmin(ListView):
 	model = Publicacion

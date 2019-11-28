@@ -11,6 +11,14 @@ class ListarEventos(ListView):
 	model = Evento
 	template_name = 'evento/listarEventos.html'
 
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		if self.request.user.is_authenticated:
+			pedidos = Pedido.objects.filter(cliente = self.request.user).aggregate(Sum('cantidad'))
+			context['Pedido'] = pedidos
+
+		return context
+
 class ListarEventosAdmin(ListView):
 	model = Evento
 	template_name = 'evento/listarEventosAdmin.html'

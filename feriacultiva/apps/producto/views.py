@@ -17,6 +17,7 @@ from apps.reserva.forms import ReservaForm
 from apps.pedido.forms import PedidoForm
 import collections
 from decimal import Decimal
+from django.db.models import Sum
 from django.contrib import messages
 from django.http import Http404
 
@@ -83,7 +84,7 @@ class ListarProductos(ListView):
 		context['filtro'] = Categoria.objects.all()
 
 		if self.request.user.is_authenticated:
-			pedidos = Pedido.objects.filter(cliente = self.request.user)
+			pedidos = Pedido.objects.filter(cliente = self.request.user).aggregate(Sum('cantidad'))
 			context['Pedido'] = pedidos
 
 		buscar = self.request.GET.get("buscador")
@@ -173,7 +174,7 @@ class DetalleProducto(DetailView):
 		lista_productos=[]
 
 		if self.request.user.is_authenticated:
-			pedidos = Pedido.objects.filter(cliente = self.request.user)
+			pedidos = Pedido.objects.filter(cliente = self.request.user).aggregate(Sum('cantidad'))
 			context['Pedido'] = pedidos
 		
 		if cont > 3:

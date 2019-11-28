@@ -17,11 +17,10 @@ from django.db.models import Sum
 
 def ListarPedido(request):
 	context = {}
+	
 	if request.user.is_authenticated:
+		
 		context['object_list'] = Pedido.objects.filter(cliente = request.user)
-		pedidos = Pedido.objects.filter(cliente = request.user)
-		context['Pedido'] = pedidos
-
 		clave = request.POST.get('Confirmar')
 		print(clave)
 		try:
@@ -40,7 +39,9 @@ def ListarPedido(request):
 				p.save()
 		context['total'] = Pedido.objects.filter(cliente = request.user).aggregate(Sum('total')) # Trae el precio total de todos los pedidos
 	else:
-		print('no esta registrado')		
+		print('no esta registrado')
+	pedidos = Pedido.objects.filter(cliente = request.user).aggregate(Sum('cantidad'))
+	context['Pedido'] = pedidos
 	return render(request, 'Pedido/listarPedidos.html', context)
 	
 
