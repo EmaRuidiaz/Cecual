@@ -6,13 +6,22 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/feriantes.css' %}">
 </head>
 
+<header class="masthead" style="background-image: url({% static 'img/sobrefc1.png' %})">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 text-center">
+      <h1 class="my-1 titulo ">
+        Feriantes
+       </h1>
+        <p class="lead"></p>
+      </div>
+    </div>
+  </div>
+</header>
 
-
-<section class="py-5" style="background-color:#fcfafa;"><!-- Page Content -->
+<section class="py-5" ><!-- Page Content -->
   <div class="container"><!-- Container página principal -->
-        <h1 class="my-1 ">
-           FERIANTES
-        </h1>
+       
     <div class="row"> <!-- row página principal -->
     
      {% for p in object_list %}

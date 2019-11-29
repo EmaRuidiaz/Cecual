@@ -4,10 +4,10 @@ section{
 }
 
 .titulo {
-  text-shadow: 2px 2px 2px #a9c52f;
-  font-size: 20px;
-  color: #f5f5f5;
-  background-color: red;
+  text-shadow: 3px 3px 10px #a9c52f;
+  font-size: 80px;
+  color: #fff;
+  font-weight: bold;
 }
 
 

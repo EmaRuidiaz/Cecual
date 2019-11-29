@@ -55,7 +55,9 @@ body{
   font-weight: bold;
   font-family: "Roboto Slab", serif;
   font-size: 25px; 
-  color: #f5f5f5;
+  color: #283739;
+  background-color: #fff;
+  opacity: 0.8;
 }
 
 .dir{
@@ -66,17 +68,13 @@ body{
 
 }
 
-.display-4{
-  
-  color: #f5f5f5;
-  -webkit-text-stroke: 1px #a9c52f;
-  color: #f5f5f5; 
-  font-family: "Roboto Slab", serif;
+.titulo-1{
 
-  text-shadow: 2px 2px 2px #a9c52f;
-  font-size: 60px;
+  text-shadow: 3px 3px 10px #283739;
+  font-size: 80px;
+  color: #fff;
+  font-weight: bold;
 
-}
 }
 
 .dropdown:hover div{
