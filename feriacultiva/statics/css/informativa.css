@@ -9,7 +9,7 @@ body{
   background-repeat: no-repeat;
   font-family: 'Roboto Slab', serif; 
 }
-.titulo {
+.titulo-h1 {
   text-shadow: 3px 3px 10px #a9c52f;
   font-size: 80px;
   color: #fff;
