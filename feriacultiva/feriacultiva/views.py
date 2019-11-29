@@ -1,9 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from apps.producto.models import Producto
 from apps.categoria.models import Categoria
 from apps.evento.models import Evento
 from apps.pedido.models import Pedido
+from apps.user.models import User
 from django.views.generic.list import ListView
 from django.db.models import Sum
 
@@ -38,6 +40,10 @@ class Inicio(ListView):
 
 @login_required
 def  Administrador(request):
-	return render(request, 'administrador.html')
+	user = User.objects.get(username = request.user)
+	if user.is_superuser == True:
+		return render(request, 'administrador.html')
+	else:
+		return redirect(reverse('login'))
 
 
