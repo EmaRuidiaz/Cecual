@@ -7,6 +7,18 @@ class User(AbstractUser):
 	phone_regex = RegexValidator(
 		regex=r'\+?1?\d{9,15}$',
 		message=" El número de teléfono no es válido. ")
+	
+	first_name_regex = RegexValidator(
+		regex=r'[a-zA-Z]',
+		message=" El nombre no es válido. ")
+
+	last_name_regex = RegexValidator(
+		regex=r'[a-zA-Z]',
+		message=" El apellido no es válido. ")
+
+	first_name = models.CharField(validators=[first_name_regex], max_length=30)
+
+	last_name = models.CharField(validators=[last_name_regex], max_length=150)
 
 	telefono = models.CharField(validators=[phone_regex], max_length=17, blank=True)
 
