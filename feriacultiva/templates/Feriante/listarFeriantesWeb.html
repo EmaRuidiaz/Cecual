@@ -25,6 +25,7 @@
     <div class="row"> <!-- row página principal -->
     
      {% for p in object_list %}
+     {% if p.encargado.is_active %}
       <div class="col-lg-4 col-md-6 mb-4 " ;>
             <div class="card h-100" >
               <a href="{% url 'feriante:detalle' p.pk %}" class="foto-ancla">
@@ -42,6 +43,7 @@
               </div>
             </div>
       </div>
+      {% endif %}
       {% endfor %}
     </div>
 
