@@ -34,10 +34,6 @@ class Inicio(ListView):
 
 
 
-
-
-
-
 @login_required
 def  Administrador(request):
 	user = User.objects.get(username = request.user)

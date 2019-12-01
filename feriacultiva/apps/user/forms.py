@@ -17,5 +17,5 @@ class EditarUserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['first_name','last_name','direccion','foto_perfil']
+        fields = ['first_name','last_name','direccion','foto_perfil','telefono','email']
         
