@@ -42,9 +42,11 @@ class ListarProductos(ListView):
 				pedido = Pedido.objects.get(cliente = request.user,producto = p)
 				cant = request.POST.get('cantidad')
 				total = Decimal(cant) * pedido.producto.precio
-				pedido.cantidad = int(cant) + int(pedido.cantidad)
-				pedido.total = int(total) + int(pedido.total)
-				pedido.save()
+				suma = int(cant) + int(pedido.cantidad)
+				if suma > 0:
+					pedido.cantidad = int(cant) + int(pedido.cantidad)
+					pedido.total = int(total) + int(pedido.total)
+					pedido.save()
 				print('p en pedido')
 			except:
 				p = Producto.objects.get(pk = pk)
@@ -52,12 +54,13 @@ class ListarProductos(ListView):
 				res.producto = p
 				res.cliente = request.user
 				cant = request.POST['cantidad']
-				total = Decimal(cant) * p.precio
-				print('total')
-				print(total)
-				res.total = total
-				res.save()
-				print('Guardeeee')
+				if int(cant) > 0:
+					total = Decimal(cant) * p.precio
+					print('total')
+					print(total)
+					res.total = total
+					res.save()
+					print('Guardeeee')
 			return HttpResponseRedirect('/producto/')
 		return render(request,self.template_name, {'form':form})
 
@@ -95,7 +98,7 @@ class ListarProductos(ListView):
 		return context
 
 	def get_queryset(self):
-		context = {}
+		# context = {}
 		categoria = self.request.GET.get('Categoria',None)
 		if not categoria:
 			categoria = "0"
@@ -214,18 +217,19 @@ class DetalleProducto(DetailView):
 				pedido = Pedido.objects.get(cliente = request.user,producto = p)
 				cant = request.POST.get('cantidad')
 				total = Decimal(cant) * pedido.producto.precio
-				pedido.cantidad = int(cant) + int(pedido.cantidad)
-				pedido.total = int(total) + int(pedido.total)
-				pedido.save()
+				suma = int(cant) + int(pedido.cantidad)
+				if suma > 0:
+					pedido.cantidad = int(cant) + int(pedido.cantidad)
+					pedido.total = int(total) + int(pedido.total)
+					pedido.save()
 			except:
 				res = form.save(commit = False)
 				res.producto = p
 				res.cliente = request.user
 				cant = request.POST['cantidad']
-				total = Decimal(cant) * p.precio
-				res.total = total
-					
-				res.save()
+				if int(cant) > 0:
+					total = Decimal(cant) * p.precio
+					res.total = total
+					res.save()
 			return HttpResponseRedirect('/producto/')
-		print('16')
 		return render(request,self.template_name, {'form':form})

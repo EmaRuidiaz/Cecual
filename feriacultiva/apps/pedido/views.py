@@ -35,10 +35,11 @@ def ListarPedido(request):
 			form = PedidoForm(request.POST)
 			if form.is_valid():
 				cant = request.POST.get('cantidad')
-				total = Decimal(cant) * p.producto.precio
-				p.cantidad = cant
-				p.total = total
-				p.save()
+				if int(cant) > 0:
+					total = Decimal(cant) * p.producto.precio
+					p.cantidad = cant
+					p.total = total
+					p.save()
 		context['total'] = Pedido.objects.filter(cliente = request.user).aggregate(Sum('total')) # Trae el precio total de todos los pedidos
 	else:
 		print('no esta registrado')
