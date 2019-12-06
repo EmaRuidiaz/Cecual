@@ -165,7 +165,7 @@ class ModificarProducto(LoginRequiredMixin,UpdateView):
 class EliminarProducto(LoginRequiredMixin,DeleteView):
 	model = Producto
 	template_name = 'Producto/eliminarProducto.html'
-	success_url = reverse_lazy('producto:listar')
+	success_url = reverse_lazy('producto:MisProductos')
 
 
 class DetalleProducto(DetailView):
