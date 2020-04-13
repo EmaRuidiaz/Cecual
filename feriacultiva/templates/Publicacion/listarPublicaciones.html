@@ -38,7 +38,8 @@
                 <h2 class="subt">{{p.titulo}}</h2>
                 <div class="row">
                   <div class="col-xs-9">
-                    <p class="texto">{{p.contenido}}</p>                    
+                    <p class="texto">{{p.contenido}}</p>
+                    <p><a href="{% url 'publicacion:detallePublicacion' p.pk %}">Ver más</a></p>                    
                   </div>
                   <div class="col-xs-3">
                   </div>

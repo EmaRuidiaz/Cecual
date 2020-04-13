@@ -69,7 +69,7 @@
 
          
   
-               <li class="nav-item dropdown"> 
+              <!-- <li class="nav-item dropdown"> 
 
               <a class="nav-link uppercase  outline" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
               <svg class="svg-icon icon-inline" viewBox="0 0 20 20">
@@ -106,8 +106,8 @@
               style=" color: #2c5d63;  font-size: 15px; font-family: 'Roboto Slab';">Mis reservas</a>
               {% endif %}
               </div>                   
-              </li>
-             {% endif %}
+              </li> 
+             {% endif %} -->
               
               <li class="nav-item">
               <li class="nav-item dropdown">          
@@ -129,10 +129,10 @@
                 <a class="dropdown-item" href="{% url 'logout' %}" style=" color: #2c5d63; font-size: 15px; font-family: 'Roboto Slab';">Cerrar sesión</a>
                 {%else%}
                 <a class="dropdown-item" href="{% url 'login' %}"
-                style=" color: #2c5d63;  font-size: 15px; font-family: 'Roboto Slab';">Iniciar sesión</a>
-                <a class="dropdown-item" href="{% url 'usuario:agregar' %}"
-                style=" color: #2c5d63;   font-size: 15px; font-family: 'Roboto Slab';">Crear cuenta</a>
-                {%endif%}          
+                style=" color: #2c5d63;  font-size: 15px; font-family: 'Roboto Slab';">¿Sos feriante?</a>
+                <!-- <a class="dropdown-item" href="{% url 'usuario:agregar' %}"
+                style=" color: #2c5d63;   font-size: 15px; font-family: 'Roboto Slab';">Crear cuenta</a>-->
+                {%endif%}         
                 </div>                                  
           </ul>
       </div>
@@ -200,19 +200,19 @@
 
                     <ul class="list-unstyled">
                       <li>
-                        <a href="#!" class="lista">Productos Hortícolas</a>
+                        <a href="#!" class="lista">Cosmética natural</a>
                       </li>
                       <br>
                       <li>
-                        <a href="#!" class="lista">Ornamentales</a>
+                        <a href="#!" class="lista">Plantas Ornamentales</a>
                       </li>
                       <br>
                       <li>
-                        <a href="#!"class="lista">Alimentación Saludable</a>
+                        <a href="#!"class="lista">Almacen Saludable</a>
                       </li>
                       <br>
                       <li>
-                        <a href="#!" class="lista">Almacen Natural</a>
+                        <a href="#!" class="lista">Frutas y verduras</a>
                       </li>
                     </ul>
 
@@ -227,7 +227,7 @@
 
               <hr>
 
-              <!-- Call to action -->
+              <!--  
               <ul class="list-unstyled list-inline text-center py-1">
                 <li class="list-inline-item">
                   <h5 class="mb-1">¿Ya tenes una cuenta?</h5>
@@ -238,9 +238,8 @@
       
                 </li>
               </ul>
-              <!-- Call to action -->
-
-              <hr>
+             
+              <hr> -->
 
               <!-- Social buttons -->
             <ul class="list-unstyled list-inline text-center">
@@ -270,7 +269,7 @@
   <!-- Social buttons -->
 
   <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">© 2019 Desarrollado por:
+        <div class="footer-copyright text-center py-3">© 2020 Desarrollado por:
           <a href="https://mdbootstrap.com/education/bootstrap/" class="lista"> IT4Connect</a>
         </div>
         <!-- Copyright -->

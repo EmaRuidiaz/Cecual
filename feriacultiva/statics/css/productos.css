@@ -94,15 +94,16 @@ text-decoration:none;
 
 
 .prod{
-   color: #a9c52f;
-   font-size: 18px;
+   color: #f45905;
+   font-size: 20px;
    font-family: "Roboto Slab", serif;
+   text-align: center;
 }
 
 .card-text{
 	display: block;
 	margin:auto;
-	background-color: #f45905;
+	background-color: #a9c52f;
 	color: #f5f5f5;
 	width: 100px;
 	text-align: center;

@@ -127,14 +127,14 @@
                         <h5 class="prod"> ${{p.precio}} </h5>
                    
                       {% if p.stock > 0 %}
-                        <p class="card-text"> Stock: {{p.stock}} </p>
+                        <p class="card-text"> Stock disponible </p>
                       {% else %}
                         <p class="card-text"> No hay stock disponible </p>
                       {% endif %}
 
                       </div>
-                      <div class="card-footer " style="background-color: #fff;">
-                        <!-- Cambiar el diseño del boton en caso de que no haya mas en stock -->
+                      <!-- <div class="card-footer " style="background-color: #fff;">
+                        
                         
                       {% if p.stock > 0 %}
 
@@ -149,7 +149,7 @@
                           {% else %}
                           <a href="#">No disponible</a>
                         {% endif %}
-                      </div>
+                      </div> -->
 
 
                     </div>
