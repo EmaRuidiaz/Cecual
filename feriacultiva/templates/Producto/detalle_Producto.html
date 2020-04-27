@@ -44,24 +44,24 @@
 
                       <h5 class="detalle-titulo">{{object.nombre}}</h5>
                     
-                      <p class="stock-det "><small > Stock: {{object.stock}}</small></p>
+                      <!-- <p class="stock-det "><small > Stock: {{object.stock}}</small></p> -->
                       <p class="card-text-det" style="border-top: 1px solid #f5f5f5;">DESCRIPCIÓN:</p>
                       <p class="card-text-det" style="border-bottom:  1px solid #f5f5f5;">{{object.descripcion}}</p>
-                      <h3 class="detalle-precio" style="border-bottom:  1px solid #f5f5f5; ">${{object.precio}}</h3>
+                      <!-- <h3 class="detalle-precio" style="border-bottom:  1px solid #f5f5f5; ">${{object.precio}}</h3> -->
     
                       <!-- valores para guardar en el models de reserva -->
                      
                       <a class="ancla-titulo-feriante" href="" class="imagen"> Feriante:  {{object.feriante.encargado.first_name}} </a>
                        <br>
 
-                      <div > 
+                     <!--  <div > 
                       <input type="number" name="cantidad" id="cantidad" placeholder="1" value="1" 
                       style=" border: 1px solid #2c5d63;">
 
                       {% if user.is_authenticated %}
                          <button class="reservar " style="display: inline-block; display: inline-block; font-size: 25px; color: #283739;" type="submit"><i class="fas fa-cart-plus"></i></button>
                       {% endif %}
-                      </div>
+                      </div> -->
 
                     </form>
                   </div>
@@ -98,12 +98,12 @@
                                   <img class="card-img-top" style="width: 80px; height: 150px;" src="" alt="No existe imagen" >
                                   {% endif %}
                               </a>
-                                <div class="card-body">
+                                <div class="card-body mx-auto">
                                 <h4 class="card-titulo-detalle">
                                 <a class="ancla-titulo" href="{% url 'producto:Detalle' i.pk i.categoria.nombre %}" class="imagen"> {{i.nombre}} </a>
                                 </h4>
-                                <h5 class="prod"> ${{i.precio}} </h5>
-                                <p class="card-text"> Stock: {{i.stock}} </p>
+                                <!-- <h5 class="prod"> ${{i.precio}} </h5>
+                                <p class="card-text"> Stock: {{i.stock}} </p> -->
                                 </div>
                           </div><!--final card-->        
                       </div><!--final col cards-->

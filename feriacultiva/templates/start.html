@@ -38,9 +38,9 @@
         <div class="carousel-caption d-none d-md-block">
           <!-- <img id="logo"  src="{% static 'img/letrasverdes.png' %}"  class="d-inline-block align-top" alt="Feria Cultiva" style="width: 250px;"> -->
         {% for p in EventoInfo %}
-          <h2 class="titulo-1">Todos los {{p.dia}}</h2>
-          <p class="lead">{{p.f_inicio.time}} a {{p.f_finalizacion.time}}</p>
-          <p class="lead">{{p.direccion}}</p>
+          <h2 class="titulo-1">La feria en tiempos de cuarentena</h2>
+          <p class="lead">Confiamos en que pronto volveremos a encontrarnos</p>
+          <p class="lead">mientras tanto, ¡Te invitamos a recorrer el sitio!</p>
           {% endfor %}
          </div> 
       </div>
@@ -48,9 +48,9 @@
       <div class="carousel-item" style="background-image: url('{% static 'img/s3.png' %}')">
         <div class="carousel-caption d-none d-md-block">
           <!-- <img id="logo"  src="{% static 'img/letrasverdes.png' %}"  class="d-inline-block align-top" alt="Feria Cultiva" style="width: 250px;"> -->
-          <h2 class="titulo-1">Hacé tu reserva</h2>
-          <p class="lead">Seleccioná los productos que quieras</p>
-          <p class="lead">Nos comunicamos con vos para acordar la entrega</p>
+          <h2 class="titulo-1">Conocé a los feriantes</h2>
+          <p class="lead">Mirá los productos que ofrecen</p>
+          <p class="lead">Comunicate para acordar la compra</p>
         </div>
       </div>
       <!-- Slide Three - Set the background image for this slide in the line below -->
@@ -96,13 +96,13 @@
                         <h4 class="card-title">
                           <a class="ancla-titulo" href="{% url 'producto:Detalle' p.pk p.categoria.nombre %}" class="imagen"> {{p.nombre}} </a>
                         </h4>
-                        <h5 class="prod"> ${{p.precio}} </h5>
+                        <!-- <h5 class="prod"> ${{p.precio}} </h5>
                    
                       {% if p.stock > 0 %}
                         <p class="card-text"> Stock: {{p.stock}} </p>
                       {% else %}
                         <p class="card-text"> No hay stock disponible </p>
-                      {% endif %}
+                      {% endif %} -->
 
                       </div>
                      
