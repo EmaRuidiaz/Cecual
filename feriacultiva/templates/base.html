@@ -52,7 +52,7 @@
               </li>
 
               <li class="nav-item active">
-               <a class="nav-link estilo-nav" href="{% url 'historia:listarHistoria' %}"style=" color: #2c5d63; font-size: 15px; font-family: 'Roboto Slab';" >SOBRE FERIA CULTIVA</a>
+               <a class="nav-link estilo-nav" href="{% url 'historia:listarHistoria' %}"style=" color: #2c5d63; font-size: 15px; font-family: 'Roboto Slab';" >ACERCA DE FERIA CULTIVA</a>
               </li>
 
               <li class="nav-item active">
@@ -158,74 +158,80 @@
 
               <!-- Content -->
               <h4 class="font-weight-bold text-uppercase mt-3 mb-4">Feria Cultiva</h4>
-              <p class="footer-descripcion">El patio Ambay del CeCuAl (Santa María de Oro 471) es el lugar donde se lleva a cabo la feria todos los sábados de 9 a 13 hs. En él se comercializan productos hortícolas agroecológicos, productos primarios con valor agregado y productos gastronómicos vinculados con la alimentación saludable, cosmética natural y de diseños sustentables. ¡Vení a conocernos!</p>
+              <p class="footer-descripcion">“La Cultiva” es producto de la articulación institucional entre la Oficina de Gestión Metropolitana del INTA Colonia Benítez y el Centro Cultural Alternativo (CeCuAl) del Instituto de Cultura de la provincia del Chaco, a través del espacio de arte y diseño (Colectivo de diseñadores y artistas).<br>
+              Hoy, a causa de la pandemia no nos podemos reunir, por eso te invitamos a conocerlos <a class="lista" href="{% url 'feriante:feriantesWeb' %}">¡Aquí!</a></p>
               <h4>#CulturaColaborativa</h4>
           </div>
+
       <!-- Grid column -->
 
                <hr class="clearfix w-100 d-md-none">
 
-                  <!-- Grid column -->
-                  <div class="col-md-2 mx-auto">
+      <!-- Grid column -->
+          <div class="col-md-2 mx-auto">
+                        <!-- Links -->
+            <h4 class="font-weight-bold text-uppercase mt-3 mb-4">SECCIONES</h4>
 
-                    <!-- Links -->
-                    <h4 class="font-weight-bold text-uppercase mt-3 mb-4">SECCIONES</h4>
+            <ul class="list-unstyled">
+              <li>
+                <a href="{% url 'historia:listarHistoria' %}" class="lista">¿Qué es Feria Cultiva?</a>
+              </li>
+              <br>
+              <li>
+                <a href="{% url 'publicacion:listarPublicaciones' %}" class="lista">Ambiente y salud</a>
+              </li>
+              <br>
+              <li>
+                <a href="{% url 'feriante:feriantesWeb' %}" class="lista">Feriantes</a>
+              </li>
+              <br>
+                    
+            </ul>
 
-                    <ul class="list-unstyled">
-                      <li>
-                        <a href="#!" class="lista">¿Qué es Feria Cultiva?</a>
-                      </li>
-                      <br>
-                      <li>
-                        <a href="#!" class="lista">Productos</a>
-                      </li>
-                      <br>
-                      <li>
-                        <a href="#!" class="lista">Feriantes</a>
-                      </li>
-                      <br>
-                      
-                    </ul>
-
-                  </div>
-                  <!-- Grid column -->
+          </div>
+      <!-- Grid column -->
 
                   <hr class="clearfix w-100 d-md-none">
 
-                  <!-- Grid column -->
-                  <div class="col-md-2 mx-auto">
+      <!-- Grid column -->
+          <div class="col-md-2 mx-auto">
 
                     <!-- Links -->
-                    <h4 class="font-weight-bold text-uppercase mt-3 mb-4">CATEGORIAS</h4>
-
-                    <ul class="list-unstyled">
-                      <li>
-                        <a href="#!" class="lista">Cosmética natural</a>
-                      </li>
-                      <br>
-                      <li>
-                        <a href="#!" class="lista">Plantas Ornamentales</a>
-                      </li>
-                      <br>
-                      <li>
-                        <a href="#!"class="lista">Almacen Saludable</a>
-                      </li>
-                      <br>
-                      <li>
-                        <a href="#!" class="lista">Frutas y verduras</a>
-                      </li>
-                    </ul>
-
-                  </div>
-                  <!-- Grid column -->
-
-                </div>
+            <h4 class="font-weight-bold text-uppercase mt-3 mb-4">CATEGORIAS</h4>
+              <ul class="list-unstyled">
+                <li>
+                  <a href="#!" class="lista">Cosmética natural</a>
+                </li>
+                <br>
+                <li>
+                  <a href="#!" class="lista">Plantas Ornamentales</a>
+                </li>
+                <br>
+                <li>
+                  <a href="#!"class="lista">Almacen Saludable</a>
+                </li>
+                <br>
+                <li>
+                  <a href="#!" class="lista">Frutas y verduras</a>
+                </li>
+               </ul>
+          </div>
+      <!-- Grid column -->
+       </div>
                 <!-- Grid row -->
+      <div class="d-block mx-auto" style="text-align: center;">
+        <img id=""  src="{% static 'img/logo-INTA.PNG' %}"  class="d-inline-block align-top institucionales rounded" alt="Feria Cultiva">
+        <img id=""  src="{% static 'img/logo-CECUAL.PNG' %}"  class="d-inline-block align-top institucionales rounded" alt="Feria Cultiva">
+        <img id=""  src="{% static 'img/logo-IndustriasCulturales.PNG' %}"  class="d-inline-block align-top institucionales rounded" alt="Feria Cultiva">
+        <img id=""  src="{% static 'img/logo-EspacioAlternativo.PNG' %}"  class="d-inline-block align-top institucionales rounded" alt="Feria Cultiva">
+        
+        <img id=""  src="{% static 'img/logo-ICultura.PNG' %}"  class="d-inline-block align-top institucionales rounded" alt="Feria Cultiva">
+        <img id=""  src="{% static 'img/logo-Gob.PNG' %}"  class="d-inline-block align-top institucionales rounded" alt="Feria Cultiva">
+      </div>
 
-              </div>
+    </div>
               <!-- Footer Links -->
-
-              <hr>
+      <hr>
 
               <!--  
               <ul class="list-unstyled list-inline text-center py-1">

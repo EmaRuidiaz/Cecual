@@ -29,6 +29,7 @@
 .footer-descripcion{
 	color: #283739;
 	font-family:"Roboto Slab", serif; 
+  text-align: justify;
  
 }
 
@@ -62,4 +63,8 @@ a.lista:link{
   color: #2c5d63;
   font-family: 'Roboto Slab', serif;
   font-weight: bold;       
+ }
+
+ .institucionales {
+  height: 65px;
  }

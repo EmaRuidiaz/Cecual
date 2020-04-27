@@ -24,7 +24,7 @@
 <section>
     <div class="container">
        <h1 class="my-1 ">
-            QUIENES SOMOS
+            ¿QUIÉNES SOMOS?
         </h1>
       <div class="row align-items-center">
         <div class="col-lg-6 order-lg-2">
@@ -34,8 +34,9 @@
         </div>
         <div class="col-lg-6 order-lg-1">
           <div class="p-5">
-            <h2 class="my-1 ">ACERCA DE FERIA CULTIVA</h2>
-            <p class="texto">“La Cultiva” es producto de la articulación institucional entre la Oficina de Gestión Metropolitana del INTA Colonia Benítez y el Centro Cultural Alternativo (CECUAL) del Instituto de Cultura de la provincia del Chaco, a través del espacio de arte y diseño. Es un emprendimiento comunitario de CULTURA SUSTENTABLE, donde convive el área de comercialización (vinculado a la economía social) con instancias de capacitación-talleres y manifestaciones artísticas.</p>
+            <h2 class="my-1" style="text-align: left;">ACERCA DE FERIA CULTIVA</h2>
+            <p class="texto">“La Cultiva” es producto de la articulación institucional entre la Oficina de Gestión Metropolitana del INTA Colonia Benítez y el Centro Cultural Alternativo (CeCuAl) del Instituto de Cultura de la provincia del Chaco, a través del espacio de arte y diseño (Colectivo de diseñadores y artistas). Es un emprendimiento comunitario de CULTURA SUSTENTABLE, donde convive el área de comercialización (vinculado a la economía social) de productos que han sido elaborados y producidos totalmente agroecológicos, con instancias de capacitación-talleres y manifestaciones artísticas.
+            El patio Ambay del CeCuAl (Santa María de Oro 471) es el lugar donde se lleva a cabo esta feria todos los sábados de 9 a 13 hs. En él se comercializan productos hortícolas agroecológicos, productos primarios con valor agregado y productos gastronómicos vinculados con la alimentación saludable, cosmética natural y de diseños sustentables.</p>
           </div>
         </div>
       </div>
@@ -47,37 +48,56 @@
       <div class="row align-items-center">
         <div class="col-lg-6">
           <div class="p-5">
-            <img class="img-fluid rounded-circle" src="{% static 'img/img02.jpg' %}" alt="">
+            <img class="img-fluid rounded-circle" src="{% static 'img/img04.jpg' %}" alt="">
           </div>
         </div>
         <div class="col-lg-6">
           <div class="p-5">
-            <h2 class="my-1 ">LAS PRIMERAS EDICIONES...</h2>
-            <p class="texto"> Comenzó en el año 2011; y desde esa fecha hasta la actualidad se ha realizado en forma ininterrumpida. A fines del 2017 empezó a realizarse con frecuencia semanal, convocando durante el año 2018 a más de 8000 personas e instalándose definitivamente en la vida sociocultural de Resistencia. El número de feriantes varía de 12 a 20, todos pertenecientes a las localidades del Gran Resistencia. Se suman productores invitados de localidades de Basail, Colonia Benítez, Margarita Belén, Las Palmas, La leonesa, Puerto Tirol, y otras zonas aledañas.</p>
+            <h2 class="my-1" style="text-align: left;">LAS PRIMERAS EDICIONES...</h2>
+            <p class="texto">La primera edición de la feria Cultiva fue realizada en el año 2011; y desde esa fecha hasta la actualidad se ha realizado en forma ininterrumpida. A fines del 2017 empezó a realizarse con frecuencia semanal, convocando durante el año 2018 a más de 8000 personas e instalándose definitivamente en la vida sociocultural de Resistencia. El número de feriantes varía de 12 a 20, todos pertenecientes a las localidades del Gran Resistencia. Se suman productores invitados de localidades de Basail, Colonia Benítez, Margarita Belén, Las Palmas, La leonesa, Puerto Tirol, y otras zonas aledañas.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
-
   <section>
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6 order-lg-2">
           <div class="p-5">
-            <img class="img-fluid rounded-circle" src="{% static 'img/img03.jpg' %}" alt="">
+            <img class="img-fluid rounded-circle" src="{% static 'img/img02.jpg' %}" alt="">
           </div>
         </div>
         <div class="col-lg-6 order-lg-1">
           <div class="p-5">
-            <h2 class="my-1 ">PRODUCCIÓN CULTURAL Y AGROECOLÓGICA</h2>
-            <p class="texto">Con la SUSTENTABILIDAD y la AUTOGESTIÓN como premisas, esta propuesta se basa en la idea de pensar la cultura de manera amplia, que incluye fomentar y fortalecer nuevas formas de producción y consumo y ofrecer un espacio como ámbito de encuentro. Por tal motivo, la Cultiva vincula la producción cultural -diseño, música, artes visuales- y la producción agroecológica de la agricultura familiar; es decir, trabaja con un concepto de cultura en su acepción más rica que incluye las artes, la producción de la tierra y la alimentación saludable. La intención es ligar el concepto de soberanía cultural con el de soberanía alimentaria que unifican esta propuesta.</p>
-            <small>Fuente: <a href="https://inta.gob.ar/documentos/la-feria-cultiva-fue-declarada-de-interes-legislativo-por-la-camara-de-diputados-de-la-provincia-del-chaco">https://inta.gob.ar/documentos</a></small>
+            <h2 class="my-1" style="text-align: left;">LOS FERIANTES</h2>
+            <p class="texto">Algunos feriantes de la Cultiva son integrantes del GAL (Grupos de abastecimiento local), “Los horticultores”, que se organiza y monitorea desde la Oficina de Gestión Metropolitana; desarrollándose de esta forma el canal de comercialización de productos agroecológicos para los integrantes de dicho grupo. Durante la convocatoria general 2018, se ejecutó un Proyecto Especial en la línea temática “comercialización”, para fortalecer el marketing de los productos del grupo. </p>
+            <small><a href="{% url 'feriante:feriantesWeb' %}">Conócelos!</a></small>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <section>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="p-5">
+            <img class="img-fluid rounded-circle" src="{% static 'img/img03.jpg' %}" alt="">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="p-5">
+            <h2 class="my-1 ">PRODUCCIÓN CULTURAL Y AGROECOLÓGICA</h2>
+            <p class="texto">Con la SUSTENTABILIDAD y la AUTOGESTIÓN como premisas, esta propuesta se basa en la idea de pensar la cultura de manera amplia, que incluye fomentar y fortalecer nuevas formas de producción y consumo y ofrecer un espacio como ámbito de encuentro. Por tal motivo, la Cultiva vincula la producción cultural -diseño, música, artes visuales- y la producción agroecológica de la agricultura familiar; es decir, trabaja con un concepto de cultura en su acepción más rica que incluye las artes, la producción de la tierra y la alimentación saludable. La intención es ligar el concepto de soberanía cultural con el de soberanía alimentaria que unifican esta propuesta.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
 
 {% endblock contenido%}
 
