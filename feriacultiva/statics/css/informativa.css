@@ -2,6 +2,7 @@ body{
    font-family: "Roboto Slab", serif;
 }
 .masthead {
+	margin-top: 100px;
   height: 50vh;
   min-height: 90px;
   background-size: cover;

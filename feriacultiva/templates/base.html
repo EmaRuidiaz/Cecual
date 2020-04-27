@@ -39,7 +39,7 @@
   <div class="container">
     <!--logo de la web-->
     <a class="navbar-brand " href="{% url 'start' %}">
-      <img id="logo"  src="{% static 'img/letrasverdes.png' %}"  class="d-inline-block align-top" alt="Feria Cultiva" style="padding-left: 100px;"> </a>
+      <img id="logo"  src="{% static 'img/logo-fc.png' %}"  class="d-inline-block align-top" alt="Feria Cultiva" style="padding-left: 100px; height: 75px;"> </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -48,23 +48,23 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto" >
              <li class="nav-item active">
-                <a class="nav-link estilo-nav" href="{% url 'start' %}" style=" color: #2c5d63; font-size: 15px; font-family: 'Roboto Slab';" >INICIO<span class="sr-only">(current)</span></a>
+                <a class="nav-link estilo-nav" href="{% url 'start' %}" style=" color: #2c5d63; font-size: 18px; font-family: 'Roboto Slab';" >INICIO<span class="sr-only">(current)</span></a>
               </li>
 
               <li class="nav-item active">
-               <a class="nav-link estilo-nav" href="{% url 'historia:listarHistoria' %}"style=" color: #2c5d63; font-size: 15px; font-family: 'Roboto Slab';" >ACERCA DE FERIA CULTIVA</a>
+               <a class="nav-link estilo-nav" href="{% url 'historia:listarHistoria' %}"style=" color: #2c5d63; font-size: 18px; font-family: 'Roboto Slab';" >ACERCA DE FERIA CULTIVA</a>
               </li>
 
               <li class="nav-item active">
-              <a class= "nav-link estilo-nav" href="{% url 'publicacion:listarPublicaciones' %}"style=" color: #2c5d63; font-size: 15px; font-family: 'Roboto Slab';" >AMBIENTE Y SALUD</a>
+              <a class= "nav-link estilo-nav" href="{% url 'publicacion:listarPublicaciones' %}"style=" color: #2c5d63; font-size: 18px; font-family: 'Roboto Slab';" >AMBIENTE Y SALUD</a>
               </li>
                                       
               <li class="nav-item">
-                    <a class="nav-link" href="{% url 'producto:ListarProducto' %}" style=" color:#2c5d63; font-size: 15px; font-family: 'Roboto Slab';">PRODUCTOS</a>
+                    <a class="nav-link" href="{% url 'producto:ListarProducto' %}" style=" color:#2c5d63; font-size: 18px; font-family: 'Roboto Slab';">PRODUCTOS</a>
               </li>
 
               <li class="nav-item">
-                          <a class="nav-link" href="{% url 'feriante:feriantesWeb' %}" style=" color: #2c5d63; font-size: 15px; font-family: 'Roboto Slab';">FERIANTES</a>
+                          <a class="nav-link" href="{% url 'feriante:feriantesWeb' %}" style=" color: #2c5d63; font-size: 18px; font-family: 'Roboto Slab';">FERIANTES</a>
               </li>
 
          
