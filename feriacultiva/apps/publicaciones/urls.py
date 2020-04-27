@@ -12,9 +12,11 @@ urlpatterns = [
 
     path('agregarpublicacion', views.AgregarPublicacion.as_view(), name="agregarPublicacion"),
 
-    path('detallepublicacion/<int:pk>', views.DetallePublicacion.as_view(), name="detallePublicacion"),
+    path('detallepublicacion/<int:pk>', views.DetallePublicacion, name="detallePublicacion"),
 
-    path('modificarpublicacion/<int:pk>', views.ModificarPublicacion.as_view(), name="modificarPublicacion"),
+    path('modificarpublicacion/<int:pk>', views.ModificarPublicacion, name="modificarPublicacion"),
 
     path('eliminarpublicacion/<int:pk>', views.EliminarPublicacion.as_view(), name="eliminarPublicacion"),
+
+    path('eliminarvideo/<int:pk>', views.EliminarVideo, name="eliminarVideo"),
 ]

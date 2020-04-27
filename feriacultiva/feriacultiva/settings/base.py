@@ -54,7 +54,10 @@ INSTALLED_APPS = [
     'apps.tema',
     'apps.comentario',
     'apps.vote',
+    'apps.video',
 ]
+
+# apps.video es la app de video, fase prueba.
 
 AUTH_USER_MODEL = 'user.User'
 
@@ -81,6 +84,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
