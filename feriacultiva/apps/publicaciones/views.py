@@ -67,7 +67,6 @@ def ModificarPublicacion(request,pk):
 	else:
 		form1 = PublicacionForm(request.POST or None, request.FILES or None, instance=public)
 		form2 = VideoForm(request.POST or None, request.FILES or None)
-<<<<<<< Updated upstream
 		form3 = DocumentoForm(request.POST or None, request.FILES or None)
 		print('en el post')
 		print(request.POST.get('pdf'))
@@ -77,12 +76,7 @@ def ModificarPublicacion(request,pk):
 		print(form2.is_valid())
 		print(form3.is_valid())
 		if form1.is_valid() and form2.is_valid() and form3.is_valid():
-=======
-		
-		# print(form1.is_valid()) #Son para comprobar si entra en los formularios
-		# print(form2.is_valid())
-		if form1.is_valid() and form2.is_valid():
->>>>>>> Stashed changes
+
 			p = form1.save(commit=False)
 			p.titulo = request.POST.get('titulo')
 			if request.POST.get('foto') == '':
@@ -96,8 +90,7 @@ def ModificarPublicacion(request,pk):
 				a.link_video = request.POST.get('link_video')
 				a.publicacion = public
 				a.save()
-<<<<<<< Updated upstream
-			
+
 			if request.POST.get('pdf') != '':
 				b = form3.save(commit=False)
 				b.pdf = request.FILES.get('pdf')
@@ -105,10 +98,7 @@ def ModificarPublicacion(request,pk):
 				b.save()
 
 			p.save()
-=======
-			p.save()
 
->>>>>>> Stashed changes
 			# Guarda toda la información modificada en ambos formularios		
 		
 	return render (request,'Publicacion/editarPublicacion.html',context,{form1:'form1', form2:'form2', form3:'form3'})

@@ -19,31 +19,22 @@
       {% endif %}
 
     <div class="row align-items-center">
-<<<<<<< Updated upstream
         <!-- Todos los pdf que cotiene la publicacion -->
         {% if pdf|length != 0 %}
           {% for q in pdf %}
-            <div class="col-lg-6 order-lg-2">
+            <div class="col-lg-6 order-lg-1">
               <div class="p-4">
-                <object  data="{% static '../media/' %}{{q.pdf}}" style="width: 500px; height: 600px;"></object>
+                <!-- <object data="{% static '../media/' %}{{q.pdf}}" style="width: 500px; height: 550px;">
+                </object> -->
+                <object  data="{% static 'img/archivo.pdf' %}" style="width: 500px; height: 550px;"></object>
               </div>
             </div>
           {% endfor %}
         {% endif %}
-        <div class="col-lg-6 order-lg-1">
-          <div class="p-4">
-            <img src="{{object.foto.url}}" class="img-circle">
-=======
-        <div class="col-lg-6 order-lg-1">
-          <div class="p-4">
-          	<object  data="{% static 'img/archivo.pdf' %}" style="width: 500px; height: 550px;"></object>
-          </div>
-        </div>
-
-        <div class="col-lg-6 order-lg-2">
->>>>>>> Stashed changes
-            <div class="p-4">
-            	<p class="texto">{{object.contenido}}</p>
+            <div class="col-lg-6 order-lg-2">
+              <div class="p-4">
+                <p class="texto">{{object.contenido}}</p>
+              </div>
             </div>
         </div>
     </div>
