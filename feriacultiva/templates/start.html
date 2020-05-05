@@ -183,22 +183,22 @@
     <div class="row">
       {% for p in Categorias %}
           <div class="col-md-3 col-sm-3 col-xs-12 mx-auto" style="margin-bottom: 5px;">
-             <div class="card-img-cat bg-white text-white">
+             <div class="bg-white text-white">
                 <img src=" {{p.foto.url}} " class="card-img-cat" alt="">
                 <div class="card-img-overlay">
-                 <h5 class="card-categoria mx-auto" >{{p.nombre}}</h5>
-                  
+                  <h5 class="card-categoria mx-auto" >{{p.nombre}}</h5>
                 </div>
               </div>
-          </div>
+            </div>
         {% endfor %}
-      
+          </div>
     </div>
   </div>
-     
-</div>
-<div class="row mx-auto" style="margin-bottom: 20px;">
+
+<div class="container-fluid">  
+  <div class="row mx-auto" style="margin-bottom: 20px;">
       <img class="mx-auto" src="{% static 'img/estampaCULTIVA.png' %}" style=" height: 500px;" alt="Feria Cultiva">
+  </div>
 </div>
 
 </section>
