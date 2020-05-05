@@ -51,8 +51,6 @@ urlpatterns = [
 
     path('vote/', include('apps.vote.urls')),
 
-    # path('video/', include('apps.video.urls')),
-
     # path('reserva/', include('apps.reserva.urls')), #
 
     #LOGIN and LOGOUT

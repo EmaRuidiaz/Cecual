@@ -7,8 +7,9 @@ from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
 from apps.pedido.models import Pedido
 from django.db.models import Sum
-from apps.publicaciones.forms import PublicacionForm, VideoForm
+from apps.publicaciones.forms import PublicacionForm, VideoForm, DocumentoForm
 from apps.video.models import Video
+from apps.documento.models import Documento
 
 # Create your views here.
 class ListarPublicaciones(ListView):
@@ -42,6 +43,7 @@ def DetallePublicacion(request,pk):
 	context['object'] = p
 	v = Video.objects.filter(publicacion = p) #-Trae todos los videos de la publicacion, cambiar por el de arriba
 	context['vid'] = v
+	context['pdf'] = Documento.objects.filter(publicacion = pk)
 
 	return render(request,'Publicacion/detallePublicacion.html',context)
 	
@@ -52,19 +54,27 @@ def ModificarPublicacion(request,pk):
 	public = Publicacion.objects.get(pk = pk)
 	context['public'] = public
 	context['vid'] = Video.objects.filter(publicacion = pk)
+	context['pdf'] = Documento.objects.filter(publicacion = pk)
 	
 	print('editar publicacion')
 	if request.method == 'GET':
 		form1 = PublicacionForm(instance = public)
 		form2 = VideoForm #Link de los videos
+		form3 = DocumentoForm
+		print('en los Get')
+		print(form3)
 	else:
 		form1 = PublicacionForm(request.POST or None, request.FILES or None, instance=public)
 		form2 = VideoForm(request.POST or None, request.FILES or None)
-		
-		# print(form1.is_valid()) #Son para comprobar si entra en los formularios
-		# print(form2.is_valid())
-		if form1.is_valid() and form2.is_valid():
-			a = form2.save(commit=False)
+		form3 = DocumentoForm(request.POST or None, request.FILES or None)
+		print('en el post')
+		print(request.POST.get('pdf'))
+		print(request.FILES.get('pdf'))
+
+		print(form1.is_valid()) #Son para comprobar si entra en los formularios
+		print(form2.is_valid())
+		print(form3.is_valid())
+		if form1.is_valid() and form2.is_valid() and form3.is_valid():
 			p = form1.save(commit=False)
 			p.titulo = request.POST.get('titulo')
 			if request.POST.get('foto') == '':
@@ -73,14 +83,22 @@ def ModificarPublicacion(request,pk):
 				p.foto = request.FILES.get('foto')
 				
 			p.contenido = request.POST.get('contenido')
-			if request.POST.get('lik_video') != '':
+			if request.POST.get('link_video') != '':
+				a = form2.save(commit=False)
 				a.link_video = request.POST.get('link_video')
 				a.publicacion = public
+				a.save()
+			
+			if request.POST.get('pdf') != '':
+				b = form3.save(commit=False)
+				b.pdf = request.FILES.get('pdf')
+				b.publicacion = public
+				b.save()
+
 			p.save()
-			a.save()
 			# Guarda toda la información modificada en ambos formularios		
 		
-	return render (request,'Publicacion/editarPublicacion.html',context,{form1:'form1', form2:'form2'})
+	return render (request,'Publicacion/editarPublicacion.html',context,{form1:'form1', form2:'form2', form3:'form3'})
 
 
 # Entra con la clave del video, busca a que publicacion pertenece para mandar luego la id y elimina fisicamente el video
@@ -94,7 +112,18 @@ def EliminarVideo(request,pk):
 	Video.objects.get(pk = pk).delete() # Elimina el video
 	
 	return redirect('publicacion:modificarPublicacion', pk = pub.pk) #Redirecciono a la funcion ModificarPublicacion pasando la id de la publicacion
-	
+
+def EliminarPDF(request,pk):
+
+	context={}
+	p = Documento.objects.get(pk = pk)
+	pub = Publicacion.objects.get(titulo = p.publicacion.titulo)
+	context['public'] = pub
+	context['pdf'] = Documento.objects.filter(publicacion = pub.pk)
+	Documento.objects.get(pk = pk).delete()
+
+	return redirect('publicacion:modificarPublicacion', pk = pub.pk)
+
 
 class EliminarPublicacion(LoginRequiredMixin,DeleteView):
 	model = Publicacion

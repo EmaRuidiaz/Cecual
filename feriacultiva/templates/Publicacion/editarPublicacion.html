@@ -103,6 +103,11 @@
                 <input type="text" name="link_video" id="link_video">
             </form2>
 
+            <form3>
+                <label>Documento: </label>
+                <input type="file" name="pdf" id="pdf">
+            </form3>
+
 			  <div class="text-center" >
           <button class="btn mx-auto" type="submit">Guardar</button>
     		</div>
@@ -115,14 +120,30 @@
     {% for p in vid %}
       <div>
         <label for="video">{{p.link_video}} {{p.pk}}</label>
-        <a href="{% url 'publicacion:eliminarVideo' p.pk %}" style="color: #da2d2d;" role="link" class="btn-eliminar" data-toggle="modal" >Eliminar </a>
-
         <form action="{% url 'publicacion:eliminarVideo' p.pk %}" method="POST" style="display: inline-block; padding-bottom: 100px;">
           {% csrf_token %}
             <button class="btn-eliminar" type="submit" href="" style="display: inline-block;">Eliminar</button>
         </form>
       </div>
 
+    {% endfor %}
+  {% endif %}
+
+<!-- Todos los pdf que cotiene la publicacion -->
+  {% if pdf|length != 0 %}
+    {% for q in pdf %}
+      <div>
+        <label>{{q.pdf}}</label>
+        <form action="{% url 'publicacion:eliminarPdf' q.pk %}" method="POST" style="display: inline-block; padding-bottom: 100px;">
+          {% csrf_token %}
+            <button class="btn-eliminar" type="submit" href="" style="display: inline-block;">Eliminar</button>
+        </form>
+        <div class="col-lg-6 order-lg-2">
+          <div class="p-4">
+          	<object  data="{% static '../media/' %}{{q.pdf}}" style="width: 500px; height: 600px;"></object>
+          </div>
+        </div>
+      </div>
     {% endfor %}
   {% endif %}
 

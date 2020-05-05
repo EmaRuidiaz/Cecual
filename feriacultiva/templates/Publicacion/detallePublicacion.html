@@ -21,11 +21,16 @@
       {% endif %}
 
     <div class="row align-items-center">
-        <div class="col-lg-6 order-lg-2">
-          <div class="p-4">
-          	<object  data="{% static 'img/archivo.pdf' %}" style="width: 500px; height: 600px;"></object>
-          </div>
-        </div>
+        <!-- Todos los pdf que cotiene la publicacion -->
+        {% if pdf|length != 0 %}
+          {% for q in pdf %}
+            <div class="col-lg-6 order-lg-2">
+              <div class="p-4">
+                <object  data="{% static '../media/' %}{{q.pdf}}" style="width: 500px; height: 600px;"></object>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
         <div class="col-lg-6 order-lg-1">
           <div class="p-4">
             <img src="{{object.foto.url}}" class="img-circle">

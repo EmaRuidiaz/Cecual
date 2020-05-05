@@ -19,4 +19,6 @@ urlpatterns = [
     path('eliminarpublicacion/<int:pk>', views.EliminarPublicacion.as_view(), name="eliminarPublicacion"),
 
     path('eliminarvideo/<int:pk>', views.EliminarVideo, name="eliminarVideo"),
+
+    path('eliminarPDF/<int:pk>', views.EliminarPDF, name='eliminarPdf'),
 ]

@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'apps.comentario',
     'apps.vote',
     'apps.video',
+    'apps.documento',
 ]
 
 # apps.video es la app de video, fase prueba.
