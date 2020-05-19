@@ -11,58 +11,85 @@
 <!-- contenido de la página -->
 <section class="py-5" >
 <!-- Page Content -->
-<div class="container">
-
-              <!-- Portfolio Item Heading -->
-              <h1 class="my-1 ">
-                  DETALLE DE FERIANTE
-              </h1>
-               <h1 class="feriante-titulo">{{object.encargado.first_name}}</small></h1>
+  <div class="container">
+   <!-- Portfolio Item Heading -->
+    <h1 class="my-1 ">FERIA CULTIVA</h1>
+    <h1 class="feriante-titulo">{{object.encargado.first_name}}</small></h1>
     
     <div class="row detalle-card" >
         <div class="col-md-6" >
               <!--contenedor de la imagen-->
           <div class="card mb-3" id="card-detalle">
             <div class="row no-gutters">
-              <div class="col-md-4" >
-              {% if object.foto_feriante %}
+              <div id="demo" class="carousel slide" data-ride="carousel">
+
+                 <!-- Indicators -->
+                  <ul class="carousel-indicators">
+                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+                    <li data-target="#demo" data-slide-to="1"></li>
+                    <li data-target="#demo" data-slide-to="2"></li>
+                  </ul>
+                 <!-- The slideshow -->
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="https://image.freepik.com/foto-gratis/greengrocer-que-vende-productos-agricolas-frescos-organicos-mercado-granjero_53876-10103.jpg" width="100%" alt="Ejemplo1">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="https://image.freepik.com/foto-gratis/close-up-mujer-cosechando-zanahorias_23-2148256630.jpg" width="100%" alt="Ejemplo2"> 
+                    </div>
+                    <div class="carousel-item">
+                      <img src="https://img.freepik.com/foto-gratis/verduras-crudas-cesta_23-2147694075.jpg?size=626&ext=jpg" width="100%" alt="ejemplo3">
+                    </div>
+                  </div>
+                <!-- Left and right controls -->
+                  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                     <span class="carousel-control-prev-icon"></span>
+                  </a>
+                  <a class="carousel-control-next" href="#demo" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                  </a>
+              </div>
+              <!-- <div class="col-md-4" >
+             {% if object.foto_feriante %}
                 <img class="imagen-detalle" src="{{object.foto_feriante.url}}"  alt="imagen" style="width: 500px; height: 350px;"  >
               {% else %}
                 <img class="img-mi-detalle" src="" alt="No existe imagen" style="width: 250px; height: 400px; ">
-              {% endif %}
-              </div>
+              {% endif %} 
+              </div> -->
             </div>
           </div>   
       </div>
-
-
-
- <!--descripción -->
-  <div class="col-md-6" style="padding-top: 50px;">
-    <h5 class="detalle-titulo">NOSOTROS </h5>
-    <p class="card-text-det">{{object.descripcion}}</p>
-    <h5 class="detalle-titulo">CONSULTAS </h5>
-    <p class="card-text-det"> <i class="fas fa-phone"></i> {{object.encargado.telefono}}</p>
-    <p class="card-text-det"> <i class="fas fa-envelope-square"></i>  {{object.encargado.email}}</p>
-    <div class="">
-      {%  if object.delivery == False %}
-      <p class="item-d mx-auto">NO HACEMOS ENTREGA A DOMICILIO</p>
-      {% else %}
-      <p class="item-d mx-auto">HACEMOS ENTREGA A DOMICILIO
-      <span class="glyphicon glyphicon-ok"></span>
-      </p>
-      {% endif %}
-
+    <!--descripción -->
+      <div class="col-md-6" style="padding-top: 50px;">
+        <h5 class="detalle-titulo">NOSOTROS </h5>
+        <p class="card-text-det">{{object.descripcion}}</p>
+        <h5 class="detalle-titulo">CONTACTANOS </h5>
+        <p class="card-text-det"> <i class="fas fa-phone"></i> {{object.encargado.telefono}}</p>
+        <p class="card-text-det"> <i class="fas fa-envelope-square"></i>  {{object.encargado.email}}</p>
+        <div class="">
+          {%  if object.delivery == False %}
+          <p class="item-d mx-auto">NO HACEMOS ENTREGA A DOMICILIO</p>
+          {% else %}
+          <p class="item-d mx-auto">HACEMOS ENTREGA A DOMICILIO
+            <span class="glyphicon glyphicon-ok"></span>
+          </p>
+          {% endif %}
+        </div>
+      </div>
     </div>
-       
+    <div class="container-fluid">
+      <h1 class="my-1">Más sobre nosotros</h1>
+      <div class="row">
+        <div class="mx-auto">
+        <iframe width="705" height="341" src="https://www.youtube.com/embed/fQk5Shse42k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
 
-  </div>
 
-
-<!--social_footer_ul ends here-->
-</div>
   
 
+  <!-- ERA LA GALERIA DE PRODUCTOS DEL FERIANTE :(
   <div class="container-fluid">
      {% if product|length > 0 %}
     <h1 class="my-1 ">
@@ -92,9 +119,9 @@
                </div>
              {% endfor %}
            
-    </div><!--fin del row-->
+    </div>
    {% endif %}
-</div><!--fin del las cards container fluid-->
+</div>fin del las cards container fluid -->
     
   </div>
 

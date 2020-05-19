@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block titulo %} - Editar perfil {% endblock titulo%}
+{% block titulo %} Editar perfil {% endblock titulo%}
 {% block contenido %}  
 
     <head>
@@ -11,15 +11,15 @@
     <div class="container">
         <div class="row text-center" style="margin-top: 100px;">
             <div class="col-12">
-                <h2 class="font-weight-light titulo">EDITAR PERFIL</h2>
+                <h3 class="font-weight-light">Editar perfil</h3>
             </div>
         </div>
     </div>
 </header>
 <section class="" style="margin-top: 10px; margin-bottom: 75px;" >
   <!-- Page Content -->
-    <div class="container" >    
-        
+    <div class="container" > 
+       
            <div style="margin-top: 50px;">
                 <form action="" method="POST" class="titulo" enctype="multipart/form-data"> {% csrf_token %}
                 <!-- <label for="encargado">Encargado: </label>
@@ -27,7 +27,7 @@
                 <div class="row">
                     <div class="col-md-6 text-center">
                         <div class="col-12">
-                            <i class="fa fa-camera"></i> <label>Foto:</label>
+                            <i class="fa fa-camera"></i> <label>Foto de perfil:</label>
                         </div>
                         <div class="fotoferiante">
                         {% if feria.foto_feriante %}
@@ -40,31 +40,99 @@
                     </div>
 
                     <div class="col-md-6" style="margin-top: 20px;">
+                        <i class="fa fa-asterisk"></i> <label for="first_name">Nombre:
+                            </label>
+                        <input type="text" name="first_name" id="first_name" value="{{usuario.first_name}}"><br>
                        <i class="fa fa-list-alt"></i> <label for="descripcion">Descripción: </label>
-                        <input type="text" name="descripcion" id="descripcion" value="{{feria.descripcion}}" ><br>
-                        <i class="fa fa-truck"></i> <label for="delivery">Envio a domicilio:</label><br>
-                
-                        <input type="radio" name="delivery" value="Si">Si<br>
-                        <input type="radio" name="delivery" value="No">No<br>
+                        <input type="text" name="descripcion" id="descripcion" value="{{feria.descripcion}}" style="width: 500px;">
+                        <br>
+                        <br>
                         <form2 action="" method="POST"> {% csrf_token %}
-                            <i class="fa fa-asterisk"></i> <label for="first_name">Nombre de la feria:</label>
-                            <input type="text" name="first_name" id="first_name" value="{{usuario.first_name}}"><br>
-                            <i class="fas fa-map-marker-alt"></i> <label for="direccion">Dirección</label>
-                            <input type="text" name="direccion" id="direccion" value="{{usuario.direccion}}"><br>
                             <i class="fas fa-phone"></i> <label for="telefono">Teléfono</label>
                             <input type="tel" name="telefono" id="telefono" value="{{usuario.telefono}}">
                             <br>
                             <i class="fas fa-envelope-square"></i> <label for="telefono">Email</label>
-                            <input type="email" name="email" id="email" value="{{usuario.email}}">
+                            <input type="email" name="email" id="email" value="{{usuario.email}}"><br>
+                            <i class="fa fa-truck"></i> <label for="delivery">Envio a domicilio:</label><br>                
+                            <input type="radio" name="delivery" value="Si">Si<br>
+                            <input type="radio" name="delivery" value="No">No<br>
                         </form2>
                     </div>
                 </div>
-                    <div class="col-12 text-center" style="margin-top: 30px;">
-                        <button class="btn" type="submit">Guardar cambios</button>
+                    <div class="col-12 text-center" style="margin-top: 30px; margin-bottom: 30px;">
+                        <a class="btn" href="{% url 'feriante:detalle' feria.pk %}">Guardar cambios</a>
                     </div>
                 </form>
             
         </div>
+        <!-- PRUEBA GALERIA MODAL -->
+<div class="col-12 text-center">
+                <h3 class="font-weight-light">Galería</h3>
+
+                <a href="">Subir foto</a> | <a href="">Subir video</a>
+</div>
+<div class="col-12">
+    <h4>Fotos:</h4>
+</div>
+<!-- Grid row -->
+<div class="row">
+
+  <!-- Grid column -->
+  <div class="col-lg-4 col-md-12 mb-4">
+    <a><img class="img-fluid z-depth-1" src="https://image.freepik.com/foto-gratis/greengrocer-que-vende-productos-agricolas-frescos-organicos-mercado-granjero_53876-10103.jpg" alt="video"
+        data-toggle="modal" data-target="#modal1"></a>
+    <div class="justify-content-center">
+        <a href="">Eliminar</a>
+    </div>
+
+  </div>
+  <!-- Grid column -->
+
+  <!-- Grid column -->
+  <div class="col-lg-4 col-md-6 mb-4">
+    <a><img class="img-fluid z-depth-1" src="https://image.freepik.com/foto-gratis/close-up-mujer-cosechando-zanahorias_23-2148256630.jpg" data-toggle="modal" data-target="#modal6"></a>
+    <div class="justify-content-center">
+        <a href="">Eliminar</a>
+    </div>
+
+  </div>
+  <!-- Grid column -->
+
+  <!-- Grid column -->
+  <div class="col-lg-4 col-md-6 mb-4">
+    <a><img class="img-fluid z-depth-1" src="https://img.freepik.com/foto-gratis/verduras-crudas-cesta_23-2147694075.jpg?size=626&ext=jpg" alt="video"
+        data-toggle="modal" data-target="#modal4"></a>
+        <div class="justify-content-center">
+        <a href="">Eliminar</a>
+    </div>
+
+  </div>
+  <!-- Grid column -->
+
+</div>
+<!-- Grid row -->
+
+<!-- Grid row -->
+<div class="col-12">
+    <h4>Videos:</h4>
+</div>
+<div class="row">
+
+  <!-- Grid column -->
+  <div class="col-lg-4 col-md-12 mb-4">
+
+    <a><iframe src="https://www.youtube.com/embed/fQk5Shse42k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></a>
+    <div class="justify-content-center">
+        <a href="">Eliminar</a>
+    </div>
+
+  </div>
+  <!-- Grid column --> 
+
+</div>
+<!-- Grid row -->
+<!-- FIN PRUEBA GALERIA MODAL -->
+
     </div>
 </section>
 

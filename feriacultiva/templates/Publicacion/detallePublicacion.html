@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block titulo %} Acerca de Feria Cultiva {% endblock titulo%}
+{% block titulo %} Ambiente y Salud {% endblock titulo%}
 {% block contenido %}  
 <head>
   <link rel="stylesheet" type="text/css" href="{% static 'css/informativa.css' %}">
@@ -10,15 +10,22 @@
 	<div class="container" style="padding-top: 75px;">
 		<h1 style="text-align: center;">{{object.titulo}}</h1>
 
+      <div class="row align-items-center">
       <!-- Muestra todos los videos de la publicacion -->
       {% if vid|length != 0 %}
         {% for p in vid %}
+        <div class="col-lg-6 order-lg-2">
           <iframe width="560" height="315" src="{{p.link_video}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
           </iframe>
+        </div>
         {% endfor %}
+          <div class="col-lg-6 order-lg-1">
+              <div class="p-4">
+                <p class="texto" style="text-align: center;">{{object.contenido}}</p>
+              </div>
+          </div>
       {% endif %}
 
-    <div class="row align-items-center">
         <!-- Todos los pdf que cotiene la publicacion -->
         {% if pdf|length != 0 %}
           {% for q in pdf %}
@@ -30,13 +37,12 @@
               </div>
             </div>
           {% endfor %}
-        {% endif %}
             <div class="col-lg-6 order-lg-2">
               <div class="p-4">
                 <p class="texto">{{object.contenido}}</p>
               </div>
             </div>
-        </div>
+        {% endif %}
     </div>
 			
 	</div>

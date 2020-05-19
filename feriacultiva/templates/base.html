@@ -59,10 +59,10 @@
               <a class= "nav-link estilo-nav" href="{% url 'publicacion:listarPublicaciones' %}"style=" color: #2c5d63; font-size: 18px; font-family: 'Roboto Slab';" >AMBIENTE Y SALUD</a>
               </li>
                                       
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                     <a class="nav-link" href="{% url 'producto:ListarProducto' %}" style=" color:#2c5d63; font-size: 18px; font-family: 'Roboto Slab';">PRODUCTOS</a>
               </li>
-
+ -->
               <li class="nav-item">
                           <a class="nav-link" href="{% url 'feriante:feriantesWeb' %}" style=" color: #2c5d63; font-size: 18px; font-family: 'Roboto Slab';">FERIANTES</a>
               </li>
@@ -122,7 +122,7 @@
                 <a class="dropdown-item" style=" color: #2c5d63; font-weight: normal;   font-size: 15px; font-family: 'Roboto Slab';">Hola! {{user.username}}</a>
                   {% if user.es_empresa %}
                     <a class="dropdown-item" href="{% url 'feriante:PerfilFeriante' %}" style=" color: #2c5d63; font-weight: normal;   font-size: 15px; font-family: 'Roboto Slab';">Editar perfil</a>
-                    <a class="dropdown-item" href="{% url 'producto:MisProductos' %}" style=" color: #2c5d63; font-size: 15px; font-family: 'Roboto Slab';">Mis productos</a>
+                    <!-- <a class="dropdown-item" href="{% url 'producto:MisProductos' %}" style=" color: #2c5d63; font-size: 15px; font-family: 'Roboto Slab';">Mis productos</a> -->
                     {% else %}
                     <a class="dropdown-item" href="{% url 'usuario:perfil' %}" style=" color: #2c5d63; font-weight: normal;   font-size: 15px; font-family: 'Roboto Slab';">Mi perfil</a>
                   {% endif %}
@@ -220,11 +220,12 @@
        </div>
                 <!-- Grid row -->
       <div class="d-block mx-auto" style="text-align: center;">
-        <img id=""  src="{% static 'img/logo-INTA.PNG' %}"  class="d-inline-block align-top institucionales rounded" alt="Feria Cultiva">
+        <img id=""  src="{% static 'img/logo-INTA3.PNG' %}"  class="d-inline-block align-top institucionales rounded" alt="Feria Cultiva">
         <img id=""  src="{% static 'img/logo-CECUAL.PNG' %}"  class="d-inline-block align-top institucionales rounded" alt="Feria Cultiva">
         <img id=""  src="{% static 'img/logo-IndustriasCulturales.PNG' %}"  class="d-inline-block align-top institucionales rounded" alt="Feria Cultiva">
         <img id=""  src="{% static 'img/logo-EspacioAlternativo.PNG' %}"  class="d-inline-block align-top institucionales rounded" alt="Feria Cultiva">
-        
+      </div>
+      <div class="d-block mx-auto" style="text-align: center; margin-top: 10px;">  
         <img id=""  src="{% static 'img/logo-ICultura.PNG' %}"  class="d-inline-block align-top institucionales rounded" alt="Feria Cultiva">
         <img id=""  src="{% static 'img/logo-Gob.PNG' %}"  class="d-inline-block align-top institucionales rounded" alt="Feria Cultiva">
       </div>
