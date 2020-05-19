@@ -31,7 +31,7 @@ class ListarPublicacionesAdmin(ListView):
 class AgregarPublicacion(LoginRequiredMixin,CreateView): #Vistas basadas en clases
 	model = Publicacion
 	template_name = 'Publicacion/nuevaPublicacion.html'
-	fields = '_all_'
+	fields = 'foto', 'titulo', 'contenido'
 	success_url = reverse_lazy('publicacion:listarPublicacionesAdmin')
 	
 
